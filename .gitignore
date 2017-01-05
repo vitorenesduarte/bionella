@@ -1,0 +1,7 @@
+__pycache__/
+others/
+.*.swp
+.*.gb
+.*.json
+.*.xml
+
