@@ -10,22 +10,17 @@ def main():
 
     dictionary = helper.read_json(ncbi_json_path)
     for lt in dictionary:
+        print("LT:", lt, " | type:", dictionary[lt]["type"])
+
         if dictionary[lt]["type"] == "mRNA":
             # se for do tipo "mRNA" estamos na presença de uma proteína
             protein = dictionary[lt]["translation"]
-            # ...
+            [out_file] = blast.blastp([protein], "swissprot", "docker")
 
-    p1 = "MIGCCLIIFPCNRDYDKIVRTNYSLVRRLMKHNLLDKAYKHCVNHGYRFTEPRERVLKILVDERKPLGAYDILQRLSMEVDNPKPPTVYRAIQFWHQEGFIHCIDSLKSYVACLHGHHVGQAQFLICNQCDFVKELECVVDFTAVTEAANSIQFSIINCTVEIKGLCSDCNLTNLKN"
-    p2 = "MKKAFRIMATYYGQCACGKIQFMCTGEPVFTQYCHCNKCREIASLSQKKQDKSGYSLTAAYLTRDFRILSEDNDFEEIIKEKAKLFLCSYCHSLVYGIALDPAQQDSIGINVNNFSFDTSIPDSFKPVRHIWYASRIMDCDDQLPKFKDAPKEQFGSGELFELPDAN"
-
-    out_files = blast.blastp([p1, p2], "swissprot", "docker")
-
-    for out_file in out_files:
-        r = helper.read_blast(out_file)
-        for a in r.alignments:
-            print(a.hit_def)
-            uniprot_id = extract_uniprot_id(a.hit_def)
-            print(uniprot_id)
+            handle = helper.read_blast(out_file)
+            for a in handle.alignments:
+                uniprot_id = extract_uniprot_id(a.hit_def)
+                print("UI:", uniprot_id)
 
 if __name__ == "__main__":
     main()
