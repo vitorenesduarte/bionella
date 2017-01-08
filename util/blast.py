@@ -77,9 +77,6 @@ def docker_blastp(directory, db):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     p.wait()
 
-    print(p.stdout.read())
-    print(p.stderr.read())
-
 def blastp(proteins, db, type="local"):
     """
     Corre o blast para a proteínas passadas como argumento,
