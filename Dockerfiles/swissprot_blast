@@ -37,6 +37,6 @@ RUN cd $BLASTDB && \
     rm -f $SWISSPROT_FASTA
 
 # Copy blast script
-COPY blastp_dir.sh /
+COPY docker_blastp.sh /
 
-CMD /blastp_dir.sh
+CMD /docker_blastp.sh
