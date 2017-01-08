@@ -1,8 +1,8 @@
 __pycache__/
 others/
+query_dir/
 .*.swp
 .*.gb
 .*.json
 .*.xml
 .query
-
