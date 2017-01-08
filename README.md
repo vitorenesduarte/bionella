@@ -15,7 +15,9 @@ $ docker build -t vitorenesduarte/$IMAGE -f $IMAGE.
 
 ### Run docker image
 ```bash
-$ docker run -it vitorenesduarte/$IMAGE
+$ docker run -e QUERY_DIR=/root/query_dir \
+             -v $PWD/query_dir:/root/query_dir \
+             -ti vitorenesduarte/swissprot_blast
 ```
 
 ### Useful links:
