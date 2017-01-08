@@ -2,6 +2,23 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 import json
 
+def read_file(file_path):
+    """
+    Lê file_path e retorna uma string com o conteúdo do ficheiro.
+    """
+    fd = open(file_path, "r")
+    string = fd.read()
+    fd.close()
+    return string
+
+def write_file(string, file_path):
+    """
+    Grava a string em file_path
+    """
+    fd = open(file_path, "w")
+    fd.write(string)
+    fd.close()
+
 def read_genbank(file_path):
     """
     Lê file_path e retorna um record genbank.
@@ -19,21 +36,15 @@ def read_blast(file_path):
     Lê file_path e retorna uma lista de blast records.
     """
     fd = open(file_path, "r")
-    record = NCBIXML.parse(fd)
+    record = NCBIXML.read(fd)
     return record
 
 def write_blast(handle, file_path):
     """
     Grava o blast record em file_path.
     """
-    print(handle)
-    records = [r for r in handle]
-    print(records)
-    print(len(records))
-    assert len(records) == 1
-    record = records[0]
     fd = open(file_path, "w")
-    fd.write(record.read())
+    fd.write(handle.read())
     fd.close()
 
 def read_json(file_path):
