@@ -7,8 +7,9 @@ ENV BLAST_SRC "ncbi-blast-2.5.0+"
 ENV DB_FTP "ftp://ftp.ncbi.nlm.nih.gov/blast/db/"
 ENV BLASTDB "/root/blastdb"
 ENV BASHRC "/root/.bashrc"
-ENV SWISSPROT_FTP "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/"
+ENV UNIPROT_FTP "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/"
 ENV SWISSPROT_FASTA "uniprot_sprot.fasta"
+ENV TREMBL_FASTA "uniprot_trembl.fasta"
 
 
 # Use bash instead of sh
@@ -29,8 +30,14 @@ RUN cd /root && \
 
 # Download UniProtKB SwissProt
 RUN cd $BLASTDB && \
-    wget -q $SWISSPROT_FTP$SWISSPROT_FASTA".gz" && \
+    wget -q $UNIPROT_FTP$SWISSPROT_FASTA".gz" && \
     gunzip $SWISSPROT_FASTA".gz" && \
     makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
     rm -f $SWISSPROT_FASTA
 
+# Download UniprotKB TrEMBL
+RUN cd $BLASTDB && \
+    wget -q $UNIPROT_FTP$TREMBL_FASTA".gz" && \
+    gunzip $TREMBL_FASTA".gz" && \
+    makeblastdb -in $TREMBL_FASTA -input_type fasta -dbtype prot -title trembl -out trembl && \
+    rm -f $TREMBL_FASTA
