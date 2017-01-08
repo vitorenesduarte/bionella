@@ -32,12 +32,5 @@ RUN cd /root && \
 RUN cd $BLASTDB && \
     wget -q $UNIPROT_FTP$SWISSPROT_FASTA".gz" && \
     gunzip $SWISSPROT_FASTA".gz" && \
-    makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
+    /root/$BLAST_SRC/bin/makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
     rm -f $SWISSPROT_FASTA
-
-# Download UniprotKB TrEMBL
-RUN cd $BLASTDB && \
-    wget -q $UNIPROT_FTP$TREMBL_FASTA".gz" && \
-    gunzip $TREMBL_FASTA".gz" && \
-    makeblastdb -in $TREMBL_FASTA -input_type fasta -dbtype prot -title trembl -out trembl && \
-    rm -f $TREMBL_FASTA
