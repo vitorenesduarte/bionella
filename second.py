@@ -7,20 +7,30 @@ def extract_uniprot_id(hit_def):
 
 def main():
     ncbi_json_path = ".ncbi.json"
-
     dictionary = helper.read_json(ncbi_json_path)
-    for lt in dictionary:
-        print("LT:", lt, " | type:", dictionary[lt]["type"])
 
+    tags = []
+    proteins = []
+
+    for lt in dictionary:
         if dictionary[lt]["type"] == "mRNA":
             # se for do tipo "mRNA" estamos na presença de uma proteína
             protein = dictionary[lt]["translation"]
-            [out_file] = blast.blastp([protein], "swissprot", "docker")
 
-            handle = helper.read_blast(out_file)
-            for a in handle.alignments:
-                uniprot_id = extract_uniprot_id(a.hit_def)
-                print("UI:", uniprot_id)
+            tags.append(lt)
+            proteins.append(protein)
+
+    out_files = blast.blastp(proteins, "swissprot", "local")
+
+    for i in range(len(proteins)):
+        lt = tags[i]
+        out_file = out_files[i]
+        print("TAG:", lt)
+
+        handle = helper.read_blast(out_file)
+        for a in handle.alignments:
+            uniprot_id = extract_uniprot_id(a.hit_def)
+            print("UI:", uniprot_id)
 
 if __name__ == "__main__":
     main()
