@@ -2,8 +2,8 @@
 Legionella genome annotation
 
 In the following you can replace `$IMAGE` by:
-- __swissprot_blast__: docker image with with Swiss-Prot database
-- __uniprot_blast__: docker image with Swiss-Prot and TrEMBL database
+- __swissprot_blast__: docker image with with __swissprot__ database
+- __uniprot_blast__: docker image with __swissprot__ and __trembl__ database
 
 See the difference between these databases [here](http://www.uniprot.org/downloads).
 
@@ -13,10 +13,11 @@ $ cd Dockerfiles/
 $ docker build -t vitorenesduarte/$IMAGE -f $IMAGE.
 ```
 
-### Run docker image
+### Run blast in docker
 ```bash
-$ docker run -e QUERY_DIR=/root/query_dir \
-             -v $PWD/query_dir:/root/query_dir \
+$ docker run -e IN_FILE=.query_dir/$FASTA_FILE \
+             -e OUT_FILE=.query_dir/$XML_FILE \
+             -e DB=swissprot -v $PWD/.query_dir:/.query_dir \
              -ti vitorenesduarte/swissprot_blast
 ```
 

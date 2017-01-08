@@ -6,7 +6,7 @@ ENV_VARS=(
   DB
 )
 
-# Verificar que todas as variáveis de ambiente  necessárias estão configuradas.
+# Verificar que todas as variáveis de ambiente necessárias estão configuradas.
 for ENV_VAR in "${ENV_VARS[@]}"
 do
   if [ -z "${!ENV_VAR}" ]; then
@@ -15,5 +15,6 @@ do
   fi
 done
 
+# Correr o blast.
 $BLAST_BIN/blastp -query $IN_FILE -db $DB -outfmt 5 -out $OUT_FILE
 
