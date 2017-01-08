@@ -1,8 +1,7 @@
 #!/bin/bash
 
 ENV_VARS=(
-  IN_FILE
-  OUT_FILE
+  QUERY_DIR
   DB
 )
 
@@ -16,5 +15,9 @@ do
 done
 
 # Correr o blast.
-$BLAST_BIN/blastp -query $IN_FILE -db $DB -outfmt 5 -out $OUT_FILE
-
+cd $QUERY_DIR
+for IN_FILE in $(ls)
+do
+  OUT_FILE=$IN_FILE".xml"
+  $BLAST_BIN/blastp -query $IN_FILE -db $DB -outfmt 5 -out $OUT_FILE
+done

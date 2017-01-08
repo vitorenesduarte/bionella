@@ -1,25 +1,30 @@
 # bionella
 Legionella genome annotation
 
-In the following you can replace `$IMAGE` by:
-- __swissprot_blast__: docker image with with __swissprot__ database
-- __uniprot_blast__: docker image with __swissprot__ and __trembl__ database
-
-See the difference between these databases [here](http://www.uniprot.org/downloads).
-
 ### Build docker image
 ```bash
 $ cd Dockerfiles/
-$ docker build -t vitorenesduarte/$IMAGE -f $IMAGE.
+$ docker build -t vitorenesduarte/swissprot_blast -f swissprot_blast.
 ```
 
+This will build a docker image with blast.
+This docker image only has one database called __swissprot__.
+Check [here](http://www.uniprot.org/downloads) more details
+about UniProtKB Swiss-Prot.
+
 ### Run blast in docker
+
+Place in a folder, for example __.query_dir__, a set of
+FASTA files and run:
+
 ```bash
-$ docker run -e IN_FILE=.query_dir/$FASTA_FILE \
-             -e OUT_FILE=.query_dir/$XML_FILE \
+$ docker run -e QUERY_DIR=.query_dir \
              -e DB=swissprot -v $PWD/.query_dir:/.query_dir \
              -ti vitorenesduarte/swissprot_blast
 ```
+
+In the end, for each of the FASTA files, you should have
+a correspondent XML file.
 
 ### Useful links:
 

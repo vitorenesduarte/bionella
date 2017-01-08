@@ -20,7 +20,7 @@ def main():
             tags.append(lt)
             proteins.append(protein)
 
-    out_files = blast.blastp(proteins, "swissprot", "local")
+    out_files = blast.blastp(proteins, "swissprot", "docker")
 
     for i in range(len(proteins)):
         lt = tags[i]
