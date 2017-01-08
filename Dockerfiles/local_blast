@@ -1,0 +1,34 @@
+FROM ubuntu:xenial
+
+MAINTAINER Vitor Enes Duarte <vitorenesduarte@gmail.com>
+
+ENV BLAST_FTP "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/"
+ENV BLAST_SRC "ncbi-blast-2.5.0+"
+ENV DB_FTP "ftp://ftp.ncbi.nlm.nih.gov/blast/db/"
+ENV BLASTDB "/root/blastdb"
+ENV BASHRC "/root/.bashrc"
+ENV SWISSPROT_FTP "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/"
+ENV SWISSPROT_FASTA "uniprot_sprot.fasta"
+
+# Use bash instead of sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get -y install wget curl build-essential make gcc && \
+    apt-get -y install git python vim
+
+# Download blast
+RUN cd /root && \
+    wget $BLAST_FTP$BLAST_SRC"-x64-linux.tar.gz" && \
+    tar -zxvf $BLAST_SRC"-x64-linux.tar.gz" && \
+    mkdir $BLASTDB && \
+    echo "export PATH=$PATH:/root/$BLAST_SRC/bin" >> $BASHRC && \
+    echo "export BLASTDB=$BLASTDB" >> $BASHRC
+
+# Download UniProtKB SwissProt
+RUN cd $BLASTDB && \
+    wget -q $SWISSPROT_FTP$SWISSPROT_FASTA".gz" && \
+    gunzip $SWISSPROT_FASTA".gz" && \
+    makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
+    rm -f $SWISSPROT_FASTA
