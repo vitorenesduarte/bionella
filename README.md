@@ -1,20 +1,21 @@
 # bionella
 Legionella genome annotation
 
+In the following you can replace `$IMAGE` by:
+- __swissprot_blast__: docker image with with Swiss-Prot database
+- __uniprot_blast__: docker image with Swiss-Prot and TrEMBL database
+
+See the difference between these databases [here](http://www.uniprot.org/downloads).
+
 ### Build docker image
 ```bash
 $ cd Dockerfiles/
-$ docker build -t vitorenesduarte/local_blast -f local_blast .
+$ docker build -t vitorenesduarte/$IMAGE -f $IMAGE.
 ```
 
 ### Run docker image
 ```bash
-$ docker run -it vitorenesduarte/local_blast
-```
-
-### Local Database alias
-```bash
-$ blastdb_aliastool -dblist "nr.00 nr.01 nr.02" -dbtype prot -title nr -out nr
+$ docker run -it vitorenesduarte/$IMAGE
 ```
 
 ### Useful links:

@@ -1,0 +1,14 @@
+FROM vitorenesduarte/swissprot_blast
+
+MAINTAINER Vitor Enes Duarte <vitorenesduarte@gmail.com>
+
+ENV TREMBL_FASTA "uniprot_trembl.fasta"
+
+
+# Download UniprotKB TrEMBL
+RUN cd $BLASTDB && \
+    wget -q $UNIPROT_FTP$TREMBL_FASTA".gz" && \
+    gunzip $TREMBL_FASTA".gz" && \
+    $BLAST_BIN/makeblastdb -in $TREMBL_FASTA -input_type fasta -dbtype prot -title trembl -out trembl && \
+    rm -f $TREMBL_FASTA && \
+    $BLAST_BIN/blastdb_aliastool -dblist "swissprot trembl" -dbtype prot -title uniprot -out uniprot
