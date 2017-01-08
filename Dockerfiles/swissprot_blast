@@ -35,3 +35,9 @@ RUN cd $BLASTDB && \
     gunzip $SWISSPROT_FASTA".gz" && \
     $BLAST_BIN/makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
     rm -f $SWISSPROT_FASTA
+
+# Copy blast scripts
+RUN mkdir /scripts
+COPY blastp_dir.sh /scripts/
+
+CMD /scripts/blastp_dir.sh
