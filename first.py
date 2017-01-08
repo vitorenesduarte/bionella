@@ -3,7 +3,7 @@ from Bio import SeqIO
 from urllib.request import urlopen
 import lxml.html
 import lxml.etree
-import helper
+import util.helper as helper
 
 def fetch_genbank(start, end):
     """
