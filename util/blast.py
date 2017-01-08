@@ -1,5 +1,5 @@
 from Bio.Blast.Applications import NcbiblastpCommandline
-import hashlib, shutil, os
+import hashlib, shutil, os, subprocess
 import util.helper as helper
 
 def md5(protein):
@@ -51,11 +51,18 @@ def local_blastp(in_file, out_file, db):
     )
     blastp_cline()
 
-def docker_blastp(in_file, out_file, db):
+def docker_blastp(directory, in_file, out_file, db):
     """
     Corre o blast numa instância docker.
     """
-    pass
+    cmd = "docker run -e IN_FILE=" + in_file \
+                  + " -e OUT_FILE=" + out_file \
+                  + " -e DB=" + db \
+                  + " -v $PWD/" + directory + ":/" + directory \
+                  + " -ti vitorenesduarte/swissprot_blast"
+
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    p.wait()
 
 def blastp(proteins, db, type="local"):
     """
@@ -68,13 +75,14 @@ def blastp(proteins, db, type="local"):
     É retornada uma lista com os ficheiros xml.
     """
 
-    pair_list = write_queries_to_dir(proteins, ".query_dir")
+    directory = ".query_dir"
+    pair_list = write_queries_to_dir(proteins, directory)
 
     for (in_file, out_file) in pair_list:
         if type == "local":
             local_blastp(in_file, out_file, db)
         elif type == "docker":
-            docker_blastp(in_file, out_file, db)
+            docker_blastp(directory, in_file, out_file, db)
         else:
             raise Exception("Unsupported type: " + type)
 
