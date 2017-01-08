@@ -10,6 +10,7 @@ ENV BASHRC "/root/.bashrc"
 ENV SWISSPROT_FTP "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/"
 ENV SWISSPROT_FASTA "uniprot_sprot.fasta"
 
+
 # Use bash instead of sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
@@ -20,8 +21,8 @@ RUN apt-get update && \
 
 # Download blast
 RUN cd /root && \
-    wget $BLAST_FTP$BLAST_SRC"-x64-linux.tar.gz" && \
-    tar -zxvf $BLAST_SRC"-x64-linux.tar.gz" && \
+    wget -q $BLAST_FTP$BLAST_SRC"-x64-linux.tar.gz" && \
+    tar -zxf $BLAST_SRC"-x64-linux.tar.gz" && \
     mkdir $BLASTDB && \
     echo "export PATH=$PATH:/root/$BLAST_SRC/bin" >> $BASHRC && \
     echo "export BLASTDB=$BLASTDB" >> $BASHRC
@@ -32,3 +33,4 @@ RUN cd $BLASTDB && \
     gunzip $SWISSPROT_FASTA".gz" && \
     makeblastdb -in $SWISSPROT_FASTA -input_type fasta -dbtype prot -title swissprot -out swissprot && \
     rm -f $SWISSPROT_FASTA
+
