@@ -80,3 +80,16 @@ def wrap_file(start_line, end_line, file_path):
     fd.writelines(lines)
     os.fsync(fd)
     fd.close()
+
+def truncate_file(start, end, file_path):
+    """
+    Remove as 'start' primeiras linhas
+    e as 'end' últimas linahs de um ficheiro.
+    """
+    fd = open(file_path, "r")
+    lines = fd.readlines()
+    fd.close()
+    fd = open(file_path, "w")
+    fd.writelines(lines[start:-end])
+    os.fsync(fd)
+    fd.close()

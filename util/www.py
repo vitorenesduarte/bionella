@@ -3,12 +3,15 @@ from urllib.request import urlretrieve
 from xml.etree import ElementTree
 import util.rw as rw
 
-def fetch_xml_tree(url, add_root=False):
+def fetch_xml_tree(url, add_root=False, start=0, end=0):
     """
     Faz download de um ficheiro xml, faz parsing dele,
     e retorna um 'ElementTree'.
     """
     local_file, _ = urlretrieve(url)
+
+    if start > 0 or end > 0:
+        rw.truncate_file(start, end, local_file)
 
     if add_root:
         rw.wrap_file("<root>", "</root>", local_file)
@@ -82,10 +85,10 @@ def fetch_table():
         try:
             url = url_prefix + "&page=" + str(page) + "&pageSize=" + str(page_size)
             tree = fetch_xml_tree(url, add_root=True)
-            rows = tree.findall(".TR")
+            rows = tree.findall("TR")
 
             for row in rows:
-                cols = row.findall(".TD")
+                cols = row.findall("TD")
                 locus_tag = cols[locus_tag_index].text
 
                 # criar um dicionário vazio para esta locus tag
@@ -97,7 +100,7 @@ def fetch_table():
                 for index in column_mapping:
                     prop = column_mapping[index]
                     if index in nested_values:
-                        value = cols[index].find(".a").text
+                        value = cols[index].find("a").text
                     else:
                         value = cols[index].text
 
@@ -121,5 +124,23 @@ def fetch_uniprot(uniprot_id):
 
     url_prefix = "http://www.uniprot.org/uniprot/"
     url = url_prefix + uniprot_id + ".xml"
-    tree = fetch_xml_tree(url)
-    print(tree)
+    tree = fetch_xml_tree(url, add_root=True, start=2, end=1)
+
+    # encontrar o texto função que costuma estar no início da
+    # página da uniprot
+    function_text = tree.findall(".//comment[@type='function']")
+    assert len(function_text) <= 1
+    if len(function_text) > 0:
+        function_text = function_text[0].find("text").text
+
+    molecular_functions = []
+    # encontrar GO - Molecular Function
+    GO = tree.findall(".//dbReference[@type='GO']")
+    for go in GO:
+        function = go.find("property[@type='term']").get("value")
+        is_molecular_function = function.startswith("F:")
+
+        if is_molecular_function:
+            molecular_functions.append(function[2:])
+
+    return molecular_functions
