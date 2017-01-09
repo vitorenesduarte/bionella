@@ -8,7 +8,7 @@ def fetch_xml_tree(url, add_root=False):
     Faz download de um ficheiro xml, faz parsing dele,
     e retorna um 'ElementTree'.
     """
-    local_file, _ = urlretrieve(link)
+    local_file, _ = urlretrieve(url)
 
     if add_root:
         rw.wrap_file("<root>", "</root>", local_file)
@@ -81,7 +81,7 @@ def fetch_table():
 
         try:
             url = url_prefix + "&page=" + str(page) + "&pageSize=" + str(page_size)
-            tree = fecth_xml_tree(url, add_root=True)
+            tree = fetch_xml_tree(url, add_root=True)
             rows = tree.findall(".TR")
 
             for row in rows:
@@ -106,7 +106,8 @@ def fetch_table():
 
             page += 1
             end = len(rows) == 0
-        except lxml.etree.ParserError:
+        except Exception as ex:
+            print(ex)
             end = True
 
     return dictionary
@@ -120,5 +121,5 @@ def fetch_uniprot(uniprot_id):
 
     url_prefix = "http://www.uniprot.org/uniprot/"
     url = url_prefix + uniprot_id + ".xml"
-    tree = fecth_xml_tree(url)
+    tree = fetch_xml_tree(url)
     print(tree)
