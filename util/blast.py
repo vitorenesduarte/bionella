@@ -1,6 +1,6 @@
 from Bio.Blast.Applications import NcbiblastpCommandline
 import hashlib, shutil, os, subprocess
-import util.helper as helper
+import util.rw as rw
 
 def md5(protein):
     """
@@ -43,7 +43,7 @@ def write_queries_to_dir(proteins, directory):
         # Gravar a proteína num ficheiro
         h = md5(protein)
         in_file = directory + "/" + fasta_it(h)
-        helper.write_file(protein, in_file)
+        rw.write_file(protein, in_file)
 
 def local_blastp(directory, db):
     """

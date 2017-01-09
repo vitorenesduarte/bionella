@@ -1,4 +1,4 @@
-import util.helper as helper
+import util.rw as rw
 import util.blast as blast
 
 def extract_uniprot_id(hit_def):
@@ -7,7 +7,7 @@ def extract_uniprot_id(hit_def):
 
 def main():
     ncbi_json_path = ".ncbi.json"
-    dictionary = helper.read_json(ncbi_json_path)
+    dictionary = rw.read_json(ncbi_json_path)
 
     tags = []
     proteins = []
@@ -27,7 +27,7 @@ def main():
         out_file = out_files[i]
         print("TAG:", lt)
 
-        handle = helper.read_blast(out_file)
+        handle = rw.read_blast(out_file)
         for a in handle.alignments:
             uniprot_id = extract_uniprot_id(a.hit_def)
             print("UI:", uniprot_id)

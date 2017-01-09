@@ -3,7 +3,7 @@ from Bio import SeqIO
 from urllib.request import urlopen
 import lxml.html
 import lxml.etree
-import util.helper as helper
+import util.rw as rw
 
 def fetch_genbank(start, end):
     """
@@ -186,20 +186,20 @@ def main():
 
     ## 1.1
     record = fetch_genbank(start, end)
-    helper.write_genbank(record, ncbi_gb_path)
+    rw.write_genbank(record, ncbi_gb_path)
 
-    record = helper.read_genbank(ncbi_gb_path)
+    record = rw.read_genbank(ncbi_gb_path)
     features = extract_features(record)
 
     dictionary = features_to_dictionary(features)
-    helper.write_json(dictionary, ncbi_json_path)
+    rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
     table = fetch_table()
-    helper.write_json(table, table_json_path)
+    rw.write_json(table, table_json_path)
 
-    dictionary = helper.read_json(ncbi_json_path)
-    #table = helper.read_json(table_json_path)
+    dictionary = rw.read_json(ncbi_json_path)
+    #table = rw.read_json(table_json_path)
     ## TODO
     ## verificar que o que está em "table"
     ## também esta em dictionary
