@@ -67,3 +67,16 @@ def write_json(dictionary, file_path):
     json.dump(dictionary, fd, sort_keys=True, indent=2)
     os.fsync(fd)
     fd.close()
+
+def wrap_file(start_line, end_line, file_path):
+    """
+    Adiciona uma linha no início do ficheiro e outra no fim.
+    NOTA: not memory-friendly
+    """
+    fd = open(file_path, "r")
+    lines = [start_line] + fd.readlines() + [end_line]
+    fd.close()
+    fd = open(file_path, "w")
+    fd.writelines(lines)
+    os.fsync(fd)
+    fd.close()

@@ -26,7 +26,8 @@ def main():
             tags.append(lt)
             proteins.append(protein)
 
-    out_files = blast.blastp(proteins, "swissprot", "local")
+    #out_files = blast.blastp(proteins, "swissprot", "local")
+    out_files = blast.blastp(["MIGCCLIIFPCNRDYDKIVRTNYSLVRRLMKHNLLDKAYKHCVNHGYRFTEPRERVLKILVDERKPLGAYDILQRLSMEVDNPKPPTVYRAIQFWHQEGFIHCIDSLKSYVACLHGHHVGQAQFLICNQCDFVKELECVVDFTAVTEAANSIQFSIINCTVEIKGLCSDCNLTNLKN"], "swissprot", "local")
 
     for i in range(len(proteins)):
         lt = tags[i]
@@ -37,6 +38,8 @@ def main():
         for a in handle.alignments:
             uniprot_id = extract_uniprot_id(a.hit_def)
             print("UI:", uniprot_id)
+            uniprot = www.fetch_uniprot(uniprot_id)
+            print(uniprot)
 
 if __name__ == "__main__":
     main()
