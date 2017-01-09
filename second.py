@@ -1,7 +1,13 @@
+import util.www as www
 import util.rw as rw
 import util.blast as blast
 
 def extract_uniprot_id(hit_def):
+    """
+    Extrair o uniprot id do 'hit_def' do alinhamento.
+    NOTA: Hit def's que vêm do ncbi blast usando o biopython
+    não contêm esta informação.
+    """
     parts = hit_def.split("|")
     return parts[1]
 
@@ -20,7 +26,7 @@ def main():
             tags.append(lt)
             proteins.append(protein)
 
-    out_files = blast.blastp(proteins, "swissprot", "docker")
+    out_files = blast.blastp(proteins, "swissprot", "local")
 
     for i in range(len(proteins)):
         lt = tags[i]

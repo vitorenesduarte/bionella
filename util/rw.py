@@ -1,6 +1,6 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
-import json
+import json, os
 
 def read_file(file_path):
     """
@@ -17,6 +17,7 @@ def write_file(string, file_path):
     """
     fd = open(file_path, "w")
     fd.write(string)
+    os.fsync(fd)
     fd.close()
 
 def read_genbank(file_path):
@@ -45,6 +46,7 @@ def write_blast(handle, file_path):
     """
     fd = open(file_path, "w")
     fd.write(handle.read())
+    os.fsync(fd)
     fd.close()
 
 def read_json(file_path):
@@ -63,4 +65,5 @@ def write_json(dictionary, file_path):
     """
     fd = open(file_path, "w")
     json.dump(dictionary, fd, sort_keys=True, indent=2)
+    os.fsync(fd)
     fd.close()

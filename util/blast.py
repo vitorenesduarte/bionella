@@ -20,13 +20,21 @@ def xml_it(in_file):
     """
     return in_file + ".xml"
 
+def get_in_files(directory):
+    """
+    Retorna a lista de in_files dada a directoria
+    com os in_files.
+    """
+    in_files = os.listdir(directory)
+    return [directory + "/" + in_file for in_file in in_files]
+
 def get_out_files(directory):
     """
     Retorna a lista de out_files dada a directoria
     com os in_files.
     """
     in_files = os.listdir(directory)
-    return [xml_it(in_file) for in_file in in_files]
+    return [directory + "/" + xml_it(in_file) for in_file in in_files]
 
 def write_queries_to_dir(proteins, directory):
     """
@@ -50,8 +58,7 @@ def local_blastp(directory, db):
     Corre o blast localmente.
     """
 
-    os.chdir(directory)
-    in_files = os.listdir()
+    in_files = get_in_files(directory)
 
     for in_file in in_files:
         out_file = xml_it(in_file)
