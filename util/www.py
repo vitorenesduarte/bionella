@@ -1,22 +1,21 @@
 from Bio import Entrez, SeqIO
 from urllib.request import urlretrieve
 from xml.etree import ElementTree
+import requests
 import util.rw as rw
+import util.util as util
 
-def fetch_xml_tree(url, add_root=False, start=0, end=0):
+def parse_xml(file_path, add_root=False, start=0, end=0):
     """
-    Faz download de um ficheiro xml, faz parsing dele,
-    e retorna um 'ElementTree'.
+    Faz parsing de um ficheiro xml e retorna um 'ElementTree'.
     """
-    local_file, _ = urlretrieve(url)
-
     if start > 0 or end > 0:
-        rw.truncate_file(start, end, local_file)
+        rw.truncate_file(start, end, file_path)
 
     if add_root:
-        rw.wrap_file("<root>", "</root>", local_file)
+        rw.wrap_file("<root>", "</root>", file_path)
 
-    fd = open(local_file, "r")
+    fd = open(file_path, "r")
     tree = ElementTree.parse(fd)
     fd.close()
 
@@ -84,7 +83,8 @@ def fetch_table():
 
         try:
             url = url_prefix + "&page=" + str(page) + "&pageSize=" + str(page_size)
-            tree = fetch_xml_tree(url, add_root=True)
+            file_path, _ = urlretrieve(url)
+            tree = parse_xml(file_path, add_root=True)
             rows = tree.findall("TR")
 
             for row in rows:
@@ -115,27 +115,66 @@ def fetch_table():
 
     return dictionary
 
-def fetch_uniprot(uniprot_id):
+def fetch_uniprots(ids):
     """
     Faz download da informação presente no site uniprot
-    em formato xml dado um 'uniprot_id'.
-    É retornado um object com essa informação.
+    em formato xml dada uma lista de ids uniprot.
     """
 
-    url_prefix = "http://www.uniprot.org/uniprot/"
-    url = url_prefix + uniprot_id + ".xml"
-    tree = fetch_xml_tree(url, add_root=True, start=2, end=1)
+    url = "http://www.uniprot.org/batch/"
+    # Cada pedido à uniprot vai no máximo com 100 ids.
+    queries  = [ids[i:i+100] for i in range(0, len(ids), 100)]
+
+    files = []
+
+    for query in queries:
+        query_all = " ".join(query)
+
+        # pedido HTTP POST
+        response = requests.post(
+            url,
+            data={"format":"xml"},
+            files={"file":query_all}
+        )
+
+        # Gravar o xml
+        file_path = "/tmp/" + util.md5(query_all) + ".xml"
+        rw.write_file(response.text, file_path)
+        files.append(file_path)
+
+
+    infos = []
+
+    for file_path in files:
+        tree = parse_xml(file_path, add_root=True, start=2, end=1)
+        entries = tree.findall(".//entry")
+
+        for entry in entries:
+            info = extract_uniprot_info(entry)
+            infos.append(info)
+
+    return infos
+
+def extract_uniprot_info(entry):
+    """
+    Extrai a informação que necessitamos da uniprot.
+      - accessions
+      - comentário sobre a função
+      - GO - Molecular Function
+    """
+    # accessions
+    accessions = [a.text for a in entry.findall(".//accession")]
 
     # encontrar o texto função que costuma estar no início da
     # página da uniprot
-    function_text = tree.findall(".//comment[@type='function']")
+    function_text = entry.findall(".//comment[@type='function']")
     assert len(function_text) <= 1
     if len(function_text) > 0:
         function_text = function_text[0].find("text").text
 
-    molecular_functions = []
     # encontrar GO - Molecular Function
-    GO = tree.findall(".//dbReference[@type='GO']")
+    molecular_functions = []
+    GO = entry.findall(".//dbReference[@type='GO']")
     for go in GO:
         function = go.find("property[@type='term']").get("value")
         is_molecular_function = function.startswith("F:")
@@ -143,4 +182,5 @@ def fetch_uniprot(uniprot_id):
         if is_molecular_function:
             molecular_functions.append(function[2:])
 
-    return molecular_functions
+    return {"accessions": accessions,
+            "molecular_functions": molecular_functions}

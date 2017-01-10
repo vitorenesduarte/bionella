@@ -1,12 +1,7 @@
 from Bio.Blast.Applications import NcbiblastpCommandline
-import hashlib, shutil, os, subprocess
+import shutil, os, subprocess
 import util.rw as rw
-
-def md5(protein):
-    """
-    Retorna a hash da proteina passada como argumento.
-    """
-    return hashlib.md5(protein.encode("utf-8")).hexdigest()
+import util.util as util
 
 def fasta_it(md5):
     """
@@ -49,7 +44,7 @@ def write_queries_to_dir(proteins, directory):
 
     for protein in proteins:
         # Gravar a proteína num ficheiro
-        h = md5(protein)
+        h = util.md5(protein)
         in_file = directory + "/" + fasta_it(h)
         rw.write_file(protein, in_file)
 
