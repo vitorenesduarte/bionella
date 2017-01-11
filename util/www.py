@@ -159,7 +159,7 @@ def extract_uniprot_info(entry):
     """
     Extrai a informação que necessitamos da uniprot.
       - accessions
-      - comentário sobre a função
+      - comentários sobre a função
       - GO - Molecular Function
     """
     # accessions
@@ -167,10 +167,7 @@ def extract_uniprot_info(entry):
 
     # encontrar o texto função que costuma estar no início da
     # página da uniprot
-    function_text = entry.findall(".//comment[@type='function']")
-    assert len(function_text) <= 1
-    if len(function_text) > 0:
-        function_text = function_text[0].find("text").text
+    comment_functions = [c.find("text").text for c in entry.findall(".//comment[@type='function']")]
 
     # encontrar GO - Molecular Function
     molecular_functions = []
@@ -183,4 +180,5 @@ def extract_uniprot_info(entry):
             molecular_functions.append(function[2:])
 
     return {"accessions": accessions,
+            "comment_functions": comment_functions,
             "molecular_functions": molecular_functions}
