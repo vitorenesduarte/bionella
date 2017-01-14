@@ -151,6 +151,11 @@ A cada um dos <code>record</code> retirámos:</p>
             <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="n">prop</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
+                <span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;db_xref&quot;</span><span class="p">:</span>
+                    <span class="c1"># renomear esta propriedade e remover &quot;GeneID:&quot;</span>
+                    <span class="n">prop</span> <span class="o">=</span> <span class="s2">&quot;gene_id&quot;</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+
                 <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
                     <span class="c1"># se já encontramos esta propriedade</span>
                     <span class="c1"># para este locus_tag</span>
@@ -222,7 +227,7 @@ A cada um dos <code>record</code> retirámos:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">util.rw</span> <span class="k">as</span> <span class="nn">rw</span>
@@ -233,7 +238,8 @@ A cada um dos <code>record</code> retirámos:</p>
 <span class="n">ncbi</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;.ncbi.json&quot;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ncbi</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;EC_number&quot;</span><span class="p">,</span> <span class="s2">&quot;db_xref&quot;</span><span class="p">,</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="s2">&quot;gene&quot;</span><span class="p">,</span> <span class="s2">&quot;product&quot;</span><span class="p">,</span> <span class="s2">&quot;protein_id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">]]</span>
+<span class="c1">#df[[&quot;EC_number&quot;, &quot;db_xref&quot;, &quot;function&quot;, &quot;gene&quot;, &quot;product&quot;, &quot;protein_id&quot;, &quot;type&quot;]]</span>
+<span class="n">df</span>
 </pre></div>
 
 </div>
@@ -244,7 +250,7 @@ A cada um dos <code>record</code> retirámos:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -253,11 +259,15 @@ A cada um dos <code>record</code> retirámos:</p>
     <tr style="text-align: right;">
       <th></th>
       <th>EC_number</th>
-      <th>db_xref</th>
       <th>function</th>
       <th>gene</th>
+      <th>gene_id</th>
+      <th>gene_synonym</th>
+      <th>location</th>
+      <th>note</th>
       <th>product</th>
       <th>protein_id</th>
+      <th>translation</th>
       <th>type</th>
     </tr>
   </thead>
@@ -265,2311 +275,3235 @@ A cada um dos <code>record</code> retirámos:</p>
     <tr>
       <th>lpg0232</th>
       <td></td>
-      <td>GeneID:19831799</td>
       <td>Transcription factors / DNA binding proteins</td>
       <td>np20</td>
+      <td>19831799</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 270569, 'start': 270036}</td>
+      <td></td>
       <td>transcriptional regulator np20</td>
       <td>YP_094286.1</td>
+      <td>MIGCCLIIFPCNRDYDKIVRTNYSLVRRLMKHNLLDKAYKHCVNHG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0233</th>
       <td>4.1.1.7</td>
-      <td>GeneID:19831800</td>
       <td>Biodegradation of Xenobiotics</td>
       <td>mdlC</td>
+      <td>19831800</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 272278, 'start': 270686}</td>
+      <td></td>
       <td>benzoylformate decarboxylase</td>
       <td>YP_094287.1</td>
+      <td>MKKTGSDVLKEFITTFEINYIFGNPGTTELKFLEAIEQCDNATYFL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0234</th>
       <td></td>
-      <td>GeneID:19831801</td>
       <td>Toxin production / other pathogen functions</td>
       <td>sidE</td>
+      <td>19831801</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 277121, 'start': 272577}</td>
+      <td></td>
       <td>protein SidE</td>
       <td>YP_094288.1</td>
+      <td>MLIFKSQILILKYLSRSCVMPKYVEGIELTQEGMHAIFERMGHPNI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0235</th>
       <td></td>
-      <td>GeneID:19831802</td>
       <td></td>
+      <td></td>
+      <td>19831802</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 277987, 'start': 277484}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094289.1</td>
+      <td>MKKAFRIMATYYGQCACGKIQFMCTGEPVFTQYCHCNKCREIASLS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0236</th>
       <td></td>
-      <td>GeneID:19831803</td>
       <td></td>
+      <td></td>
+      <td>19831803</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 280039, 'start': 278060}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094290.1</td>
+      <td>MRYTNIELLKRIPQHLKGVMEYYPDVLLFQLNQIQYTHLWHELSSA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0237</th>
       <td></td>
-      <td>GeneID:19831804</td>
       <td>Protein fate / hydrolases / secretion</td>
       <td>mhpC</td>
+      <td>19831804</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 281114, 'start': 280320}</td>
+      <td></td>
       <td>lipolytic protein</td>
       <td>YP_094291.1</td>
+      <td>MATLKINGVDIYYELYGQGKPLVLIAGYCCDHTFWNAMLHELAEQF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0238</th>
       <td>1.2.1.8</td>
-      <td>GeneID:19831805</td>
       <td>Amino Acid Metabolism</td>
       <td>gbsA</td>
+      <td>19831805</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 282597, 'start': 281131}</td>
+      <td></td>
       <td>glycine betaine aldehyde dehydrogenase</td>
       <td>YP_094292.1</td>
+      <td>MEIYKMYIDGKFTLAKSGATRDIFDPANGDLIAKVPESAKEDAILA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0239</th>
       <td>2.6.1.19</td>
-      <td>GeneID:19831806</td>
       <td>Amino Acid Metabolism, Metabolism of Other Ami...</td>
       <td>gabT</td>
+      <td>19831806</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 283924, 'start': 282572}</td>
+      <td></td>
       <td>4-aminobutyrate transaminase</td>
       <td>YP_094293.1</td>
+      <td>MKHQLVGTKLMKKIHIKTPIPGPKSQQLMELRRQHVARGPFHATPI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0240</th>
       <td></td>
-      <td>GeneID:19831807</td>
       <td>Replication and Repair</td>
       <td>recN</td>
+      <td>19831807</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 284787, 'start': 284008}</td>
+      <td></td>
       <td>DNA repair protein</td>
       <td>YP_094294.1</td>
+      <td>MNDIMWYQNIMRNLLEKLPEASRKDGEFFLDKLFLAVKRVDNKPEM...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0241</th>
       <td>3.5.1.2</td>
-      <td>GeneID:19831808</td>
       <td>Amino Acid Metabolism, Metabolism of Other Ami...</td>
+      <td></td>
+      <td>19831808</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 285979, 'start': 285047}</td>
       <td></td>
       <td>glutaminase</td>
       <td>YP_094295.1</td>
+      <td>MSSKLLTIQLLEELVHAAELNQEGKTADYIPELANVNQELTAIAVQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0242</th>
       <td>1.1.1.95</td>
-      <td>GeneID:19831809</td>
       <td>Amino Acid Metabolism</td>
       <td>serA</td>
+      <td>19831809</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 286990, 'start': 286103}</td>
+      <td></td>
       <td>D-3-phosphoglycerate dehydrogenase</td>
       <td>YP_094296.1</td>
+      <td>MKIAVVEPIGIAMQEIRSELPGHTIIECDSRQWSDEQLIDFVKDAD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0243</th>
       <td></td>
-      <td>GeneID:19831810</td>
       <td></td>
+      <td></td>
+      <td>19831810</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 287802, 'start': 287203}</td>
       <td></td>
       <td>short chain dehydrogenase</td>
       <td>YP_094297.1</td>
+      <td>MKIVVIGATGIIGKAIVAELNPRHEIISASYKNSDIQVDITSKQSI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0244</th>
       <td>1.16.1.1</td>
-      <td>GeneID:19831811</td>
       <td>Carbohydrate Metabolism, Amino Acid Metabolism</td>
+      <td></td>
+      <td>19831811</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 289402, 'start': 288008}</td>
       <td></td>
       <td>pyridine nucleotide-disulfide oxidoreductase</td>
       <td>YP_094298.1</td>
+      <td>MVLEFDTIILGGGKGGKTLAMDLAKSGQKIAMVENNQIGGTCINVA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0245</th>
       <td></td>
-      <td>GeneID:19831812</td>
       <td></td>
+      <td></td>
+      <td>19831812</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 292834, 'start': 289454}</td>
       <td></td>
       <td>NAD-glutamate dehydrogenase</td>
       <td>YP_094299.1</td>
+      <td>MHGILRMMTNSWKDKLQKQLTQQFGSPKGKQLIDKYTETMSMSYSE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0246</th>
       <td></td>
-      <td>GeneID:19831813</td>
       <td></td>
+      <td></td>
+      <td>19831813</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 293739, 'start': 293014}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094300.1</td>
+      <td>MYKNILFFSNFSRMRWNEYDGDRYQSLWEHNKRDIKHTFFGTIANG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0247</th>
       <td></td>
-      <td>GeneID:19831814</td>
       <td></td>
+      <td></td>
+      <td>19831814</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 294924, 'start': 293971}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094301.1</td>
+      <td>MRVFYGLLGFMIFNLVACEKMALLTTPPKKQQLSNSPLAARAERYF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0248</th>
       <td></td>
-      <td>GeneID:19831815</td>
       <td>Transport and binding, Signal transduction / o...</td>
+      <td></td>
+      <td>19831815</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 295425, 'start': 295084}</td>
       <td></td>
       <td>arsenate reductase</td>
       <td>YP_094302.1</td>
+      <td>MEKITIYHNPRCSKSRQALEILQNKGFEPIIIEYLKTPLDLEQLKR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0249</th>
       <td>1.14.19.1</td>
-      <td>GeneID:19831816</td>
       <td>Lipid Metabolism</td>
+      <td></td>
+      <td>19831816</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 296666, 'start': 295512}</td>
       <td></td>
       <td>stearoyl CoA 9-desaturase</td>
       <td>YP_094303.1</td>
+      <td>MMFGFLNMTLWGYLLAGFVLTHITTTAVTIYLHRYQTHRALTLHPL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0250</th>
       <td></td>
-      <td>GeneID:19831817</td>
       <td>DNA/RNA degradation / restriction</td>
+      <td></td>
+      <td>19831817</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 298029, 'start': 296785}</td>
       <td></td>
       <td>DEAD/DEAH box helicase</td>
       <td>YP_094304.1</td>
+      <td>MSFKQLALIEPLNRAVSELGYTTPTSIQLKAIPLILNGHDLLGSAQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0251</th>
       <td></td>
-      <td>GeneID:19831818</td>
       <td>DNA/RNA degradation / restriction</td>
+      <td></td>
+      <td>19831818</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 298636, 'start': 298358}</td>
       <td></td>
       <td>RNA binding protein, cold-inducible rrm</td>
       <td>YP_094305.1</td>
+      <td>MMKQKKIYVGNLPFGTTEEALSIQFSQYGKIEEMFLIKDRLTGQMK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0252</th>
       <td></td>
-      <td>GeneID:19831819</td>
       <td></td>
+      <td></td>
+      <td>19831819</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 299489, 'start': 298794}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094306.1</td>
+      <td>MVIIVSMKANGFFDEQSSLKKSKIGLNLVWMFSLGHIFLITLSNVL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0253</th>
       <td></td>
-      <td>GeneID:19831820</td>
       <td>Protein fate / hydrolases / secretion</td>
+      <td></td>
+      <td>19831820</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 300165, 'start': 299524}</td>
       <td></td>
       <td>acetyltransferase</td>
       <td>YP_094307.1</td>
+      <td>MMLTGLRLLTKDLKILNGKYIQLEPITSQHREELRKAANHEQIWQY...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0254</th>
       <td></td>
-      <td>GeneID:19831821</td>
       <td></td>
+      <td></td>
+      <td>19831821</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 300827, 'start': 300258}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094308.1</td>
+      <td>MSEYLVLPARKECSMYNKMFKPLDTDPILYFKMYSNYTEGRVDDCC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0255</th>
       <td></td>
-      <td>GeneID:19831822</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831822</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 302328, 'start': 300982}</td>
       <td></td>
       <td>outer membrane channel protein</td>
       <td>YP_094309.1</td>
+      <td>MYRKRWLILLCALLNNGCLWLGSEYRKPHVNTPQKWPHKYSIQTEQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0256</th>
       <td></td>
-      <td>GeneID:19831823</td>
       <td></td>
+      <td></td>
+      <td>19831823</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 303355, 'start': 302309}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094310.1</td>
+      <td>MVPVGIDQQKTVRTLRLSLTCIFLFLITWYYQVPESAWTLVTIWFV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0257</th>
       <td></td>
-      <td>GeneID:19831824</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831824</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 304404, 'start': 303412}</td>
       <td></td>
       <td>multidrug resistance secretion protein</td>
       <td>YP_094311.1</td>
+      <td>MSDKPKAGFPVIILLCVFLFILIYHYSYLFPFTNNAFVVANVRPVA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0258</th>
       <td></td>
-      <td>GeneID:19831825</td>
       <td></td>
+      <td></td>
+      <td>19831825</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 306524, 'start': 304581}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094312.1</td>
+      <td>MKIPFEGKWRATITKREAGFSQRVVVGSATSGNGSYNGVVGNSFVF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0259</th>
       <td></td>
-      <td>GeneID:19831826</td>
       <td></td>
+      <td></td>
+      <td>19831826</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 308327, 'start': 306543}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094313.1</td>
+      <td>MKREFFQKLDKILDIASEHKQMLLQYPDVVMVGVGPERRKGKITGE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0260</th>
       <td></td>
-      <td>GeneID:19831827</td>
       <td></td>
+      <td></td>
+      <td>19831827</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 308911, 'start': 308513}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094314.1</td>
+      <td>MFGFFSDYKQYITLRNFAVVYNGLTGLAVLYSLWSNPEADPSEYAI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0261</th>
       <td></td>
-      <td>GeneID:19831828</td>
       <td>Viral functions / Phage / Transposases</td>
+      <td></td>
+      <td>19831828</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 309605, 'start': 309426}</td>
       <td></td>
       <td>ISSod6 transposase, ISI301</td>
       <td>YP_094315.1</td>
+      <td>MVNLKSVLRIAEVDWGLYKYRHLVENIFVRLKQFRAIATRYDKLKR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0262</th>
       <td>2.7.7.7</td>
-      <td>GeneID:19831829</td>
       <td>Nucleotide Metabolism, Replication and Repair</td>
+      <td></td>
+      <td>19831829</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 310310, 'start': 309672}</td>
       <td></td>
       <td>bacteriophage related DNA polymerase</td>
       <td>YP_094316.1</td>
+      <td>MSDVLNNYYLQTMGIEVWVMRESTPSCEKHLAALADEVASCVRCSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0263</th>
       <td></td>
-      <td>GeneID:19831830</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831830</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 311841, 'start': 310567}</td>
       <td></td>
       <td>MFS transporter family protein</td>
       <td>YP_094317.1</td>
+      <td>MNSQKDLKQLDIKQVIAWAFYDFANSSYFVVIFTFVFATYFTSYIA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0264</th>
       <td></td>
-      <td>GeneID:19831831</td>
       <td></td>
+      <td></td>
+      <td>19831831</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 312618, 'start': 311920}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094318.1</td>
+      <td>MFLQVISYDKLCSNMKIIISILFAFISASGHAFSCYDPQTIIQKPI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0265</th>
       <td></td>
-      <td>GeneID:19831832</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831832</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 314214, 'start': 312673}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094319.1</td>
+      <td>MTNTTDFYSITPLDKARWQKILINKITVRTLGKIFVFIMAITIMIT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0266</th>
       <td></td>
-      <td>GeneID:19831833</td>
       <td></td>
+      <td></td>
+      <td>19831833</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 314877, 'start': 314443}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094320.1</td>
+      <td>MKRIFLISIIGIVLNSAYAFEHLGECGAHTWHEVTSKSGSWKITLK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0267</th>
       <td></td>
-      <td>GeneID:19831834</td>
       <td>Transport and binding</td>
       <td>corA</td>
+      <td>19831834</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 315944, 'start': 314892}</td>
+      <td></td>
       <td>hypothetical protein</td>
       <td>YP_094321.1</td>
+      <td>MSISFKSPILKLYEEINRIRMSIEMHSFDSIAVEFDLKNHSMQKIA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0268</th>
       <td></td>
-      <td>GeneID:19831835</td>
       <td></td>
+      <td></td>
+      <td>19831835</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 316723, 'start': 316127}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094322.1</td>
+      <td>MNQDMEKIEKMYQLIMEINKLKLVFRNTVTNPQRNESTAEHSWSAS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0269</th>
       <td></td>
-      <td>GeneID:19831836</td>
       <td></td>
+      <td></td>
+      <td>19831836</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 318363, 'start': 316801}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094323.1</td>
+      <td>MVNQNESSILLKTLIIKKISIMYDDLWKPYASIQLPSLKLGGIVLN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0270</th>
       <td>2.4.2.11</td>
-      <td>GeneID:19831837</td>
       <td>Metabolism of Cofactors and Vitamins</td>
       <td></td>
+      <td>19831837</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 319848, 'start': 318430}</td>
+      <td>catalyzes the formation of 5-phospho-alpha-D-r...</td>
       <td>nicotinate phosphoribosyltransferase</td>
       <td>YP_094324.1</td>
+      <td>MTRIYMINITGTYTDQYQLAMAQVCFLKGQHERIATFDYFFRALPF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0271</th>
       <td></td>
-      <td>GeneID:19831838</td>
       <td>Amino Acid Metabolism, Metabolism of Cofactors...</td>
       <td>pncA</td>
+      <td>19831838</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 320473, 'start': 319832}</td>
+      <td></td>
       <td>bifunctional pyrazinamidase/nicotinamidase</td>
       <td>YP_094325.1</td>
+      <td>MNTQDNFMKTLIILDVQNDFMPGGSLGVPNGDAIVPVINSILHCFD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0272</th>
       <td></td>
-      <td>GeneID:19831839</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831839</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 320939, 'start': 320556}</td>
       <td></td>
       <td>cysteine transferase</td>
       <td>YP_094326.1</td>
+      <td>MSIQLNHTIVWVKDRDKSAHFLTEILGLPEAIPYGPFMVVEMSNHV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0273</th>
       <td></td>
-      <td>GeneID:19831840</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831840</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 322180, 'start': 320939}</td>
       <td></td>
       <td>major facilitator superfamily transporter</td>
       <td>YP_094327.1</td>
+      <td>MLIVKTILIMYPKTKLSFMTLLLLISFASVNAVLFTPALPSITAFF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0274</th>
       <td></td>
-      <td>GeneID:19831841</td>
       <td>Transcription factors / DNA binding proteins</td>
+      <td></td>
+      <td>19831841</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 323134, 'start': 322271}</td>
       <td></td>
       <td>LysR family transcriptional regulator</td>
       <td>YP_094328.1</td>
+      <td>MGKFDQITYFIAVVEEHGFAAAARKFGVSTAAVSRQIARLEAELKA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0275</th>
       <td></td>
-      <td>GeneID:19831842</td>
       <td></td>
+      <td></td>
+      <td>19831842</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 326904, 'start': 323554}</td>
       <td></td>
       <td>protein SdbA</td>
       <td>YP_094329.1</td>
+      <td>MHKKYNYYSLEKEKKTFWQHILDILKAPFRLPGWVVSFFLARNITH...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0276</th>
       <td></td>
-      <td>GeneID:19831843</td>
       <td></td>
       <td>legG2</td>
+      <td>19831843</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 328561, 'start': 327062}</td>
+      <td></td>
       <td>hypothetical protein</td>
       <td>YP_094330.1</td>
+      <td>MINKSRLLSLIACFNNREINMPKILDSHAYREMENELNTLFEQIYK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0277</th>
       <td></td>
-      <td>GeneID:19831844</td>
       <td>Signal transduction / other regulatory functions</td>
+      <td></td>
+      <td>19831844</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 330849, 'start': 328627}</td>
       <td></td>
       <td>sensory box protein, GGDEF family protein, LssE</td>
       <td>YP_094331.1</td>
+      <td>MSTESFRILVIDDNPAIHQDFMKILNVSKNSVLLNKFDAELFDDET...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0278</th>
       <td>2.7.3.-</td>
-      <td>GeneID:19831845</td>
       <td>Signal transduction / other regulatory functions</td>
       <td>fixL</td>
+      <td>19831845</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 332267, 'start': 330852}</td>
+      <td></td>
       <td>sensor histidine kinase</td>
       <td>YP_094332.1</td>
+      <td>MTEMHRLLQRQLKKFGFTADGLPQNLESWTQFIAHINKTYYENDQD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0279</th>
       <td></td>
-      <td>GeneID:19831846</td>
       <td></td>
+      <td></td>
+      <td>19831846</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 333456, 'start': 332290}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094333.1</td>
+      <td>MMKIESFQYIQNQGWSIPTFPELDSENTLILVFASPIFRANSKPIE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0280</th>
       <td></td>
-      <td>GeneID:19831847</td>
       <td>Transcription factors / DNA binding proteins</td>
+      <td></td>
+      <td>19831847</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 334503, 'start': 333622}</td>
       <td></td>
       <td>LysR family transcriptional regulator</td>
       <td>YP_094334.1</td>
+      <td>MDIRDIKSFLAVVEYHSLTLAAKKLHVTQSAMSKRIRKIEDELNVR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0281</th>
       <td></td>
-      <td>GeneID:19831848</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831848</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 335909, 'start': 334725}</td>
       <td></td>
       <td>amino acid transporter</td>
       <td>YP_094335.1</td>
+      <td>MHLKRTLSLTLLAFYGLGTILGAGIYALVGEVAKEAAQFTPLSFLI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0282</th>
       <td></td>
-      <td>GeneID:19831849</td>
       <td></td>
+      <td></td>
+      <td>19831849</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 336753, 'start': 335977}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094336.1</td>
+      <td>MSRREWPANDYAIGSYIQATVAEEYLPYLNMKPADKVLDIGCGNGA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0283</th>
       <td>1.2.2.1</td>
-      <td>GeneID:19831850</td>
       <td>Carbohydrate Metabolism, Energy Metabolism</td>
       <td></td>
+      <td>19831850</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 338172, 'start': 336961}</td>
+      <td>Catalyzes the reversible two-electron oxidatio...</td>
       <td>formate dehydrogenase</td>
       <td>YP_094337.1</td>
+      <td>MFSQSQQKIVCVLYDDPKGGFPPNYARESIPELKQYPDGQSLPNPD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0284</th>
       <td></td>
-      <td>GeneID:19831851</td>
       <td></td>
+      <td></td>
+      <td>19831851</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 339402, 'start': 338278}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094338.1</td>
+      <td>MFTKSCAKATDQNRQELFMDSLLGDFQKMKEKALNQQQERRSKKRE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0285</th>
       <td></td>
-      <td>GeneID:19831852</td>
       <td></td>
+      <td></td>
+      <td>19831852</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 340322, 'start': 339639}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094339.1</td>
+      <td>MVIIGILMSKERIKKTALEIVKYIHGNIKACNIPNQKKENKFFAPL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0286</th>
       <td>1.-.-.-</td>
-      <td>GeneID:19831853</td>
       <td></td>
+      <td></td>
+      <td>19831853</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 341203, 'start': 340355}</td>
       <td></td>
       <td>short chain dehydrogenase/reductase oxidoreduc...</td>
       <td>YP_094340.1</td>
+      <td>MLLFLFKFWFDLTVNILYLIMMGERMNFLNNKIVMITGASSGIGQA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0287</th>
       <td></td>
-      <td>GeneID:19831854</td>
       <td>Translation</td>
       <td>efp</td>
+      <td>19831854</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 342622, 'start': 342005}</td>
+      <td>Involved in peptide bond synthesis; alters the...</td>
       <td>elongation factor P</td>
       <td>YP_094341.1</td>
+      <td>MRTLAKIQQNLNYGAEMAVYSTNEFKNGLKVMVDDAPCSILDCEFV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0288</th>
       <td></td>
-      <td>GeneID:19831855</td>
       <td>Amino Acid Metabolism</td>
+      <td></td>
+      <td>19831855</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 343626, 'start': 342646}</td>
       <td></td>
       <td>L-lysine 2,3-aminomutase</td>
       <td>YP_094342.1</td>
+      <td>MRDTSLSWQKILAQGFTSTTDLLDFLELPRSEGNLFAEKQFPSRIP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0289</th>
       <td>2.7.4.1</td>
-      <td>GeneID:19831856</td>
       <td>Energy Metabolism</td>
       <td>ppk</td>
+      <td>19831856</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 345779, 'start': 343695}</td>
+      <td>catalyzes the reversible transfer of the termi...</td>
       <td>polyphosphate kinase</td>
       <td>YP_094343.1</td>
+      <td>MEFLMDTTLDNPDYYINREFSAIAFNQRVLMLANDERVPLLERMRF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0290</th>
       <td></td>
-      <td>GeneID:19831857</td>
       <td></td>
+      <td></td>
+      <td>19831857</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 347013, 'start': 345808}</td>
       <td></td>
       <td>lipoprotein</td>
       <td>YP_094344.1</td>
+      <td>MKRIFFVVFLLCIETACNTAKNNPLPAQLADKALVPGFKEVRTEFT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0291</th>
       <td></td>
-      <td>GeneID:19831858</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831858</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 347622, 'start': 347089}</td>
       <td></td>
       <td>chromate transport protein</td>
       <td>YP_094345.1</td>
+      <td>MIKTFIEIIYSFGKIGLISLGGGNSMLKLLEYEAVTYRHWIGKEEF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0292</th>
       <td></td>
-      <td>GeneID:19831859</td>
       <td></td>
+      <td></td>
+      <td>19831859</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 348296, 'start': 347619}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094346.1</td>
+      <td>MPKQIKSSSVSKTENEILIMQRLVWNFEFSSEQTTPLTTLGHDAQD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0293</th>
       <td>1.3.99.-</td>
-      <td>GeneID:19831860</td>
       <td>Lipid Metabolism, Metabolism of Complex Lipids</td>
       <td></td>
+      <td>19831860</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 350853, 'start': 348415}</td>
+      <td>functions in fatty acid oxidation; converts ac...</td>
       <td>acyl-CoA dehydrogenase</td>
       <td>YP_094347.1</td>
+      <td>MAIVFFLIYLAFTLVVLSRRINPLVWEIGSIIYLIPATFYFGFPWI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0294</th>
       <td></td>
-      <td>GeneID:19831861</td>
       <td></td>
+      <td></td>
+      <td>19831861</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 351659, 'start': 350967}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094348.1</td>
+      <td>MPKYTLPTRDALLKAMQVGETSIEAAEYMATRFEQILTKAKLLPEC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0295</th>
       <td></td>
-      <td>GeneID:19831862</td>
       <td>Carbohydrate Metabolism</td>
+      <td></td>
+      <td>19831862</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 352358, 'start': 351696}</td>
       <td></td>
       <td>mannose-1-phosphate guanylyltransferase</td>
       <td>YP_094349.1</td>
+      <td>MKTAMILAAGRGERLRPLTDKMPKALCTVRNKPLIEHHIINLANAG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0296</th>
       <td></td>
-      <td>GeneID:19831863</td>
       <td></td>
+      <td></td>
+      <td>19831863</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 353401, 'start': 352355}</td>
       <td></td>
       <td>phosphotransferase</td>
       <td>YP_094350.1</td>
+      <td>MKLLFIKMGVYQPHSVNKNGKYTMHERENALKEWLAQTIQQKDFVL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0297</th>
       <td></td>
-      <td>GeneID:19831864</td>
       <td>Detoxification / adaptation</td>
       <td>ostA</td>
+      <td>19831864</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 356094, 'start': 353425}</td>
+      <td></td>
       <td>organic solvent tolerance protein</td>
       <td>YP_094351.1</td>
+      <td>MLAVNMRFYKKLIISGFISFIALLRGLLYCHLKRLFKKWPESLFSV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0298</th>
       <td>5.2.1.8</td>
-      <td>GeneID:19831865</td>
       <td>Toxin production / other pathogen functions</td>
       <td>surA</td>
+      <td>19831865</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 357559, 'start': 356219}</td>
+      <td></td>
       <td>peptidyl-prolyl cis-trans isomerase D</td>
       <td>YP_094352.1</td>
+      <td>MTKNNINCPKNVNEDYGMFKRIALVCALFSGVCFAEGKQLLDKVVA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0299</th>
       <td>1.1.1.262</td>
-      <td>GeneID:19831866</td>
       <td>Metabolism of Cofactors and Vitamins</td>
       <td>pdxA</td>
+      <td>19831866</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 358530, 'start': 357556}</td>
+      <td></td>
       <td>4-hydroxythreonine-4-phosphate dehydrogenase PdxA</td>
       <td>YP_094353.1</td>
+      <td>MNPLLISSGEPAGIGPDLCLALAETDLPVVILGDLSLLEARASELN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0300</th>
       <td>1.5.1.3</td>
-      <td>GeneID:19831867</td>
       <td>Metabolism of Cofactors and Vitamins</td>
+      <td></td>
+      <td>19831867</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 359023, 'start': 358532}</td>
       <td></td>
       <td>dihydrofolate reductase</td>
       <td>YP_094354.1</td>
+      <td>MSLISLIAAIDETGGLGINNQLLCYLPADLQHFKSITMGKPIIMGR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0301</th>
       <td></td>
-      <td>GeneID:19831868</td>
       <td></td>
+      <td></td>
+      <td>19831868</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 359575, 'start': 359030}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094355.1</td>
+      <td>MSKLVYLLLMIFFLNPAWANTHYHQHPVSPLANALRTGTDTNGNAL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0302</th>
       <td></td>
-      <td>GeneID:19831869</td>
       <td></td>
+      <td></td>
+      <td>19831869</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 361336, 'start': 359862}</td>
       <td></td>
       <td>16S ribosomal RNA</td>
+      <td></td>
       <td></td>
       <td>rRNA</td>
     </tr>
     <tr>
       <th>lpg0303</th>
       <td></td>
-      <td>GeneID:19831870</td>
       <td></td>
+      <td></td>
+      <td>19831870</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 361553, 'start': 361478}</td>
       <td></td>
       <td>tRNA-Ala</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0304</th>
       <td></td>
-      <td>GeneID:19831871</td>
       <td></td>
+      <td></td>
+      <td>19831871</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 364621, 'start': 361720}</td>
       <td></td>
       <td>23S ribosomal RNA</td>
+      <td></td>
       <td></td>
       <td>rRNA</td>
     </tr>
     <tr>
       <th>lpg0305</th>
       <td></td>
-      <td>GeneID:19831872</td>
       <td></td>
+      <td></td>
+      <td>19831872</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 363300, 'start': 362950}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094356.1</td>
+      <td>MASSFSWKPGINDFSVPKGQNHFAPQSYGKPDLPSLPPYMQVPGQP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0306</th>
       <td></td>
-      <td>GeneID:19831873</td>
       <td></td>
+      <td></td>
+      <td>19831873</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 364132, 'start': 363791}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094357.1</td>
+      <td>MALPFRTTGSLRPTFVPARAVTLAVKHPFAFTLLVRCPTVPRVPLC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0307</th>
       <td></td>
-      <td>GeneID:19831874</td>
       <td></td>
+      <td></td>
+      <td>19831874</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 364190, 'start': 363909}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094358.1</td>
+      <td>MNSWAVSACYPRSTFYPLSDGPSIQNHRITKTNFRSCSSRHSRSQA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0309</th>
       <td></td>
-      <td>GeneID:19831875</td>
       <td></td>
+      <td></td>
+      <td>19831875</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 364840, 'start': 364723}</td>
       <td></td>
       <td>5S ribosomal RNA</td>
+      <td></td>
       <td></td>
       <td>rRNA</td>
     </tr>
     <tr>
       <th>lpg0310</th>
       <td></td>
-      <td>GeneID:19831876</td>
       <td></td>
+      <td></td>
+      <td>19831876</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 365021, 'start': 364946}</td>
       <td></td>
       <td>tRNA-Thr</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0311</th>
       <td></td>
-      <td>GeneID:19831877</td>
       <td></td>
+      <td></td>
+      <td>19831877</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 365178, 'start': 365094}</td>
       <td></td>
       <td>tRNA-Tyr</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0312</th>
       <td></td>
-      <td>GeneID:19831878</td>
       <td></td>
+      <td></td>
+      <td>19831878</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 365272, 'start': 365199}</td>
       <td></td>
       <td>tRNA-Gly</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0313</th>
       <td></td>
-      <td>GeneID:19831879</td>
       <td></td>
+      <td></td>
+      <td>19831879</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 365400, 'start': 365325}</td>
       <td></td>
       <td>tRNA-Thr</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0314</th>
       <td>3.6.5.3</td>
-      <td>GeneID:19831880</td>
       <td>Translation</td>
       <td>tuf2</td>
+      <td>19831880</td>
+      <td>tuf</td>
+      <td>{'strand': 1, 'end': 366625, 'start': 365435}</td>
+      <td>EF-Tu; promotes GTP-dependent binding of amino...</td>
       <td>elongation factor Tu</td>
       <td>YP_094359.1</td>
+      <td>MAKEKFERKKPHVNVGTIGHVDHGKTTLTAAITTIMAKKYGGTAKA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0315</th>
       <td></td>
-      <td>GeneID:19831881</td>
       <td></td>
+      <td></td>
+      <td>19831881</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 366760, 'start': 366685}</td>
       <td></td>
       <td>tRNA-Trp</td>
+      <td></td>
       <td></td>
       <td>tRNA</td>
     </tr>
     <tr>
       <th>lpg0316</th>
       <td></td>
-      <td>GeneID:19831882</td>
       <td>Protein fate / hydrolases / secretion</td>
       <td>secE</td>
+      <td>19831882</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 367145, 'start': 366774}</td>
+      <td>forms a complex with SecY and SecG; SecYEG for...</td>
       <td>preprotein translocase subunit SecE</td>
       <td>YP_094360.1</td>
+      <td>MKSSNENQGKMKDIMSWLAIILATAGAFVCTYYYTFTGPIQSIIWL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0317</th>
       <td></td>
-      <td>GeneID:19831883</td>
       <td>Transcription</td>
       <td>nusG</td>
+      <td>19831883</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 367696, 'start': 367142}</td>
+      <td></td>
       <td>transcription antitermination protein NusG</td>
       <td>YP_094361.1</td>
+      <td>MNMVEENKAKQWYVVHAYSGYENFVMREITSRAKHHNLQDKIGEVV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0318</th>
       <td></td>
-      <td>GeneID:19831884</td>
       <td>Translation</td>
       <td>rplK</td>
+      <td>19831884</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 368241, 'start': 367807}</td>
+      <td>binds directly to 23S ribosomal RNA</td>
       <td>50S ribosomal protein L11</td>
       <td>YP_094362.1</td>
+      <td>MAKKVEAYIKLQIPAGKANPSPPVGPALGQRGVNIMEFCKAFNAAT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0319</th>
       <td></td>
-      <td>GeneID:19831885</td>
       <td>Translation</td>
       <td>rplA</td>
+      <td>19831885</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 368946, 'start': 368251}</td>
+      <td>in Escherichia coli and Methanococcus, this pr...</td>
       <td>50S ribosomal protein L1</td>
       <td>YP_094363.1</td>
+      <td>MSKLTKKQKKIAEVIKPNQLYTVADAVAILKQFASKKFRESLDISI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0320</th>
       <td></td>
-      <td>GeneID:19831886</td>
       <td>Translation</td>
       <td>rplJ</td>
+      <td>19831886</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 369652, 'start': 369119}</td>
+      <td>binds the two ribosomal protein L7/L12 dimers ...</td>
       <td>50S ribosomal protein L10</td>
       <td>YP_094364.1</td>
+      <td>MTLNLAAKKAVVEEVTAVASKAISAVVADYRGLTVNQMTQLRSEAR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0321</th>
       <td></td>
-      <td>GeneID:19831887</td>
       <td>Translation</td>
       <td>rplL</td>
+      <td>19831887</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 370063, 'start': 369683}</td>
+      <td>present in two forms; L12 is normal, while L7 ...</td>
       <td>50S ribosomal protein L7/L12</td>
       <td>YP_094365.1</td>
+      <td>MAVSKNEILETISNMTVMEVVELIEAMEEKFNVSAAAAAVAVAAPA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0322</th>
       <td>2.7.7.6</td>
-      <td>GeneID:19831888</td>
       <td>Transcription</td>
       <td>rpoB</td>
+      <td>19831888</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 374261, 'start': 370155}</td>
+      <td>DNA-dependent RNA polymerase catalyzes the tra...</td>
       <td>DNA-directed RNA polymerase subunit beta</td>
       <td>YP_094366.1</td>
+      <td>MAVAEAKPQYSHAEKKRFRKSFGKQTDIMPIPNLLEIQLKSYRDFL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0323</th>
       <td>2.7.7.6</td>
-      <td>GeneID:19831889</td>
       <td>Transcription</td>
       <td>rpoC</td>
+      <td>19831889</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 378555, 'start': 374308}</td>
+      <td>DNA-dependent RNA polymerase catalyzes the tra...</td>
       <td>DNA-directed RNA polymerase subunit beta'</td>
       <td>YP_094367.1</td>
+      <td>MATLSNDPMKKAPVMSDLLGILKQQGQSEEFDAIKIALASPELIRS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0324</th>
       <td></td>
-      <td>GeneID:19831890</td>
       <td>Translation</td>
       <td>rpsL</td>
+      <td>19831890</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 379049, 'start': 378669}</td>
+      <td>interacts with and stabilizes bases of the 16S...</td>
       <td>30S ribosomal protein S12</td>
       <td>YP_094368.1</td>
+      <td>MATINQLVRKPRVDVKKKSNVPALESCPQRRGVCTRVYTTTPKKPN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0325</th>
       <td></td>
-      <td>GeneID:19831891</td>
       <td>Translation</td>
       <td>rpS7</td>
+      <td>19831891</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 379597, 'start': 379070}</td>
+      <td>binds directly to 16S rRNA where it nucleates ...</td>
       <td>30S ribosomal protein S7</td>
       <td>YP_094369.1</td>
+      <td>MPRRREVPKREILPDPKHHSELLAKFINVLMVSGKKSIAEKITYGA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0326</th>
       <td>3.6.5.3</td>
-      <td>GeneID:19831892</td>
       <td>Translation</td>
       <td>fusA</td>
+      <td>19831892</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 381696, 'start': 379612}</td>
+      <td>EF-G; promotes GTP-dependent translocation of ...</td>
       <td>elongation factor G</td>
       <td>YP_094370.1</td>
+      <td>MATPLKLYRNIGIAAHVDAGKTTTTERVLYYTGMSHKIGEVHDGAA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0327</th>
       <td>3.6.5.3</td>
-      <td>GeneID:19831893</td>
       <td>Translation</td>
       <td>tufB</td>
+      <td>19831893</td>
+      <td>tuf</td>
+      <td>{'strand': 1, 'end': 382907, 'start': 381717}</td>
+      <td>EF-Tu; promotes GTP-dependent binding of amino...</td>
       <td>elongation factor Tu</td>
       <td>YP_094371.1</td>
+      <td>MAKEKFERKKPHVNVGTIGHVDHGKTTLTAAITTIMAKKYGGTAKA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0328</th>
       <td></td>
-      <td>GeneID:19831894</td>
       <td>Translation</td>
       <td>rpsJ</td>
+      <td>19831894</td>
+      <td>nusE</td>
+      <td>{'strand': 1, 'end': 383230, 'start': 382913}</td>
+      <td>NusE; involved in assembly of the 30S subunit;...</td>
       <td>30S ribosomal protein S10</td>
       <td>YP_094372.1</td>
+      <td>MSSNQNIKIRLKSFDHRLIDLSTREIVDTAKRTGAQIRGPIPLPIR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0329</th>
       <td></td>
-      <td>GeneID:19831895</td>
       <td>Translation</td>
       <td>rplC</td>
+      <td>19831895</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 383915, 'start': 383268}</td>
+      <td>binds directly near the 3' end of the 23S rRNA...</td>
       <td>50S ribosomal protein L3</td>
       <td>YP_094373.2</td>
+      <td>MIGLLGRKIGMTRVFTPEGVSVPVSVVEVQPNRVSQVKTAANDGYS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0330</th>
       <td></td>
-      <td>GeneID:19831896</td>
       <td>Translation</td>
       <td>rplD</td>
+      <td>19831896</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 384520, 'start': 383912}</td>
+      <td>L4 is important during the early stages of 50S...</td>
       <td>50S ribosomal protein L4</td>
       <td>YP_094374.1</td>
+      <td>MMEITTIDTKSKLKLNKEIFAYTYNEGLVHQAVVTFMNNARSGNSA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0331</th>
       <td></td>
-      <td>GeneID:19831897</td>
       <td>Translation</td>
       <td>rplW</td>
+      <td>19831897</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 384813, 'start': 384535}</td>
+      <td>binds third domain of 23S rRNA and protein L29...</td>
       <td>50S ribosomal protein L23</td>
       <td>YP_094375.1</td>
+      <td>MMVLREPHTSEKATVMADKFKQFTFKVLKNATKTEIKLAVEHIFNV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0332</th>
       <td></td>
-      <td>GeneID:19831898</td>
       <td>Translation</td>
       <td>rplB</td>
+      <td>19831898</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 385652, 'start': 384825}</td>
+      <td>one of the primary rRNA-binding proteins; requ...</td>
       <td>50S ribosomal protein L2</td>
       <td>YP_094376.1</td>
+      <td>MALLKSKPTSPGKRGEIRVVHHDIYKGKPHAALVEKLKKTGGRNNQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0333</th>
       <td></td>
-      <td>GeneID:19834570</td>
       <td></td>
+      <td></td>
+      <td>19834570</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 386176, 'start': 385874}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094377.1</td>
+      <td>MPTFRSSISAPLLFSAFAIADSNNLSINLAPFFGVNLRTSSAPDTF...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0334</th>
       <td></td>
-      <td>GeneID:19831900</td>
       <td>Translation</td>
       <td>rplV</td>
+      <td>19831900</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 386294, 'start': 385959}</td>
+      <td>binds specifically to 23S rRNA during the earl...</td>
       <td>50S ribosomal protein L22</td>
       <td>YP_094378.2</td>
+      <td>MEVTAKLKGAPLSAQKGRLVADMIRNMNVSGALDVLKFTPKKGAKL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0335</th>
       <td></td>
-      <td>GeneID:19831901</td>
       <td>Translation</td>
       <td>rpsC</td>
+      <td>19831901</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 386953, 'start': 386297}</td>
+      <td>forms a complex with S10 and S14; binds the lo...</td>
       <td>30S ribosomal protein S3</td>
       <td>YP_094379.1</td>
+      <td>MGQKVNPIGIRLGIIKDWNSKWFAGKRYAEFLIQDIKLRNDLKKKL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0336</th>
       <td></td>
-      <td>GeneID:19831902</td>
       <td>Translation</td>
       <td>rplP</td>
+      <td>19831902</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 387383, 'start': 386970}</td>
+      <td>located in the peptidyl transferase center and...</td>
       <td>50S ribosomal protein L16</td>
       <td>YP_094380.1</td>
+      <td>MLQPKRTKYRKQMKGRNRGLALRGSKISFGEFGLKAVERGRLTARQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0337</th>
       <td></td>
-      <td>GeneID:19831903</td>
       <td>Translation</td>
       <td>rpmC</td>
+      <td>19831903</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 387577, 'start': 387383}</td>
+      <td>one of the stabilizing components for the larg...</td>
       <td>50S ribosomal protein L29</td>
       <td>YP_094381.1</td>
+      <td>MKKIDELRNMSVEELQNELLSLRKDQFNLRMKKASGSLDKTHLITM...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0338</th>
       <td></td>
-      <td>GeneID:19831904</td>
       <td>Translation</td>
       <td>rpsQ</td>
+      <td>19831904</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 387833, 'start': 387579}</td>
+      <td>primary binding protein; helps mediate assembl...</td>
       <td>30S ribosomal protein S17</td>
       <td>YP_094382.1</td>
+      <td>MSTNSESNARTMIGKVVSDKMDKTIVVMIERTVKHPKYGKIMKRRT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0339</th>
       <td></td>
-      <td>GeneID:19831905</td>
       <td>Translation</td>
       <td>rplN</td>
+      <td>19831905</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 388287, 'start': 387922}</td>
+      <td>binds to the 23S rRNA between the centers for ...</td>
       <td>50S ribosomal protein L14</td>
       <td>YP_094383.1</td>
+      <td>MIQMQTVLEVADNSGARKVMCIKVLGGSHRRYARVGDVIKVSVKDA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0340</th>
       <td></td>
-      <td>GeneID:19831906</td>
       <td>Translation</td>
       <td>rplX</td>
+      <td>19831906</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 388629, 'start': 388300}</td>
+      <td>assembly initiator protein; binds to 5' end of...</td>
       <td>50S ribosomal protein L24</td>
       <td>YP_094384.1</td>
+      <td>MKRIKSGDEVIVIAGKSKGHIGKVLRVIDDAVVVEGGNLIKKHIKP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0341</th>
       <td></td>
-      <td>GeneID:19831907</td>
       <td>Translation</td>
       <td>rplE</td>
+      <td>19831907</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 389196, 'start': 388645}</td>
+      <td>part of 50S and 5S/L5/L18/L25 subcomplex; cont...</td>
       <td>50S ribosomal protein L5</td>
       <td>YP_094385.2</td>
+      <td>MARLKEFYKKDVVTMMMKRFNYSSVMEVPRILKITLNMGVGEAVGD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0342</th>
       <td></td>
-      <td>GeneID:19831908</td>
       <td>Translation</td>
       <td>rpsN</td>
+      <td>19831908</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 389511, 'start': 389209}</td>
+      <td>located in the peptidyl transferase center and...</td>
       <td>30S ribosomal protein S14</td>
       <td>YP_094386.2</td>
+      <td>MAKKSMLMRESKRAKLVEKYRQRRNELKQLIKSSDDFQVIMESQAK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0343</th>
       <td></td>
-      <td>GeneID:19831909</td>
       <td>Translation</td>
       <td>rpsH</td>
+      <td>19831909</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 389929, 'start': 389534}</td>
+      <td>binds directly to 16S rRNA central domain wher...</td>
       <td>30S ribosomal protein S8</td>
       <td>YP_094387.2</td>
+      <td>MSMHDPIADMLTRIRNGQQAKHQQVTLVSSKLKEEIARVLKEEGYI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0344</th>
       <td></td>
-      <td>GeneID:19831910</td>
       <td>Translation</td>
       <td>rplF</td>
+      <td>19831910</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 390486, 'start': 389947}</td>
+      <td>ribosomal protein L6 appears to have arisen as...</td>
       <td>50S ribosomal protein L6</td>
       <td>YP_094388.1</td>
+      <td>MSRVAKAPVIHSANVEVTFVDGVITVKGPKGILTQKINKLVNIQHS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0345</th>
       <td></td>
-      <td>GeneID:19831911</td>
       <td>Translation</td>
       <td>rplR</td>
+      <td>19831911</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 390856, 'start': 390497}</td>
+      <td>binds 5S rRNA along with protein L5 and L25</td>
       <td>50S ribosomal protein L18</td>
       <td>YP_094389.2</td>
+      <td>MNKQNARHRRGLKAKALIRKTGRSRLVVYRSGVHIYSQIVKSDQLG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0346</th>
       <td></td>
-      <td>GeneID:19831912</td>
       <td>Translation</td>
       <td>rpsE</td>
+      <td>19831912</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 391372, 'start': 390866}</td>
+      <td>located at the back of the 30S subunit body wh...</td>
       <td>30S ribosomal protein S5</td>
       <td>YP_094390.1</td>
+      <td>MSFDELPKSDGYQEKLVSVTRTAKVVKGGRVFGFAVLVVVGDGKGK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0347</th>
       <td></td>
-      <td>GeneID:19831913</td>
       <td>Translation</td>
       <td>rpmD</td>
+      <td>19831913</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 391560, 'start': 391375}</td>
+      <td>L30 binds domain II of the 23S rRNA and the 5S...</td>
       <td>50S ribosomal protein L30</td>
       <td>YP_094391.1</td>
+      <td>MGKKIKITLVKSTIGRKPKHVAIAKQLGLGKTNSSVVHSDTPAIRG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0348</th>
       <td></td>
-      <td>GeneID:19831914</td>
       <td>Translation</td>
       <td>rplO</td>
+      <td>19831914</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 391994, 'start': 391560}</td>
+      <td>late assembly protein</td>
       <td>50S ribosomal protein L15</td>
       <td>YP_094392.1</td>
+      <td>MNLNTLSPDPGSRPSRRRVGRGIGSGLGKTCGKGHKGQKSRAGGYH...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0349</th>
       <td></td>
-      <td>GeneID:19831915</td>
       <td>Protein fate / hydrolases / secretion</td>
       <td>secY</td>
+      <td>19831915</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 393325, 'start': 391991}</td>
+      <td>forms heterotrimeric complex in the membrane; ...</td>
       <td>preprotein translocase subunit SecY</td>
       <td>YP_094393.1</td>
+      <td>MTMKNQKHNGSKPRGGLAELKSRLMFVVLGILVYRLGAHIPVPGLD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0350</th>
       <td></td>
-      <td>GeneID:19831916</td>
       <td>Translation</td>
       <td>rpmJ</td>
+      <td>19831916</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 393455, 'start': 393342}</td>
+      <td>smallest protein in the large subunit; similar...</td>
       <td>50S ribosomal protein L36</td>
       <td>YP_094394.1</td>
+      <td>MKVRASVKRICRNCKIIKRSGTIRVICKDARHKQKQG</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0351</th>
       <td></td>
-      <td>GeneID:19831917</td>
       <td>Translation</td>
       <td>rpsM</td>
+      <td>19831917</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 393889, 'start': 393533}</td>
+      <td>located at the top of the head of the 30S subu...</td>
       <td>30S ribosomal protein S13</td>
       <td>YP_094395.1</td>
+      <td>MARIAGVNIPDHKHVVIALTAIYGIGKTTSLKLCKTVDIDPSVKVS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0352</th>
       <td></td>
-      <td>GeneID:19831918</td>
       <td>Translation</td>
       <td>rpsK</td>
+      <td>19831918</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 394311, 'start': 393913}</td>
+      <td>located on the platform of the 30S subunit, it...</td>
       <td>30S ribosomal protein S11</td>
       <td>YP_094396.1</td>
+      <td>MAITKSKQQKTRKKVKRVVSDGIVHIHASFNNTIVTFTDRQGNALC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0353</th>
       <td></td>
-      <td>GeneID:19831919</td>
       <td>Translation</td>
       <td>rpsD</td>
+      <td>19831919</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 394948, 'start': 394328}</td>
+      <td>primary rRNA binding protein; nucleates 30S as...</td>
       <td>30S ribosomal protein S4</td>
       <td>YP_094397.1</td>
+      <td>MARYLGPKCKLSRREGCDLLLKSGVRDHKSKCKSEKLPGQHGDKKP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0354</th>
       <td>2.7.7.6</td>
-      <td>GeneID:19831920</td>
       <td>Transcription</td>
       <td>rpoA</td>
+      <td>19831920</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 395959, 'start': 394967}</td>
+      <td>catalyzes the transcription of DNA into RNA us...</td>
       <td>DNA-directed RNA polymerase subunit alpha</td>
       <td>YP_094398.1</td>
+      <td>MYTEINEMLTPKVLKVQAESPYKARIVLEPLERGFGHTLGNALRRI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0355</th>
       <td></td>
-      <td>GeneID:19831921</td>
       <td>Translation</td>
       <td>rplQ</td>
+      <td>19831921</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 396361, 'start': 395978}</td>
+      <td>is a component of the macrolide binding site i...</td>
       <td>50S ribosomal protein L17</td>
       <td>YP_094399.1</td>
+      <td>MRHRNSGRSFSRTSSHRKAMFSNMCCSLIEHELIRTTLPKAKDLRR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0356</th>
       <td></td>
-      <td>GeneID:19831922</td>
       <td>Replication and Repair</td>
       <td>ssb</td>
+      <td>19831922</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 396917, 'start': 396429}</td>
+      <td></td>
       <td>single strand binding protein</td>
       <td>YP_094400.1</td>
+      <td>MISMARGINKVILVGNVGADPDVRYLPNGNAVTTLSVATSETWKDK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0357</th>
       <td></td>
-      <td>GeneID:19831923</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831923</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 398359, 'start': 396992}</td>
       <td></td>
       <td>major facilitator family transporter</td>
       <td>YP_094401.1</td>
+      <td>MKYSWNKTVFPIAAIFSFRLLGLFLLIPVFTLYATNLKGATPTLIG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0358</th>
       <td>1.3.1.10</td>
-      <td>GeneID:19831924</td>
       <td></td>
       <td></td>
+      <td>19831924</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 399279, 'start': 398521}</td>
+      <td>Catalyzes a key regulatory step in fatty acid ...</td>
       <td>enoyl-ACP reductase</td>
       <td>YP_094402.1</td>
+      <td>MSSLVFSGKVGLITGGARGIGKATALKLAQSGCDIAIVYYNSSDEA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0359</th>
       <td></td>
-      <td>GeneID:19831925</td>
       <td></td>
       <td>acpP</td>
+      <td>19831925</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 399763, 'start': 399350}</td>
+      <td></td>
       <td>acyl carrier protein</td>
       <td>YP_094403.1</td>
+      <td>MNVAEVYPKVREIIADVLVIDEEEISLNSSLIEDLGAESIDFLDLV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0360</th>
       <td>4.2.1.-</td>
-      <td>GeneID:19831926</td>
       <td></td>
       <td>fabA</td>
+      <td>19831926</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 400659, 'start': 399760}</td>
+      <td></td>
       <td>(3R)-hydroxymyristoyl-ACP dehydratase</td>
       <td>YP_094404.1</td>
+      <td>MMRFLFVDRIVQLSPGEWIKGIKHVTRDDAYLTTDDHGRLCFMPSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0361</th>
       <td>2.3.1.41</td>
-      <td>GeneID:19831927</td>
       <td>Lipid Metabolism</td>
       <td>fabF</td>
+      <td>19831927</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 401956, 'start': 400664}</td>
+      <td></td>
       <td>3-oxoacyl-ACP synthase</td>
       <td>YP_094405.1</td>
+      <td>MKRRVAITGLGVVSPLGNDVSTTWMNLIAGHSGIDSIKQFDASAFP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0362</th>
       <td>2.3.1.41</td>
-      <td>GeneID:19831928</td>
       <td>Lipid Metabolism</td>
       <td>fabF</td>
+      <td>19831928</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 403234, 'start': 401957}</td>
+      <td></td>
       <td>3-oxoacyl-ACP synthase</td>
       <td>YP_094406.1</td>
+      <td>MSQANRVFITGRSALTASGATADETWNAIISGQCGIDEINFWELSE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0363</th>
       <td>2.3.1.-</td>
-      <td>GeneID:19831929</td>
       <td>Metabolism of Complex Carbohydrates</td>
       <td>waaM</td>
+      <td>19831929</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 404072, 'start': 403227}</td>
+      <td></td>
       <td>lipid A biosynthesis acyltransferase</td>
       <td>YP_094407.1</td>
+      <td>MNNLAQQIEALPITLAGRFIYRFLPYRRRLIFSNISQVYNDQLNES...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0364</th>
       <td></td>
-      <td>GeneID:19831930</td>
       <td></td>
+      <td></td>
+      <td>19831930</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 404487, 'start': 404182}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094408.1</td>
+      <td>MDERRKYFRLKNHGEINASLDNNSIEIVEISSNGAVVVKQKTDIPK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0365</th>
       <td></td>
-      <td>GeneID:19831931</td>
       <td></td>
+      <td></td>
+      <td>19831931</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 407352, 'start': 404662}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094409.1</td>
+      <td>MVDFDKPVSKNDILASLLLIADLNRPSLNQTLSWEQALKSFLSLND...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0366</th>
       <td>5.1.1.7</td>
-      <td>GeneID:19831932</td>
       <td>Amino Acid Metabolism</td>
       <td>dapF</td>
+      <td>19831932</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 408496, 'start': 407663}</td>
+      <td>involved in lysine biosynthesis; DAP epimerase...</td>
       <td>diaminopimelate epimerase</td>
       <td>YP_094410.1</td>
+      <td>MGIKFTKMHGLGNDFIVLDGVNQSIQLTVEQIQKLANRHTGIGFDQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0367</th>
       <td></td>
-      <td>GeneID:19831933</td>
       <td></td>
+      <td></td>
+      <td>19831933</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 409034, 'start': 408711}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094411.1</td>
+      <td>MVPIQTGYMEVLAKVSFHKIRFSYTGTEMEKTVILLNVQIDYLKRN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0368</th>
       <td></td>
-      <td>GeneID:19831934</td>
       <td></td>
+      <td></td>
+      <td>19831934</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 409140, 'start': 409033}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094412.1</td>
+      <td>MQISSGGIKAIIYLVAIMALLDLLNEPAVRSQFSC</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0369</th>
       <td></td>
-      <td>GeneID:19831935</td>
       <td>Protein fate / hydrolases / secretion</td>
+      <td></td>
+      <td>19831935</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 409992, 'start': 409315}</td>
       <td></td>
       <td>carboxylesterase/phospholipase</td>
       <td>YP_094413.1</td>
+      <td>MRGEFVLSVYMKEPLEKAQACVIWMHGLGADASDMMGLADQLTIED...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0370</th>
       <td></td>
-      <td>GeneID:19831936</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831936</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 410423, 'start': 409989}</td>
       <td></td>
       <td>oligoketide cyclase/lipid transporter protein</td>
       <td>YP_094414.1</td>
+      <td>MTIVKRSRTVPYSCEQMYGLVNDVEHYSEFLPYCAESKILHRDNDE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0371</th>
       <td></td>
-      <td>GeneID:19831937</td>
       <td></td>
+      <td></td>
+      <td>19831937</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 410682, 'start': 410410}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094415.1</td>
+      <td>MVKVELVYIANSKNCLHYKMDLKQGATVEEALIESNIYSTCPETRE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0372</th>
       <td></td>
-      <td>GeneID:19831938</td>
       <td></td>
       <td>smpA</td>
+      <td>19831938</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 411115, 'start': 410771}</td>
+      <td></td>
       <td>small protein A, tmRNA-binding</td>
       <td>YP_094416.1</td>
+      <td>MAKFFMVGKKMRIMTFFICFILTLTLTQCASYDFSRRITQQGNLLP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0373</th>
       <td></td>
-      <td>GeneID:19831939</td>
       <td>Signal transduction / other regulatory functions</td>
+      <td></td>
+      <td>19831939</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 413186, 'start': 412548}</td>
       <td></td>
       <td>components of sensory transduction system</td>
       <td>YP_094417.1</td>
+      <td>MPMNFPIIAYNLYLFQFDKIIFAVMYSLFLIIVLLTVRLNSKLLSK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0374</th>
       <td></td>
-      <td>GeneID:19831940</td>
       <td></td>
+      <td></td>
+      <td>19831940</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 413885, 'start': 413499}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094418.1</td>
+      <td>MKKWTVLAASSLLMVNAYANESFCGYKDFFHLGDKTHPGIYVVSGY...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0375</th>
       <td></td>
-      <td>GeneID:19831941</td>
       <td></td>
+      <td></td>
+      <td>19831941</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 414740, 'start': 414141}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094419.1</td>
+      <td>MYSSLFLKKDLGHLPEKVIFLDFDGTVALPARKENGEYDVQPDGSI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0376</th>
       <td></td>
-      <td>GeneID:19831942</td>
       <td></td>
       <td>sdhA</td>
+      <td>19831942</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 419069, 'start': 414780}</td>
+      <td></td>
       <td>protein SdhA</td>
       <td>YP_094420.1</td>
+      <td>MISEKIKLLESFKQNQFSKLIEKINSKILATLKSGHFNPRLAPYLE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0377</th>
       <td></td>
-      <td>GeneID:19831943</td>
       <td></td>
+      <td></td>
+      <td>19831943</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 419975, 'start': 419232}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094421.1</td>
+      <td>MNNLPPDIMKNIALLISCEHAVNTVPYEYQTLFEPHKDILESHRGI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0378</th>
       <td></td>
-      <td>GeneID:19831944</td>
       <td></td>
+      <td></td>
+      <td>19831944</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 421212, 'start': 419956}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094422.1</td>
+      <td>MSSYNEFAGNMVMSDFPIFSVLGIEIEYMLVDKESLNVQPKSDLIL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0379</th>
       <td></td>
-      <td>GeneID:19831945</td>
       <td>Amino Acid Metabolism, Metabolism of Other Ami...</td>
+      <td></td>
+      <td>19831945</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 422623, 'start': 421169}</td>
       <td></td>
       <td>ribosomal protein S6 modification protein</td>
       <td>YP_094423.1</td>
+      <td>MQTVIVTDDLDSWSFLSELAPIVHALEYLSGDEYHQNKSFRVINLC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0380</th>
       <td></td>
-      <td>GeneID:19831946</td>
       <td></td>
+      <td></td>
+      <td>19831946</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 423346, 'start': 422627}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094424.1</td>
+      <td>MPMIDLIIQTQPDDETCGPTSLHAIYLYYGLDLPLNEIIQGVDKSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0381</th>
       <td></td>
-      <td>GeneID:19831947</td>
       <td></td>
+      <td></td>
+      <td>19831947</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 424008, 'start': 423535}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094425.1</td>
+      <td>MSPLTQFKFFLWFFSHFKVALIGYLKPKLIQLTDNEIVVRLPLTRR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0382</th>
       <td></td>
-      <td>GeneID:19831948</td>
       <td>Detoxification / adaptation</td>
       <td>osmY</td>
+      <td>19831948</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 424571, 'start': 424005}</td>
+      <td></td>
       <td>osmotically inducible protein Y</td>
       <td>YP_094426.1</td>
+      <td>MEDTTMPKCMHFILATALIFVTSTFYASNLREIEQEVSDSVITAKI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0383</th>
       <td></td>
-      <td>GeneID:19831949</td>
       <td>Transport and binding, Toxin production / othe...</td>
+      <td></td>
+      <td>19831949</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 425297, 'start': 424815}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094427.1</td>
+      <td>MMRNRDFNMKSLIKNLLFIVVFSINSSALYAINGNTRVIQWAQQTL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0384</th>
       <td></td>
-      <td>GeneID:19831950</td>
       <td>DNA/RNA degradation / restriction</td>
       <td>uvrA</td>
+      <td>19831950</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 428224, 'start': 425369}</td>
+      <td></td>
       <td>excinuclease ABC subunit A</td>
       <td>YP_094428.1</td>
+      <td>MHTITIRGARTHNLKNLDLELPRDKLIVITGLSGSGKSSLAFDTLY...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0385</th>
       <td></td>
-      <td>GeneID:19831951</td>
       <td>Toxin production / other pathogen functions</td>
+      <td></td>
+      <td>19831951</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 428988, 'start': 428407}</td>
       <td></td>
       <td>LemA protein</td>
       <td>YP_094429.1</td>
+      <td>MKTFFIAILIIIALAFVWAISIYNTLIGLIEAINNNKKQIDIQLDR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0386</th>
       <td>3.4.24.-</td>
-      <td>GeneID:19831952</td>
       <td>Detoxification / adaptation, Protein fate / hy...</td>
       <td>htpX</td>
+      <td>19831952</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 430018, 'start': 428999}</td>
+      <td>metalloprotease</td>
       <td>heat shock protein HtpX</td>
       <td>YP_094430.1</td>
+      <td>MGIADYHATAGDWRAQLRRNEKKTRRVIAVFFLVYIFVGLIVDAFV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0387</th>
       <td></td>
-      <td>GeneID:19831953</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831953</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 430818, 'start': 430045}</td>
       <td></td>
       <td>ABC transporter permease</td>
       <td>YP_094431.1</td>
+      <td>MGFKYQLIALYTLVRREVVRMFRISSQVFLPPVITTTLYFLIFGSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0388</th>
       <td></td>
-      <td>GeneID:19831954</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831954</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 431722, 'start': 430808}</td>
       <td></td>
       <td>ABC transporter ATP-binding protein</td>
       <td>YP_094432.1</td>
+      <td>MHALEIKQLSKTYSNGVEALKGIDLTVNTGDFFALLGANGAGKSTT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0389</th>
       <td></td>
-      <td>GeneID:19831955</td>
       <td></td>
+      <td></td>
+      <td>19831955</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 431895, 'start': 431782}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094433.1</td>
+      <td>MDFNSSLTSNGLILGMKEELTLAMNHRYEDIFLLLHF</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0390</th>
       <td></td>
-      <td>GeneID:19831956</td>
       <td></td>
       <td>vipA</td>
+      <td>19831956</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 433011, 'start': 431953}</td>
+      <td></td>
       <td>VipA</td>
       <td>YP_094434.1</td>
+      <td>MKHYDSMDQELITMPISNAFLKLFSEFVDNYARNGTPSFYHWAKEQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0391</th>
       <td></td>
-      <td>GeneID:19831957</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831957</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 433637, 'start': 433098}</td>
       <td></td>
       <td>SM20-like protein</td>
       <td>YP_094435.1</td>
+      <td>MAYELKQQNLFRNAKIGQNLQAQQNDKIRSDQIFWIDADSPYPPIQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0392</th>
       <td></td>
-      <td>GeneID:19831958</td>
       <td>Protein fate / hydrolases / secretion</td>
+      <td></td>
+      <td>19831958</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 434529, 'start': 433822}</td>
       <td></td>
       <td>zinc metalloprotease</td>
       <td>YP_094436.1</td>
+      <td>MHIQIDGIPIEILRKPIKNLNLRIYPPDGLVKVSVPLKYSEQLIKQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0393</th>
       <td></td>
-      <td>GeneID:19831959</td>
       <td></td>
+      <td></td>
+      <td>19831959</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 436007, 'start': 435144}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094437.1</td>
+      <td>MLSSTKEYLQALRDGKYLLFLQWPKFIAEYYGKSDKNQEADEMVSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0394</th>
       <td>2.1.1.63</td>
-      <td>GeneID:19831960</td>
       <td></td>
+      <td></td>
+      <td>19831960</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 436563, 'start': 436108}</td>
       <td></td>
       <td>methylated DNA protein cysteine S-methyltransf...</td>
       <td>YP_094438.1</td>
+      <td>MLLMSIFNTPVGNLEVAHDEHFIFNASFTDKSGAPAQNQLAHLIAS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0395</th>
       <td></td>
-      <td>GeneID:19831961</td>
       <td>Translation</td>
       <td>rplS</td>
+      <td>19831961</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 436944, 'start': 436579}</td>
+      <td>this protein is located at the 30S-50S ribosom...</td>
       <td>50S ribosomal protein L19</td>
       <td>YP_094439.1</td>
+      <td>MTNIIDQINAEQMQGKEIPDFNPGDTVLVQVKVIEGNRERLQAFEG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0396</th>
       <td></td>
-      <td>GeneID:19831962</td>
       <td>DNA/RNA degradation / restriction, Translation</td>
       <td>trmD</td>
+      <td>19831962</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 437741, 'start': 436971}</td>
+      <td>methylates guanosine-37 in various tRNAs; uses...</td>
       <td>tRNA (guanine-N(1)-)-methyltransferase</td>
       <td>YP_094440.1</td>
+      <td>MGYEFLVALHLGVITLLPEIIQGIHYGVTGRAIEQGLVKIDCWNPR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0397</th>
       <td></td>
-      <td>GeneID:19831963</td>
       <td>DNA/RNA degradation / restriction, Translation</td>
       <td>rimM</td>
+      <td>19831963</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 438232, 'start': 437723}</td>
+      <td></td>
       <td>16S rRNA-processing protein RimM</td>
       <td>YP_094441.1</td>
+      <td>MNNKTNWVIIGRFGRPHGIKGFVTVHSFTDPADNILRYNDWHVFLN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0398</th>
       <td></td>
-      <td>GeneID:19831964</td>
       <td></td>
+      <td></td>
+      <td>19831964</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 438241, 'start': 438107}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094442.1</td>
+      <td>MPVIVPQDIISRVCEGMYRDKAFNTMGSAKTADDNPICLVIHFG</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0399</th>
       <td></td>
-      <td>GeneID:19831965</td>
       <td>Translation</td>
       <td>rpsP</td>
+      <td>19831965</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 438498, 'start': 438238}</td>
+      <td>binds to lower part of 30S body where it stabi...</td>
       <td>30S ribosomal protein S16</td>
       <td>YP_094443.1</td>
+      <td>MVVIRLSRAGAKKRPFYHMVVTDSRKRRDGNYIERIGYFNPVARGQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0400</th>
       <td></td>
-      <td>GeneID:19831966</td>
       <td>Protein fate / hydrolases / secretion</td>
       <td>ffh</td>
+      <td>19831966</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 439961, 'start': 438585}</td>
+      <td></td>
       <td>signal recognition particle protein Ffh</td>
       <td>YP_094444.1</td>
+      <td>MFDNLTERLTRTFKNLRGQGRLTEDNIQHALREVRLSLIEADVALP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0401</th>
       <td></td>
-      <td>GeneID:19831967</td>
       <td></td>
+      <td></td>
+      <td>19831967</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 440887, 'start': 440213}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094445.1</td>
+      <td>MESLMPKAFTHLCKKVNLSLYNDTLTVYPKSSVLPKPIQIRSELDL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0402</th>
       <td></td>
-      <td>GeneID:19831968</td>
       <td></td>
       <td>legA9</td>
+      <td>19831968</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 443024, 'start': 441321}</td>
+      <td></td>
       <td>ankyrin repeat-containing protein</td>
       <td>YP_094446.1</td>
+      <td>MHSLYLGVVKVMAKIILVYANCVNSTAKGDFALAGQIAKDLVREKT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0403</th>
       <td></td>
-      <td>GeneID:19831969</td>
       <td></td>
       <td>legA7</td>
+      <td>19831969</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 444748, 'start': 443204}</td>
+      <td>1700007B22 gene product</td>
       <td>ankyrin repeat-containing protein</td>
       <td>YP_094447.1</td>
+      <td>MNSLWIASGSRDMIYVLICIMLVCGLVVYQLMPKLLSYSTSLISKK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0404</th>
       <td></td>
-      <td>GeneID:19831970</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831970</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 446488, 'start': 445085}</td>
       <td></td>
       <td>amino acid antiporter</td>
       <td>YP_094448.1</td>
+      <td>MSNKKHSLTIFSLTMITVGSVDSIRNLPATALFGSQLIFYFILGAL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0405</th>
       <td></td>
-      <td>GeneID:19831971</td>
       <td></td>
+      <td></td>
+      <td>19831971</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 447068, 'start': 446478}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094449.1</td>
+      <td>MLYNLTRQVKFNNPSCLCNFQKMGYIDELLEELSARLPELEWKING...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0406</th>
       <td></td>
-      <td>GeneID:19831972</td>
       <td></td>
+      <td></td>
+      <td>19831972</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 447609, 'start': 447268}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094450.1</td>
+      <td>MSDKFSHITKDITTQLAKFRKEMPELMTGFSSLAQAATKDGALDKK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0407</th>
       <td></td>
-      <td>GeneID:19831973</td>
       <td></td>
+      <td></td>
+      <td>19831973</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 448265, 'start': 447822}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094451.1</td>
+      <td>MRLLFISLILASGYLQADTINNYMNIANNIPQMEMKADPQAQAWAR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0408</th>
       <td></td>
-      <td>GeneID:19831974</td>
       <td>Protein fate / hydrolases / secretion</td>
+      <td></td>
+      <td>19831974</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 448832, 'start': 448284}</td>
       <td></td>
       <td>inner (transmembrane) protein</td>
       <td>YP_094452.1</td>
+      <td>MNKQMQWHLFGNTSGLLIICCLLILAFLDQFIFYELPCPICILQRI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0409</th>
       <td></td>
-      <td>GeneID:19831975</td>
       <td>Energy Metabolism</td>
+      <td></td>
+      <td>19831975</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 450248, 'start': 449520}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094453.1</td>
+      <td>MPSLTCFNFRFTSNWPMLILTAVCFFLFISLGFWQIHRADEKTAMI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0410</th>
       <td></td>
-      <td>GeneID:19831976</td>
       <td></td>
+      <td></td>
+      <td>19831976</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 450777, 'start': 450232}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094454.1</td>
+      <td>MKKPYKYMTLLLLVVIFAAPGITAYLFYKHPSWLGTSKVNKGILLS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0411</th>
       <td></td>
-      <td>GeneID:19831977</td>
       <td>Energy Metabolism</td>
+      <td></td>
+      <td>19831977</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 451789, 'start': 450758}</td>
       <td></td>
       <td>cytochrome c oxidase assembly protein</td>
       <td>YP_094455.1</td>
+      <td>MKLRADKLMSNSSIRLAATLAVFLAFFVVMLGAYTRLTDAGLGCPD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0412</th>
       <td>2.5.1.-</td>
-      <td>GeneID:19831978</td>
       <td>Energy Metabolism</td>
       <td></td>
+      <td>19831978</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 452663, 'start': 451779}</td>
+      <td>converts protoheme IX and farnesyl diphosphate...</td>
       <td>protoheme IX farnesyltransferase</td>
       <td>YP_094456.1</td>
+      <td>MRTEYAARLPVDWRDYVELCKPRVVLLMLLTVIVGMYLAAPGWVSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0413</th>
       <td></td>
-      <td>GeneID:19831979</td>
       <td></td>
+      <td></td>
+      <td>19831979</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 453314, 'start': 452673}</td>
       <td></td>
       <td>SCO1/SenC family protein</td>
       <td>YP_094457.1</td>
+      <td>MNIKIKGGAVTITVLALVSLLAGIYISQNFHFKKKINVADFHGTYL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0414</th>
       <td></td>
-      <td>GeneID:19831980</td>
       <td>Translation</td>
+      <td></td>
+      <td>19831980</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 454589, 'start': 453681}</td>
       <td></td>
       <td>glutathione synthase, ribosomal protein S6 mod...</td>
       <td>YP_094458.1</td>
+      <td>MKIAILATNPHLYSHKRLKAEAEAAGHEVKIINPLYCYMNVAASNP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0415</th>
       <td></td>
-      <td>GeneID:19831981</td>
       <td></td>
+      <td></td>
+      <td>19831981</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 454838, 'start': 454593}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094459.1</td>
+      <td>MLNKRFSERLNKELDNIGVPEATAERIEILSKLIKIPKFKAEALLN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0416</th>
       <td>1.1.1.49</td>
-      <td>GeneID:19831982</td>
       <td>Carbohydrate Metabolism, Metabolism of Other A...</td>
       <td>zwf</td>
+      <td>19831982</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 456646, 'start': 455156}</td>
+      <td>catalyzes the formation of D-glucono-1,5-lacto...</td>
       <td>glucose-6-phosphate 1-dehydrogenase</td>
       <td>YP_094460.1</td>
+      <td>MLLKAESKYPCDLILFGTLGDLSCRKLLPALYQLELANLLHEKTRI...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0417</th>
       <td>3.1.1.31</td>
-      <td>GeneID:19831983</td>
       <td>Carbohydrate Metabolism</td>
       <td>pgl</td>
+      <td>19831983</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 457346, 'start': 456615}</td>
+      <td></td>
       <td>6-phosphogluconolactonase</td>
       <td>YP_094461.1</td>
+      <td>MFGVITMQFHNFRDAKQLIHDMVEKLRTILSDAIKRRGQAFLVVSG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0418</th>
       <td>4.2.1.12</td>
-      <td>GeneID:19831984</td>
       <td>Carbohydrate Metabolism</td>
       <td>edd</td>
+      <td>19831984</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 459172, 'start': 457334}</td>
+      <td>catalyzes the formation of 2-dehydro-3-deoxy-6...</td>
       <td>phosphogluconate dehydratase</td>
       <td>YP_094462.1</td>
+      <td>MHPVINQVTENIQNRSAARRAAYLNQIDKARTKGPQRSILHCGNLA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0419</th>
       <td>2.7.1.2</td>
-      <td>GeneID:19831985</td>
       <td>Carbohydrate Metabolism, Metabolism of Complex...</td>
       <td>glk</td>
+      <td>19831985</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 460154, 'start': 459147}</td>
+      <td></td>
       <td>glucokinase</td>
       <td>YP_094463.1</td>
+      <td>MNFFMMPHDLAQYAIVADIGGTFARFSRVNLVNLQMDKIEISPCAE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0420</th>
       <td></td>
-      <td>GeneID:19831986</td>
       <td>Carbohydrate Metabolism, Amino Acid Metabolism</td>
       <td>eda</td>
+      <td>19831986</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 460803, 'start': 460141}</td>
+      <td></td>
       <td>multifunctional: 2-keto-3-deoxygluconate 6-pho...</td>
       <td>YP_094464.1</td>
+      <td>MSFSEWKTQPGAVFAASPVIPVIVIKELEDALPLAEALFAGGIHVL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0421</th>
       <td></td>
-      <td>GeneID:19831987</td>
       <td>Transport and binding</td>
       <td>ywtG</td>
+      <td>19831987</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 462337, 'start': 460916}</td>
+      <td></td>
       <td>D-xylose (galactose, arabinose)-proton symporter</td>
       <td>YP_094465.1</td>
+      <td>MAWIVAIIGSIAGFLFGYDEGIIAGSLGLVKNHFNLNATHIGVMAS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0422</th>
       <td>3.2.1.3</td>
-      <td>GeneID:19831988</td>
       <td>Metabolism of Complex Carbohydrates</td>
       <td>legY</td>
+      <td>19831988</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 463776, 'start': 462427}</td>
+      <td></td>
       <td>glucoamylase</td>
       <td>YP_094466.1</td>
+      <td>MATFFFKTNYYQEIMLKRIFFLMIFFVSQTMASVFTHEEVQILKKH...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0423</th>
       <td></td>
-      <td>GeneID:19831989</td>
       <td>Transcription factors / DNA binding proteins, ...</td>
       <td>yozG</td>
+      <td>19831989</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 464138, 'start': 463902}</td>
+      <td></td>
       <td>Cro family transcriptional regulator</td>
       <td>YP_094467.1</td>
+      <td>MSIIVNLDVMMAKRKCRLRDLAEAIGITEANLSILKNGKAKAIRFA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0424</th>
       <td></td>
-      <td>GeneID:19831990</td>
       <td></td>
+      <td></td>
+      <td>19831990</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 464764, 'start': 464225}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094468.1</td>
+      <td>MKKIKSVSHLLFLLFKTLAYGLPLVTTYFILFHFESMLNWGGWHSL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0425</th>
       <td>4.99.1.1</td>
-      <td>GeneID:19831991</td>
       <td>Metabolism of Cofactors and Vitamins</td>
       <td>hemH</td>
+      <td>19831991</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 465890, 'start': 464892}</td>
+      <td>protoheme ferro-lyase; catalyzes the insertion...</td>
       <td>ferrochelatase</td>
       <td>YP_094469.1</td>
+      <td>MMRRGLLLLNLGTPNNADIRAVKLYLREFLTDKRVIDLPTIPRYIL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0426</th>
       <td></td>
-      <td>GeneID:19831992</td>
       <td>Detoxification / adaptation</td>
       <td>cspD</td>
+      <td>19831992</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 466231, 'start': 465998}</td>
+      <td></td>
       <td>cold shock protein CspD</td>
       <td>YP_094470.1</td>
+      <td>MARGEVKWFNNAKGWGFIIPEGGGEDIFVHFSSIHGTGYKTLVPGQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0427</th>
       <td></td>
-      <td>GeneID:19831993</td>
       <td></td>
+      <td></td>
+      <td>19831993</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 466899, 'start': 466588}</td>
       <td></td>
       <td>diadenosine tetraphosphate (Ap4A) hydrolase</td>
       <td>YP_094471.1</td>
+      <td>MDIQEIHQLEKSDRFLLIEEINQLSLLASDYFKPDKLNIGALGNIV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0428</th>
       <td></td>
-      <td>GeneID:19831994</td>
       <td></td>
+      <td></td>
+      <td>19831994</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 467541, 'start': 467113}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094472.1</td>
+      <td>MFIIVIYNSSNGESIFKFQQGALMIKKIAFTMYPVQNMDRARQFYE...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0429</th>
       <td></td>
-      <td>GeneID:19831995</td>
       <td>Transport and binding</td>
       <td>oprM</td>
+      <td>19831995</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 468911, 'start': 467559}</td>
+      <td></td>
       <td>outer membrane efflux protein</td>
       <td>YP_094473.1</td>
+      <td>MMCMLKKLMFLLLLGAGLLSCGQSTDQQISNIITPKQFPSSPMDYR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0430</th>
       <td></td>
-      <td>GeneID:19831996</td>
       <td>Transport and binding</td>
+      <td></td>
+      <td>19831996</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 470088, 'start': 469036}</td>
       <td></td>
       <td>multidrug resistance efflux pump PmrA</td>
       <td>YP_094474.1</td>
+      <td>MVGYFMKKLMEYGGKIKEYLLRLKPKRWFTLTNVIIFIGFLTAIIY...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0431</th>
       <td></td>
-      <td>GeneID:19831997</td>
       <td></td>
+      <td></td>
+      <td>19831997</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 470998, 'start': 470060}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094475.1</td>
+      <td>MLMSMSKFIEWIDEVDPYAVQRIALYKSLFIATVMAYVYWVFRPTN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0432</th>
       <td></td>
-      <td>GeneID:19831998</td>
       <td></td>
+      <td></td>
+      <td>19831998</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 471864, 'start': 470965}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094476.1</td>
+      <td>MESIMHDTSALKKKLDYARFIHLVIMFMVAMLIFLFSTFPEKWWVL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0433</th>
       <td></td>
-      <td>GeneID:19831999</td>
       <td></td>
+      <td></td>
+      <td>19831999</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 472266, 'start': 471886}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094477.1</td>
+      <td>MSHPHYSVYNEKCPSQNVLEGISDKWSILVISLLSQKIYRFGELKR...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0434</th>
       <td></td>
-      <td>GeneID:19832000</td>
       <td></td>
+      <td></td>
+      <td>19832000</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 472795, 'start': 472268}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094478.1</td>
+      <td>MAQELVLDDITAMMARYQKTCRYTYTNQSPIIMHPDLKDLLDYRNH...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0435</th>
       <td></td>
-      <td>GeneID:19832001</td>
       <td>Detoxification / adaptation</td>
+      <td></td>
+      <td>19832001</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 473572, 'start': 472961}</td>
       <td></td>
       <td>SAM-dependent methyltransferase</td>
       <td>YP_094479.1</td>
+      <td>MNKRNWTAYYNSTKQNTLPRKSLLKAIANFDKEKINLSKSAIDLGC...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0436</th>
       <td></td>
-      <td>GeneID:19832002</td>
       <td></td>
       <td>legA11</td>
+      <td>19832002</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 474548, 'start': 473739}</td>
+      <td></td>
       <td>ankyrin repeat-containing protein</td>
       <td>YP_094480.1</td>
+      <td>MIKMGRSEMKIASAELRELMKAVSEGHYETVNTILDKDPELVNQYA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0437</th>
       <td></td>
-      <td>GeneID:19832003</td>
       <td></td>
+      <td></td>
+      <td>19832003</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 476811, 'start': 474811}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094481.1</td>
+      <td>MQNLDEILKKLRKDLKKTSKETTEKLSVLSKKVAEDVVKVSNQTVQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0438</th>
       <td></td>
-      <td>GeneID:19832004</td>
       <td></td>
+      <td></td>
+      <td>19832004</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 477314, 'start': 477096}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094482.1</td>
+      <td>MQIFYLFEFNLSTAQLMVIKKLMNMFKALVYTLPEWHLLALSLWHN...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0439</th>
       <td></td>
-      <td>GeneID:19832005</td>
       <td></td>
+      <td></td>
+      <td>19832005</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 478539, 'start': 477490}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094483.1</td>
+      <td>MADHSPFIKFMFLNIKLSILQYNIILKAIIKLKVAILMTNCKTSNT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0440</th>
       <td></td>
-      <td>GeneID:19832006</td>
       <td></td>
+      <td></td>
+      <td>19832006</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 478843, 'start': 478631}</td>
       <td></td>
       <td>hypothetical protein</td>
       <td>YP_094484.1</td>
+      <td>MDIHSTYKMLAKMQGNKELSSHKIAETEQAEADTVPQLKLQAEPEA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0441</th>
       <td></td>
-      <td>GeneID:19832007</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmT</td>
+      <td>19832007</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 479274, 'start': 479014}</td>
+      <td></td>
       <td>IcmT protein</td>
       <td>YP_094485.1</td>
+      <td>MAGGFSATSHWRDSARSARFFVVDARAAFPIFLFLMHIRVWTGVLV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0442</th>
       <td></td>
-      <td>GeneID:19832008</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmS</td>
+      <td>19832008</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 479619, 'start': 479275}</td>
+      <td></td>
       <td>IcmS protein</td>
       <td>YP_094486.1</td>
+      <td>MERDISKCMAKIAASMNAKFYLNDRFVSFDEVFSETGLLPAIAKRA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0443</th>
       <td></td>
-      <td>GeneID:19832009</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmR</td>
+      <td>19832009</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 480081, 'start': 479719}</td>
+      <td></td>
       <td>IcmR</td>
       <td>YP_094487.1</td>
+      <td>MGNNTDDSARNPFGFYTPPRVKEIGEPDVTDATLGSVYSEIISPVK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0444</th>
       <td></td>
-      <td>GeneID:19832010</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmQ</td>
+      <td>19832010</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 480747, 'start': 480148}</td>
+      <td></td>
       <td>IcmQ protein</td>
       <td>YP_094488.1</td>
+      <td>MVPISIEVMKDQLSDEQKETILKALNDAIEKGPWDKSNFLRVIGKK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0445</th>
       <td></td>
-      <td>GeneID:19832011</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmP</td>
+      <td>19832011</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 482064, 'start': 480922}</td>
+      <td></td>
       <td>IcmP protein</td>
       <td>YP_094489.1</td>
+      <td>MYIEMAQQQQQSGSDNSMAPVWIVILLFITAYFVWALAHQYIVSFV...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0446</th>
       <td></td>
-      <td>GeneID:19832012</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmO</td>
+      <td>19832012</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 484412, 'start': 482061}</td>
+      <td></td>
       <td>IcmO protein</td>
       <td>YP_094490.1</td>
+      <td>MMRGIDSRHELDPTLLLRDTRTFTQRLADFFADPTNISIVLISLAA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0447</th>
       <td></td>
-      <td>GeneID:19832013</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>lphA</td>
+      <td>19832013</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 485385, 'start': 484816}</td>
+      <td></td>
       <td>protein LphA</td>
       <td>YP_094491.1</td>
+      <td>MRSLRTNYIYVLFKTTGLLFLLLLSACNRSGYIPENEVPKLPCRVD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0448</th>
       <td></td>
-      <td>GeneID:19832014</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmM</td>
+      <td>19832014</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 485681, 'start': 485397}</td>
+      <td></td>
       <td>IcmM (DotJ)</td>
       <td>YP_094492.1</td>
+      <td>MSRETWALIKRNKNFNVHIYRRGLTLLILSLGLSCGLSGLIYYVHM...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0449</th>
       <td></td>
-      <td>GeneID:19832015</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmL</td>
+      <td>19832015</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 486335, 'start': 485697}</td>
+      <td></td>
       <td>IcmL protein</td>
       <td>YP_094493.1</td>
+      <td>MAEDALTVVALRNKFYKDSQRKVILALLIAIVVNVVLASLVVYMIT...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0450</th>
       <td></td>
-      <td>GeneID:19832016</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmK</td>
+      <td>19832016</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 487420, 'start': 486335}</td>
+      <td></td>
       <td>IcmK protein</td>
       <td>YP_094494.1</td>
+      <td>MMKKYDQLCKYCLVIGLTFSMSCSIYAADQSDDAQQALQQLRMLQQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0451</th>
       <td></td>
-      <td>GeneID:19832017</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmE</td>
+      <td>19832017</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 490571, 'start': 487425}</td>
+      <td></td>
       <td>IcmE protein</td>
       <td>YP_094495.1</td>
+      <td>MASKKENLKSLFSNTRTRVIIIFTAALLIIAVVIGFFKIRGATTGS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0452</th>
       <td></td>
-      <td>GeneID:19832018</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmG</td>
+      <td>19832018</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 491395, 'start': 490586}</td>
+      <td></td>
       <td>IcmG protein</td>
       <td>YP_094496.1</td>
+      <td>MMAEHDQNNDEYKFAELDSYDMDQAGESDLDSEASYQSGKEGLTKK...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0453</th>
       <td></td>
-      <td>GeneID:19832019</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmC</td>
+      <td>19832019</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 491987, 'start': 491403}</td>
+      <td></td>
       <td>hypothetical protein</td>
       <td>YP_094497.1</td>
+      <td>MADPTCTGGTVACWIVSQANILANIANQLEPVQRLITGGAYLIGCA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0454</th>
       <td></td>
-      <td>GeneID:19832020</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmD</td>
+      <td>19832020</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 492411, 'start': 492130}</td>
+      <td></td>
       <td>IcmD protein</td>
       <td>YP_094498.1</td>
+      <td>MASQITGSFTSLTKLITAGSYLAGLGFSIGAIMKFKQHKDNPTQIP...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0455</th>
       <td></td>
-      <td>GeneID:19832021</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmJ</td>
+      <td>19832021</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 493235, 'start': 492591}</td>
+      <td></td>
       <td>IcmJ protein</td>
       <td>YP_094499.1</td>
+      <td>MNVNQTMADNQQRCELKLIASPGSWRLYSARKIDERFKSYEQKIFQ...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0456</th>
       <td></td>
-      <td>GeneID:19832022</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmB</td>
+      <td>19832022</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 496300, 'start': 493271}</td>
+      <td></td>
       <td>IcmB protein</td>
       <td>YP_094500.1</td>
+      <td>MANWSESFFEGVDTFFAWLSTSLKQTTESYIDLETADSPTVLVNHD...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0457</th>
       <td></td>
-      <td>GeneID:19832023</td>
       <td>Transport and binding</td>
       <td>tphA</td>
+      <td>19832023</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 497702, 'start': 496446}</td>
+      <td></td>
       <td>TphA (ProP)</td>
       <td>YP_094501.1</td>
+      <td>MKQNTKHSIIAGLYGNALEWYDFLLYASFAPVFAEIFFPSKIHFVS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0458</th>
       <td></td>
-      <td>GeneID:19832024</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmF</td>
+      <td>19832024</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 500626, 'start': 497705}</td>
+      <td></td>
       <td>IcmF</td>
       <td>YP_094502.1</td>
+      <td>MDNSLRALCDAIKKILSQLKPQTNQLSFVVITGKNAQGKSALLKQS...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0459</th>
       <td></td>
-      <td>GeneID:19832025</td>
       <td>Transport and binding, Toxin production / othe...</td>
       <td>icmH</td>
+      <td>19832025</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 501411, 'start': 500626}</td>
+      <td></td>
       <td>IcmH (DotU)</td>
       <td>YP_094503.1</td>
+      <td>MTTEQYPSSLVNRLAITEPALVPSGYYRSKLFIAPFSTNVLVAAAG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0460</th>
       <td></td>
-      <td>GeneID:19832026</td>
       <td>Nucleotide Metabolism, Metabolism of Cofactors...</td>
       <td>purH</td>
+      <td>19832026</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 503285, 'start': 501696}</td>
+      <td>involved in de novo purine biosynthesis</td>
       <td>bifunctional phosphoribosylaminoimidazolecarbo...</td>
       <td>YP_094504.1</td>
+      <td>MAKKQIYSSFKPRRALLSVSDKRGIRELGQVLHDQGVELIATGNTA...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0461</th>
       <td>2.1.1.-</td>
-      <td>GeneID:19832027</td>
       <td>Translation</td>
       <td>prmA</td>
+      <td>19832027</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 504181, 'start': 503312}</td>
+      <td>methylates ribosomal protein L11 at multiple a...</td>
       <td>50S ribosomal protein L11 methyltransferase</td>
       <td>YP_094505.1</td>
+      <td>MWFQLKIEHCPNDKIEEITEELEECGALSITLTDKNDNPVLEPEPG...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg0462</th>
       <td></td>
-      <td>GeneID:19832028</td>
       <td>Lipid Metabolism</td>
       <td>accC</td>
+      <td>19832028</td>
+      <td></td>
+      <td>{'strand': -1, 'end': 505532, 'start': 504183}</td>
+      <td></td>
       <td>acetyl-CoA carboxylase biotin carboxylase subunit</td>
       <td>YP_094506.1</td>
+      <td>MFMLSKIVIANRGEIALRILRACKELGIQTVAVHSDVDKDLLHVRL...</td>
       <td>mRNA</td>
     </tr>
     <tr>
       <th>lpg_3050</th>
       <td></td>
-      <td>GeneID:19831899</td>
       <td></td>
+      <td></td>
+      <td>19831899</td>
+      <td></td>
+      <td>{'strand': 1, 'end': 385949, 'start': 385671}</td>
       <td></td>
       <td>30S ribosomal protein S19</td>
       <td>YP_003856781.1</td>
+      <td>MARSIRKGPFIDHHLISKVEAAIESKSKKPIKTWSRRSTIVPEMID...</td>
       <td>mRNA</td>
     </tr>
   </tbody>
