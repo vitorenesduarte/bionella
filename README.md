@@ -8,6 +8,12 @@ Legionella genome annotation
 $ conda install pandas
 ```
 
+To generate the site:
+
+```bash
+$ make site
+```
+
 
 ### Build docker image
 ```bash
