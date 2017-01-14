@@ -1,6 +1,14 @@
 # bionella
 Legionella genome annotation
 
+### Prerequesites
+
+- [pandas](http://pandas.pydata.org/)
+```bash
+$ conda install pandas
+```
+
+
 ### Build docker image
 ```bash
 $ cd Dockerfiles/
