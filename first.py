@@ -89,6 +89,10 @@ def features_to_dictionary(start, features):
                     prop = "gene_id"
                     value = value[7:]
 
+                if prop == "translation":
+                    # se translation, também guardar o tamanho
+                    dictionary[tag]["length"] = len(value)
+
                 if prop in dictionary[tag]:
                     # se já encontramos esta propriedade
                     # para este locus_tag
