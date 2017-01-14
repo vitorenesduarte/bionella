@@ -84,6 +84,11 @@ def features_to_dictionary(start, features):
             if prop in feature.qualifiers:
                 value = feature.qualifiers[prop][0]
 
+                if prop == "db_xref":
+                    # renomear esta propriedade e remover "GeneID:"
+                    prop = "gene_id"
+                    value = value[7:]
+
                 if prop in dictionary[tag]:
                     # se já encontramos esta propriedade
                     # para este locus_tag
@@ -111,8 +116,7 @@ def main():
     features = extract_features(record)
 
     dictionary = features_to_dictionary(start, features)
-    print(dictionary)
-    #rw.write_json(dictionary, ncbi_json_path)
+    rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
     #table = www.fetch_table()
