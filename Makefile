@@ -1,8 +1,7 @@
 .PHONY: site pdf
 
 site:
-	jupyter nbconvert --to html --template full index.ipynb
-	google-chrome index.html
+	build-site.sh
 
 pdf:
 	jupyter nbconvert --to latex index.ipynb

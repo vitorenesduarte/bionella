@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
+<title>ncbi</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,12 +11751,226 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Legionella">Legionella<a class="anchor-link" href="#Legionella">&#182;</a></h1><p>Neste trabalho...</p>
-<ol>
-<li><a href="site/ncbi.html">Análise da sequência e das features presentes no NCBI</a></li>
-<li><a href="site/blast.html">Análise de homologias por BLAST</a></li>
-</ol>
-<p><a href="site/pandas.html">pandas</a></p>
+<h2 id="An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">An&#225;lise da sequ&#234;ncia e das features presentes no NCBI<a class="anchor-link" href="#An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">&#182;</a></h2><p>Começamos por aceder ao NCBI para fazer download de um ficheiro no formato <strong>genbank</strong> com informação correspondente à nossa zona do genoma, da posição 270001 a 505535.</p>
+<p>O primeiro passo foi descobrir qual o <strong>genbank_id</strong> associado ao accession <strong>NC_002942.5</strong>.
+Para isto usamos a função <code>Entrez.search</code>.</p>
+<p>Após saber o <strong>genbank_id</strong>, obtivemos o <strong>genbank</strong> usando a função <code>Entrez.efetch</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Procura no NCBI pelo Accession NC_002942.5 e </span>
+<span class="sd">    faz download de toda a informação em formato genbank,</span>
+<span class="sd">    retornando o respectivo record com as features</span>
+<span class="sd">    entre a posição start e end.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;*@*.*&quot;</span>
+
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;NC_002942.5&quot;</span><span class="p">)</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="n">genbank_id</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;IdList&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span>
+                           <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;gbwithparts&quot;</span><span class="p">,</span>
+                           <span class="n">retmod</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                           <span class="nb">id</span><span class="o">=</span><span class="n">genbank_id</span><span class="p">,</span>
+                           <span class="n">seq_start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
+                           <span class="n">seq_stop</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s2">&quot;gb&quot;</span><span class="p">)</span>
+    <span class="n">handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">record</span>
+</pre></div>
+<p>Esta função foi adicionada ao módulo <code>util.www</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Deste <code>record</code> extraímos as features <strong>gene</strong>, <strong>CDS</strong>, <strong>tRNA</strong> e <strong>rRNA</strong>.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Das várias features encontradas no ficheiro genbank, extraímos:</span>
+<span class="sd">      - gene</span>
+<span class="sd">      - CDS</span>
+<span class="sd">      - tRNA</span>
+<span class="sd">      - rRNA</span>
+
+<span class="sd">    Esta função retorna uma lista apenas com as features</span>
+<span class="sd">    dos tipos indicados acima.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">features</span>
+    <span class="n">feature_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span> <span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s2">&quot;tRNA&quot;</span><span class="p">,</span> <span class="s2">&quot;rRNA&quot;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">feature_count</span><span class="p">):</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">should_extract</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">types</span>
+
+        <span class="k">if</span> <span class="n">should_extract</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para finalizar, convertemos esta lista de <code>record</code> para um dicionário.
+A cada um dos <code>record</code> retirámos:</p>
+<ul>
+<li>db_xref</li>
+<li>EC_number</li>
+<li>function</li>
+<li>gene</li>
+<li>gene_synonym</li>
+<li>locus_tag</li>
+<li>note</li>
+<li>product</li>
+<li>protein_id</li>
+<li>translation</li>
+</ul>
+<p>Além disso, também ficamos com informação sobre a localização de cada gene e em qual das cadeias está presente.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A cada uma das features, extraimos a seguintes propriedades:</span>
+<span class="sd">      - db_xref</span>
+<span class="sd">      - EC_number</span>
+<span class="sd">      - function</span>
+<span class="sd">      - gene</span>
+<span class="sd">      - gene_synonym</span>
+<span class="sd">      - locus_tag</span>
+<span class="sd">      - note</span>
+<span class="sd">      - product</span>
+<span class="sd">      - protein_id</span>
+<span class="sd">      - translation</span>
+
+<span class="sd">    Também extraímos a localização:</span>
+<span class="sd">      - start</span>
+<span class="sd">      - end</span>
+<span class="sd">      - strand</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;db_xref&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;EC_number&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;gene&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;gene_synonym&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;note&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;product&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;protein_id&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="s2">&quot;locus_tag&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+            <span class="c1"># se esta tag ainda não existe,</span>
+            <span class="c1"># criar um dicionário vazio para ela</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">location</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">location</span>
+        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_start</span> <span class="o">+</span> <span class="n">start</span>
+        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_end</span> <span class="o">+</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;strand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_strand</span>
+
+        <span class="k">if</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;tRNA&quot;</span><span class="p">,</span> <span class="s2">&quot;rRNA&quot;</span><span class="p">]:</span>
+            <span class="c1"># Taggar as features com estes dois tipos</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># se não, taggar com &quot;mRNA&quot;</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mRNA&quot;</span>
+
+        <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="n">prop</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;db_xref&quot;</span><span class="p">:</span>
+                    <span class="c1"># renomear esta propriedade e remover &quot;GeneID:&quot;</span>
+                    <span class="n">prop</span> <span class="o">=</span> <span class="s2">&quot;gene_id&quot;</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+
+                <span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;translation&quot;</span><span class="p">:</span>
+                    <span class="c1"># se translation, também guardar o tamanho</span>
+                    <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+                    <span class="c1"># se já encontramos esta propriedade</span>
+                    <span class="c1"># para este locus_tag</span>
+                    <span class="c1"># verificar que é a mesma</span>
+                    <span class="n">current_value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span>
+                    <span class="k">assert</span> <span class="n">value</span> <span class="o">==</span> <span class="n">current_value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># se não, adicionar</span>
+                    <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">dictionary</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>No final:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">505535</span>
+
+<span class="n">record</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;lpg0232&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;db_xref&quot;</span><span class="p">:</span> <span class="s2">&quot;GeneID:19831799&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Transcription factors / DNA binding proteins&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;np20&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">270569</span><span class="p">,</span>
+      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270036</span><span class="p">,</span>
+      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;transcriptional regulator np20&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094286.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MIGCCLIIFPC...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;lpg0233&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;EC_number&quot;</span><span class="p">:</span> <span class="s2">&quot;4.1.1.7&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;db_xref&quot;</span><span class="p">:</span> <span class="s2">&quot;GeneID:19831800&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Biodegradation of Xenobiotics&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;mdlC&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">272278</span><span class="p">,</span>
+      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270686</span><span class="p">,</span>
+      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">-1</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;benzoylformate decarboxylase&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094287.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MKKTGSDVLK...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
+  <span class="p">},</span>
+  <span class="err">//</span> <span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
 
 </div>
 </div>
