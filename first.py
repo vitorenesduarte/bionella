@@ -5,8 +5,7 @@ import util.rw as rw
 
 def extract_features(record):
     """
-    Das várias features encontradas no ficheiro genbank,
-    decidimos extrair:
+    Das várias features encontradas no ficheiro genbank, extraímos:
       - gene
       - CDS
       - tRNA
@@ -30,7 +29,7 @@ def extract_features(record):
 
     return result
 
-def features_to_dictionary(features):
+def features_to_dictionary(start, features):
     """
     A cada uma das features, extraimos a seguintes propriedades:
       - db_xref
@@ -43,6 +42,11 @@ def features_to_dictionary(features):
       - product
       - protein_id
       - translation
+
+    Também extraímos a localização:
+      - start
+      - end
+      - strand
     """
     dictionary = {}
     properties = ["db_xref",
@@ -62,6 +66,12 @@ def features_to_dictionary(features):
             # se esta tag ainda não existe,
             # criar um dicionário vazio para ela
             dictionary[tag] = {}
+
+        location = feature.location
+        dictionary[tag]["location"] = {}
+        dictionary[tag]["location"]["start"] = location._start + start
+        dictionary[tag]["location"]["end"] = location._end + start - 1
+        dictionary[tag]["location"]["strand"] = location._strand
 
         if feature.type in ["tRNA", "rRNA"]:
             # Taggar as features com estes dois tipos
@@ -94,21 +104,22 @@ def main():
     table_json_path = ".table.json"
 
     ## 1.1
-    record = www.fetch_genbank(start, end)
-    rw.write_genbank(record, ncbi_gb_path)
+    #record = www.fetch_genbank(start, end)
+    #rw.write_genbank(record, ncbi_gb_path)
 
     record = rw.read_genbank(ncbi_gb_path)
     features = extract_features(record)
 
-    dictionary = features_to_dictionary(features)
-    rw.write_json(dictionary, ncbi_json_path)
+    dictionary = features_to_dictionary(start, features)
+    print(dictionary)
+    #rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
-    table = www.fetch_table()
-    rw.write_json(table, table_json_path)
+    #table = www.fetch_table()
+    #rw.write_json(table, table_json_path)
 
-    dictionary = rw.read_json(ncbi_json_path)
-    table = rw.read_json(table_json_path)
+    #dictionary = rw.read_json(ncbi_json_path)
+    #table = rw.read_json(table_json_path)
     ## TODO
     ## verificar que o que está em "table"
     ## também esta em dictionary
