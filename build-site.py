@@ -2,7 +2,6 @@ import os
 import os.path
 
 site_path = os.path.join(os.getcwd(), "site")
-print(site_path)
 os.chdir(site_path)
 files = [f for f in os.listdir() if os.path.isfile(f)]
 
