@@ -11751,7 +11751,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">An&#225;lise da sequ&#234;ncia e das features presentes no NCBI<a class="anchor-link" href="#An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">&#182;</a></h2><p>Começamos por aceder ao NCBI para fazer download de um ficheiro no formato <strong>genbank</strong> com informação correspondente à nossa zona do genoma, da posição 270001 a 505535.</p>
+<h2 id="An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">An&#225;lise da sequ&#234;ncia e das features presentes no NCBI<a class="anchor-link" href="#An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">&#182;</a></h2><ol>
+<li><a href="#fetch_genbank">util.www.fetch_genbank(start, end)</a></li>
+<li><a href="#extract_features">extract_features(record)</a></li>
+<li><a href="#features_to_dictionary">features_to_dictionary(start, features)</a></li>
+<li><a href="#fetch_table">util.www.fetch_table()</a></li>
+<li><a href="#verify">verify(dictionary, table)</a></li>
+</ol>
+<p><a name="fetch_genbank"></a>
+Começamos por aceder ao NCBI para fazer download de um ficheiro no formato <strong>genbank</strong> com informação correspondente à nossa zona do genoma, da posição 270001 a 505535.</p>
 <p>O primeiro passo foi descobrir qual o <strong>genbank_id</strong> associado ao accession <strong>NC_002942.5</strong>.
 Para isto usamos a função <code>Entrez.search</code>.</p>
 <p>Após saber o <strong>genbank_id</strong>, obtivemos o <strong>genbank</strong> usando a função <code>Entrez.efetch</code>.</p>
@@ -11791,7 +11799,8 @@ Para isto usamos a função <code>Entrez.search</code>.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Deste <code>record</code> extraímos as features <strong>gene</strong>, <strong>CDS</strong>, <strong>tRNA</strong> e <strong>rRNA</strong>.</p>
+<p><a name="extract_features"></a>
+Deste <code>record</code> extraímos as features <strong>gene</strong>, <strong>CDS</strong>, <strong>tRNA</strong> e <strong>rRNA</strong>.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Das várias features encontradas no ficheiro genbank, extraímos:</span>
@@ -11827,7 +11836,8 @@ Para isto usamos a função <code>Entrez.search</code>.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para finalizar, convertemos esta lista de features para um dicionário.
+<p><a name="features_to_dictionary"></a>
+Para finalizar, convertemos esta lista de features para um dicionário.
 A cada uma retirámos:</p>
 <ul>
 <li><strong>db_xref</strong> (renomeado para <strong>gene_id</strong>)</li>
@@ -11927,7 +11937,8 @@ A cada uma retirámos:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Neste momento já temos a informação presente no NCBI relativa à nossa zona do genoma.</p>
+<p><a name="fetch_table"></a>
+Neste momento já temos a informação presente no NCBI relativa à nossa zona do genoma.</p>
 <p>Falta verificar se esta informação é a mesma presente na tabela presente em <a href="https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758">https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758</a>.</p>
 <p>Reparámos que esta página faz um pedido HTTP a uma API do NCBI, e nós usamos essa mesma API para retirar as informações presentes nessa tabela que nos interessavam:</p>
 <ul>
@@ -12014,7 +12025,8 @@ A cada uma retirámos:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Criámos ainda uma função que verifica se os valores presentes na tabela correspondem aos valores provenientes do NCBI. Esta função retorna os valores diferentes para uma posterior análise manual.</p>
+<p><a name="verify"></a>
+Criámos ainda uma função que verifica se os valores presentes na tabela correspondem aos valores provenientes do NCBI. Esta função retorna os valores diferentes para uma posterior análise manual.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Verifica se os valores presentes na tabela correspondem</span>
@@ -12051,7 +12063,7 @@ A cada uma retirámos:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Todos estes passos</p>
+<p>Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/first.py">first.py</a> e resumem-se basicamente a:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
 
 <span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
