@@ -4,7 +4,7 @@ start-nb:
 	jupyter notebook
 
 site:
-	build-site.sh
+	python build-site.py
 
 pdf:
 	jupyter nbconvert --to latex index.ipynb
