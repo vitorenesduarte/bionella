@@ -54,7 +54,7 @@ def fetch_table():
     Este método implementa a paginação que seria feita manualmente
     no website, e guarda a informação que queremos num dicionário.
 
-      - A coluna 5  corresponde à propriedade db_xref    do genbank
+      - A coluna 5  corresponde à propriedade db_xref    do genbank (gene_id para nós)
       - A coluna 6  corresponde à propriedade gene       do genbank
       - A coluna 7  corresponde à propriedade locus_tag  do genbank
       - A coluna 8  corresponde à propriedade protein_id do genbank
@@ -69,7 +69,7 @@ def fetch_table():
 
     locus_tag_index = 7
     column_mapping = {
-        5: "db_xref",
+        5: "gene_id",
         6: "gene",
         8: "protein_id",
         11: "product"

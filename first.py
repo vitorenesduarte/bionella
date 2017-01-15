@@ -105,6 +105,34 @@ def features_to_dictionary(start, features):
 
     return dictionary
 
+def verify(dictionary, table):
+    """
+    Verifica se os valores presentes na tabela correspondem
+    aos valores presentes no dicionário.
+    Se encontrar alguma diferença retorna um dicionário
+    para análise manual dos resultados.
+    """
+    diff = {}
+
+    for tag in dictionary:
+        # para cada uma das locus_tag da nossa zona
+        if tag in table:
+            # se estiver na tabela
+            values = table[tag]
+            for prop in values:
+
+                dict_value = dictionary[tag][prop]
+                table_value = values[prop]
+
+                if not table_value == dict_value:
+                    diff[tag] = {}
+                    diff[tag]["prop"] = prop
+                    diff[tag]["dictionary"] = dict_value
+                    diff[tag]["table"] = table_value
+
+    return diff
+
+
 def main():
     start = 270001
     end = 505535
@@ -116,24 +144,20 @@ def main():
     #record = www.fetch_genbank(start, end)
     #rw.write_genbank(record, ncbi_gb_path)
 
-    record = rw.read_genbank(ncbi_gb_path)
-    features = extract_features(record)
+    #record = rw.read_genbank(ncbi_gb_path)
+    #features = extract_features(record)
 
-    dictionary = features_to_dictionary(start, features)
-    rw.write_json(dictionary, ncbi_json_path)
+    #dictionary = features_to_dictionary(start, features)
+    #rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
     #table = www.fetch_table()
     #rw.write_json(table, table_json_path)
 
-    #dictionary = rw.read_json(ncbi_json_path)
-    #table = rw.read_json(table_json_path)
-    ## TODO
-    ## verificar que o que está em "table"
-    ## também esta em dictionary
-    ## se não estiver, adicionar
-    ## se estiver e for diferente,
-    ## guardar ambos
+    dictionary = rw.read_json(ncbi_json_path)
+    table = rw.read_json(table_json_path)
+    diff = verify(dictionary, table)
+    # análise manual de diff
 
 if __name__ == "__main__":
     main()
