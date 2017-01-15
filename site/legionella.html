@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>ncbi</title>
+<title>legionella</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,327 +11751,29 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">An&#225;lise da sequ&#234;ncia e das features presentes no NCBI<a class="anchor-link" href="#An&#225;lise-da-sequ&#234;ncia-e-das-features-presentes-no-NCBI">&#182;</a></h2><p>Começamos por aceder ao NCBI para fazer download de um ficheiro no formato <strong>genbank</strong> com informação correspondente à nossa zona do genoma, da posição 270001 a 505535.</p>
-<p>O primeiro passo foi descobrir qual o <strong>genbank_id</strong> associado ao accession <strong>NC_002942.5</strong>.
-Para isto usamos a função <code>Entrez.search</code>.</p>
-<p>Após saber o <strong>genbank_id</strong>, obtivemos o <strong>genbank</strong> usando a função <code>Entrez.efetch</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Procura no NCBI pelo Accession NC_002942.5 e </span>
-<span class="sd">    faz download de toda a informação em formato genbank,</span>
-<span class="sd">    retornando o respectivo record com as features</span>
-<span class="sd">    entre a posição start e end.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;*@*.*&quot;</span>
-
-    <span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;NC_002942.5&quot;</span><span class="p">)</span>
-    <span class="n">record</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-    <span class="n">genbank_id</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;IdList&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span>
-                           <span class="n">rettype</span><span class="o">=</span><span class="s2">&quot;gbwithparts&quot;</span><span class="p">,</span>
-                           <span class="n">retmod</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
-                           <span class="nb">id</span><span class="o">=</span><span class="n">genbank_id</span><span class="p">,</span>
-                           <span class="n">seq_start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span>
-                           <span class="n">seq_stop</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
-    <span class="n">record</span> <span class="o">=</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s2">&quot;gb&quot;</span><span class="p">)</span>
-    <span class="n">handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">record</span>
-</pre></div>
-<p>Esta função foi adicionada ao módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a>.</p>
+<h1 id="Legionella-pneumophila-subsp.-pneumophila-str.-Philadelphia-1"><em>Legionella pneumophila subsp. pneumophila str. Philadelphia 1</em><a class="anchor-link" href="#Legionella-pneumophila-subsp.-pneumophila-str.-Philadelphia-1">&#182;</a></h1><p>A bactéria <em>Legionella pneumophila</em> é um bacilo facultativo pleomórfico gram-negativo aeróbico e mesófilo, com flagelo (indicador de mobilidade), não encapsulado, não formador de esporos e produtor de beta lactamases. Em termos de classificação filogenética pertence ao filo <em>Proteobacteria</em> e está enquadrada na classe <em>Gammaproteobacteria</em>, ordem <em>Legionellales</em> e família <em>Legionellaceae</em>. No meio ambiente é por norma encontrada em reservatórios aquáticos com temperaturas a rondar os 20ºC e 45ºC com depósitos de ferrugem, iodo e matéria orgânica, que favorecem o seu crescimento e multiplicação. Existem cerca de 59 espécies/subespécies desta bactéria, e pelo menos 24 destas causam pneumonia humana.</p>
+<h3 id="Patog&#233;nese">Patog&#233;nese<a class="anchor-link" href="#Patog&#233;nese">&#182;</a></h3><p>A <em>Legionella</em> origina dois tipos de doenças a Febre de Pontiac e a Doença do legionário ou legionelose, sendo que a primeira se manifesta de forma menos severa enquanto a segunda que chega a causar pneumonias graves. A patogénese da legionelose deve-se principalmente à capacidade da L. pneumophila de invadir e crescer dentro dos macrófagos alveolares. Depois de invadir o hospedeiro, a <em>Legionella</em> consegue evitar as atividades endossomais e lisossomais bactericidas e formar um fagossoma único e replicativo.
+   É difícil fazer uma distinção entre os sintomas clínicos de ambas as patogenias e outras formas de pneumonia. Assim, a deteção da espécie de <em>Legionella</em> responsável por causar a doença é essencial para identificar infeções nosocomiais ou comunitárias, bem como para localizar a fonte da infeção.
+Os sistemas de secreção proteica tipo II e tipo IV são críticos para a patogénese da <em>L. pneumophila</em>. O sistema tipo II (Lps) segrega enzimas degradativas, enquanto o tipo IV (Dot/Icm) exporta proteínas efetoras que são essenciais para a formação e sobrevivência do fagossoma invadido pela legionella. A proteína prelina peptidase presente na membrana interna da bactéria, para além de facilitar a formação do pilus e a secreção tipo II, parece mediar uma terceira via operativa no hospedeiro humano.</p>
+<h3 id="Tratamento">Tratamento<a class="anchor-link" href="#Tratamento">&#182;</a></h3><p>De forma a combater a sua patogenia existem diversos fármacos a que esta bactéria é suscetível como a eritromicina, claritromicina, azitromicina, tetraciclina, moxifloxina e levofloxacina. Também os Aminoglicosídeos, como a gentamicina, kanamicina e estreptomicina, são ativos contra a Legionella pneumophila, contudo já existem estirpes mutantes que mostram grandes níveis de resistência à estreptomicina.
+   Os antibióticos de primeira linha para o tratamento de infeções por <em>L. pneumophila</em> incluem a azitromicina (da classe dos macrólidos) e o levoflaxin (da classe das fluroquinolonas). A azitromicina impede o crescimento da bactéria ao interferir com a sua síntese proteica. Este fármaco liga-se à subunidade 50S ribossomal, inibindo assim a tradução do mRNA.O levoflaxin inibe a síntese de DNA da bactéria, ao inibir a DNA girase e a topoisomerase IV, que desempenham funções na replicação e empacotamento do DNA.</p>
+<p>Iremos então proceder à analise da zona do genoma 270001 a 505535 da estirpe <em>Legionella pneumophila subsp. pneumophila str. Philadelphia 1</em>, recorrendo a bases de dados e ferramentas bioinformáticas. A estirpe em estudo apresenta um genoma circular, sendo que iremos abordar 200 genes dos aproximadamente 3000 existentes.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Deste <code>record</code> extraímos as features <strong>gene</strong>, <strong>CDS</strong>, <strong>tRNA</strong> e <strong>rRNA</strong>.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Das várias features encontradas no ficheiro genbank, extraímos:</span>
-<span class="sd">      - gene</span>
-<span class="sd">      - CDS</span>
-<span class="sd">      - tRNA</span>
-<span class="sd">      - rRNA</span>
-
-<span class="sd">    Esta função retorna uma lista apenas com as features</span>
-<span class="sd">    dos tipos indicados acima.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">features</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">features</span>
-    <span class="n">feature_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-    <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span> <span class="s2">&quot;CDS&quot;</span><span class="p">,</span> <span class="s2">&quot;tRNA&quot;</span><span class="p">,</span> <span class="s2">&quot;rRNA&quot;</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">feature_count</span><span class="p">):</span>
-        <span class="n">feature</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">should_extract</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="n">types</span>
-
-        <span class="k">if</span> <span class="n">should_extract</span><span class="p">:</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">result</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Para finalizar, convertemos esta lista de features para um dicionário.
-A cada uma retirámos:</p>
-<ul>
-<li><strong>db_xref</strong> (renomeado para <strong>gene_id</strong>)</li>
-<li><strong>EC_number</strong></li>
-<li><strong>function</strong></li>
-<li><strong>gene</strong></li>
-<li><strong>gene_synonym</strong></li>
-<li><strong>locus_tag</strong></li>
-<li><strong>note</strong></li>
-<li><strong>product</strong></li>
-<li><strong>protein_id</strong></li>
-<li><strong>translation</strong></li>
-</ul>
-<p>Além disso, também ficamos com informação sobre a localização de cada gene, em qual das cadeias está presente, número de aminoácidos e tipo de feature (<strong>tRNA</strong>, <strong>rRNA</strong> e <strong>mRNA</strong>).</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A cada uma das features, extraimos a seguintes propriedades:</span>
-<span class="sd">      - db_xref</span>
-<span class="sd">      - EC_number</span>
-<span class="sd">      - function</span>
-<span class="sd">      - gene</span>
-<span class="sd">      - gene_synonym</span>
-<span class="sd">      - locus_tag</span>
-<span class="sd">      - note</span>
-<span class="sd">      - product</span>
-<span class="sd">      - protein_id</span>
-<span class="sd">      - translation</span>
 
-<span class="sd">    Também extraímos a localização:</span>
-<span class="sd">      - start</span>
-<span class="sd">      - end</span>
-<span class="sd">      - strand</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;db_xref&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;EC_number&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;function&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;gene&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;gene_synonym&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;note&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;product&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;protein_id&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;translation&quot;</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
-        <span class="n">tag</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="s2">&quot;locus_tag&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
-            <span class="c1"># se esta tag ainda não existe,</span>
-            <span class="c1"># criar um dicionário vazio para ela</span>
-            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="n">location</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">location</span>
-        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_start</span> <span class="o">+</span> <span class="n">start</span>
-        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_end</span> <span class="o">+</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;strand&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">_strand</span>
-
-        <span class="k">if</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;tRNA&quot;</span><span class="p">,</span> <span class="s2">&quot;rRNA&quot;</span><span class="p">]:</span>
-            <span class="c1"># Taggar as features com estes dois tipos</span>
-            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># se não, taggar com &quot;mRNA&quot;</span>
-            <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mRNA&quot;</span>
-
-        <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">:</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="n">prop</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-                <span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;db_xref&quot;</span><span class="p">:</span>
-                    <span class="c1"># renomear esta propriedade e remover &quot;GeneID:&quot;</span>
-                    <span class="n">prop</span> <span class="o">=</span> <span class="s2">&quot;gene_id&quot;</span>
-                    <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
-
-                <span class="k">if</span> <span class="n">prop</span> <span class="o">==</span> <span class="s2">&quot;translation&quot;</span><span class="p">:</span>
-                    <span class="c1"># se translation, também guardar o tamanho</span>
-                    <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-
-                <span class="k">if</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
-                    <span class="c1"># se já encontramos esta propriedade</span>
-                    <span class="c1"># para este locus_tag</span>
-                    <span class="c1"># verificar que é a mesma</span>
-                    <span class="n">current_value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span>
-                    <span class="k">assert</span> <span class="n">value</span> <span class="o">==</span> <span class="n">current_value</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># se não, adicionar</span>
-                    <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">return</span> <span class="n">dictionary</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Neste momento já temos a informação presente no NCBI relativa à nossa zona do genoma.</p>
-<p>Falta verificar se esta informação é a mesma presente na tabela presente em <a href="https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758">https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758</a>.</p>
-<p>Reparámos que esta página faz um pedido HTTP a uma API do NCBI, e nós usamos essa mesma API para retirar as informações presentes nessa tabela que nos interessavam:</p>
-<ul>
-<li><strong>gene_id</strong> na coluna 5</li>
-<li><strong>gene</strong> na coluna 6</li>
-<li><strong>locus_tag</strong> na coluna 7</li>
-<li><strong>protein_id</strong> na coluna 8</li>
-<li><strong>product</strong> na coluna 11</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_table</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A página https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758</span>
-<span class="sd">    faz um pedido http ao url_prefix para preencher a tabela.</span>
-<span class="sd">    Este método implementa a paginação que seria feita manualmente</span>
-<span class="sd">    no website, e guarda a informação que queremos num dicionário.</span>
-
-<span class="sd">      - A coluna 5  corresponde à propriedade db_xref    do genbank (gene_id para nós)</span>
-<span class="sd">      - A coluna 6  corresponde à propriedade gene       do genbank</span>
-<span class="sd">      - A coluna 7  corresponde à propriedade locus_tag  do genbank</span>
-<span class="sd">      - A coluna 8  corresponde à propriedade protein_id do genbank</span>
-<span class="sd">      - A coluna 11 corresponde à propriedade product    do genbank</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">url_prefix</span> <span class="o">=</span> <span class="s2">&quot;https://www.ncbi.nlm.nih.gov/genomes/Genome2BE/genome2srv.cgi?action=GetFeatures4Grid&amp;type=Proteins&amp;genome_id=416&amp;genome_assembly_id=166758&amp;gi=&amp;mode=2&amp;is_locus=1&amp;is_locus_tag=1&amp;optcols=1,1,1,0,0&amp;replicons=52840256,NC_002942.5,chr&quot;</span>
-
-    <span class="n">end</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">page_size</span> <span class="o">=</span> <span class="mi">100</span>
-
-    <span class="n">locus_tag_index</span> <span class="o">=</span> <span class="mi">7</span>
-    <span class="n">column_mapping</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;gene_id&quot;</span><span class="p">,</span>
-        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;gene&quot;</span><span class="p">,</span>
-        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;protein_id&quot;</span><span class="p">,</span>
-        <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;product&quot;</span>
-    <span class="p">}</span>
-    <span class="n">nested_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-
-    <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">end</span><span class="p">:</span>
-        <span class="c1"># o crawling acaba quando a página que pedi for vazia</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;&amp;page=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&amp;pageSize=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page_size</span><span class="p">)</span>
-            <span class="n">file_path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-            <span class="n">tree</span> <span class="o">=</span> <span class="n">parse_xml</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">add_root</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-            <span class="n">rows</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;TR&quot;</span><span class="p">)</span>
-
-            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
-                <span class="n">cols</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;TD&quot;</span><span class="p">)</span>
-                <span class="n">locus_tag</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="n">locus_tag_index</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
-
-                <span class="c1"># criar um dicionário vazio para esta locus tag</span>
-                <span class="n">dictionary</span><span class="p">[</span><span class="n">locus_tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-
-                <span class="c1"># para cada uma das colunas que nos interessa,</span>
-                <span class="c1"># guardar o valor no dicionário se for</span>
-                <span class="c1"># diferente de -</span>
-                <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">column_mapping</span><span class="p">:</span>
-                    <span class="n">prop</span> <span class="o">=</span> <span class="n">column_mapping</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">nested_values</span><span class="p">:</span>
-                        <span class="n">value</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">value</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
-
-                    <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
-                        <span class="n">dictionary</span><span class="p">[</span><span class="n">locus_tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-            <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="bp">True</span>
-
-    <span class="k">return</span> <span class="n">dictionary</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Estes passos são</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
-
-<span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
-<span class="n">end</span> <span class="o">=</span> <span class="mi">505535</span>
-
-<span class="n">record</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-<span class="n">dictionary</span> <span class="o">=</span> <span class="n">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;lpg0232&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Transcription factors / DNA binding proteins&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;np20&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene_id&quot;</span><span class="p">:</span> <span class="s2">&quot;19831799&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="mi">177</span><span class="p">,</span>
-    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">270569</span><span class="p">,</span>
-      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270036</span><span class="p">,</span>
-      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;transcriptional regulator np20&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094286.1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MIGCCLI...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;lpg0233&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;EC_number&quot;</span><span class="p">:</span> <span class="s2">&quot;4.1.1.7&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Biodegradation of Xenobiotics&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;mdlC&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene_id&quot;</span><span class="p">:</span> <span class="s2">&quot;19831800&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="mi">530</span><span class="p">,</span>
-    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">272278</span><span class="p">,</span>
-      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270686</span><span class="p">,</span>
-      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">-1</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;benzoylformate decarboxylase&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094287.1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MKKTGSDVLK...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
-  <span class="p">},</span>
-  <span class="err">//</span> <span class="err">...</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
 </div>
     </div>
   </div>
