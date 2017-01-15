@@ -1,5 +1,8 @@
 .PHONY: site pdf
 
+start-nb:
+	jupyter notebook
+
 site:
 	build-site.sh
 

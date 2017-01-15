@@ -8,6 +8,11 @@ Legionella genome annotation
 $ conda install pandas
 ```
 
+To start the Jupyter Notebook:
+```bash
+$ make start-nb
+```
+
 To generate the site:
 
 ```bash
