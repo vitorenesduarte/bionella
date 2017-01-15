@@ -154,45 +154,59 @@ def fetch_uniprots(ids):
     em formato xml dada uma lista de ids uniprot.
     """
 
-    url = "http://www.uniprot.org/batch/"
-    # Cada pedido à uniprot vai no máximo com 100 ids.
-    queries  = [ids[i:i+100] for i in range(0, len(ids), 100)]
+    url = "http://www.uniprot.org/uploadlists/"
+    max_retries = 100
+
+    # Cada pedido à uniprot vai no máximo com 1000 ids.
+    queries  = [ids[i:i+1000] for i in range(0, len(ids), 1000)]
 
     files = []
 
     for query in queries:
         query_all = " ".join(query)
+        md5 = util.md5(query_all)
 
-        d = {
-            "format": "xml"
+        data = {
+            "format": "xml",
+            "from": "ID",
+            "to": "ACC",
+            "uploadQuery": query_all,
+            "jobId": md5
         }
 
-        f = {
-            "file": query_all
-        }
+        done = False
+        attempt = 0
 
-        # pedido HTTP POST
-        response = requests.post(
-            url,
-            data=d,
-            files=f
-        )
+        # enquanto não acabar ou não esgotar as tentativas todas
+        while not done and attempt < max_retries:
 
-        # Gravar o xml
-        file_path = "/tmp/" + util.md5(query_all) + ".xml"
-        rw.write_file(response.text, file_path)
-        files.append(file_path)
+            # pedido HTTP POST
+            response = requests.post(
+                url,
+                data=data
+            )
 
+            if response.status_code == 200:
+                # Gravar o xml
+                file_path = "/tmp/" + md5 + ".xml"
+                rw.write_file(response.text, file_path)
+                files.append(file_path)
+                done = True
 
-    infos = []
+            attempt += 1
+
+        if not done:
+            print("Não consegui fazer download de " + str(query))
+
+    infos = {}
 
     for file_path in files:
         tree = parse_xml(file_path, add_root=True, start=2, end=1)
         entries = tree.findall(".//entry")
 
         for entry in entries:
-            info = extract_uniprot_info(entry)
-            infos.append(info)
+            (uniprot_id, info) = extract_uniprot_info(entry)
+            infos[uniprot_id] = info
 
     return infos
 
@@ -205,6 +219,7 @@ def extract_uniprot_info(entry):
     """
     # accessions
     accessions = [a.text for a in entry.findall(".//accession")]
+    accession = accessions[0]
 
     # encontrar o texto função que costuma estar no início da
     # página da uniprot
@@ -220,6 +235,9 @@ def extract_uniprot_info(entry):
         if is_molecular_function:
             molecular_functions.append(function[2:])
 
-    return {"accessions": accessions,
-            "comment_functions": comment_functions,
-            "molecular_functions": molecular_functions}
+    dictionary = {}
+    dictionary["accessions"] = accessions
+    dictionary["comment_functions"] = comment_functions
+    dictionary["molecular_functions"] = molecular_functions
+
+    return (accession, dictionary)
