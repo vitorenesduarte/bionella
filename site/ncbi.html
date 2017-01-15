@@ -12014,51 +12014,33 @@ A cada uma retirámos:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Estes passos são</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+<p>Criámos ainda uma função que verifica se os valores presentes na tabela correspondem aos valores provenientes do NCBI. Esta função retorna os valores diferentes para uma posterior análise manual.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verifica se os valores presentes na tabela correspondem</span>
+<span class="sd">    aos valores presentes no dicionário.</span>
+<span class="sd">    Se encontrar alguma diferença retorna um dicionário</span>
+<span class="sd">    para análise manual dos resultados.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
-<span class="n">end</span> <span class="o">=</span> <span class="mi">505535</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+        <span class="c1"># para cada uma das locus_tag da nossa zona</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+            <span class="c1"># se estiver na tabela</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
 
-<span class="n">record</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-<span class="n">dictionary</span> <span class="o">=</span> <span class="n">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;lpg0232&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Transcription factors / DNA binding proteins&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;np20&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene_id&quot;</span><span class="p">:</span> <span class="s2">&quot;19831799&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="mi">177</span><span class="p">,</span>
-    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">270569</span><span class="p">,</span>
-      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270036</span><span class="p">,</span>
-      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;transcriptional regulator np20&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094286.1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MIGCCLI...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;lpg0233&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;EC_number&quot;</span><span class="p">:</span> <span class="s2">&quot;4.1.1.7&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;Biodegradation of Xenobiotics&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;mdlC&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;gene_id&quot;</span><span class="p">:</span> <span class="s2">&quot;19831800&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="mi">530</span><span class="p">,</span>
-    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">272278</span><span class="p">,</span>
-      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">270686</span><span class="p">,</span>
-      <span class="nt">&quot;strand&quot;</span><span class="p">:</span> <span class="mi">-1</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;benzoylformate decarboxylase&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;protein_id&quot;</span><span class="p">:</span> <span class="s2">&quot;YP_094287.1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;MKKTGSDVLK...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mRNA&quot;</span>
-  <span class="p">},</span>
-  <span class="err">//</span> <span class="err">...</span>
-<span class="p">}</span>
+                <span class="n">dict_value</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span>
+                <span class="n">table_value</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">table_value</span> <span class="o">==</span> <span class="n">dict_value</span><span class="p">:</span>
+                    <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;prop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span>
+                    <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;dictionary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_value</span>
+                    <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;table&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_value</span>
+
+    <span class="k">return</span> <span class="n">diff</span>
 </pre></div>
 
 </div>
@@ -12069,6 +12051,19 @@ A cada uma retirámos:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Todos estes passos</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">505535</span>
+
+<span class="n">record</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_table</span><span class="p">()</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">verify</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+<span class="c1"># análise manual de diff</span>
+</pre></div>
 
 </div>
 </div>
