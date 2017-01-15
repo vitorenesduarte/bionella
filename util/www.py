@@ -163,19 +163,19 @@ def fetch_uniprots(ids):
     for query in queries:
         query_all = " ".join(query)
 
-        data = {
+        d = {
             "format": "xml"
         }
 
-        files = {
+        f = {
             "file": query_all
         }
 
         # pedido HTTP POST
         response = requests.post(
             url,
-            data=data,
-            files=files
+            data=d,
+            files=f
         )
 
         # Gravar o xml
