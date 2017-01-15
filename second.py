@@ -5,8 +5,6 @@ import util.blast as blast
 def extract_uniprot_id(hit_def):
     """
     Extrair o uniprot id do 'hit_def' do alinhamento.
-    NOTA: Hit def's que vêm do ncbi blast usando o biopython
-    não contêm esta informação.
     """
     parts = hit_def.split("|")
     return parts[1]
@@ -27,7 +25,7 @@ def main():
             proteins.append(protein)
 
 
-    proteins = proteins[40:50]
+    #proteins = proteins[40:50]
 
     out_files = blast.blastp(proteins, "swissprot", "local")
 

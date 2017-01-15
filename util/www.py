@@ -115,6 +115,39 @@ def fetch_table():
 
     return dictionary
 
+def gene_ids_to_uniprot_ids(ids):
+    """
+    Mapeia a lista de gene ids passada como argumento para uniprot ids.
+    Retorna um dictionário em que as chaves são gene_id e os valores
+    são uniprot_id.
+    """
+
+    url = "http://www.uniprot.org/mapping/"
+    query = " ".join(ids)
+
+    data = {
+        "format": "tab",
+        "from": "P_ENTREZGENEID",
+        "to": "ID",
+        "query": query
+    }
+
+    # pedido HTTP POST
+    response = requests.post(
+        url,
+        data=data
+    )
+
+    result = {}
+
+    # ignorar a primeira linha
+    for row in response.text.splitlines()[1:]:
+        gene_id, uniprot_id = row.split("\t")
+
+        result[gene_id] = uniprot_id
+
+    return result
+
 def fetch_uniprots(ids):
     """
     Faz download da informação presente no site uniprot
@@ -130,11 +163,19 @@ def fetch_uniprots(ids):
     for query in queries:
         query_all = " ".join(query)
 
+        data = {
+            "format": "xml"
+        }
+
+        files = {
+            "file": query_all
+        }
+
         # pedido HTTP POST
         response = requests.post(
             url,
-            data={"format":"xml"},
-            files={"file":query_all}
+            data=data,
+            files=files
         )
 
         # Gravar o xml

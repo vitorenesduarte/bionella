@@ -132,6 +132,33 @@ def verify(dictionary, table):
 
     return diff
 
+def retrieve_uniprot_ids(dictionary):
+    """
+    Adicionar ao dictionário uma nova propriedade:
+    - uniprot_id
+    """
+    gene_id_to_tag = {}
+
+    for tag in dictionary:
+        if "gene_id" in dictionary[tag]:
+            gene_id = dictionary[tag]["gene_id"]
+            gene_id_to_tag[gene_id] = tag
+
+    gene_ids = gene_id_to_tag.keys()
+    gene_id_to_uniprot_id = www.gene_ids_to_uniprot_ids(gene_ids)
+    print(gene_id_to_uniprot_id)
+
+    for gene_id in gene_id_to_uniprot_id:
+        uniprot_id = gene_id_to_uniprot_id[gene_id]
+        tag = gene_id_to_tag[gene_id]
+
+        print(uniprot_id)
+        print(tag)
+
+        # adicionary uma nova propriedade ao dicionário: "uniprot_id"
+        dictionary[tag]["uniprot_id"] = uniprot_id
+
+    return dictionary
 
 def main():
     start = 270001
@@ -155,9 +182,12 @@ def main():
     #rw.write_json(table, table_json_path)
 
     dictionary = rw.read_json(ncbi_json_path)
-    table = rw.read_json(table_json_path)
-    diff = verify(dictionary, table)
-    # análise manual de diff
+    #table = rw.read_json(table_json_path)
+    #diff = verify(dictionary, table)
+    ### análise manual de diff
+
+    dictionary = retrieve_uniprot_ids(dictionary)
+    rw.write_json(dictionary, ncbi_json_path)
 
 if __name__ == "__main__":
     main()
