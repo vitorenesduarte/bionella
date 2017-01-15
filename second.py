@@ -20,6 +20,7 @@ def main():
         tags_and_proteins,
         "swissprot",
         "local"
+    )
     rw.write_json(blast_results, blast_results_json_path)
 
 if __name__ == "__main__":
