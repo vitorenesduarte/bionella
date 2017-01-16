@@ -11752,31 +11752,182 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="An&#225;lise-de-homologias-por-BLAST">An&#225;lise de homologias por BLAST<a class="anchor-link" href="#An&#225;lise-de-homologias-por-BLAST">&#182;</a></h2><ol>
-<li><a href="#fetch_genbank">util.www.fetch_genbank(start, end)</a></li>
+<li><a href="#local">local_blastp(tag_to_files, db)</a></li>
+<li><a href="#docker">docker_blastp(directory, db)</a></li>
+<li><a href="#expasy">expasy_blastp(tag_to_files)</a></li>
+<li><a href="#blast">blastp(tags_and_proteins, db, type)</a></li>
 </ol>
-<p>O objectivo desta fase era, dada as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST.</p>
+<p>O objectivo desta fase era, dada as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST, que podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/blast.py"><code>util.blast</code></a>.</p>
 <ul>
 <li><strong>Local</strong></li>
 <li><strong>Docker</strong></li>
 <li><strong>ExPASy</strong></li>
 </ul>
-<h3 id="Local">Local<a class="anchor-link" href="#Local">&#182;</a></h3><h3 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h3><h3 id="ExPASy">ExPASy<a class="anchor-link" href="#ExPASy">&#182;</a></h3><p><a name="fetch_genbank"></a></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="local"></a></p>
+<h3 id="Local">Local<a class="anchor-link" href="#Local">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">local_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corre o blast localmente.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_to_files</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span> <span class="o">=</span> <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+
+        <span class="n">blastp_cline</span> <span class="o">=</span> <span class="n">NcbiblastpCommandline</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">in_file</span><span class="p">,</span>
+            <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span>
+            <span class="n">evalue</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">outfmt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+            <span class="n">out</span><span class="o">=</span><span class="n">out_file</span>
+        <span class="p">)</span>
+        <span class="n">blastp_cline</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="docker"></a></p>
+<h3 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">docker_blastp</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corre o blast numa instância docker.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;docker run -e QUERY_DIR=&quot;</span> <span class="o">+</span> <span class="n">directory</span> \
+                  <span class="o">+</span> <span class="s2">&quot; -e DB=&quot;</span> <span class="o">+</span> <span class="n">db</span> \
+                  <span class="o">+</span> <span class="s2">&quot; -v $PWD/&quot;</span> <span class="o">+</span> <span class="n">directory</span> <span class="o">+</span> <span class="s2">&quot;:/&quot;</span> <span class="o">+</span> <span class="n">directory</span> \
+                  <span class="o">+</span> <span class="s2">&quot; -ti vitorenesduarte/swissprot_blast&quot;</span>
 
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="expasy"></a></p>
+<h3 id="ExPASy">ExPASy<a class="anchor-link" href="#ExPASy">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expasy_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corre o blast na expasy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_to_files</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span> <span class="o">=</span> <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
+        <span class="n">blast_result</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">expasy_blast</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">blast_result</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="blast"></a></p>
+<h3 id="BLAST">BLAST<a class="anchor-link" href="#BLAST">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">blastp</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Corre o blast para a proteínas passadas como argumento,</span>
+<span class="sd">    contra a base de dados também passada como argumento.</span>
+
+<span class="sd">    O argumento type é opcional e pode ter dois valores:</span>
+<span class="sd">        - local</span>
+<span class="sd">        - docker</span>
+<span class="sd">        - expasy</span>
+
+<span class="sd">    É retornado um dicionário com os resultados.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;.query_dir&quot;</span>
+    <span class="n">tag_to_files</span> <span class="o">=</span> <span class="n">write_queries_to_dir</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+
+    <span class="c1"># correr o blast</span>
+    <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
+        <span class="n">local_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;docker&quot;</span><span class="p">:</span>
+        <span class="n">docker_blastp</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;expasy&quot;</span><span class="p">:</span>
+        <span class="n">expasy_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unsupported type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">)</span>
+
+    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">extract_blast_info</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">blast_results</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
 </div>
     </div>
   </div>
