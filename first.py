@@ -31,7 +31,7 @@ def extract_features(record):
 
 def features_to_dictionary(start, features):
     """
-    A cada uma das features, extraimos a seguintes propriedades:
+    Para cada uma das features, extraimos a seguintes propriedades:
       - db_xref
       - EC_number
       - function
