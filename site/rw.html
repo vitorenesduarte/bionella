@@ -11752,9 +11752,158 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="M&#243;dulo-util.rw">M&#243;dulo util.rw<a class="anchor-link" href="#M&#243;dulo-util.rw">&#182;</a></h2><ol>
-<li><a href="#fetch_genbank">util.www.fetch_genbank(start, end)</a></li>
+<li><a href="#file">read_file(file_path)</a></li>
+<li><a href="#file">write_file(string, file_path)</a></li>
+<li><a href="#genbank">read_genbank(file_path)</a></li>
+<li><a href="#genbank">write_genbank(record, file_path)</a></li>
+<li><a href="#blast">read_blast(file_path)</a></li>
+<li><a href="#blast">write_blast(handle, file_path)</a></li>
+<li><a href="#json">read_json(file_path)</a></li>
+<li><a href="#json">write_json(dictionary, file_path)</a></li>
+<li><a href="#more">wrap_file(start_line, end_line, file_path)</a></li>
+<li><a href="#more">truncate_file(start, end, file_path)</a></li>
 </ol>
-<p><a name="fetch_genbank"></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="file"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lê file_path e retorna uma string com o conteúdo do ficheiro.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">string</span>
+
+<span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grava a string em file_path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="genbank"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_genbank</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lê file_path e retorna um record genbank.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;gb&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">write_genbank</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grava o record em file_path no formato genbank.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">SeqIO</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;gb&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="blast"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_blast</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lê file_path e retorna uma lista de blast records.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">NCBIXML</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">record</span>
+
+<span class="k">def</span> <span class="nf">write_blast</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grava o blast record em file_path.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="json"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lê file_path e retorna dicionário.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">dictionary</span>
+
+<span class="k">def</span> <span class="nf">write_json</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grava o dicionário em file_path no formato json.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="more"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrap_file</span><span class="p">(</span><span class="n">start_line</span><span class="p">,</span> <span class="n">end_line</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adiciona uma linha no início do ficheiro e outra no fim.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_line</span><span class="p">]</span> <span class="o">+</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="n">end_line</span><span class="p">]</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">truncate_file</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove as &#39;start&#39; primeiras linhas</span>
+<span class="sd">    e as &#39;end&#39; últimas linahs de um ficheiro.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="o">-</span><span class="n">end</span><span class="p">])</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
