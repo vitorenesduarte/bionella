@@ -11762,6 +11762,7 @@ div#notebook {
 <li><a href="#json">write_json(dictionary, file_path)</a></li>
 <li><a href="#more">wrap_file(start_line, end_line, file_path)</a></li>
 <li><a href="#more">truncate_file(start, end, file_path)</a></li>
+<li><a href="#more">filter_file(regex, file_path)</a></li>
 </ol>
 <p>A ideia deste módulo é permitir a leitura e escrita de ficheiros em diferentes formatos.
 Para todos os formatos, as funções respeitam a seguinte propriedade:</p>
@@ -11894,8 +11895,13 @@ read(write(s)) = s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Por fim, estas duas funções permitem editar ficheiros, adicionando ou removendo linhas do ínicio e fim do ficheiro.</p>
-<p><a name="more"></a></p>
+<p><a name="more"></a>
+Por fim, mais três funções para edição de ficheiros:</p>
+<ul>
+<li><code>wrap_file</code> para adicionar linhas no início e fim de um ficheiro</li>
+<li><code>truncate_file</code> para remover linhas do início e fim de um ficheiro</li>
+<li><code>filter_file</code> para remover linhas de um ficheiro que fazem match com uma dada expressão regular</li>
+</ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrap_file</span><span class="p">(</span><span class="n">start_line</span><span class="p">,</span> <span class="n">end_line</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Adiciona uma linha no início do ficheiro e outra no fim.</span>
@@ -11918,6 +11924,22 @@ read(write(s)) = s
     <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
     <span class="n">fd</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="o">-</span><span class="n">end</span><span class="p">])</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">filter_file</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove as linhas que fazem match com o regex</span>
+<span class="sd">    passado como argumento.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">new_lines</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span> <span class="p">:</span> <span class="ow">not</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">lines</span><span class="p">)</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">new_lines</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
     <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
