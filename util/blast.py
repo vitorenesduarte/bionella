@@ -78,10 +78,9 @@ def expasy_blastp(tag_to_files):
         blast_result = www.expasy_blast(query)
         rw.write_file(blast_result, out_file)
 
-def blastp(tags_and_proteins, db, type="local"):
+def blastp(tags_and_proteins, type="local"):
     """
-    Corre o blast para a proteínas passadas como argumento,
-    contra a base de dados também passada como argumento.
+    Corre o blast para a proteínas passadas como argumento.
 
     O argumento type é opcional e pode ter dois valores:
         - local
@@ -96,9 +95,9 @@ def blastp(tags_and_proteins, db, type="local"):
 
     # correr o blast
     if type == "local":
-        local_blastp(tag_to_files, db)
+        local_blastp(tag_to_files, "swissprot")
     elif type == "docker":
-        docker_blastp(directory, db)
+        docker_blastp(directory, "swissprot")
     elif type == "expasy":
         expasy_blastp(tag_to_files)
     else:
@@ -120,6 +119,15 @@ def extract_blast_info(tag_to_files, type):
 
     for tag in tag_to_files:
         (_, out_file) = tag_to_files[tag]
+
+        ### Alguns resultados do blast, ao serem lidos de disco
+        ### na função rw.read_blast
+        ### estavam a dar erro ao fazer parsing nesta linha.
+        ### Como não necessitamos deste resultado,
+        ### optamos por removê-la.
+        regex = ".*Hsp_midline.*"
+        rw.filter_file(regex, out_file)
+
         handle = rw.read_blast(out_file)
 
         result = []
