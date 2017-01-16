@@ -71,7 +71,6 @@ def write_json(dictionary, file_path):
 def wrap_file(start_line, end_line, file_path):
     """
     Adiciona uma linha no início do ficheiro e outra no fim.
-    NOTA: not memory-friendly
     """
     fd = open(file_path, "r")
     lines = [start_line] + fd.readlines() + [end_line]
