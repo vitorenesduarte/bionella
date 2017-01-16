@@ -148,6 +148,27 @@ def gene_ids_to_uniprot_ids(ids):
 
     return result
 
+def expasy_blast(query):
+    """
+    Corre o blast na expasy.
+    """
+
+    url = "http://web.expasy.org/cgi-bin/blast/blast.pl"
+    data = {
+        "format": "xml",
+        "prot_db1": "UniProtKB",
+        "showsc": 50, # best scoring sequences
+        "showal": 50, # best alignments
+        "seq": query
+    }
+
+    response = requests.post(
+        url,
+        data=data
+    )
+
+    return response.text
+
 def fetch_uniprots(ids):
     """
     Faz download da informação presente no site uniprot

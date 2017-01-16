@@ -1,6 +1,7 @@
 from Bio.Blast.Applications import NcbiblastpCommandline
 import shutil, os, subprocess
 import util.rw as rw
+import util.www as www
 
 def fasta_it(tag):
     """
@@ -67,6 +68,16 @@ def docker_blastp(directory, db):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     p.wait()
 
+def expasy_blastp(tag_to_files):
+    """
+    Corre o blast na expasy.
+    """
+    for tag in tag_to_files:
+        (in_file, out_file) = tag_to_files[tag]
+        query = rw.read_file(in_file)
+        blast_result = www.expasy_blast(query)
+        rw.write_file(blast_result, out_file)
+
 def blastp(tags_and_proteins, db, type="local"):
     """
     Corre o blast para a proteínas passadas como argumento,
@@ -75,6 +86,7 @@ def blastp(tags_and_proteins, db, type="local"):
     O argumento type é opcional e pode ter dois valores:
         - local
         - docker
+        - expasy
 
     A cada hit do blast extraímos:
         - uniprot_id
@@ -93,8 +105,12 @@ def blastp(tags_and_proteins, db, type="local"):
         local_blastp(tag_to_files, db)
     elif type == "docker":
         docker_blastp(directory, db)
+    elif type == "expasy":
+        expasy_blastp(tag_to_files)
     else:
         raise Exception("Unsupported type: " + type)
+
+    blast_results = {}
 
     # no fim, extrair a informação que queremos
     for tag in tag_to_files:
@@ -104,8 +120,14 @@ def blastp(tags_and_proteins, db, type="local"):
         result = []
 
         for a in handle.alignments:
-            # extrair o uniprot id do hit def
-            uniprot_id = a.hit_def.split("|")[1]
+            # extrair o uniprot id
+            if type in ["local", "docker"]:
+                # nos blast locais, o uniprot_id está no hit_def
+                uniprot_id = a.hit_def.split("|")[1]
+            elif type == "expasy":
+                # nos blast expasy, o uniprot_id está no hit_id
+                uniprot_id = a.hit_id.split("|")[1]
+
             # escolher sempre o primeiro hsp
             hsp = a.hsps[0]
             evalue = hsp.expect

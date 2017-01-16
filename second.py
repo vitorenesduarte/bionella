@@ -46,17 +46,17 @@ def main():
     blast_results_json_path = ".blast_results.json"
     uniprots_json_path = ".uniprots.json"
 
-    #dictionary = rw.read_json(ncbi_json_path)
-    #tags_and_proteins = get_tags_and_proteins(dictionary)
+    dictionary = rw.read_json(ncbi_json_path)
+    tags_and_proteins = get_tags_and_proteins(dictionary)
 
-    #blast_results = blast.blastp(
-    #    tags_and_proteins,
-    #    "swissprot",
-    #    "local"
-    #)
-    #rw.write_json(blast_results, blast_results_json_path)
+    blast_results = blast.blastp(
+        tags_and_proteins[0:1],
+        "swissprot",
+        "expasy"
+    )
+    rw.write_json(blast_results, blast_results_json_path)
 
-    blast_results = rw.read_json(blast_results_json_path)
+    #blast_results = rw.read_json(blast_results_json_path)
 
     #uniprot_ids = set()
     #for tag in blast_results:
@@ -68,13 +68,13 @@ def main():
     #uniprots = www.fetch_uniprots(uniprot_ids)
     #rw.write_json(uniprots, uniprots_json_path)
 
-    uniprots = rw.read_json(uniprots_json_path)
+    #uniprots = rw.read_json(uniprots_json_path)
 
-    blast_results = add_functions_to_blast_results(
-        blast_results,
-        uniprots
-    )
-    rw.write_json(blast_results, blast_results_json_path)
+    #blast_results = add_functions_to_blast_results(
+    #    blast_results,
+    #    uniprots
+    #)
+    #rw.write_json(blast_results, blast_results_json_path)
     
 
 if __name__ == "__main__":
