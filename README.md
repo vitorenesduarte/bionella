@@ -51,3 +51,4 @@ a correspondent XML file.
 - [https://www.biostars.org/p/82059/](https://www.biostars.org/p/82059/)
 - [http://www.uniprot.org/help/programmatic_access](http://www.uniprot.org/help/programmatic_access)
 - [https://github.com/jdrudolph/uniprot](https://github.com/jdrudolph/uniprot)
+- [http://web.expasy.org/blast/blast+_help.html#prog_access](http://web.expasy.org/blast/blast+_help.html#prog_access)
