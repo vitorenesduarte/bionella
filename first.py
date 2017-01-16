@@ -164,8 +164,8 @@ def main():
     table_json_path = ".table.json"
 
     ## 1.1
-    #record = www.fetch_genbank(start, end)
-    #rw.write_genbank(record, ncbi_gb_path)
+    record = www.fetch_genbank(start, end)
+    rw.write_genbank(record, ncbi_gb_path)
 
     record = rw.read_genbank(ncbi_gb_path)
     features = extract_features(record)
@@ -174,12 +174,12 @@ def main():
     rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
-    #table = www.fetch_table()
-    #rw.write_json(table, table_json_path)
+    table = www.fetch_table()
+    rw.write_json(table, table_json_path)
 
     dictionary = rw.read_json(ncbi_json_path)
-    #table = rw.read_json(table_json_path)
-    #diff = verify(dictionary, table)
+    table = rw.read_json(table_json_path)
+    diff = verify(dictionary, table)
     ### análise manual de diff
 
     dictionary = retrieve_uniprot_ids(dictionary)

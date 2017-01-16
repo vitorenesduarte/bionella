@@ -1,5 +1,11 @@
 .PHONY: site pdf
 
+first:
+	python first.py
+
+second:
+	python second.py
+
 start-nb:
 	jupyter notebook
 
