@@ -11757,7 +11757,7 @@ div#notebook {
 <li><a href="#expasy">expasy_blastp(tag_to_files)</a></li>
 <li><a href="#blast">blastp(tags_and_proteins, db, type)</a></li>
 </ol>
-<p>O objectivo desta fase era, dada as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST, que podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/blast.py"><code>util.blast</code></a>.</p>
+<p>O objectivo desta fase era, dadas as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST, que podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/blast.py"><code>util.blast</code></a>. Essas alternativas são:</p>
 <ul>
 <li><strong>Local</strong></li>
 <li><strong>Docker</strong></li>
@@ -11835,7 +11835,7 @@ div#notebook {
         <span class="n">blast_result</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">expasy_blast</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
         <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">blast_result</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
 </pre></div>
-<p>Esta função usa uma outra função definida no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> que corre o BLAST contra a base de dados <strong>UniProtKB = Swiss-Prot + TrEMBL</strong>.</p>
+<p>Esta função usa uma outra função definida no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> que corre o BLAST contra a base de dados <strong>UniProtKB = Swiss-Prot + TrEMBL</strong>, usando o serviço da ExPASy.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expasy_blast</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Corre o blast na expasy.</span>

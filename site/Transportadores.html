@@ -11755,6 +11755,264 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;files/Transportadores.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gene</th>
+      <th>Substrate</th>
+      <th>Subtype</th>
+      <th>Family</th>
+      <th>Family Name</th>
+      <th>Transporter Class</th>
+      <th>TC number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>lpg0388</td>
+      <td>daunorubicin</td>
+      <td>binding</td>
+      <td>ABC</td>
+      <td>The ATP-binding Cassette (ABC) Superfamily</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>lpg0387</td>
+      <td>multidrug</td>
+      <td>membrane</td>
+      <td>ABC</td>
+      <td>The ATP-binding Cassette (ABC) Superfamily</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lpg0441</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>lpg0445</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>lpg0446</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>lpg0448</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>lpg0449</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>lpg0451</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>lpg0452</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>lpg0453</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>lpg0454</td>
+      <td>Unclassified</td>
+      <td>No Subtype</td>
+      <td>IVSP</td>
+      <td>The Type IV (Conjugal DNA-Protein Transfer or ...</td>
+      <td>ATP-Dependent</td>
+      <td>3.A.7</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>lpg0281</td>
+      <td>amino acid</td>
+      <td>No Subtype</td>
+      <td>APC</td>
+      <td>The Amino Acid-Polyamine-Organocation (APC) Fa...</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>lpg0404</td>
+      <td>glutamate:GABA antiporter</td>
+      <td>No Subtype</td>
+      <td>APC</td>
+      <td>The Amino Acid-Polyamine-Organocation (APC) Fa...</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.3</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>lpg0256</td>
+      <td>fusaric acid efflux?</td>
+      <td>No Subtype</td>
+      <td>ArAE</td>
+      <td>The Aromatic Acid Exporter (ArAE) Family</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.85</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>lpg0291</td>
+      <td>chromate ion</td>
+      <td>No Subtype</td>
+      <td>CHR</td>
+      <td>The Chromate Ion Transporter (CHR) Family</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.51</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>lpg0263</td>
+      <td>multidrug efflux?</td>
+      <td>No Subtype</td>
+      <td>MFS</td>
+      <td>The Major Facilitator Superfamily (MFS)</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>lpg0273</td>
+      <td>multidrug efflux</td>
+      <td>No Subtype</td>
+      <td>MFS</td>
+      <td>The Major Facilitator Superfamily (MFS)</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>lpg0357</td>
+      <td>multidrug efflux</td>
+      <td>No Subtype</td>
+      <td>MFS</td>
+      <td>The Major Facilitator Superfamily (MFS)</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>lpg0421</td>
+      <td>multidrug efflux</td>
+      <td>No Subtype</td>
+      <td>MFS</td>
+      <td>The Major Facilitator Superfamily (MFS)</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>lpg0457</td>
+      <td>multidrug efflux</td>
+      <td>No Subtype</td>
+      <td>MFS</td>
+      <td>The Major Facilitator Superfamily (MFS)</td>
+      <td>Secondary Transporter</td>
+      <td>2.A.1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>lpg0267</td>
+      <td>magnesium/cobalt ion</td>
+      <td>No Subtype</td>
+      <td>MIT</td>
+      <td>The CorA Metal Ion Transporter (MIT) Family</td>
+      <td>Ion Channels</td>
+      <td>1.A.35</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
