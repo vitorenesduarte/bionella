@@ -157,6 +157,7 @@ def expasy_blast(query):
     data = {
         "format": "xml",
         "prot_db1": "UniProtKB",
+        "matrix": "BLOSUM62",
         "showsc": 50, # best scoring sequences
         "showal": 50, # best alignments
         "seq": query
@@ -234,10 +235,22 @@ def fetch_uniprots(ids):
 def extract_uniprot_info(entry):
     """
     Extrai a informação que necessitamos da uniprot.
+      - status (reviewed, unreviewed)
       - accessions
       - comentários sobre a função
       - GO - Molecular Function
+      - sequência
     """
+    # dataset
+    ds = entry.get("dataset")
+
+    if ds == "Swiss-Prot":
+        status = "reviewed"
+    elif ds == "TrEMBL":
+        status = "unreviewed"
+    else:
+        print("Não conheço o dataset " + ds)
+
     # accessions
     accessions = [a.text for a in entry.findall(".//accession")]
     accession = accessions[0]
@@ -256,9 +269,16 @@ def extract_uniprot_info(entry):
         if is_molecular_function:
             molecular_functions.append(function[2:])
 
+    # sequência
+    sequences = entry.findall(".//sequence[@length]")
+    assert len(sequences) == 1
+    sequence = sequences[0].text.replace("\n", "")
+
     dictionary = {}
+    dictionary["status"] = status
     dictionary["accessions"] = accessions
     dictionary["comment_functions"] = comment_functions
     dictionary["molecular_functions"] = molecular_functions
+    dictionary["sequence"] = sequence
 
     return (accession, dictionary)

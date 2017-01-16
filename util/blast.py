@@ -132,7 +132,9 @@ def blastp(tags_and_proteins, db, type="local"):
             hsp = a.hsps[0]
             evalue = hsp.expect
             score = hsp.score
-            identity = hsp.identities
+            identities = hsp.identities
+            align_length = hsp.align_length
+            identity = (identities * 100) / align_length
 
             hit = {}
             hit["uniprot_id"] = uniprot_id
