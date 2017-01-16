@@ -1,6 +1,6 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
-import json, os
+import json, os, re
 
 def read_file(file_path):
     """
@@ -90,5 +90,21 @@ def truncate_file(start, end, file_path):
     fd.close()
     fd = open(file_path, "w")
     fd.writelines(lines[start:-end])
+    os.fsync(fd)
+    fd.close()
+
+def filter_file(regex, file_path):
+    """
+    Remove as linhas que fazem match com o regex
+    passado como argumento.
+    """
+    pattern = re.compile(regex)
+
+    fd = open(file_path, "r")
+    lines = fd.readlines()
+    fd.close()
+    new_lines = filter(lambda l : not pattern.search(l), lines)
+    fd = open(file_path, "w")
+    fd.writelines(new_lines)
     os.fsync(fd)
     fd.close()
