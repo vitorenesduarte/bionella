@@ -132,7 +132,7 @@ def gene_ids_to_uniprot_ids(ids):
         "query": query
     }
 
-    # pedido HTTP POST
+    # HTTP POST
     response = requests.post(
         url,
         data=data
@@ -180,7 +180,7 @@ def fetch_uniprots(ids):
         # enquanto não acabar ou não esgotar as tentativas todas
         while not done and attempt < max_retries:
 
-            # pedido HTTP POST
+            # HTTP POST
             response = requests.post(
                 url,
                 data=data

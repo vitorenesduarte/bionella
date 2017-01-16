@@ -144,16 +144,12 @@ def retrieve_uniprot_ids(dictionary):
             gene_id = dictionary[tag]["gene_id"]
             gene_id_to_tag[gene_id] = tag
 
-    gene_ids = gene_id_to_tag.keys()
+    gene_ids = list(gene_id_to_tag.keys())
     gene_id_to_uniprot_id = www.gene_ids_to_uniprot_ids(gene_ids)
-    print(gene_id_to_uniprot_id)
 
     for gene_id in gene_id_to_uniprot_id:
         uniprot_id = gene_id_to_uniprot_id[gene_id]
         tag = gene_id_to_tag[gene_id]
-
-        print(uniprot_id)
-        print(tag)
 
         # adicionary uma nova propriedade ao dicionário: "uniprot_id"
         dictionary[tag]["uniprot_id"] = uniprot_id
@@ -171,11 +167,11 @@ def main():
     #record = www.fetch_genbank(start, end)
     #rw.write_genbank(record, ncbi_gb_path)
 
-    #record = rw.read_genbank(ncbi_gb_path)
-    #features = extract_features(record)
+    record = rw.read_genbank(ncbi_gb_path)
+    features = extract_features(record)
 
-    #dictionary = features_to_dictionary(start, features)
-    #rw.write_json(dictionary, ncbi_json_path)
+    dictionary = features_to_dictionary(start, features)
+    rw.write_json(dictionary, ncbi_json_path)
 
     ## 1.2
     #table = www.fetch_table()
