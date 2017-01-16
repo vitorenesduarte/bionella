@@ -11762,9 +11762,9 @@ div#notebook {
 </ol>
 <p><a name="fetch_genbank"></a>
 Começamos por aceder ao NCBI para fazer download de um ficheiro no formato <strong>genbank</strong> com informação correspondente à nossa zona do genoma, da posição 270001 a 505535.</p>
-<p>O primeiro passo foi descobrir qual o <strong>genbank_id</strong> associado ao accession <strong>NC_002942.5</strong>.
-Para isto usamos a função <code>Entrez.search</code>.</p>
-<p>Após saber o <strong>genbank_id</strong>, obtivemos o <strong>genbank</strong> usando a função <code>Entrez.efetch</code>.</p>
+<p>O primeiro passo foi descobrir qual o <strong>genbank_id</strong> associado ao accession number, <strong>NC_002942.5</strong>, da estirpe em estudo.
+Para tal, usamos a função <code>Entrez.search</code>.</p>
+<p>Tendo o <strong>genbank_id</strong>, obtivemos o ficheiro <strong>genbank</strong>, com recurso à função <code>Entrez.efetch</code>.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_genbank</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Procura no NCBI pelo Accession NC_002942.5 e </span>
@@ -11839,7 +11839,7 @@ Deste <code>record</code> extraímos as features <strong>gene</strong>, <strong>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a name="features_to_dictionary"></a>
-Para finalizar, convertemos esta lista de features para um dicionário.
+De seguida, convertemos esta lista de features num dicionário.
 A cada uma retirámos:</p>
 <ul>
 <li><strong>db_xref</strong> (renomeado para <strong>gene_id</strong>)</li>
@@ -11853,10 +11853,10 @@ A cada uma retirámos:</p>
 <li><strong>protein_id</strong></li>
 <li><strong>translation</strong></li>
 </ul>
-<p>Além disso, também ficamos com informação sobre a localização de cada gene, em qual das cadeias está presente, número de aminoácidos e tipo de feature (<strong>tRNA</strong>, <strong>rRNA</strong> e <strong>mRNA</strong>).</p>
+<p>Além disso, também ficamos com informação sobre a localização de cada gene, cadeias em que se encontra, número de aminoácidos da proteína codificada e tipo de feature (<strong>tRNA</strong>, <strong>rRNA</strong> e <strong>mRNA</strong>).</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A cada uma das features, extraimos a seguintes propriedades:</span>
+<span class="sd">    Para cada uma das features, extraimos a seguintes propriedades:</span>
 <span class="sd">      - db_xref</span>
 <span class="sd">      - EC_number</span>
 <span class="sd">      - function</span>
@@ -11941,8 +11941,8 @@ A cada uma retirámos:</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a name="fetch_table"></a>
 Neste momento já temos a informação presente no NCBI relativa à nossa zona do genoma.</p>
-<p>Falta verificar se esta informação é a mesma presente na tabela presente em <a href="https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758">https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758</a>.</p>
-<p>Reparámos que esta página faz um pedido HTTP a uma API do NCBI, e nós usamos essa mesma API para retirar as informações presentes nessa tabela que nos interessavam:</p>
+<p>Falta verificar se esta informação está de acordo com a da tabela presente em <a href="https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758">https://www.ncbi.nlm.nih.gov/genome/proteins/416?genome_assembly_id=166758</a>.</p>
+<p>Reparámos que esta página faz um pedido HTTP a uma API do NCBI, e usamos essa mesma API para retirar as informações que nos interessavam:</p>
 <ul>
 <li><strong>gene_id</strong> na coluna 5</li>
 <li><strong>gene</strong> na coluna 6</li>
@@ -12056,7 +12056,7 @@ Criámos ainda uma função que verifica se os valores presentes na tabela corre
 
     <span class="k">return</span> <span class="n">diff</span>
 </pre></div>
-<p>Durante a análise manual das diferenças concluímos que a informação era a mesma, e portanto não houve necessidade de atualizar a que já tinhamos.</p>
+<p>Durante a análise manual das diferenças concluímos que a informação era a mesma, e, portanto, não houve necessidade de atualizar a que já tínhamos.</p>
 
 </div>
 </div>
@@ -12103,7 +12103,7 @@ Por fim, para sabermos mais sobre a nossa zona do genoma, mapeamos os <strong>ge
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a name="gene_ids_to_uniprot_ids"></a>
 Esta função usa uma outra função de mapeamento presente no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> chamada <code>gene_ids_to_uniprot_ids</code>.</p>
-<p>A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
+<p>A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso, mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gene_ids_to_uniprot_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mapeia a lista de gene ids passada como argumento para uniprot ids.</span>
