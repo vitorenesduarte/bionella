@@ -110,9 +110,18 @@ def blastp(tags_and_proteins, db, type="local"):
     else:
         raise Exception("Unsupported type: " + type)
 
-    blast_results = {}
+    blast_results = extract_blast_info(tag_to_files, type)
+    return blast_results
 
-    # no fim, extrair a informação que queremos
+def extract_blast_info(tag_to_files, type):
+    """
+    Extrai a informação que necessitamos dos resultados do blast.
+      - uniprot_id
+      - evalue
+      - score
+      - identity
+    """
+
     for tag in tag_to_files:
         (_, out_file) = tag_to_files[tag]
         handle = rw.read_blast(out_file)
