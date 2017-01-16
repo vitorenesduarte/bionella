@@ -1,5 +1,4 @@
 import os
-import os.path
 
 site_path = os.path.join(os.getcwd(), "site")
 os.chdir(site_path)
