@@ -11763,6 +11763,20 @@ div#notebook {
 <li><a href="#more">wrap_file(start_line, end_line, file_path)</a></li>
 <li><a href="#more">truncate_file(start, end, file_path)</a></li>
 </ol>
+<p>A ideia deste módulo é permitir a leitura e escrita de ficheiros em diferentes formatos.
+Para todos os formatos, as funções respeitam a seguinte propriedade:</p>
+<p><br></p>
+<p><center>
+__read(write(s)) = s__
+</center>
+<br></p>
+<p>Nos ficheiros, pode ser feita a leitura e escrita de:</p>
+<ul>
+<li><strong>string</strong></li>
+<li><strong>genbank</strong></li>
+<li><strong>blast</strong></li>
+<li><strong>json</strong></li>
+</ul>
 
 </div>
 </div>
@@ -11878,6 +11892,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Por fim, estas duas funções permitem editar ficheiros, adicionando ou removendo l</p>
 <p><a name="more"></a></p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrap_file</span><span class="p">(</span><span class="n">start_line</span><span class="p">,</span> <span class="n">end_line</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
