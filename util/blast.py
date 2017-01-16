@@ -88,12 +88,6 @@ def blastp(tags_and_proteins, db, type="local"):
         - docker
         - expasy
 
-    A cada hit do blast extraímos:
-        - uniprot_id
-        - evalue
-        - score
-        - identity
-
     É retornado um dicionário com os resultados.
     """
 
