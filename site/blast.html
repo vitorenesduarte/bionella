@@ -11869,7 +11869,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a name="blast"></a></p>
-<h3 id="BLAST">BLAST<a class="anchor-link" href="#BLAST">&#182;</a></h3><p>A função que engloba estas três opções recebe como argumento uma lista de pares em que a primeira componente é a <strong>locus_tag</strong> da proteína, e a segunda componente a respectiva sequência de aminoácidos. Recebe ainda qual o tipo de BLAST, <strong>local</strong>, <strong>docker</strong> ou <strong>expasy</strong> a utilizar.</p>
+<h3 id="BLAST">BLAST<a class="anchor-link" href="#BLAST">&#182;</a></h3><p>A função que engloba estas três opções recebe como argumento uma lista de pares em que a primeira componente é a <strong>locus_tag</strong> da proteína, e a segunda componente é a respectiva sequência de aminoácidos. Recebe ainda qual o tipo de BLAST, <strong>local</strong>, <strong>docker</strong> ou <strong>expasy</strong>, a utilizar.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">blastp</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Corre o blast para a proteínas passadas como argumento,</span>
