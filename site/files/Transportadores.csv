@@ -1,4 +1,4 @@
-Gene;Substrate;Subtype;Family;Family Name;Transporter Class;TC number
+Locus_tag;Substrate;Subtype;Family;Family Name;Transporter Class;TC number
 lpg0388;daunorubicin;binding;ABC;The ATP-binding Cassette (ABC) Superfamily;ATP-Dependent;3.A.1
 lpg0387;multidrug;membrane;ABC;The ATP-binding Cassette (ABC) Superfamily;ATP-Dependent;3.A.1
 lpg0441;Unclassified;No Subtype;IVSP;The Type IV (Conjugal DNA-Protein Transfer or VirB) Secretory Pathway (IVSP) Family;ATP-Dependent;3.A.7
