@@ -18,7 +18,7 @@ def get_tags_and_proteins(dictionary):
             both = (tag, protein)
             tags_and_proteins.append(both)
 
-    return tags_and_proteins
+    return sorted(tags_and_proteins, key=lambda tp : tp[0])
 
 def add_info_to_blast_results(blast_results, uniprots):
     """
