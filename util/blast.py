@@ -122,6 +122,8 @@ def extract_blast_info(tag_to_files, type):
       - identity
     """
 
+    blast_results = {}
+
     for tag in tag_to_files:
         (_, out_file) = tag_to_files[tag]
         handle = rw.read_blast(out_file)
