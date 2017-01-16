@@ -12101,7 +12101,8 @@ Por fim, para sabermos mais sobre a nossa zona do genoma, mapeamos os <strong>ge
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Esta função usa uma outra função de mapeamento presente no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> chamada <code>gene_ids_to_uniprot_ids</code>.</p>
+<p><a name="gene_ids_to_uniprot_ids"></a>
+Esta função usa uma outra função de mapeamento presente no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> chamada <code>gene_ids_to_uniprot_ids</code>.</p>
 <p>A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gene_ids_to_uniprot_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
