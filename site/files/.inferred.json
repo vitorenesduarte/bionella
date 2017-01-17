@@ -1,593 +1,1688 @@
 {
-  "lpg0232": [
-    "DNA binding",
-    "transcription factor activity, sequence-specific DNA binding"
-  ],
-  "lpg0233": [
-    "benzoylformate decarboxylase activity",
-    "magnesium ion binding",
-    "thiamine pyrophosphate binding",
-    "catalytic activity"
-  ],
-  "lpg0234": [],
-  "lpg0235": [
-    "carbon-sulfur lyase activity"
-  ],
-  "lpg0236": [],
-  "lpg0237": [
-    "peroxidase activity"
-  ],
-  "lpg0238": [
-    "betaine-aldehyde dehydrogenase activity"
-  ],
-  "lpg0239": [
-    "pyridoxal phosphate binding",
-    "4-aminobutyrate transaminase activity"
-  ],
-  "lpg0240": [],
-  "lpg0241": [
-    "glutaminase activity"
-  ],
-  "lpg0242": [
-    "NAD binding"
-  ],
-  "lpg0243": [],
-  "lpg0244": [
-    "flavin adenine dinucleotide binding"
-  ],
-  "lpg0245": [
-    "glutamate dehydrogenase (NAD+) activity"
-  ],
-  "lpg0246": [],
-  "lpg0247": [],
-  "lpg0248": [
-    "arsenate reductase (glutaredoxin) activity"
-  ],
-  "lpg0249": [
-    "oxidoreductase activity, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water"
-  ],
-  "lpg0250": [
-    "helicase activity",
-    "ATP binding",
-    "nucleic acid binding"
-  ],
-  "lpg0251": [
-    "nucleotide binding",
-    "nucleic acid binding"
-  ],
-  "lpg0252": [],
-  "lpg0253": [
-    "N-acetyltransferase activity"
-  ],
-  "lpg0254": [],
-  "lpg0255": [
-    "transporter activity",
-    "lipid binding"
-  ],
-  "lpg0256": [],
-  "lpg0257": [],
-  "lpg0258": [],
-  "lpg0259": [],
-  "lpg0260": [],
-  "lpg0261": [
-    "transposase activity",
-    "DNA binding"
-  ],
-  "lpg0262": [
-    "DNA-directed DNA polymerase activity"
-  ],
-  "lpg0263": [],
-  "lpg0264": [
-    "N-acetylmuramoyl-L-alanine amidase activity"
-  ],
-  "lpg0265": [
-    "oxidoreductase activity",
-    "copper ion binding"
-  ],
-  "lpg0266": [],
-  "lpg0267": [
-    "metal ion transmembrane transporter activity"
-  ],
-  "lpg0268": [
-    "hydrolase activity"
-  ],
-  "lpg0269": [
-    "transaminase activity"
-  ],
-  "lpg0270": [
-    "nicotinate-nucleotide diphosphorylase (carboxylating) activity",
-    "ligase activity",
-    "nicotinate phosphoribosyltransferase activity"
-  ],
-  "lpg0271": [
-    "catalytic activity"
-  ],
-  "lpg0272": [
-    "glutathione transferase activity"
-  ],
-  "lpg0273": [],
-  "lpg0274": [
-    "DNA binding",
-    "transcription factor activity, sequence-specific DNA binding"
-  ],
-  "lpg0275": [],
-  "lpg0276": [
-    "guanyl-nucleotide exchange factor activity"
-  ],
-  "lpg0277": [
-    "cyclic-guanylate-specific phosphodiesterase activity"
-  ],
-  "lpg0278": [
-    "ATP binding",
-    "protein histidine kinase activity"
-  ],
-  "lpg0279": [],
-  "lpg0280": [
-    "DNA binding",
-    "transcription factor activity, sequence-specific DNA binding"
-  ],
-  "lpg0281": [
-    "amino acid transmembrane transporter activity"
-  ],
-  "lpg0282": [
-    "methyltransferase activity"
-  ],
-  "lpg0283": [
-    "NAD binding",
-    "formate dehydrogenase (NAD+) activity",
-    "oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor"
-  ],
-  "lpg0284": [],
-  "lpg0285": [],
-  "lpg0286": [
-    "oxidoreductase activity"
-  ],
-  "lpg0287": [
-    "translation elongation factor activity"
-  ],
-  "lpg0288": [
-    "metal ion binding",
-    "4 iron, 4 sulfur cluster binding",
-    "lysine 2,3-aminomutase activity"
-  ],
-  "lpg0289": [
-    "metal ion binding",
-    "ATP binding",
-    "polyphosphate kinase activity"
-  ],
-  "lpg0290": [],
-  "lpg0291": [
-    "chromate transmembrane transporter activity"
-  ],
-  "lpg0292": [],
-  "lpg0293": [
-    "flavin adenine dinucleotide binding",
-    "acyl-CoA dehydrogenase activity"
-  ],
-  "lpg0294": [],
-  "lpg0295": [
-    "nucleotidyltransferase activity",
-    "glucose-1-phosphate thymidylyltransferase activity"
-  ],
-  "lpg0296": [
-    "kinase activity"
-  ],
-  "lpg0297": [],
-  "lpg0298": [
-    "peptidyl-prolyl cis-trans isomerase activity",
-    "peptide binding"
-  ],
-  "lpg0299": [
-    "NAD binding",
-    "zinc ion binding",
-    "magnesium ion binding",
-    "4-hydroxythreonine-4-phosphate dehydrogenase activity",
-    "cobalt ion binding"
-  ],
-  "lpg0300": [
-    "dihydrofolate reductase activity",
-    "NADP binding"
-  ],
-  "lpg0301": [],
-  "lpg0305": [],
-  "lpg0306": [],
-  "lpg0307": [],
-  "lpg0314": [
-    "GTPase activity",
-    "GTP binding",
-    "translation elongation factor activity"
-  ],
-  "lpg0316": [
-    "P-P-bond-hydrolysis-driven protein transmembrane transporter activity"
-  ],
-  "lpg0317": [],
-  "lpg0318": [
-    "large ribosomal subunit rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0319": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0320": [
-    "large ribosomal subunit rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0321": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0322": [
-    "DNA-directed RNA polymerase activity",
-    "DNA binding",
-    "ribonucleoside binding"
-  ],
-  "lpg0323": [
-    "DNA-directed RNA polymerase activity",
-    "DNA binding"
-  ],
-  "lpg0324": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0325": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0326": [
-    "GTPase activity",
-    "GTP binding",
-    "translation elongation factor activity"
-  ],
-  "lpg0327": [
-    "GTPase activity",
-    "GTP binding",
-    "translation elongation factor activity"
-  ],
-  "lpg0328": [
-    "tRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0329": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0330": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0331": [
-    "nucleotide binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0332": [
-    "transferase activity",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0333": [
-    "phosphorelay sensor kinase activity"
-  ],
-  "lpg0334": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0335": [
-    "structural constituent of ribosome",
-    "rRNA binding",
-    "mRNA binding"
-  ],
-  "lpg0336": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0337": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0338": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0339": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0340": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0341": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0342": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0343": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0344": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0345": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0346": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0347": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0348": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0349": [],
-  "lpg0350": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0351": [
-    "tRNA binding",
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0352": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0353": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ],
-  "lpg0354": [
-    "DNA-directed RNA polymerase activity",
-    "DNA binding"
-  ],
-  "lpg0355": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0356": [
-    "single-stranded DNA binding"
-  ],
-  "lpg0357": [],
-  "lpg0358": [
-    "enoyl-[acyl-carrier-protein] reductase (NADPH, B-specific) activity"
-  ],
-  "lpg0359": [
-    "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
-  ],
-  "lpg0360": [
-    "lyase activity"
-  ],
-  "lpg0361": [
-    "beta-ketoacyl-acyl-carrier-protein synthase II activity"
-  ],
-  "lpg0362": [
-    "transferase activity"
-  ],
-  "lpg0363": [
-    "transferase activity, transferring acyl groups"
-  ],
-  "lpg0364": [
-    "cyclic-di-GMP binding"
-  ],
-  "lpg0365": [],
-  "lpg0366": [
-    "diaminopimelate epimerase activity"
-  ],
-  "lpg0367": [
-    "sequence-specific DNA binding"
-  ],
-  "lpg0368": [],
-  "lpg0369": [
-    "carboxylic ester hydrolase activity",
-    "hydrolase activity"
-  ],
-  "lpg0370": [],
-  "lpg0371": [],
-  "lpg0372": [],
-  "lpg0373": [
-    "diguanylate cyclase activity"
-  ],
-  "lpg0374": [],
-  "lpg0375": [],
-  "lpg0376": [],
-  "lpg0377": [
-    "N-acetylmuramoyl-L-alanine amidase activity"
-  ],
-  "lpg0378": [
-    "glutamate-cysteine ligase activity"
-  ],
-  "lpg0379": [
-    "metal ion binding",
-    "ATP binding"
-  ],
-  "lpg0380": [],
-  "lpg0381": [],
-  "lpg0382": [],
-  "lpg0383": [],
-  "lpg0384": [
-    "ATPase activity",
-    "zinc ion binding",
-    "DNA binding",
-    "excinuclease ABC activity",
-    "ATP binding"
-  ],
-  "lpg0385": [],
-  "lpg0386": [
-    "metalloendopeptidase activity"
-  ],
-  "lpg0387": [],
-  "lpg0388": [
-    "ATPase activity",
-    "ATP binding"
-  ],
-  "lpg0389": [],
-  "lpg0390": [],
-  "lpg0391": [
-    "L-ascorbic acid binding",
-    "iron ion binding",
-    "oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen"
-  ],
-  "lpg0392": [
-    "metallopeptidase activity"
-  ],
-  "lpg0393": [],
-  "lpg0394": [
-    "methylated-DNA-[protein]-cysteine S-methyltransferase activity"
-  ],
-  "lpg0395": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0396": [
-    "tRNA (guanine(37)-N(1))-methyltransferase activity"
-  ],
-  "lpg0397": [
-    "ribosome binding"
-  ],
-  "lpg0398": [],
-  "lpg0399": [
-    "structural constituent of ribosome"
-  ],
-  "lpg0400": [
-    "GTPase activity",
-    "GTP binding",
-    "7S RNA binding"
-  ],
-  "lpg0401": [],
-  "lpg0402": [],
-  "lpg0403": [],
-  "lpg0404": [
-    "amino acid transmembrane transporter activity"
-  ],
-  "lpg0405": [],
-  "lpg0406": [
-    "peroxiredoxin activity",
-    "peroxidase activity"
-  ],
-  "lpg0407": [],
-  "lpg0408": [
-    "protein disulfide oxidoreductase activity"
-  ],
-  "lpg0409": [],
-  "lpg0410": [],
-  "lpg0411": [
-    "oxidoreductase activity, acting on the CH-CH group of donors"
-  ],
-  "lpg0412": [
-    "protoheme IX farnesyltransferase activity"
-  ],
-  "lpg0413": [],
-  "lpg0414": [
-    "acid-amino acid ligase activity",
-    "manganese ion binding",
-    "ATP binding",
-    "magnesium ion binding"
-  ],
-  "lpg0415": [
-    "DNA binding"
-  ],
-  "lpg0416": [
-    "NADP binding",
-    "glucose-6-phosphate dehydrogenase activity"
-  ],
-  "lpg0417": [
-    "6-phosphogluconolactonase activity"
-  ],
-  "lpg0418": [
-    "phosphogluconate dehydratase activity"
-  ],
-  "lpg0419": [
-    "ATP binding",
-    "glucokinase activity"
-  ],
-  "lpg0420": [
-    "lyase activity"
-  ],
-  "lpg0421": [
-    "substrate-specific transmembrane transporter activity"
-  ],
-  "lpg0422": [
-    "glucan 1,4-alpha-glucosidase activity"
-  ],
-  "lpg0423": [
-    "sequence-specific DNA binding"
-  ],
-  "lpg0424": [],
-  "lpg0425": [
-    "metal ion binding",
-    "ferrochelatase activity"
-  ],
-  "lpg0426": [
-    "DNA binding"
-  ],
-  "lpg0427": [
-    "catalytic activity"
-  ],
-  "lpg0428": [
-    "lyase activity"
-  ],
-  "lpg0429": [
-    "transporter activity"
-  ],
-  "lpg0430": [],
-  "lpg0431": [],
-  "lpg0432": [],
-  "lpg0433": [],
-  "lpg0434": [],
-  "lpg0435": [
-    "methyltransferase activity"
-  ],
-  "lpg0436": [],
-  "lpg0437": [],
-  "lpg0438": [],
-  "lpg0439": [],
-  "lpg0440": [],
-  "lpg0441": [],
-  "lpg0442": [],
-  "lpg0443": [],
-  "lpg0444": [],
-  "lpg0445": [],
-  "lpg0446": [],
-  "lpg0447": [],
-  "lpg0448": [],
-  "lpg0449": [],
-  "lpg0450": [],
-  "lpg0451": [],
-  "lpg0452": [],
-  "lpg0453": [],
-  "lpg0454": [],
-  "lpg0455": [],
-  "lpg0456": [],
-  "lpg0457": [
-    "transporter activity"
-  ],
-  "lpg0458": [],
-  "lpg0459": [],
-  "lpg0460": [
-    "IMP cyclohydrolase activity",
-    "phosphoribosylaminoimidazolecarboxamide formyltransferase activity"
-  ],
-  "lpg0461": [
-    "protein methyltransferase activity"
-  ],
-  "lpg0462": [
-    "metal ion binding",
-    "biotin carboxylase activity",
-    "ATP binding"
-  ],
-  "lpg_3050": [
-    "rRNA binding",
-    "structural constituent of ribosome"
-  ]
+  "lpg0232": {
+    "all": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ]
+  },
+  "lpg0233": {
+    "all": [
+      "catalytic activity",
+      "magnesium ion binding",
+      "thiamine pyrophosphate binding"
+    ],
+    "top_ten": [
+      "benzoylformate decarboxylase activity",
+      "catalytic activity",
+      "magnesium ion binding",
+      "thiamine pyrophosphate binding"
+    ]
+  },
+  "lpg0234": {
+    "all": [
+      "Lys63-specific deubiquitinase activity",
+      "NAD(P)+-protein-arginine ADP-ribosyltransferase activity",
+      "NEDD8-specific protease activity",
+      "nucleotide binding"
+    ],
+    "top_ten": []
+  },
+  "lpg0235": {
+    "all": [
+      "carbon-sulfur lyase activity"
+    ],
+    "top_ten": [
+      "carbon-sulfur lyase activity"
+    ]
+  },
+  "lpg0236": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0237": {
+    "all": [],
+    "top_ten": [
+      "peroxidase activity"
+    ]
+  },
+  "lpg0238": {
+    "all": [
+      "oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor"
+    ],
+    "top_ten": [
+      "betaine-aldehyde dehydrogenase activity"
+    ]
+  },
+  "lpg0239": {
+    "all": [
+      "4-aminobutyrate transaminase activity",
+      "pyridoxal phosphate binding"
+    ],
+    "top_ten": [
+      "4-aminobutyrate transaminase activity",
+      "pyridoxal phosphate binding"
+    ]
+  },
+  "lpg0240": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0241": {
+    "all": [
+      "glutaminase activity"
+    ],
+    "top_ten": [
+      "glutaminase activity"
+    ]
+  },
+  "lpg0242": {
+    "all": [
+      "NAD binding",
+      "oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor"
+    ],
+    "top_ten": [
+      "NAD binding"
+    ]
+  },
+  "lpg0243": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0244": {
+    "all": [
+      "flavin adenine dinucleotide binding"
+    ],
+    "top_ten": [
+      "flavin adenine dinucleotide binding"
+    ]
+  },
+  "lpg0245": {
+    "all": [
+      "glutamate dehydrogenase (NAD+) activity"
+    ],
+    "top_ten": [
+      "glutamate dehydrogenase (NAD+) activity"
+    ]
+  },
+  "lpg0246": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0247": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0248": {
+    "all": [
+      "arsenate reductase (glutaredoxin) activity"
+    ],
+    "top_ten": [
+      "arsenate reductase (glutaredoxin) activity"
+    ]
+  },
+  "lpg0249": {
+    "all": [
+      "oxidoreductase activity, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water"
+    ],
+    "top_ten": [
+      "oxidoreductase activity, acting on paired donors, with oxidation of a pair of donors resulting in the reduction of molecular oxygen to two molecules of water"
+    ]
+  },
+  "lpg0250": {
+    "all": [
+      "ATP binding",
+      "helicase activity",
+      "nucleic acid binding"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "helicase activity",
+      "nucleic acid binding"
+    ]
+  },
+  "lpg0251": {
+    "all": [
+      "nucleic acid binding",
+      "nucleotide binding"
+    ],
+    "top_ten": [
+      "nucleic acid binding",
+      "nucleotide binding"
+    ]
+  },
+  "lpg0252": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0253": {
+    "all": [
+      "N-acetyltransferase activity"
+    ],
+    "top_ten": [
+      "N-acetyltransferase activity"
+    ]
+  },
+  "lpg0254": {
+    "all": [
+      "ATP binding",
+      "amino acid binding",
+      "aspartate carbamoyltransferase activity",
+      "carbamoyl-phosphate synthase (glutamine-hydrolyzing) activity",
+      "hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amides",
+      "ligase activity",
+      "metal ion binding",
+      "zinc ion binding"
+    ],
+    "top_ten": []
+  },
+  "lpg0255": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": [
+      "lipid binding",
+      "transporter activity"
+    ]
+  },
+  "lpg0256": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0257": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0258": {
+    "all": [
+      "serine-type endopeptidase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0259": {
+    "all": [
+      "serine-type endopeptidase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0260": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0261": {
+    "all": [
+      "DNA binding",
+      "transposase activity"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "transposase activity"
+    ]
+  },
+  "lpg0262": {
+    "all": [
+      "DNA-directed DNA polymerase activity"
+    ],
+    "top_ten": [
+      "DNA-directed DNA polymerase activity"
+    ]
+  },
+  "lpg0263": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0264": {
+    "all": [
+      "N-acetylmuramoyl-L-alanine amidase activity"
+    ],
+    "top_ten": [
+      "N-acetylmuramoyl-L-alanine amidase activity"
+    ]
+  },
+  "lpg0265": {
+    "all": [
+      "copper ion binding",
+      "oxidoreductase activity"
+    ],
+    "top_ten": [
+      "copper ion binding",
+      "oxidoreductase activity"
+    ]
+  },
+  "lpg0266": {
+    "all": [
+      "zinc ion binding"
+    ],
+    "top_ten": []
+  },
+  "lpg0267": {
+    "all": [
+      "cobalt ion transmembrane transporter activity",
+      "magnesium ion transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "metal ion transmembrane transporter activity"
+    ]
+  },
+  "lpg0268": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": [
+      "hydrolase activity"
+    ]
+  },
+  "lpg0269": {
+    "all": [
+      "transaminase activity"
+    ],
+    "top_ten": [
+      "transaminase activity"
+    ]
+  },
+  "lpg0270": {
+    "all": [
+      "ligase activity",
+      "nicotinate phosphoribosyltransferase activity",
+      "nicotinate-nucleotide diphosphorylase (carboxylating) activity"
+    ],
+    "top_ten": [
+      "ligase activity",
+      "nicotinate phosphoribosyltransferase activity",
+      "nicotinate-nucleotide diphosphorylase (carboxylating) activity"
+    ]
+  },
+  "lpg0271": {
+    "all": [
+      "catalytic activity"
+    ],
+    "top_ten": [
+      "catalytic activity"
+    ]
+  },
+  "lpg0272": {
+    "all": [
+      "dioxygenase activity"
+    ],
+    "top_ten": [
+      "glutathione transferase activity"
+    ]
+  },
+  "lpg0273": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0274": {
+    "all": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ]
+  },
+  "lpg0275": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0276": {
+    "all": [
+      "guanyl-nucleotide exchange factor activity"
+    ],
+    "top_ten": [
+      "guanyl-nucleotide exchange factor activity"
+    ]
+  },
+  "lpg0277": {
+    "all": [
+      "cyclic-guanylate-specific phosphodiesterase activity"
+    ],
+    "top_ten": [
+      "cyclic-guanylate-specific phosphodiesterase activity"
+    ]
+  },
+  "lpg0278": {
+    "all": [
+      "ATP binding",
+      "protein histidine kinase activity"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "protein histidine kinase activity"
+    ]
+  },
+  "lpg0279": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0280": {
+    "all": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "transcription factor activity, sequence-specific DNA binding"
+    ]
+  },
+  "lpg0281": {
+    "all": [
+      "amino acid transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "amino acid transmembrane transporter activity"
+    ]
+  },
+  "lpg0282": {
+    "all": [
+      "methyltransferase activity"
+    ],
+    "top_ten": [
+      "methyltransferase activity"
+    ]
+  },
+  "lpg0283": {
+    "all": [
+      "NAD binding",
+      "formate dehydrogenase (NAD+) activity",
+      "oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor"
+    ],
+    "top_ten": [
+      "NAD binding",
+      "formate dehydrogenase (NAD+) activity",
+      "oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor"
+    ]
+  },
+  "lpg0284": {
+    "all": [
+      "protein C-terminal S-isoprenylcysteine carboxyl O-methyltransferase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0285": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0286": {
+    "all": [
+      "oxidoreductase activity"
+    ],
+    "top_ten": [
+      "oxidoreductase activity"
+    ]
+  },
+  "lpg0287": {
+    "all": [
+      "translation elongation factor activity"
+    ],
+    "top_ten": [
+      "translation elongation factor activity"
+    ]
+  },
+  "lpg0288": {
+    "all": [
+      "4 iron, 4 sulfur cluster binding",
+      "catalytic activity",
+      "metal ion binding"
+    ],
+    "top_ten": [
+      "4 iron, 4 sulfur cluster binding",
+      "lysine 2,3-aminomutase activity",
+      "metal ion binding"
+    ]
+  },
+  "lpg0289": {
+    "all": [
+      "ATP binding",
+      "metal ion binding",
+      "polyphosphate kinase activity"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "metal ion binding",
+      "polyphosphate kinase activity"
+    ]
+  },
+  "lpg0290": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0291": {
+    "all": [
+      "chromate transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "chromate transmembrane transporter activity"
+    ]
+  },
+  "lpg0292": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0293": {
+    "all": [
+      "acyl-CoA dehydrogenase activity",
+      "flavin adenine dinucleotide binding"
+    ],
+    "top_ten": [
+      "acyl-CoA dehydrogenase activity",
+      "flavin adenine dinucleotide binding"
+    ]
+  },
+  "lpg0294": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0295": {
+    "all": [
+      "nucleotidyltransferase activity"
+    ],
+    "top_ten": [
+      "glucose-1-phosphate thymidylyltransferase activity",
+      "nucleotidyltransferase activity"
+    ]
+  },
+  "lpg0296": {
+    "all": [
+      "transferase activity"
+    ],
+    "top_ten": [
+      "kinase activity"
+    ]
+  },
+  "lpg0297": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0298": {
+    "all": [
+      "peptide binding",
+      "peptidyl-prolyl cis-trans isomerase activity"
+    ],
+    "top_ten": [
+      "peptide binding",
+      "peptidyl-prolyl cis-trans isomerase activity"
+    ]
+  },
+  "lpg0299": {
+    "all": [
+      "4-hydroxythreonine-4-phosphate dehydrogenase activity",
+      "NAD binding",
+      "cobalt ion binding",
+      "magnesium ion binding",
+      "zinc ion binding"
+    ],
+    "top_ten": [
+      "4-hydroxythreonine-4-phosphate dehydrogenase activity",
+      "NAD binding",
+      "cobalt ion binding",
+      "magnesium ion binding",
+      "zinc ion binding"
+    ]
+  },
+  "lpg0300": {
+    "all": [
+      "NADP binding",
+      "dihydrofolate reductase activity"
+    ],
+    "top_ten": [
+      "NADP binding",
+      "dihydrofolate reductase activity"
+    ]
+  },
+  "lpg0301": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0305": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0306": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0307": {
+    "all": [
+      "RNA-directed DNA polymerase activity",
+      "hydrolase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0314": {
+    "all": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ],
+    "top_ten": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ]
+  },
+  "lpg0316": {
+    "all": [
+      "P-P-bond-hydrolysis-driven protein transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "P-P-bond-hydrolysis-driven protein transmembrane transporter activity"
+    ]
+  },
+  "lpg0317": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0318": {
+    "all": [
+      "large ribosomal subunit rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "large ribosomal subunit rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0319": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0320": {
+    "all": [
+      "large ribosomal subunit rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "large ribosomal subunit rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0321": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0322": {
+    "all": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity",
+      "ribonucleoside binding"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity",
+      "ribonucleoside binding"
+    ]
+  },
+  "lpg0323": {
+    "all": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity"
+    ]
+  },
+  "lpg0324": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0325": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0326": {
+    "all": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ],
+    "top_ten": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ]
+  },
+  "lpg0327": {
+    "all": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ],
+    "top_ten": [
+      "GTP binding",
+      "GTPase activity",
+      "translation elongation factor activity"
+    ]
+  },
+  "lpg0328": {
+    "all": [
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0329": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0330": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0331": {
+    "all": [
+      "nucleotide binding",
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "nucleotide binding",
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0332": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "transferase activity"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "transferase activity"
+    ]
+  },
+  "lpg0333": {
+    "all": [
+      "phosphorelay sensor kinase activity"
+    ],
+    "top_ten": [
+      "phosphorelay sensor kinase activity"
+    ]
+  },
+  "lpg0334": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0335": {
+    "all": [
+      "mRNA binding",
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "mRNA binding",
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0336": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0337": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0338": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0339": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0340": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0341": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0342": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0343": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0344": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0345": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0346": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0347": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0348": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0349": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0350": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0351": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome",
+      "tRNA binding"
+    ]
+  },
+  "lpg0352": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0353": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0354": {
+    "all": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity"
+    ],
+    "top_ten": [
+      "DNA binding",
+      "DNA-directed RNA polymerase activity"
+    ]
+  },
+  "lpg0355": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0356": {
+    "all": [
+      "single-stranded DNA binding"
+    ],
+    "top_ten": [
+      "single-stranded DNA binding"
+    ]
+  },
+  "lpg0357": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0358": {
+    "all": [
+      "enoyl-[acyl-carrier-protein] reductase (NADPH, B-specific) activity"
+    ],
+    "top_ten": [
+      "enoyl-[acyl-carrier-protein] reductase (NADPH, B-specific) activity"
+    ]
+  },
+  "lpg0359": {
+    "all": [
+      "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
+    ],
+    "top_ten": [
+      "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
+    ]
+  },
+  "lpg0360": {
+    "all": [
+      "lyase activity"
+    ],
+    "top_ten": [
+      "lyase activity"
+    ]
+  },
+  "lpg0361": {
+    "all": [
+      "transferase activity"
+    ],
+    "top_ten": [
+      "beta-ketoacyl-acyl-carrier-protein synthase II activity"
+    ]
+  },
+  "lpg0362": {
+    "all": [
+      "transferase activity"
+    ],
+    "top_ten": [
+      "transferase activity"
+    ]
+  },
+  "lpg0363": {
+    "all": [
+      "transferase activity, transferring acyl groups"
+    ],
+    "top_ten": [
+      "transferase activity, transferring acyl groups"
+    ]
+  },
+  "lpg0364": {
+    "all": [
+      "cyclic-di-GMP binding"
+    ],
+    "top_ten": [
+      "cyclic-di-GMP binding"
+    ]
+  },
+  "lpg0365": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0366": {
+    "all": [
+      "diaminopimelate epimerase activity"
+    ],
+    "top_ten": [
+      "diaminopimelate epimerase activity"
+    ]
+  },
+  "lpg0367": {
+    "all": [
+      "sequence-specific DNA binding"
+    ],
+    "top_ten": [
+      "sequence-specific DNA binding"
+    ]
+  },
+  "lpg0368": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0369": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": [
+      "carboxylic ester hydrolase activity",
+      "hydrolase activity"
+    ]
+  },
+  "lpg0370": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0371": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0372": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0373": {
+    "all": [
+      "diguanylate cyclase activity"
+    ],
+    "top_ten": [
+      "diguanylate cyclase activity"
+    ]
+  },
+  "lpg0374": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0375": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0376": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0377": {
+    "all": [
+      "N-acetylmuramoyl-L-alanine amidase activity"
+    ],
+    "top_ten": [
+      "N-acetylmuramoyl-L-alanine amidase activity"
+    ]
+  },
+  "lpg0378": {
+    "all": [
+      "glutamate-cysteine ligase activity"
+    ],
+    "top_ten": [
+      "glutamate-cysteine ligase activity"
+    ]
+  },
+  "lpg0379": {
+    "all": [
+      "ATP binding",
+      "metal ion binding"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "metal ion binding"
+    ]
+  },
+  "lpg0380": {
+    "all": [
+      "ATP binding",
+      "peptidase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0381": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0382": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0383": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0384": {
+    "all": [
+      "ATP binding",
+      "ATPase activity",
+      "DNA binding",
+      "excinuclease ABC activity",
+      "zinc ion binding"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "ATPase activity",
+      "DNA binding",
+      "excinuclease ABC activity",
+      "zinc ion binding"
+    ]
+  },
+  "lpg0385": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0386": {
+    "all": [
+      "metalloendopeptidase activity"
+    ],
+    "top_ten": [
+      "metalloendopeptidase activity"
+    ]
+  },
+  "lpg0387": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0388": {
+    "all": [
+      "ATP binding",
+      "ATPase activity"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "ATPase activity"
+    ]
+  },
+  "lpg0389": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0390": {
+    "all": [
+      "transferase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0391": {
+    "all": [
+      "L-ascorbic acid binding",
+      "iron ion binding",
+      "oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen"
+    ],
+    "top_ten": [
+      "L-ascorbic acid binding",
+      "iron ion binding",
+      "oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen"
+    ]
+  },
+  "lpg0392": {
+    "all": [
+      "metallopeptidase activity"
+    ],
+    "top_ten": [
+      "metallopeptidase activity"
+    ]
+  },
+  "lpg0393": {
+    "all": [
+      "glucose-1-phosphate thymidylyltransferase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0394": {
+    "all": [
+      "methylated-DNA-[protein]-cysteine S-methyltransferase activity"
+    ],
+    "top_ten": [
+      "methylated-DNA-[protein]-cysteine S-methyltransferase activity"
+    ]
+  },
+  "lpg0395": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0396": {
+    "all": [
+      "tRNA (guanine(37)-N(1))-methyltransferase activity"
+    ],
+    "top_ten": [
+      "tRNA (guanine(37)-N(1))-methyltransferase activity"
+    ]
+  },
+  "lpg0397": {
+    "all": [
+      "ribosome binding"
+    ],
+    "top_ten": [
+      "ribosome binding"
+    ]
+  },
+  "lpg0398": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0399": {
+    "all": [
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "structural constituent of ribosome"
+    ]
+  },
+  "lpg0400": {
+    "all": [
+      "7S RNA binding",
+      "GTP binding",
+      "GTPase activity"
+    ],
+    "top_ten": [
+      "7S RNA binding",
+      "GTP binding",
+      "GTPase activity"
+    ]
+  },
+  "lpg0401": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0402": {
+    "all": [
+      "ATP binding",
+      "protein kinase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0403": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0404": {
+    "all": [
+      "amino acid transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "amino acid transmembrane transporter activity"
+    ]
+  },
+  "lpg0405": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0406": {
+    "all": [
+      "peroxidase activity",
+      "peroxiredoxin activity"
+    ],
+    "top_ten": [
+      "peroxidase activity",
+      "peroxiredoxin activity"
+    ]
+  },
+  "lpg0407": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0408": {
+    "all": [
+      "protein disulfide oxidoreductase activity"
+    ],
+    "top_ten": [
+      "protein disulfide oxidoreductase activity"
+    ]
+  },
+  "lpg0409": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0410": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0411": {
+    "all": [
+      "oxidoreductase activity, acting on the CH-CH group of donors"
+    ],
+    "top_ten": [
+      "oxidoreductase activity, acting on the CH-CH group of donors"
+    ]
+  },
+  "lpg0412": {
+    "all": [
+      "protoheme IX farnesyltransferase activity"
+    ],
+    "top_ten": [
+      "protoheme IX farnesyltransferase activity"
+    ]
+  },
+  "lpg0413": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0414": {
+    "all": [
+      "ATP binding",
+      "acid-amino acid ligase activity",
+      "magnesium ion binding",
+      "manganese ion binding"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "acid-amino acid ligase activity",
+      "magnesium ion binding",
+      "manganese ion binding"
+    ]
+  },
+  "lpg0415": {
+    "all": [
+      "DNA binding"
+    ],
+    "top_ten": [
+      "DNA binding"
+    ]
+  },
+  "lpg0416": {
+    "all": [
+      "NADP binding",
+      "glucose-6-phosphate dehydrogenase activity"
+    ],
+    "top_ten": [
+      "NADP binding",
+      "glucose-6-phosphate dehydrogenase activity"
+    ]
+  },
+  "lpg0417": {
+    "all": [
+      "6-phosphogluconolactonase activity"
+    ],
+    "top_ten": [
+      "6-phosphogluconolactonase activity"
+    ]
+  },
+  "lpg0418": {
+    "all": [
+      "phosphogluconate dehydratase activity"
+    ],
+    "top_ten": [
+      "phosphogluconate dehydratase activity"
+    ]
+  },
+  "lpg0419": {
+    "all": [
+      "ATP binding",
+      "glucokinase activity"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "glucokinase activity"
+    ]
+  },
+  "lpg0420": {
+    "all": [
+      "lyase activity"
+    ],
+    "top_ten": [
+      "lyase activity"
+    ]
+  },
+  "lpg0421": {
+    "all": [
+      "substrate-specific transmembrane transporter activity"
+    ],
+    "top_ten": [
+      "substrate-specific transmembrane transporter activity"
+    ]
+  },
+  "lpg0422": {
+    "all": [
+      "glucan 1,4-alpha-glucosidase activity"
+    ],
+    "top_ten": [
+      "glucan 1,4-alpha-glucosidase activity"
+    ]
+  },
+  "lpg0423": {
+    "all": [
+      "sequence-specific DNA binding"
+    ],
+    "top_ten": [
+      "sequence-specific DNA binding"
+    ]
+  },
+  "lpg0424": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0425": {
+    "all": [
+      "ferrochelatase activity",
+      "metal ion binding"
+    ],
+    "top_ten": [
+      "ferrochelatase activity",
+      "metal ion binding"
+    ]
+  },
+  "lpg0426": {
+    "all": [
+      "DNA binding"
+    ],
+    "top_ten": [
+      "DNA binding"
+    ]
+  },
+  "lpg0427": {
+    "all": [
+      "hydrolase activity"
+    ],
+    "top_ten": [
+      "catalytic activity"
+    ]
+  },
+  "lpg0428": {
+    "all": [
+      "dioxygenase activity"
+    ],
+    "top_ten": [
+      "lyase activity"
+    ]
+  },
+  "lpg0429": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": [
+      "transporter activity"
+    ]
+  },
+  "lpg0430": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0431": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0432": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0433": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0434": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0435": {
+    "all": [
+      "methyltransferase activity"
+    ],
+    "top_ten": [
+      "methyltransferase activity"
+    ]
+  },
+  "lpg0436": {
+    "all": [
+      "zinc ion binding"
+    ],
+    "top_ten": []
+  },
+  "lpg0437": {
+    "all": [
+      "proton-transporting ATP synthase activity, rotational mechanism"
+    ],
+    "top_ten": []
+  },
+  "lpg0438": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0439": {
+    "all": [
+      "RNA polymerase II transcription factor activity, TBP-class protein binding, involved in preinitiation complex assembly",
+      "chromatin binding",
+      "metallopeptidase activity",
+      "sequence-specific DNA binding",
+      "transcription regulatory region DNA binding",
+      "zinc ion binding"
+    ],
+    "top_ten": []
+  },
+  "lpg0440": {
+    "all": [
+      "hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds"
+    ],
+    "top_ten": []
+  },
+  "lpg0441": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0442": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0443": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0444": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0445": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0446": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0447": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0448": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0449": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0450": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0451": {
+    "all": [
+      "kinase activity"
+    ],
+    "top_ten": []
+  },
+  "lpg0452": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0453": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0454": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0455": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0456": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0457": {
+    "all": [
+      "transporter activity"
+    ],
+    "top_ten": [
+      "transporter activity"
+    ]
+  },
+  "lpg0458": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0459": {
+    "all": [],
+    "top_ten": []
+  },
+  "lpg0460": {
+    "all": [
+      "IMP cyclohydrolase activity",
+      "phosphoribosylaminoimidazolecarboxamide formyltransferase activity"
+    ],
+    "top_ten": [
+      "IMP cyclohydrolase activity",
+      "phosphoribosylaminoimidazolecarboxamide formyltransferase activity"
+    ]
+  },
+  "lpg0461": {
+    "all": [
+      "protein methyltransferase activity"
+    ],
+    "top_ten": [
+      "protein methyltransferase activity"
+    ]
+  },
+  "lpg0462": {
+    "all": [
+      "ATP binding",
+      "biotin carboxylase activity",
+      "metal ion binding"
+    ],
+    "top_ten": [
+      "ATP binding",
+      "biotin carboxylase activity",
+      "metal ion binding"
+    ]
+  },
+  "lpg_3050": {
+    "all": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ],
+    "top_ten": [
+      "rRNA binding",
+      "structural constituent of ribosome"
+    ]
+  }
 }
