@@ -41,20 +41,30 @@ def infer_function(blast_results):
 
     all = {}
 
-    for tag in blast_results:
+    for tag in sorted(blast_results.keys()):
         inferred = []
         leaderboard = defaultdict(int)
+
+        results_with_functions = 0
 
         # Para os primeiros 10 resultados contar as ocorrências
         # de cada função
         top_ten = blast_results[tag][0:10]
         for result in top_ten:
-            for function in result["molecular_function"]:
+            functions = result["molecular_functions"]
+
+            # contar o número de resultados que tinham função
+            if len(functions) > 0:
+                results_with_functions += 1
+
+            # atualizar a leaderboard
+            for function in result["molecular_functions"]:
                 leaderboard[function] += 1
 
         # As funções que aparecem em pelo menos 50% dos resultados
         # são consideradas potenciais funções
-        min = len(leaderboard) / 2
+        min = results_with_functions / 2
+        print(tag, results_with_functions, min)
 
         for function in leaderboard:
             if leaderboard[function] >= min:
@@ -68,6 +78,7 @@ def main():
     ncbi_json_path = ".ncbi.json"
     blast_results_json_path = ".blast_results.json"
     uniprots_json_path = ".uniprots.json"
+    inferred_json_path = ".inferred.json"
 
     #dictionary = rw.read_json(ncbi_json_path)
     #tags_and_proteins = util.get_tags_and_proteins(dictionary)
@@ -78,7 +89,7 @@ def main():
     #)
     #rw.write_json(blast_results, blast_results_json_path)
 
-    blast_results = rw.read_json(blast_results_json_path)
+    #blast_results = rw.read_json(blast_results_json_path)
 
     #uniprot_ids = set()
     #for tag in blast_results:
@@ -90,13 +101,18 @@ def main():
     #uniprots = www.fetch_uniprots(uniprot_ids)
     #rw.write_json(uniprots, uniprots_json_path)
 
-    uniprots = rw.read_json(uniprots_json_path)
+    #uniprots = rw.read_json(uniprots_json_path)
 
-    blast_results = add_info_to_blast_results(
-        blast_results,
-        uniprots
-    )
-    rw.write_json(blast_results, blast_results_json_path)
+    #blast_results = add_info_to_blast_results(
+    #    blast_results,
+    #    uniprots
+    #)
+    #rw.write_json(blast_results, blast_results_json_path)
+
+    blast_results = rw.read_json(blast_results_json_path)
+    inferred = infer_function(blast_results)
+    rw.write_json(inferred, inferred_json_path)
+
     
 
 if __name__ == "__main__":
