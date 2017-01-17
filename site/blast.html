@@ -11752,14 +11752,15 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="An&#225;lise-de-homologias-por-BLAST">An&#225;lise de homologias por BLAST<a class="anchor-link" href="#An&#225;lise-de-homologias-por-BLAST">&#182;</a></h2><ol>
-<li><a href="#local">local_blastp(tag_to_files, db)</a></li>
-<li><a href="#docker">docker_blastp(directory, db)</a></li>
-<li><a href="#expasy">expasy_blastp(tag_to_files)</a></li>
-<li><a href="#blast">blastp(tags_and_proteins, db, type)</a></li>
-<li><a href="#write_queries_to_dir">write_queries_to_dir(tags_and_proteins, directory)</a></li>
-<li><a href="#extract_blast_info">extract_blast_info(tag_to_files, type)</a></li>
-<li><a href="#fetch_uniprots">util.www.fetch_uniprots(ids)</a></li>
-<li><a href="#extract_uniprot_info">util.www.extract_uniprot_info(entry)</a></li>
+<li><a href="#local">blast.local_blastp(tag_to_files, db)</a></li>
+<li><a href="#docker">blast.docker_blastp(directory, db)</a></li>
+<li><a href="#expasy">blast.expasy_blastp(tag_to_files)</a></li>
+<li><a href="#blast">blast.blastp(tags_and_proteins, db, type)</a></li>
+<li><a href="#write_queries_to_dir">blast.write_queries_to_dir(tags_and_proteins, directory)</a></li>
+<li><a href="#extract_blast_info">blast.extract_blast_info(tag_to_files, type)</a></li>
+<li><a href="#fetch_uniprots">www.fetch_uniprots(ids)</a></li>
+<li><a href="#extract_uniprot_info">www.extract_uniprot_info(entry)</a></li>
+<li><a href="#add_info_to_blast_results">add_info_to_blast_results(blast_results, uniprots)</a></li>
 <li><a href="#main">main()</a></li>
 </ol>
 <p>O objectivo desta fase era, dadas as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com a ferramenta BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST, que podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/blast.py"><code>util.blast</code></a>. As alternativas são:</p>
@@ -12068,7 +12069,7 @@ Utilizamos o serviço extração de informação em <em>batch</em> disponibiliza
         <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Não consegui fazer download de &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">query</span><span class="p">))</span>
 
-    <span class="n">infos</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">uniprots</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
         <span class="n">tree</span> <span class="o">=</span> <span class="n">parse_xml</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">add_root</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -12076,9 +12077,9 @@ Utilizamos o serviço extração de informação em <em>batch</em> disponibiliza
 
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
             <span class="p">(</span><span class="n">uniprot_id</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span> <span class="o">=</span> <span class="n">extract_uniprot_info</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">infos</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+            <span class="n">uniprots</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
 
-    <span class="k">return</span> <span class="n">infos</span>
+    <span class="k">return</span> <span class="n">uniprots</span>
 </pre></div>
 
 </div>
@@ -12126,14 +12127,15 @@ Podemos ver que esta função utiliza duas outras funções:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="main"></a>
-Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/second.py">second.py</a> e resumem-se a:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
-<span class="kn">import</span> <span class="nn">util.blast</span> <span class="kn">as</span> <span class="nn">blast</span>
-<span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
-<span class="kn">import</span> <span class="nn">util.util</span> <span class="kn">as</span> <span class="nn">util</span>
-
-<span class="k">def</span> <span class="nf">add_info_to_blast_results</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
+<p><a name="add_info_to_blast_results"></a>
+Após retirar informação da UniProt, adicionámos a cada um dos resultados provenientes do BLAST a seguinte informação:</p>
+<ul>
+<li><strong>status</strong> (<em>reviewed</em> ou <em>unreviewed</em>)</li>
+<li><strong>organism</strong></li>
+<li><strong>sequence</strong> (sequência de aminoácidos)</li>
+<li><strong>molecular_functions</strong> (<em>GO - Molecular functions</em>)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_info_to_blast_results</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Esta função adiciona aos blast results informação</span>
 <span class="sd">    retirada do site da uniprot.</span>
@@ -12161,35 +12163,101 @@ Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com
                 <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="k">return</span> <span class="n">blast_results</span>
+</pre></div>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">ncbi_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.json&quot;</span>
-    <span class="n">blast_results_json_path</span> <span class="o">=</span> <span class="s2">&quot;.blast_results.json&quot;</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Por fim, automatizámos o processo de inferência da função, dados os resultados do BLAST. Uma função é considerada provável se aparecer em pelo menos 50% dos primeiros 10 resultados do BLAST.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">infer_function</span><span class="p">(</span><span class="n">blast_results</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta função tenta inferir a função das proteínas baseando-se</span>
+<span class="sd">    nos resultados do blast.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">ncbi_json_path</span><span class="p">)</span>
-    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+    <span class="nb">all</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">blast</span><span class="o">.</span><span class="n">blastp</span><span class="p">(</span>
-        <span class="n">tags_and_proteins</span><span class="p">,</span>
-        <span class="s2">&quot;expasy&quot;</span>
-    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">blast_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="n">inferred</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-    <span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
-            <span class="n">uniprot_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">])</span>
+        <span class="n">results_with_functions</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
-    <span class="n">uniprots</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_uniprots</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
+        <span class="c1"># Para os primeiros 10 resultados contar as ocorrências</span>
+        <span class="c1"># de cada função</span>
+        <span class="n">top_ten</span> <span class="o">=</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">top_ten</span><span class="p">:</span>
+            <span class="n">functions</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]</span>
 
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">add_info_to_blast_results</span><span class="p">(</span>
-        <span class="n">blast_results</span><span class="p">,</span>
-        <span class="n">uniprots</span>
-    <span class="p">)</span>
-    <span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">blast_results_json_path</span><span class="p">)</span>
+            <span class="c1"># contar o número de resultados que tinham função</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">results_with_functions</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+            <span class="c1"># atualizar a leaderboard</span>
+            <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]:</span>
+                <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># As funções que aparecem em pelo menos 50% dos resultados</span>
+        <span class="c1"># são consideradas potenciais funções</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="n">results_with_functions</span> <span class="o">/</span> <span class="mi">2</span>
+
+        <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">leaderboard</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">:</span>
+                <span class="n">inferred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+
+        <span class="nb">all</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">inferred</span>
+
+    <span class="k">return</span> <span class="nb">all</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="main"></a>
+Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/second.py">second.py</a> e resumem-se a:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
+<span class="kn">import</span> <span class="nn">util.blast</span> <span class="kn">as</span> <span class="nn">blast</span>
+<span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+<span class="kn">import</span> <span class="nn">util.util</span> <span class="kn">as</span> <span class="nn">util</span>
+
+<span class="n">ncbi_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.json&quot;</span>
+<span class="n">blast_results_json_path</span> <span class="o">=</span> <span class="s2">&quot;.blast_results.json&quot;</span>
+<span class="n">inferred_json_path</span> <span class="o">=</span> <span class="s2">&quot;.inferred.json&quot;</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">ncbi_json_path</span><span class="p">)</span>
+<span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+
+<span class="n">blast_results</span> <span class="o">=</span> <span class="n">blast</span><span class="o">.</span><span class="n">blastp</span><span class="p">(</span>
+    <span class="n">tags_and_proteins</span><span class="p">,</span>
+    <span class="s2">&quot;expasy&quot;</span>
+<span class="p">)</span>
+
+<span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+        <span class="n">uniprot_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">])</span>
+
+<span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
+<span class="n">uniprots</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_uniprots</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
+
+<span class="n">blast_results</span> <span class="o">=</span> <span class="n">add_info_to_blast_results</span><span class="p">(</span>
+    <span class="n">blast_results</span><span class="p">,</span>
+    <span class="n">uniprots</span>
+<span class="p">)</span>
+<span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">blast_results_json_path</span><span class="p">)</span>
+
+<span class="n">inferred</span> <span class="o">=</span> <span class="n">infer_function</span><span class="p">(</span><span class="n">blast_results</span><span class="p">)</span>
+<span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">inferred</span><span class="p">,</span> <span class="n">inferred_json_path</span><span class="p">)</span>
 </pre></div>
 
 </div>
