@@ -11751,15 +11751,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Resultados-do-BLAST">Resultados do BLAST<a class="anchor-link" href="#Resultados-do-BLAST">&#182;</a></h2><p>A partir dos resultados do blast obtidos para cada uma das nossas proteínas, é possível inferir a função de algumas por homologia. Contudo, a maior parte dos resultados com melhores valores de percentagem de identidade, <em>score</em> e <em>e-value</em> são entradas <em>unreviewed</em>, o que explica o facto de muitas das entradas não terem função associada. Esta inferência da função é especialmente importante no caso das proteínas hipotéticas, ou outras proteínas menos estudadas. Para uma outra conseguimos, portanto, inferir a sua função, como é o caso, por exemplo, da proteína hipotética com a locus tag <strong>lpg0235</strong>, a qual é possível que tenha a atividade de liase carbono-enxofre. Não podemos, no entanto, afirmar com 100% de certeza que esta proteína desempenha tal função, uma vez que, não só os resultados do BLAST são <em>unreviewed</em>, mas também porque tal facto ainda não foi comprovado experimentalmente. Para as proteínas mais estudadas, tanto neste organismo como noutros que possuem proteínas homólogas, os resultados do BLAST têm, mais frequentemente, as funções moleculares das respetivas proteínas descritas, sendo que as mesmas são iguais ao longo da tabela respetiva.</p>
-<p>Para além da função, consideramos pertinente retirar também o organismo a que cada proteína que obtivemos como resultado do BLAST pertence, por forma a auxiliar a construção posterior de árvores filogenéticas e, também, no mesmo sentido, percebermos em que organismos é que as proteínas em estudo possuem homólogas. Isto torna-se relevante, pois se verificamos que o organismo é mais próximo daquele em estudo, por exemplo uma estirpe diferente da mesma bactéria, a inferência da função é muito mais forte.</p>
+<h2 id="Resultados-do-BLAST">Resultados do BLAST<a class="anchor-link" href="#Resultados-do-BLAST">&#182;</a></h2><p>A partir dos resultados do blast obtidos (o top 10 é apresentado nas tabelas abaixo) para cada uma das nossas proteínas, é possível inferir a função de algumas por homologia. Contudo, a maior parte dos resultados com melhores valores de percentagem de identidade, <em>score</em> e <em>e-value</em> são entradas <em>unreviewed</em>, o que explica o facto de muitas das entradas não terem função associada. Esta inferência da função é especialmente importante no caso das proteínas hipotéticas, ou outras proteínas menos estudadas. Para uma outra conseguimos, portanto, inferir a sua função, como é o caso, por exemplo, da proteína hipotética com a locus tag <strong>lpg0235</strong>, a qual é possível que tenha a atividade de liase carbono-enxofre. Não podemos, no entanto, afirmar com 100% de certeza que esta proteína desempenha tal função, uma vez que, não só os resultados do BLAST são <em>unreviewed</em>, mas também porque tal facto ainda não foi comprovado experimentalmente. Para as proteínas mais estudadas, tanto neste organismo como noutros que possuem proteínas homólogas, os resultados do BLAST têm, mais frequentemente, as funções moleculares das respetivas proteínas descritas, sendo que as mesmas são iguais ao longo da tabela respetiva.</p>
+<p>Para além da função, consideramos pertinente retirar também o organismo a que cada proteína que obtivemos como resultado do BLAST pertence, por forma a auxiliar a construção posterior de árvores filogenéticas e, também, no mesmo sentido, percebermos em que organismos é que as proteínas em estudo possuem homólogas. Isto torna-se relevante, pois se verificamos que o organismo é mais próximo daquele em estudo, por exemplo uma susbspécie ou estirpe diferente da mesma bactéria, a inferência da função é muito mais forte.</p>
+<p>A inferência da função foi feita de três maneiras diferentes, duas automáticas e uma manual. Quanto à inferência automática, a função/funções provável/prováveis foi/foram inferida(s), verificando qual/quais a(s) que aparecem com maior frequência em relação ao número de entradas. Isto foi feito tanto para o top 10 como para o total de entradas do blast (50). A inferência manual foi realizada tendo atenção, da mesma forma, à frequência da função, mas também do organismo.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -11820,6 +11821,7 @@ div#notebook {
     <span class="n">ncbi</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;files/.ncbi.json&quot;</span><span class="p">)</span>
     <span class="n">inferred</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;files/.inferred.json&quot;</span><span class="p">)</span>
     <span class="n">tags</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">blast_results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">manual</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;files/cur_manual.json&quot;</span><span class="p">)</span>
     
     <span class="c1"># Mostrar lista de tags com links para os resultados</span>
     <span class="n">css</span> <span class="o">=</span> <span class="s2">&quot;column-count:6&quot;</span>
@@ -11858,6 +11860,11 @@ div#notebook {
         <span class="k">if</span> <span class="s2">&quot;function&quot;</span> <span class="ow">in</span> <span class="n">ncbi</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
             <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;h4&gt;Função NCBI:&lt;/h4&gt;&quot;</span><span class="p">))</span>
             <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">itemize</span><span class="p">([</span><span class="n">ncbi</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;function&quot;</span><span class="p">]])))</span>
+        
+        <span class="c1"># Mostrar curação manual</span>
+        <span class="k">if</span>  <span class="n">tag</span> <span class="ow">in</span> <span class="n">manual</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;h4&gt;Função Provável (Curação Manual) :&lt;/h4&gt;&quot;</span><span class="p">))</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">itemize</span><span class="p">(</span><span class="n">manual</span><span class="p">[</span><span class="n">tag</span><span class="p">])))</span>
             
 <span class="n">main</span><span class="p">()</span>
 </pre></div>
@@ -14664,6 +14671,22 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea ">
 <div style=""><ul><li>Lipid Metabolism</li></ul></div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<h4>Função Provável (Curação Manual) :</h4>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style=""><ul><li>stearoyl-CoA 9-desaturase activity</li></ul></div>
 </div>
 
 </div>
@@ -21593,6 +21616,22 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
+<h4>Função Provável (Curação Manual) :</h4>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style=""><ul><li>nucleotidyltransferase activity</li></ul></div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
 <a name="lpg0296"></a><h2>lpg0296 phosphotransferase</h2>
 </div>
 
@@ -21741,6 +21780,22 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea ">
 <h4>Função provável:</h4>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style=""><ul><li>transferase activity</li></ul></div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<h4>Função Provável (Curação Manual) :</h4>
 </div>
 
 </div>
@@ -30608,6 +30663,22 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
+<h4>Função Provável (Curação Manual) :</h4>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style=""><ul><li>3-oxoacyl-[acyl-carrier-protein] synthase activity</li></ul></div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
 <a name="lpg0363"></a><h2>lpg0363 lipid A biosynthesis acyltransferase</h2>
 </div>
 
@@ -31536,6 +31607,22 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea ">
 <div style=""><ul><li>Protein fate / hydrolases / secretion</li></ul></div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<h4>Função Provável (Curação Manual) :</h4>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style=""><ul><li>hydrolase activity</li></ul></div>
 </div>
 
 </div>
