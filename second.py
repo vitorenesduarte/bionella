@@ -1,24 +1,7 @@
 import util.www as www
 import util.rw as rw
 import util.blast as blast
-
-def get_tags_and_proteins(dictionary):
-    """
-    Esta função retorna uma lista de pares
-    em que a primeira componente é a tag
-    e a segunda a sequência de aminoácidos.
-    """
-
-    tags_and_proteins = []
-
-    for tag in dictionary:
-        if dictionary[tag]["type"] == "mRNA":
-            # se for do tipo "mRNA" estamos na presença de uma proteína
-            protein = dictionary[tag]["translation"]
-            both = (tag, protein)
-            tags_and_proteins.append(both)
-
-    return sorted(tags_and_proteins, key=lambda tp : tp[0])
+import util.util as util
 
 def add_info_to_blast_results(blast_results, uniprots):
     """
@@ -54,7 +37,7 @@ def main():
     uniprots_json_path = ".uniprots.json"
 
     #dictionary = rw.read_json(ncbi_json_path)
-    #tags_and_proteins = get_tags_and_proteins(dictionary)
+    #tags_and_proteins = util.get_tags_and_proteins(dictionary)
 
     #blast_results = blast.blastp(
     #    tags_and_proteins,
