@@ -12168,6 +12168,9 @@ Esta função usa uma outra função de mapeamento presente no módulo <a href="
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">gene_id</span><span class="p">,</span> <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 
+        <span class="c1"># remover _LEGPH do fim do uniprot_id</span>
+        <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">uniprot_id</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+
         <span class="n">result</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
 
     <span class="k">return</span> <span class="n">result</span>
