@@ -1,0 +1,2200 @@
+{
+  "lpg0232": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "Fur family transcriptional regulator, zinc uptake regulator",
+        "id": "K09823"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Quorum sensing",
+        "id": "lpn02024"
+      }
+    ]
+  },
+  "lpg0233": {
+    "EC_number": "[EC:4.1.1.7]",
+    "kegg": [
+      {
+        "desc": "benzoylformate decarboxylase",
+        "id": "K01576"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminobenzoate degradation",
+        "id": "lpn00627"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      }
+    ]
+  },
+  "lpg0238": {
+    "EC_number": "[EC:1.2.1.8]",
+    "kegg": [
+      {
+        "desc": "betaine-aldehyde dehydrogenase",
+        "id": "K00130"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Glycine, serine and threonine metabolism",
+        "id": "lpn00260"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0239": {
+    "EC_number": "[EC:2.6.1.19|2.6.1.22]",
+    "kegg": [
+      {
+        "desc": "4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase",
+        "id": "K07250"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Alanine, aspartate and glutamate metabolism",
+        "id": "lpn00250"
+      },
+      {
+        "desc": "Valine, leucine and isoleucine degradation",
+        "id": "lpn00280"
+      },
+      {
+        "desc": "beta-Alanine metabolism",
+        "id": "lpn00410"
+      },
+      {
+        "desc": "Propanoate metabolism",
+        "id": "lpn00640"
+      },
+      {
+        "desc": "Butanoate metabolism",
+        "id": "lpn00650"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      }
+    ]
+  },
+  "lpg0241": {
+    "EC_number": "[EC:3.5.1.2]",
+    "kegg": [
+      {
+        "desc": "glutaminase",
+        "id": "K01425"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Arginine biosynthesis",
+        "id": "lpn00220"
+      },
+      {
+        "desc": "Alanine, aspartate and glutamate metabolism",
+        "id": "lpn00250"
+      },
+      {
+        "desc": "D-Glutamine and D-glutamate metabolism",
+        "id": "lpn00471"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0242": {
+    "EC_number": "[EC:1.1.1.95]",
+    "kegg": [
+      {
+        "desc": "D-3-phosphoglycerate dehydrogenase",
+        "id": "K00058"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Glycine, serine and threonine metabolism",
+        "id": "lpn00260"
+      },
+      {
+        "desc": "Methane metabolism",
+        "id": "lpn00680"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      },
+      {
+        "desc": "Biosynthesis of amino acids",
+        "id": "lpn01230"
+      }
+    ]
+  },
+  "lpg0245": {
+    "EC_number": "[EC:1.4.1.2]",
+    "kegg": [
+      {
+        "desc": "glutamate dehydrogenase",
+        "id": "K15371"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Arginine biosynthesis",
+        "id": "lpn00220"
+      },
+      {
+        "desc": "Alanine, aspartate and glutamate metabolism",
+        "id": "lpn00250"
+      },
+      {
+        "desc": "Taurine and hypotaurine metabolism",
+        "id": "lpn00430"
+      },
+      {
+        "desc": "Nitrogen metabolism",
+        "id": "lpn00910"
+      }
+    ]
+  },
+  "lpg0248": {
+    "EC_number": " [EC:1.20.4.1]",
+    "kegg": [
+      {
+        "desc": "arsenate reductase",
+        "id": "K00537"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0249": {
+    "EC_number": "[EC:1.14.19.1]",
+    "kegg": [
+      {
+        "desc": "stearoyl-CoA desaturase (Delta-9 desaturase)",
+        "id": "K00507"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Biosynthesis of unsaturated fatty acids",
+        "id": "lpn01040"
+      },
+      {
+        "desc": "Fatty acid metabolism",
+        "id": "lpn01212"
+      }
+    ]
+  },
+  "lpg0250": {
+    "EC_number": "[EC:3.6.4.13]",
+    "kegg": [
+      {
+        "desc": "ATP-dependent RNA helicase RhlE",
+        "id": "K11927"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "RNA degradation",
+        "id": "lpn03018"
+      }
+    ]
+  },
+  "lpg0252": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "uncharacterized protein",
+        "id": "K09125"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0262": {
+    "EC_number": " [EC:2.7.7.7]",
+    "kegg": [
+      {
+        "desc": "DNA polymerase bacteriophage-type",
+        "id": "K02334"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0263": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "MFS transporter, UMF1 family",
+        "id": "K06902"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0268": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "putative hydrolases of HD superfamily",
+        "id": "K07023"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0269": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "uncharacterized protein",
+        "id": "K06915"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0270": {
+    "EC_number": "[EC:6.3.4.21]",
+    "kegg": [
+      {
+        "desc": "nicotinate phosphoribosyltransferase",
+        "id": "K00763"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Nicotinate and nicotinamide metabolism",
+        "id": "lpn00760"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0271": {
+    "EC_number": "[EC:3.5.1.19| 3.5.1.-]",
+    "kegg": [
+      {
+        "desc": "nicotinamidase/pyrazinamidase",
+        "id": "K08281"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Nicotinate and nicotinamide metabolism",
+        "id": "lpn00760"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0275": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "effector protein SdbA",
+        "id": "K15487"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Legionellosis",
+        "id": "lpn05134"
+      }
+    ]
+  },
+  "lpg0283": {
+    "EC_number": "[EC:1.2.1.2]",
+    "kegg": [
+      {
+        "desc": "formate dehydrogenase",
+        "id": "K00122"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Glyoxylate and dicarboxylate metabolism",
+        "id": "lpn00630"
+      },
+      {
+        "desc": "Methane metabolism",
+        "id": "lpn00680"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0287": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "elongation factor P",
+        "id": "K02356"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0288": {
+    "EC_number": "[EC:5.4.3.-]",
+    "kegg": [
+      {
+        "desc": "L-lysine 2,3-aminomutase",
+        "id": "K19810"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0289": {
+    "EC_number": "[EC:2.7.4.1]",
+    "kegg": [
+      {
+        "desc": "polyphosphate kinase ",
+        "id": "K00937"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Oxidative phosphorylation",
+        "id": "lpn00190"
+      },
+      {
+        "desc": "RNA degradation",
+        "id": "lpn03018"
+      }
+    ]
+  },
+  "lpg0291": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "chromate transporter",
+        "id": "K07240"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0295": {
+    "EC_number": "[EC:2.7.7.-]",
+    "kegg": [
+      {
+        "desc": "MurNAc alpha-1-phosphate uridylyltransferase ",
+        "id": "K00992"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Amino sugar and nucleotide sugar metabolism",
+        "id": "lpn00520"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0296": {
+    "EC_number": "[EC:2.7.1.-]",
+    "kegg": [
+      {
+        "desc": "anomeric MurNAc/GlcNAc kinase ",
+        "id": "K07102"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Amino sugar and nucleotide sugar metabolism",
+        "id": "lpn00520"
+      }
+    ]
+  },
+  "lpg0297": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "LPS-assembly protein",
+        "id": "K04744"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0298": {
+    "EC_number": "[EC:5.2.1.8]",
+    "kegg": [
+      {
+        "desc": "peptidyl-prolyl cis-trans isomerase SurA",
+        "id": "K03771"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0299": {
+    "EC_number": "[EC:1.1.1.262]",
+    "kegg": [
+      {
+        "desc": "4-hydroxythreonine-4-phosphate dehydrogenase",
+        "id": "K00097"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Vitamin B6 metabolism",
+        "id": "lpn00750"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0300": {
+    "EC_number": "[EC:1.5.1.3]",
+    "kegg": [
+      {
+        "desc": "dihydrofolate reductase ",
+        "id": "K00287"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "One carbon pool by folate",
+        "id": "lpn00670"
+      },
+      {
+        "desc": "Folate biosynthesis",
+        "id": "lpn00790"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0302": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "16S ribosomal RNA",
+        "id": "K01977"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0303": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Ala",
+        "id": "K14218"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0304": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "23S ribosomal RNA",
+        "id": "K01980"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0309": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "5S ribosomal RNA",
+        "id": "K01985"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0310": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Thr",
+        "id": "K14234"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0311": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Tyr",
+        "id": "K14236"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0312": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Gly",
+        "id": "K14225"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0313": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Thr",
+        "id": "K14234"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0314": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "elongation factor Tu",
+        "id": "K02358"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0315": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "tRNA Trp",
+        "id": "K14235"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Aminoacyl-tRNA biosynthesis",
+        "id": "lpn00970"
+      }
+    ]
+  },
+  "lpg0316": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "preprotein translocase subunit SecE",
+        "id": "K03073"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Quorum sensing",
+        "id": "lpn02024"
+      },
+      {
+        "desc": "Protein export",
+        "id": "lpn03060"
+      },
+      {
+        "desc": "Bacterial secretion system",
+        "id": "lpn03070"
+      }
+    ]
+  },
+  "lpg0317": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "transcriptional antiterminator NusG",
+        "id": "K02601"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0318": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L11",
+        "id": "K02867"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0319": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L1",
+        "id": "K02863"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0320": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L10",
+        "id": "K02864"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0321": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L7/L12",
+        "id": "K02935"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0322": {
+    "EC_number": "[EC:2.7.7.6]",
+    "kegg": [
+      {
+        "desc": "DNA-directed RNA polymerase subunit beta",
+        "id": "K03043"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Purine metabolism",
+        "id": "lpn00230"
+      },
+      {
+        "desc": "Pyrimidine metabolism",
+        "id": "lpn00240"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "RNA polymerase",
+        "id": "lpn03020"
+      }
+    ]
+  },
+  "lpg0323": {
+    "EC_number": "[EC:2.7.7.6]",
+    "kegg": [
+      {
+        "desc": "DNA-directed RNA polymerase subunit beta",
+        "id": "K03046"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Purine metabolism",
+        "id": "lpn00230"
+      },
+      {
+        "desc": "Pyrimidine metabolism",
+        "id": "lpn00240"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "RNA polymerase",
+        "id": "lpn03020"
+      }
+    ]
+  },
+  "lpg0324": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S12",
+        "id": "K02950"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0325": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S7",
+        "id": "K02992"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0326": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "elongation factor G",
+        "id": "K02355"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0327": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "elongation factor Tu",
+        "id": "K02358"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0328": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S10",
+        "id": "K02946"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0329": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L3",
+        "id": "K02906"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0330": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L4",
+        "id": "K02926"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0331": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L23",
+        "id": "K02892"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0332": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L2",
+        "id": "K02886"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0334": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L22",
+        "id": "K02890"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0335": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S3",
+        "id": "K02982"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0336": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L16",
+        "id": "K02878"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0337": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L29",
+        "id": "K02904"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0338": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S17",
+        "id": "K02961"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0339": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L14",
+        "id": "K02874"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0340": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L24",
+        "id": "K02895"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0341": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L5",
+        "id": "K02931"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0342": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S14",
+        "id": "K02954"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0343": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S8",
+        "id": "K02994"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0344": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L6",
+        "id": "K02933"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0345": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L18",
+        "id": "K02881"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0346": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S5",
+        "id": "K02988"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0347": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L30",
+        "id": "K02907"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0348": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L15",
+        "id": "K02876"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0349": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "preprotein translocase subunit SecY",
+        "id": "K03076"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Quorum sensing",
+        "id": "lpn02024"
+      },
+      {
+        "desc": "Protein export",
+        "id": "lpn03060"
+      },
+      {
+        "desc": "Bacterial secretion system",
+        "id": "lpn03070"
+      }
+    ]
+  },
+  "lpg0350": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L36 ",
+        "id": "K02919    "
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0351": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S13 ",
+        "id": "K02952 "
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0352": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S11",
+        "id": "K02948"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0353": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": " small subunit ribosomal proteinS4",
+        "id": "K02986"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0354": {
+    "EC_number": "[EC:2.7.7.6]",
+    "kegg": [
+      {
+        "desc": "DNA-directed RNA polymerase subunit alpha",
+        "id": "K03040"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Purine metabolism",
+        "id": "lpn00230"
+      },
+      {
+        "desc": "Pyrimidine metabolism",
+        "id": "lpn00240"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "RNA polymerase",
+        "id": "lpn03020"
+      }
+    ]
+  },
+  "lpg0355": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "large subunit ribosomal protein L17",
+        "id": "K02879"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0356": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "single-strand DNA-binding protein",
+        "id": "K03111"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "DNA replication",
+        "id": "lpn03030"
+      },
+      {
+        "desc": "Mismatch repair",
+        "id": "lpn03430"
+      },
+      {
+        "desc": "Homologous recombination",
+        "id": "lpn03440"
+      }
+    ]
+  },
+  "lpg0360": {
+    "EC_number": "4.2.1.-",
+    "kegg": [],
+    "pathways": []
+  },
+  "lpg0361": {
+    "EC_number": "[EC:2.3.1.41]",
+    "kegg": [
+      {
+        "desc": "3-oxoacyl-[acyl-carrier-protein] synthase",
+        "id": "K00647"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Fatty acid biosynthesis",
+        "id": "lpn00061"
+      },
+      {
+        "desc": "Biotin metabolism",
+        "id": "lpn00780"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Fatty acid metabolism",
+        "id": "lpn01212"
+      }
+    ]
+  },
+  "lpg0362": {
+    "EC_number": "[EC:2.3.1.41]",
+    "kegg": [
+      {
+        "desc": "3-oxoacyl-[acyl-carrier-protein] synthase",
+        "id": "K00647"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Fatty acid biosynthesis",
+        "id": "lpn00061"
+      },
+      {
+        "desc": "Biotin metabolism",
+        "id": "lpn00780"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Fatty acid metabolism",
+        "id": "lpn01212"
+      }
+    ]
+  },
+  "lpg0363": {
+    "EC_number": "[EC:2.3.1.241]",
+    "kegg": [
+      {
+        "desc": "Kdo2-lipid IVA lauroyltransferase",
+        "id": "K02517"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Lipopolysaccharide biosynthesis",
+        "id": "lpn00540"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0366": {
+    "EC_number": "[EC:5.1.1.7]",
+    "kegg": [
+      {
+        "desc": "diaminopimelate epimerase",
+        "id": "K01778"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Lysine biosynthesis",
+        "id": "lpn00300"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Biosynthesis of amino acids",
+        "id": "lpn01230"
+      }
+    ]
+  },
+  "lpg0369": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "phospholipase/carboxylesterase",
+        "id": "K06999"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0371": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "uncharacterized protein",
+        "id": "K09801"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0382": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "hyperosmotically inducible periplasmic protein",
+        "id": "K04065"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0384": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "excinuclease ABC subunit A",
+        "id": "K03701"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Nucleotide excision repair",
+        "id": "lpn03420"
+      }
+    ]
+  },
+  "lpg0385": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "LemA protein",
+        "id": "K03744"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0386": {
+    "EC_number": "[EC:3.4.24.-]",
+    "kegg": [
+      {
+        "desc": "heat shock protein HtpX",
+        "id": "K03799"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0387": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "ABC-2 type transport system permease protein",
+        "id": "K01992"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "ABC-2 type transport system",
+        "id": "lpn_M00254"
+      }
+    ]
+  },
+  "lpg0388": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "ABC-2 type transport system ATP-binding protein",
+        "id": "K01990"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "ABC-2 type transport system",
+        "id": "lpn_M00254"
+      }
+    ]
+  },
+  "lpg0390": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "VPS inhibitor protein A",
+        "id": "K15476"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Legionellosis",
+        "id": "lpn05134"
+      }
+    ]
+  },
+  "lpg0391": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "SM-20-related protein",
+        "id": "K07394"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0392": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "uncharacterized protein",
+        "id": "K07043"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0394": {
+    "EC_number": "[EC:2.1.1.63]",
+    "kegg": [
+      {
+        "desc": "methylated-DNA-[protein]-cysteine S-methyltransferase",
+        "id": "K00567"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0395": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "\"large subunit ribosomal protein L19\"",
+        "id": "K02884"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0396": {
+    "EC_number": "[EC:2.1.1.228]",
+    "kegg": [
+      {
+        "desc": "tRNA (guanine37-N1)-methyltransferase",
+        "id": "K00554"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0397": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "16S rRNA processing protein RimM",
+        "id": "K02860"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0398": {
+    "EC_number": "",
+    "kegg": [],
+    "pathways": []
+  },
+  "lpg0399": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "small subunit ribosomal protein S16",
+        "id": "K02959"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Ribosome",
+        "id": "lpn03010"
+      }
+    ]
+  },
+  "lpg0400": {
+    "EC_number": "[EC:3.6.5.4]",
+    "kegg": [
+      {
+        "desc": "signal recognition particle subunit SRP54",
+        "id": "K03106"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Quorum sensing",
+        "id": "lpn02024"
+      },
+      {
+        "desc": "Protein export",
+        "id": "lpn03060"
+      },
+      {
+        "desc": "Bacterial secretion system",
+        "id": "lpn03070"
+      }
+    ]
+  },
+  "lpg0404": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "glutamate:GABA antiporte",
+        "id": "K20265"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Quorum sensing",
+        "id": "lpn02024"
+      }
+    ]
+  },
+  "lpg0409": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "surfeit locus 1 family protein",
+        "id": "K14998"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0411": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "cytochrome c oxidase assembly protein subunit 15",
+        "id": "K02259"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Oxidative phosphorylation",
+        "id": "lpn00190"
+      },
+      {
+        "desc": "Porphyrin and chlorophyll metabolism",
+        "id": "lpn00860"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Two-component system",
+        "id": "lpn02020"
+      }
+    ]
+  },
+  "lpg0412": {
+    "EC_number": "[EC:2.5.1.-] ",
+    "kegg": [
+      {
+        "desc": "protoheme IX farnesyltransferase",
+        "id": "K02301"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Oxidative phosphorylation",
+        "id": "lpn00190"
+      },
+      {
+        "desc": "Porphyrin and chlorophyll metabolism",
+        "id": "lpn00860"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      }
+    ]
+  },
+  "lpg0413": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "protein SCO1/2",
+        "id": "K07152"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0414": {
+    "EC_number": "[EC:6.3.2.-]",
+    "kegg": [
+      {
+        "desc": "ribosomal protein S6--L-glutamate ligase",
+        "id": "K05844"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0416": {
+    "EC_number": "[EC:1.1.1.49 | 1.1.1.363]",
+    "kegg": [
+      {
+        "desc": "glucose-6-phosphate 1-dehydrogenase",
+        "id": "K00036"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Pentose phosphate pathway",
+        "id": "lpn00030"
+      },
+      {
+        "desc": "Glutathione metabolism",
+        "id": "lpn00480"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0417": {
+    "EC_number": "[EC:3.1.1.31]",
+    "kegg": [
+      {
+        "desc": "6-phosphogluconolactonase",
+        "id": "K01057"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Pentose phosphate pathway",
+        "id": "lpn00030"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0418": {
+    "EC_number": "[EC:4.2.1.12]",
+    "kegg": [
+      {
+        "desc": "phosphogluconate dehydratase",
+        "id": "K01690"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Pentose phosphate pathway",
+        "id": "lpn00030"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0419": {
+    "EC_number": "[EC:2.7.1.2]",
+    "kegg": [
+      {
+        "desc": "glucokinase",
+        "id": "K00845"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Glycolysis / Gluconeogenesis",
+        "id": "lpn00010"
+      },
+      {
+        "desc": "Galactose metabolism",
+        "id": "lpn00052"
+      },
+      {
+        "desc": "Starch and sucrose metabolism",
+        "id": "lpn00500"
+      },
+      {
+        "desc": "Amino sugar and nucleotide sugar metabolism",
+        "id": "lpn00520"
+      },
+      {
+        "desc": "Streptomycin biosynthesis",
+        "id": "lpn00521"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0420": {
+    "EC_number": "[EC:4.1.2.14 | 4.1.3.42]",
+    "kegg": [
+      {
+        "desc": "2-dehydro-3-deoxyphosphogluconate aldolase / (4S)-4-hydroxy-2-oxoglutarate aldolase",
+        "id": "K01625"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Pentose phosphate pathway",
+        "id": "lpn00030"
+      },
+      {
+        "desc": "Glyoxylate and dicarboxylate metabolism",
+        "id": "lpn00630"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      }
+    ]
+  },
+  "lpg0422": {
+    "EC_number": "[EC:3.2.1.3]",
+    "kegg": [
+      {
+        "desc": "glucoamylase",
+        "id": "K01178"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Starch and sucrose metabolism",
+        "id": "lpn00500"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      }
+    ]
+  },
+  "lpg0423": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "putative transcriptional regulator",
+        "id": "K07727"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0425": {
+    "EC_number": "[EC:4.99.1.1]",
+    "kegg": [
+      {
+        "desc": "ferrochelatase",
+        "id": "K01772"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Porphyrin and chlorophyll metabolism",
+        "id": "lpn00860"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      }
+    ]
+  },
+  "lpg0426": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "cold shock protein (beta-ribbon, CspA family) ",
+        "id": "K03704"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0441": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmT",
+        "id": "K12222"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0442": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmS",
+        "id": "K12221"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0443": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmR",
+        "id": "K12220"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0444": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmQ",
+        "id": "K12219"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0445": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmP",
+        "id": "K12218"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0446": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmO",
+        "id": "K12217"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0447": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmN",
+        "id": "K12216"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0448": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmM",
+        "id": "K12215"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0449": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmL",
+        "id": "K12214"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0450": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmK",
+        "id": "K12213"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0451": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmE",
+        "id": "K12209"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0452": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmG",
+        "id": "K12211"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0453": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmC",
+        "id": "K12207"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0454": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmD",
+        "id": "K12208"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0455": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmJ",
+        "id": "K12212"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0456": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmB",
+        "id": "K12206"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0457": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "proline/betaine transport protein TphA",
+        "id": "K12226"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0458": {
+    "EC_number": "",
+    "kegg": [
+      {
+        "desc": "intracellular multiplication protein IcmF",
+        "id": "K12210"
+      }
+    ],
+    "pathways": []
+  },
+  "lpg0460": {
+    "EC_number": "[EC:2.1.2.3 |  3.5.4.10]",
+    "kegg": [
+      {
+        "desc": "phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase",
+        "id": "K00602"
+      }
+    ],
+    "pathways": [
+      {
+        "desc": "Purine metabolism",
+        "id": "lpn00230"
+      },
+      {
+        "desc": "One carbon pool by folate",
+        "id": "lpn00670"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      }
+    ]
+  },
+  "lpg0461": {
+    "EC_number": "[EC:2.1.1.-]",
+    "kegg": [
+      {
+        "desc": "ribosomal protein L11 methyltransferase",
+        "id": "K02687"
+      }
+    ],
+    "pathways": []
+  }
+}
