@@ -1,3 +1,4 @@
+from collections import defaultdict
 import util.www as www
 import util.rw as rw
 import util.blast as blast
@@ -20,9 +21,10 @@ def add_info_to_blast_results(blast_results, uniprots):
                 uniprot_id = "Q8TC84"
 
             properties = [
-                "molecular_functions",
+                "status",
+                "organism",
                 "sequence",
-                "status"
+                "molecular_functions"
             ]
 
             for p in properties:
@@ -30,6 +32,37 @@ def add_info_to_blast_results(blast_results, uniprots):
                 blast_results[tag][i][p] = value
 
     return blast_results
+
+def infer_function(blast_results):
+    """
+    Esta função tenta inferir a função das proteínas baseando-se
+    nos resultados do blast.
+    """
+
+    all = {}
+
+    for tag in blast_results:
+        inferred = []
+        leaderboard = defaultdict(int)
+
+        # Para os primeiros 10 resultados contar as ocorrências
+        # de cada função
+        top_ten = blast_results[tag][0:10]
+        for result in top_ten:
+            for function in result["molecular_function"]:
+                leaderboard[function] += 1
+
+        # As funções que aparecem em pelo menos 50% dos resultados
+        # são consideradas potenciais funções
+        min = len(leaderboard) / 2
+
+        for function in leaderboard:
+            if leaderboard[function] >= min:
+                inferred.append(function)
+
+        all[tag] = inferred
+
+    return all
 
 def main():
     ncbi_json_path = ".ncbi.json"

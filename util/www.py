@@ -237,6 +237,7 @@ def extract_uniprot_info(entry):
     Extrai a informação que necessitamos da uniprot.
       - status (reviewed, unreviewed)
       - accessions
+      - organismo
       - comentários sobre a função
       - GO - Molecular Function
       - sequência
@@ -254,6 +255,14 @@ def extract_uniprot_info(entry):
     # accessions
     accessions = [a.text for a in entry.findall(".//accession")]
     accession = accessions[0]
+
+    # organism
+    organisms = entry.findall(".//name[@type='scientific']")
+    if len(organisms) == 1:
+        organism = organisms[0].text
+    else:
+        print("Encontrei um número de organismos diferente de 1: ", accession)
+        organism = None
 
     # encontrar o texto função que costuma estar no início da
     # página da uniprot
@@ -277,6 +286,7 @@ def extract_uniprot_info(entry):
     dictionary = {}
     dictionary["status"] = status
     dictionary["accessions"] = accessions
+    dictionary["organism"] = organism
     dictionary["comment_functions"] = comment_functions
     dictionary["molecular_functions"] = molecular_functions
     dictionary["sequence"] = sequence
