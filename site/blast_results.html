@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>blast</title>
+<title>blast_results</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,24 +11751,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="An&#225;lise-de-homologias-por-BLAST">An&#225;lise de homologias por BLAST<a class="anchor-link" href="#An&#225;lise-de-homologias-por-BLAST">&#182;</a></h2><ol>
-<li><a href="#local">local_blastp(tag_to_files, db)</a></li>
-<li><a href="#docker">docker_blastp(directory, db)</a></li>
-<li><a href="#expasy">expasy_blastp(tag_to_files)</a></li>
-<li><a href="#blast">blastp(tags_and_proteins, db, type)</a></li>
-<li><a href="#write_queries_to_dir">write_queries_to_dir(tags_and_proteins, directory)</a></li>
-<li><a href="#extract_blast_info">extract_blast_info(tag_to_files, type)</a></li>
-<li><a href="#fetch_uniprots">util.www.fetch_uniprots(ids)</a></li>
-<li><a href="#extract_uniprot_info">util.www.extract_uniprot_info(entry)</a></li>
-<li><a href="#main">main()</a></li>
-</ol>
-<p>O objectivo desta fase era, dadas as proteínas que retirámos do ficheiro genbank, procurar sequências homólogas com BLAST. Esta fase foi iterada várias vezes à procura da melhor estratégia, e no final acabámos com várias alternativas para a execução do BLAST, que podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/blast.py"><code>util.blast</code></a>. As alternativas são:</p>
-<ul>
-<li><strong>Local</strong></li>
-<li><strong>Docker</strong></li>
-<li><strong>ExPASy</strong></li>
-</ul>
-<p>Os resultados desta fase podem ser encontrados <a href="blast_results.html">aqui</a></p>
+<h2 id="Resultados-do-BLAST">Resultados do BLAST<a class="anchor-link" href="#Resultados-do-BLAST">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
@@ -11778,25 +11769,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="local"></a></p>
-<h3 id="Local">Local<a class="anchor-link" href="#Local">&#182;</a></h3><p>Esta função assume que o BLAST está instalado localmente, e recebe como parâmetro qual a base de dados que deve usar. O primeiro argumento desta função <code>tag_to_files</code> é um dicionário em que as chaves são <strong>locus_tag</strong> e os valores são pares em que a primeira componente é o ficheiro onde se encontra a sequência de aminoácidos para ser usada na query (<strong>in_file</strong>), e a segunda componente é o ficheiro onde deve ser guardado o resultado do BLAST (<strong>out_file</strong>).</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">local_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Corre o blast localmente.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_to_files</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span> <span class="o">=</span> <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
-
-        <span class="n">blastp_cline</span> <span class="o">=</span> <span class="n">NcbiblastpCommandline</span><span class="p">(</span>
-            <span class="n">query</span><span class="o">=</span><span class="n">in_file</span><span class="p">,</span>
-            <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span>
-            <span class="n">evalue</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">outfmt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-            <span class="n">out</span><span class="o">=</span><span class="n">out_file</span>
-        <span class="p">)</span>
-        <span class="n">blastp_cline</span><span class="p">()</span>
-</pre></div>
 
 </div>
 </div>
@@ -11806,20 +11778,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="docker"></a></p>
-<h3 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h3><p>Para evitar a instalação de BLAST, download de bases de dados e sua adição como base de dados para ser usada pelo BLAST, criámos uma imagem <strong>Docker</strong> com a base de dados <strong>UniProtKB - Swiss-Prot</strong> <a href="http://www.uniprot.org/downloads">retirada do site da UniProt</a>. Mais informação sobre esta imagem pode ser encontrada <a href="docker.html">aqui</a>.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">docker_blastp</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Corre o blast numa instância docker.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;docker run -e QUERY_DIR=&quot;</span> <span class="o">+</span> <span class="n">directory</span> \
-                  <span class="o">+</span> <span class="s2">&quot; -e DB=&quot;</span> <span class="o">+</span> <span class="n">db</span> \
-                  <span class="o">+</span> <span class="s2">&quot; -v $PWD/&quot;</span> <span class="o">+</span> <span class="n">directory</span> <span class="o">+</span> <span class="s2">&quot;:/&quot;</span> <span class="o">+</span> <span class="n">directory</span> \
-                  <span class="o">+</span> <span class="s2">&quot; -ti vitorenesduarte/swissprot_blast&quot;</span>
-
-    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-</pre></div>
 
 </div>
 </div>
@@ -11829,42 +11787,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="expasy"></a></p>
-<h3 id="ExPASy">ExPASy<a class="anchor-link" href="#ExPASy">&#182;</a></h3><p>A terceira opção não corre o BLAST localmente, mas utiliza o serviço disponibilizado pelo site ExPASy.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expasy_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Corre o blast na expasy.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_to_files</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span> <span class="o">=</span> <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
-        <span class="n">query</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
-        <span class="n">blast_result</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">expasy_blast</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-        <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">blast_result</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
-</pre></div>
-<p>Esta função usa uma outra função definida no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> que corre o BLAST contra a base de dados <strong>UniProtKB = Swiss-Prot + TrEMBL</strong>, usando o serviço da ExPASy.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expasy_blast</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Corre o blast na expasy.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://web.expasy.org/cgi-bin/blast/blast.pl&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;xml&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;prot_db1&quot;</span><span class="p">:</span> <span class="s2">&quot;UniProtKB&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;matrix&quot;</span><span class="p">:</span> <span class="s2">&quot;BLOSUM62&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;showsc&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="c1"># best scoring sequences</span>
-        <span class="s2">&quot;showal&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="c1"># best alignments</span>
-        <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="n">query</span>
-    <span class="p">}</span>
-
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">data</span>
-    <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-<p>Esta última opção permitiu-nos encontrar sequências com maior homologia do que as que estávamos a encontrar ao usar apenas a <strong>Swiss-Prot</strong> localmente.</p>
 
 </div>
 </div>
@@ -11874,335 +11796,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="blast"></a></p>
-<h3 id="BLAST">BLAST<a class="anchor-link" href="#BLAST">&#182;</a></h3><p>A função que engloba estas três opções recebe como argumento uma lista de pares em que a primeira componente é a <strong>locus_tag</strong> da proteína, e a segunda componente é a respectiva sequência de aminoácidos. Recebe ainda qual o tipo de BLAST, <strong>local</strong>, <strong>docker</strong> ou <strong>expasy</strong>, a utilizar.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">blastp</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Corre o blast para a proteínas passadas como argumento.</span>
-
-<span class="sd">    O argumento type é opcional e pode ter dois valores:</span>
-<span class="sd">        - local</span>
-<span class="sd">        - docker</span>
-<span class="sd">        - expasy</span>
-
-<span class="sd">    É retornado um dicionário com os resultados.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;.query_dir&quot;</span>
-    <span class="n">tag_to_files</span> <span class="o">=</span> <span class="n">write_queries_to_dir</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-
-    <span class="c1"># correr o blast</span>
-    <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
-        <span class="n">local_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="s2">&quot;swissprot&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;docker&quot;</span><span class="p">:</span>
-        <span class="n">docker_blastp</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">&quot;swissprot&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;expasy&quot;</span><span class="p">:</span>
-        <span class="n">expasy_blastp</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unsupported type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">)</span>
-
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">extract_blast_info</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">blast_results</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Esta função usa duas outras funções:</p>
-<p><a name="write_queries_to_dir"></a></p>
-<ul>
-<li><code>write_queries_to_dir</code> que recebe uma lista de pares, <strong>locus_tag</strong> e sequência de aminoácidos <strong>protein</strong>, e retorna um dicionário que mapeia <strong>locus_tag</strong> para pares (<strong>in_file</strong>, <strong>out_file</strong>).</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_queries_to_dir</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Grava as proteínas passadas como argumento na</span>
-<span class="sd">    diretoria também passada como argumento.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">tag_to_files</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="c1"># Apagar a diretoria e criar uma nova</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">protein</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tags_and_proteins</span><span class="p">:</span>
-        <span class="c1"># Gravar a proteína num ficheiro</span>
-        <span class="n">in_file</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">fasta_it</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
-        <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">in_file</span><span class="p">)</span>
-
-        <span class="c1"># registar esta informação num dicionário</span>
-        <span class="n">out_file</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">xml_it</span><span class="p">(</span><span class="n">fasta_it</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span>
-        <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">tag_to_files</span>
-</pre></div>
-<p><a name="extract_blast_info"></a></p>
-<ul>
-<li><code>extract_blast_info</code> que dado este dicionário retorna um outro dicionário que mapeia <strong>locus_tag</strong> para a lista de resultados do BLAST. Cada um destes resultados é um dicionário com:<ul>
-<li><strong>uniprot_id</strong></li>
-<li><strong>evalue</strong></li>
-<li><strong>score</strong></li>
-<li><strong>identity</strong></li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_blast_info</span><span class="p">(</span><span class="n">tag_to_files</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Extrai a informação que necessitamos dos resultados do blast.</span>
-<span class="sd">      - uniprot_id</span>
-<span class="sd">      - evalue</span>
-<span class="sd">      - score</span>
-<span class="sd">      - identity</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_to_files</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span> <span class="o">=</span> <span class="n">tag_to_files</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
-
-        <span class="c1">### Alguns resultados do blast, ao serem lidos de disco</span>
-        <span class="c1">### na função rw.read_blast</span>
-        <span class="c1">### estavam a dar erro ao fazer parsing nesta linha.</span>
-        <span class="c1">### Como não necessitamos deste resultado,</span>
-        <span class="c1">### optamos por removê-la.</span>
-        <span class="n">regex</span> <span class="o">=</span> <span class="s2">&quot;.*Hsp_midline.*&quot;</span>
-        <span class="n">rw</span><span class="o">.</span><span class="n">filter_file</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">out_file</span><span class="p">)</span>
-
-        <span class="n">handle</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_blast</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">handle</span><span class="o">.</span><span class="n">alignments</span><span class="p">:</span>
-            <span class="c1"># extrair o uniprot id</span>
-            <span class="k">if</span> <span class="nb">type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="s2">&quot;docker&quot;</span><span class="p">]:</span>
-                <span class="c1"># nos blast locais, o uniprot_id está no hit_def</span>
-                <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">hit_def</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;expasy&quot;</span><span class="p">:</span>
-                <span class="c1"># nos blast expasy, o uniprot_id está no hit_id</span>
-                <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">hit_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-
-            <span class="c1"># escolher sempre o primeiro hsp</span>
-            <span class="n">hsp</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">hsps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">evalue</span> <span class="o">=</span> <span class="n">hsp</span><span class="o">.</span><span class="n">expect</span>
-            <span class="n">score</span> <span class="o">=</span> <span class="n">hsp</span><span class="o">.</span><span class="n">score</span>
-            <span class="n">identities</span> <span class="o">=</span> <span class="n">hsp</span><span class="o">.</span><span class="n">identities</span>
-            <span class="n">align_length</span> <span class="o">=</span> <span class="n">hsp</span><span class="o">.</span><span class="n">align_length</span>
-            <span class="n">identity</span> <span class="o">=</span> <span class="p">(</span><span class="n">identities</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">align_length</span>
-
-            <span class="n">hit</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
-            <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;evalue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">evalue</span>
-            <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
-            <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;identity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identity</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
-
-        <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
-
-    <span class="k">return</span> <span class="n">blast_results</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="fetch_uniprots"></a>
-Nesta fase ainda precisávamos de mais informação além daquela que é possível extrair dos resultados do BLAST.
-Utilizamos o serviço extração de informação em <em>batch</em> disponibilizado pela UniProt (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>), e criámos uma função que dada uma lista de <strong>uniprot_id</strong> retorna um dicionário que mapeia estes id para um outro dicionário com a informação desejada. Esta função pode ser encontrada no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a>.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_uniprots</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Faz download da informação presente no site uniprot</span>
-<span class="sd">    em formato xml dada uma lista de ids uniprot.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.uniprot.org/uploadlists/&quot;</span>
-    <span class="n">max_retries</span> <span class="o">=</span> <span class="mi">100</span>
-
-    <span class="c1"># Cada pedido à uniprot vai no máximo com 1000 ids.</span>
-    <span class="n">queries</span>  <span class="o">=</span> <span class="p">[</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1000</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)]</span>
-
-    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
-        <span class="n">query_all</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-        <span class="n">md5</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">query_all</span><span class="p">)</span>
-
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;xml&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;uploadQuery&quot;</span><span class="p">:</span> <span class="n">query_all</span><span class="p">,</span>
-            <span class="s2">&quot;jobId&quot;</span><span class="p">:</span> <span class="n">md5</span>
-        <span class="p">}</span>
-
-        <span class="n">done</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="c1"># enquanto não acabar ou não esgotar as tentativas todas</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
-
-            <span class="c1"># HTTP POST</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="n">url</span><span class="p">,</span>
-                <span class="n">data</span><span class="o">=</span><span class="n">data</span>
-            <span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-                <span class="c1"># Gravar o xml</span>
-                <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/&quot;</span> <span class="o">+</span> <span class="n">md5</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span>
-                <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
-                <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-                <span class="n">done</span> <span class="o">=</span> <span class="bp">True</span>
-
-            <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Não consegui fazer download de &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">query</span><span class="p">))</span>
-
-    <span class="n">infos</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">parse_xml</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">add_root</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//entry&quot;</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-            <span class="p">(</span><span class="n">uniprot_id</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span> <span class="o">=</span> <span class="n">extract_uniprot_info</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">infos</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
-
-    <span class="k">return</span> <span class="n">infos</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="extract_uniprot_info"></a>
-Podemos ver que esta função utiliza uma outra função <code>extract_uniprot_info</code>, também definida no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a>.</p>
-<div class="highlight"><pre><span></span><span class="c1"># FINISH THIS ONCE WE DECIDE ALL THE INFO WE WANT FROM UNIPROT</span>
-<span class="k">def</span> <span class="nf">extract_uniprot_info</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Extrai a informação que necessitamos da uniprot.</span>
-<span class="sd">      - status (reviewed, unreviewed)</span>
-<span class="sd">      - accessions</span>
-<span class="sd">      - comentários sobre a função</span>
-<span class="sd">      - GO - Molecular Function</span>
-<span class="sd">      - sequência</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># dataset</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">ds</span> <span class="o">==</span> <span class="s2">&quot;Swiss-Prot&quot;</span><span class="p">:</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;reviewed&quot;</span>
-    <span class="k">elif</span> <span class="n">ds</span> <span class="o">==</span> <span class="s2">&quot;TrEMBL&quot;</span><span class="p">:</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;unreviewed&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Não conheço o dataset &quot;</span> <span class="o">+</span> <span class="n">ds</span><span class="p">)</span>
-
-    <span class="c1"># ...</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="main"></a>
-Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/second.py">second.py</a> e resumem-se a:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
-<span class="kn">import</span> <span class="nn">util.blast</span> <span class="kn">as</span> <span class="nn">blast</span>
-<span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
-
-<span class="k">def</span> <span class="nf">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta função retorna uma lista de pares</span>
-<span class="sd">    em que a primeira componente é a tag</span>
-<span class="sd">    e a segunda a sequência de aminoácidos.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mRNA&quot;</span><span class="p">:</span>
-            <span class="c1"># se for do tipo &quot;mRNA&quot; estamos na presença de uma proteína</span>
-            <span class="n">protein</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
-            <span class="n">both</span> <span class="o">=</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">protein</span><span class="p">)</span>
-            <span class="n">tags_and_proteins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">both</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tp</span> <span class="p">:</span> <span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="k">def</span> <span class="nf">add_info_to_blast_results</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta função adiciona aos blast results informação</span>
-<span class="sd">    retirada do site da uniprot.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">])):</span>
-            <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span>
-
-            <span class="c1"># esta proteína aparece nos resultados do blast como</span>
-            <span class="c1"># Q8TC84-2 mas a uniprot retorna a sua informação</span>
-            <span class="c1"># como Q8TC84</span>
-            <span class="k">if</span> <span class="n">uniprot_id</span> <span class="o">==</span> <span class="s2">&quot;Q8TC84-2&quot;</span><span class="p">:</span>
-                <span class="n">uniprot_id</span> <span class="o">=</span> <span class="s2">&quot;Q8TC84&quot;</span>
-
-            <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s2">&quot;molecular_functions&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;sequence&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;status&quot;</span>
-            <span class="p">]</span>
-
-            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">uniprots</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
-                <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">return</span> <span class="n">blast_results</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">ncbi_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.json&quot;</span>
-    <span class="n">blast_results_json_path</span> <span class="o">=</span> <span class="s2">&quot;.blast_results.json&quot;</span>
-
-    <span class="n">dictionary</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">ncbi_json_path</span><span class="p">)</span>
-    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="n">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
-
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">blast</span><span class="o">.</span><span class="n">blastp</span><span class="p">(</span>
-        <span class="n">tags_and_proteins</span><span class="p">,</span>
-        <span class="s2">&quot;expasy&quot;</span>
-    <span class="p">)</span>
-
-    <span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
-            <span class="n">uniprot_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">])</span>
-
-    <span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
-    <span class="n">uniprots</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_uniprots</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
-
-    <span class="n">blast_results</span> <span class="o">=</span> <span class="n">add_info_to_blast_results</span><span class="p">(</span>
-        <span class="n">blast_results</span><span class="p">,</span>
-        <span class="n">uniprots</span>
-    <span class="p">)</span>
-    <span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">blast_results_json_path</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
 
 </div>
 </div>
