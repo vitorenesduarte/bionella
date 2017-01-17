@@ -35,8 +35,10 @@ def add_info_to_blast_results(blast_results, uniprots):
 
 def infer_function(blast_results):
     """
-    Esta função tenta inferir a função das proteínas baseando-se
-    nos resultados do blast.
+    Infere qual as funções mais prováveis tendo em consideração
+    os primeiros 10 resultados do blast,
+    e quais as funções mais prováveis tendo em consideração
+    todos os resultados do blast.
     """
 
     all = {}
@@ -55,6 +57,10 @@ def infer_function(blast_results):
     return all
 
 def infer(results):
+    """
+    Esta função tenta inferir a função das proteínas baseando-se
+    numa lista de resultados do blast.
+    """
     inferred = []
     leaderboard = defaultdict(int)
     results_with_functions = 0
