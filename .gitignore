@@ -1,9 +1,7 @@
 __pycache__/
 others/
 .query_dir/
-.*.swp
-.*.gb
-.*.json
-.*.xml
+*.swp
+/*.gb
+/*.json
 .ipynb_checkpoints/
-save_files/
