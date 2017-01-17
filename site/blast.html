@@ -12127,24 +12127,7 @@ Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
 <span class="kn">import</span> <span class="nn">util.blast</span> <span class="kn">as</span> <span class="nn">blast</span>
 <span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
-
-<span class="k">def</span> <span class="nf">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta função retorna uma lista de pares</span>
-<span class="sd">    em que a primeira componente é a tag</span>
-<span class="sd">    e a segunda a sequência de aminoácidos.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mRNA&quot;</span><span class="p">:</span>
-            <span class="c1"># se for do tipo &quot;mRNA&quot; estamos na presença de uma proteína</span>
-            <span class="n">protein</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
-            <span class="n">both</span> <span class="o">=</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">protein</span><span class="p">)</span>
-            <span class="n">tags_and_proteins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">both</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tp</span> <span class="p">:</span> <span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="kn">import</span> <span class="nn">util.util</span> <span class="kn">as</span> <span class="nn">util</span>
 
 <span class="k">def</span> <span class="nf">add_info_to_blast_results</span><span class="p">(</span><span class="n">blast_results</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -12179,7 +12162,7 @@ Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com
     <span class="n">blast_results_json_path</span> <span class="o">=</span> <span class="s2">&quot;.blast_results.json&quot;</span>
 
     <span class="n">dictionary</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">ncbi_json_path</span><span class="p">)</span>
-    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="n">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
 
     <span class="n">blast_results</span> <span class="o">=</span> <span class="n">blast</span><span class="o">.</span><span class="n">blastp</span><span class="p">(</span>
         <span class="n">tags_and_proteins</span><span class="p">,</span>
