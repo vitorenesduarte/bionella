@@ -1,7 +1,7 @@
 .PHONY: site pdf
 
 site:
-	python build-site.py
+	cd site/ ; python build-site.py
 
 pdf:
 	jupyter nbconvert --to latex index.ipynb
