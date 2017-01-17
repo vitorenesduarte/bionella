@@ -15,6 +15,9 @@ first:
 second:
 	python second.py
 
+third:
+	python third.py
+
 start-nb:
 	jupyter notebook
 
