@@ -220,7 +220,7 @@ def fetch_uniprots(ids):
         if not done:
             print("Não consegui fazer download de " + str(query))
 
-    infos = {}
+    uniprots = {}
 
     for file_path in files:
         tree = parse_xml(file_path, add_root=True, start=2, end=1)
@@ -228,9 +228,9 @@ def fetch_uniprots(ids):
 
         for entry in entries:
             (uniprot_id, info) = extract_uniprot_info(entry)
-            infos[uniprot_id] = info
+            uniprots[uniprot_id] = info
 
-    return infos
+    return uniprots
 
 def extract_uniprot_info(entry):
     """

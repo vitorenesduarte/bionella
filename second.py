@@ -42,36 +42,44 @@ def infer_function(blast_results):
     all = {}
 
     for tag in sorted(blast_results.keys()):
-        inferred = []
-        leaderboard = defaultdict(int)
+        results = blast_results[tag]
+        # inferir função para os primeiros 10 resultados
+        inferred_top_ten = infer(results[0:10])
+        # inferir função para todos os resultados
+        inferred_all = infer(results)
 
-        results_with_functions = 0
-
-        # Para os primeiros 10 resultados contar as ocorrências
-        # de cada função
-        top_ten = blast_results[tag][0:10]
-        for result in top_ten:
-            functions = result["molecular_functions"]
-
-            # contar o número de resultados que tinham função
-            if len(functions) > 0:
-                results_with_functions += 1
-
-            # atualizar a leaderboard
-            for function in result["molecular_functions"]:
-                leaderboard[function] += 1
-
-        # As funções que aparecem em pelo menos 50% dos resultados
-        # são consideradas potenciais funções
-        min = results_with_functions / 2
-
-        for function in leaderboard:
-            if leaderboard[function] >= min:
-                inferred.append(function)
-
-        all[tag] = inferred
+        all[tag] = {}
+        all[tag]["top_ten"] = inferred_top_ten
+        all[tag]["all"] = inferred_all
 
     return all
+
+def infer(results):
+    inferred = []
+    leaderboard = defaultdict(int)
+    results_with_functions = 0
+
+    for result in results:
+        functions = result["molecular_functions"]
+
+        # contar o número de resultados que tinham função
+        if len(functions) > 0:
+            results_with_functions += 1
+
+        # atualizar a leaderboard
+        for function in result["molecular_functions"]:
+            leaderboard[function] += 1
+
+    # As funções que aparecem em pelo menos 50% dos resultados
+    # são consideradas potenciais funções
+    min = results_with_functions / 2
+
+    for function in leaderboard:
+        if leaderboard[function] >= min:
+            inferred.append(function)
+
+    return sorted(inferred)
+
 
 def main():
     ncbi_json_path = ".ncbi.json"
