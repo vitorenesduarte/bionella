@@ -12173,46 +12173,54 @@ Após retirar informação da UniProt, adicionámos a cada um dos resultados pro
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Por fim, automatizámos o processo de inferência da função, dados os resultados do BLAST. Uma função é considerada provável se aparecer em pelo menos 50% dos primeiros 10 resultados do BLAST.</p>
+<p>Por fim, automatizámos o processo de inferência da função, dados os resultados do BLAST. Uma função é considerada provável se aparecer em pelo menos 50% dos resultados do BLAST. Este inferência foi feita tanto para os 10 primeiros resultados como para os resultados todos.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">infer_function</span><span class="p">(</span><span class="n">blast_results</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Esta função tenta inferir a função das proteínas baseando-se</span>
-<span class="sd">    nos resultados do blast.</span>
+<span class="sd">    Infere qual as funções mais prováveis tendo em consideração</span>
+<span class="sd">    os primeiros 10 resultados do blast,</span>
+<span class="sd">    e quais as funções mais prováveis tendo em consideração</span>
+<span class="sd">    todos os resultados do blast.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nb">all</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">blast_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-        <span class="n">inferred</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+        <span class="c1"># inferir função para os primeiros 10 resultados</span>
+        <span class="n">inferred_top_ten</span> <span class="o">=</span> <span class="n">infer</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+        <span class="c1"># inferir função para todos os resultados</span>
+        <span class="n">inferred_all</span> <span class="o">=</span> <span class="n">infer</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
-        <span class="n">results_with_functions</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="c1"># Para os primeiros 10 resultados contar as ocorrências</span>
-        <span class="c1"># de cada função</span>
-        <span class="n">top_ten</span> <span class="o">=</span> <span class="n">blast_results</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">top_ten</span><span class="p">:</span>
-            <span class="n">functions</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]</span>
-
-            <span class="c1"># contar o número de resultados que tinham função</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">results_with_functions</span> <span class="o">+=</span> <span class="mi">1</span>
-
-            <span class="c1"># atualizar a leaderboard</span>
-            <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]:</span>
-                <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="c1"># As funções que aparecem em pelo menos 50% dos resultados</span>
-        <span class="c1"># são consideradas potenciais funções</span>
-        <span class="nb">min</span> <span class="o">=</span> <span class="n">results_with_functions</span> <span class="o">/</span> <span class="mi">2</span>
-
-        <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">leaderboard</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">:</span>
-                <span class="n">inferred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-
-        <span class="nb">all</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">inferred</span>
+        <span class="nb">all</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="nb">all</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;top_ten&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inferred_top_ten</span>
+        <span class="nb">all</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;all&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inferred_all</span>
 
     <span class="k">return</span> <span class="nb">all</span>
+
+<span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta função tenta inferir a função das proteínas baseando-se</span>
+<span class="sd">    numa lista de resultados do blast.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inferred</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="n">functions</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]</span>
+
+        <span class="c1"># atualizar a leaderboard</span>
+        <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]:</span>
+            <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># As funções que aparecem em pelo menos 50% dos resultados</span>
+    <span class="c1"># são consideradas potenciais funções</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">leaderboard</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">leaderboard</span><span class="p">[</span><span class="n">function</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">:</span>
+            <span class="n">inferred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">inferred</span><span class="p">)</span>
 </pre></div>
 
 </div>

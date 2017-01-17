@@ -11760,7 +11760,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/ViaMetabolica.png" alt="Metabolismo"></p>
+<p><img src="img/ViaMetabolica.png" alt="Metabolismo">
+<strong>Figura1 - </strong> Rede Metabólica da <em>Legionella Pneumophila susbp. pneumophila str. Philadelphia 1</em>.</p>
 
 </div>
 </div>
@@ -11770,10 +11771,732 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/ViaInfec.png" alt="Infecao"></p>
+<p><img src="img/ViaInfec.png" alt="Infecao">
+<strong>Figura 2 - </strong> Via responsável pela infeção provocada pela <em>Legionella Pneumophila susbp. pneumophila str. Philadelphia 1</em>.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;files/KEGG.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Locus Tag</th>
+      <th>EC number</th>
+      <th>Kegg orthology</th>
+      <th>Unnamed: 3</th>
+      <th>Pathways</th>
+      <th>Unnamed: 5</th>
+      <th>Unnamed: 6</th>
+      <th>Unnamed: 7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>lpg0232</td>
+      <td>NaN</td>
+      <td>K09823</td>
+      <td>Fur family transcriptional regulator, zinc uptake regulator</td>
+      <td>lpn02024</td>
+      <td>Quorum sensing</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>lpg0233</td>
+      <td>[EC:4.1.1.7]</td>
+      <td>K01576</td>
+      <td>benzoylformate decarboxylase</td>
+      <td>lpn00627</td>
+      <td>Aminobenzoate degradation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01120</td>
+      <td>Microbial metabolism in diverse environments</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>lpg0238</td>
+      <td>[EC:1.2.1.8]</td>
+      <td>K00130</td>
+      <td>betaine-aldehyde dehydrogenase</td>
+      <td>lpn00260</td>
+      <td>Glycine, serine and threonine metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01100</td>
+      <td>Metabolic pathways</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>lpg0239</td>
+      <td>[EC:2.6.1.19|2.6.1.22]</td>
+      <td>K07250</td>
+      <td>4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase</td>
+      <td>lpn00250</td>
+      <td>Alanine, aspartate and glutamate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00280</td>
+      <td>Valine, leucine and isoleucine degradation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00410</td>
+      <td>beta-Alanine metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00640</td>
+      <td>Propanoate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00650</td>
+      <td>Butanoate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01100</td>
+      <td>Metabolic pathways</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01120</td>
+      <td>Microbial metabolism in diverse environments</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>lpg0241</td>
+      <td>[EC:3.5.1.2]</td>
+      <td>K01425</td>
+      <td>glutaminase</td>
+      <td>lpn00220</td>
+      <td>Arginine biosynthesis</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00250</td>
+      <td>Alanine, aspartate and glutamate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00471</td>
+      <td>D-Glutamine and D-glutamate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01100</td>
+      <td>Metabolic pathways</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>lpg0242</td>
+      <td>[EC:1.1.1.95]</td>
+      <td>K00058</td>
+      <td>D-3-phosphoglycerate dehydrogenase</td>
+      <td>lpn00260</td>
+      <td>Glycine, serine and threonine metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00680</td>
+      <td>Methane metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01100</td>
+      <td>Metabolic pathways</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01120</td>
+      <td>Microbial metabolism in diverse environments</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01130</td>
+      <td>Biosynthesis of antibiotics</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01200</td>
+      <td>Carbon metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01230</td>
+      <td>Biosynthesis of amino acids</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>lpg0245</td>
+      <td>[EC:1.4.1.2]</td>
+      <td>K15371</td>
+      <td>glutamate dehydrogenase</td>
+      <td>lpn00220</td>
+      <td>Arginine biosynthesis</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00250</td>
+      <td>Alanine, aspartate and glutamate metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00430</td>
+      <td>Taurine and hypotaurine metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00910</td>
+      <td>Nitrogen metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>lpg0248</td>
+      <td>[EC:1.20.4.1]</td>
+      <td>K00537</td>
+      <td>arsenate reductase</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>lpg0249</td>
+      <td>[EC:1.14.19.1]</td>
+      <td>K00507</td>
+      <td>stearoyl-CoA desaturase (Delta-9 desaturase)</td>
+      <td>lpn01040</td>
+      <td>Biosynthesis of unsaturated fatty acids</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01212</td>
+      <td>Fatty acid metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>lpg0426</td>
+      <td>NaN</td>
+      <td>K03704</td>
+      <td>cold shock protein (beta-ribbon, CspA family)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>lpg0441</td>
+      <td>NaN</td>
+      <td>K12222</td>
+      <td>intracellular multiplication protein IcmT</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>lpg0442</td>
+      <td>NaN</td>
+      <td>K12221</td>
+      <td>intracellular multiplication protein IcmS</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>lpg0443</td>
+      <td>NaN</td>
+      <td>K12220</td>
+      <td>intracellular multiplication protein IcmR</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>lpg0444</td>
+      <td>NaN</td>
+      <td>K12219</td>
+      <td>intracellular multiplication protein IcmQ</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>219</th>
+      <td>lpg0445</td>
+      <td>NaN</td>
+      <td>K12218</td>
+      <td>intracellular multiplication protein IcmP</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>lpg0446</td>
+      <td>NaN</td>
+      <td>K12217</td>
+      <td>intracellular multiplication protein IcmO</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>lpg0447</td>
+      <td>NaN</td>
+      <td>K12216</td>
+      <td>intracellular multiplication protein IcmN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>lpg0448</td>
+      <td>NaN</td>
+      <td>K12215</td>
+      <td>intracellular multiplication protein IcmM</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>lpg0449</td>
+      <td>NaN</td>
+      <td>K12214</td>
+      <td>intracellular multiplication protein IcmL</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>lpg0450</td>
+      <td>NaN</td>
+      <td>K12213</td>
+      <td>intracellular multiplication protein IcmK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>lpg0451</td>
+      <td>NaN</td>
+      <td>K12209</td>
+      <td>intracellular multiplication protein IcmE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>lpg0452</td>
+      <td>NaN</td>
+      <td>K12211</td>
+      <td>intracellular multiplication protein IcmG</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>lpg0453</td>
+      <td>NaN</td>
+      <td>K12207</td>
+      <td>intracellular multiplication protein IcmC</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>228</th>
+      <td>lpg0454</td>
+      <td>NaN</td>
+      <td>K12208</td>
+      <td>intracellular multiplication protein IcmD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>lpg0455</td>
+      <td>NaN</td>
+      <td>K12212</td>
+      <td>intracellular multiplication protein IcmJ</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>lpg0456</td>
+      <td>NaN</td>
+      <td>K12206</td>
+      <td>intracellular multiplication protein IcmB</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>lpg0457</td>
+      <td>NaN</td>
+      <td>K12226</td>
+      <td>proline/betaine transport protein TphA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>lpg0458</td>
+      <td>NaN</td>
+      <td>K12210</td>
+      <td>intracellular multiplication protein IcmF</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>lpg0460</td>
+      <td>[EC:2.1.2.3 |  3.5.4.10]</td>
+      <td>K00602</td>
+      <td>phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase</td>
+      <td>lpn00230</td>
+      <td>Purine metabolism</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn00670</td>
+      <td>One carbon pool by folate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01100</td>
+      <td>Metabolic pathways</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01110</td>
+      <td>Biosynthesis of secondary metabolites</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lpn01130</td>
+      <td>Biosynthesis of antibiotics</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>lpg0461</td>
+      <td>[EC:2.1.1.-]</td>
+      <td>K02687</td>
+      <td>ribosomal protein L11 methyltransferase</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>lpg0462</td>
+      <td>[EC:6.4.1.2 | 6.3.4.14]</td>
+      <td>K01961</td>
+      <td>acetyl-CoA carboxylase, biotin carboxylase subunit</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>240</th>
+      <td>lpg_3050</td>
+      <td>NaN</td>
+      <td>K02965</td>
+      <td>small subunit ribosomal protein S19</td>
+      <td>lpn03010</td>
+      <td>Ribosome</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>244 rows × 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
