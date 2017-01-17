@@ -63,14 +63,9 @@ def infer(results):
     """
     inferred = []
     leaderboard = defaultdict(int)
-    results_with_functions = 0
 
     for result in results:
         functions = result["molecular_functions"]
-
-        # contar o número de resultados que tinham função
-        if len(functions) > 0:
-            results_with_functions += 1
 
         # atualizar a leaderboard
         for function in result["molecular_functions"]:
@@ -78,7 +73,7 @@ def infer(results):
 
     # As funções que aparecem em pelo menos 50% dos resultados
     # são consideradas potenciais funções
-    min = results_with_functions / 2
+    min = len(results) / 2
 
     for function in leaderboard:
         if leaderboard[function] >= min:

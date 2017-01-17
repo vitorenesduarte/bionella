@@ -23,12 +23,7 @@
     ]
   },
   "lpg0234": {
-    "all": [
-      "Lys63-specific deubiquitinase activity",
-      "NAD(P)+-protein-arginine ADP-ribosyltransferase activity",
-      "NEDD8-specific protease activity",
-      "nucleotide binding"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0235": {
@@ -167,16 +162,7 @@
     ]
   },
   "lpg0254": {
-    "all": [
-      "ATP binding",
-      "amino acid binding",
-      "aspartate carbamoyltransferase activity",
-      "carbamoyl-phosphate synthase (glutamine-hydrolyzing) activity",
-      "hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amides",
-      "ligase activity",
-      "metal ion binding",
-      "zinc ion binding"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0255": {
@@ -197,15 +183,11 @@
     "top_ten": []
   },
   "lpg0258": {
-    "all": [
-      "serine-type endopeptidase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0259": {
-    "all": [
-      "serine-type endopeptidase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0260": {
@@ -223,17 +205,11 @@
     ]
   },
   "lpg0262": {
-    "all": [
-      "DNA-directed DNA polymerase activity"
-    ],
-    "top_ten": [
-      "DNA-directed DNA polymerase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0263": {
-    "all": [
-      "transporter activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0264": {
@@ -255,9 +231,7 @@
     ]
   },
   "lpg0266": {
-    "all": [
-      "zinc ion binding"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0267": {
@@ -273,17 +247,11 @@
     "all": [
       "hydrolase activity"
     ],
-    "top_ten": [
-      "hydrolase activity"
-    ]
+    "top_ten": []
   },
   "lpg0269": {
-    "all": [
-      "transaminase activity"
-    ],
-    "top_ten": [
-      "transaminase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0270": {
     "all": [
@@ -306,17 +274,13 @@
     ]
   },
   "lpg0272": {
-    "all": [
-      "dioxygenase activity"
-    ],
+    "all": [],
     "top_ten": [
       "glutathione transferase activity"
     ]
   },
   "lpg0273": {
-    "all": [
-      "transporter activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0274": {
@@ -330,9 +294,7 @@
     ]
   },
   "lpg0275": {
-    "all": [
-      "hydrolase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0276": {
@@ -344,12 +306,8 @@
     ]
   },
   "lpg0277": {
-    "all": [
-      "cyclic-guanylate-specific phosphodiesterase activity"
-    ],
-    "top_ten": [
-      "cyclic-guanylate-specific phosphodiesterase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0278": {
     "all": [
@@ -404,9 +362,7 @@
     ]
   },
   "lpg0284": {
-    "all": [
-      "protein C-terminal S-isoprenylcysteine carboxyl O-methyltransferase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0285": {
@@ -454,9 +410,7 @@
     ]
   },
   "lpg0290": {
-    "all": [
-      "hydrolase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0291": {
@@ -551,16 +505,11 @@
     "top_ten": []
   },
   "lpg0306": {
-    "all": [
-      "hydrolase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0307": {
-    "all": [
-      "RNA-directed DNA polymerase activity",
-      "hydrolase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0314": {
@@ -752,12 +701,8 @@
     ]
   },
   "lpg0333": {
-    "all": [
-      "phosphorelay sensor kinase activity"
-    ],
-    "top_ten": [
-      "phosphorelay sensor kinase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0334": {
     "all": [
@@ -982,31 +927,23 @@
     ]
   },
   "lpg0357": {
-    "all": [
-      "transporter activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0358": {
-    "all": [
-      "enoyl-[acyl-carrier-protein] reductase (NADPH, B-specific) activity"
-    ],
+    "all": [],
     "top_ten": [
       "enoyl-[acyl-carrier-protein] reductase (NADPH, B-specific) activity"
     ]
   },
   "lpg0359": {
-    "all": [
-      "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
-    ],
+    "all": [],
     "top_ten": [
       "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
     ]
   },
   "lpg0360": {
-    "all": [
-      "lyase activity"
-    ],
+    "all": [],
     "top_ten": [
       "lyase activity"
     ]
@@ -1056,12 +993,8 @@
     ]
   },
   "lpg0367": {
-    "all": [
-      "sequence-specific DNA binding"
-    ],
-    "top_ten": [
-      "sequence-specific DNA binding"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0368": {
     "all": [],
@@ -1089,21 +1022,15 @@
     "top_ten": []
   },
   "lpg0373": {
-    "all": [
-      "diguanylate cyclase activity"
-    ],
-    "top_ten": [
-      "diguanylate cyclase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0374": {
     "all": [],
     "top_ten": []
   },
   "lpg0375": {
-    "all": [
-      "hydrolase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0376": {
@@ -1137,10 +1064,7 @@
     ]
   },
   "lpg0380": {
-    "all": [
-      "ATP binding",
-      "peptidase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0381": {
@@ -1202,9 +1126,7 @@
     "top_ten": []
   },
   "lpg0390": {
-    "all": [
-      "transferase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0391": {
@@ -1228,9 +1150,7 @@
     ]
   },
   "lpg0393": {
-    "all": [
-      "glucose-1-phosphate thymidylyltransferase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0394": {
@@ -1294,10 +1214,7 @@
     "top_ten": []
   },
   "lpg0402": {
-    "all": [
-      "ATP binding",
-      "protein kinase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0403": {
@@ -1487,12 +1404,8 @@
     ]
   },
   "lpg0428": {
-    "all": [
-      "dioxygenase activity"
-    ],
-    "top_ten": [
-      "lyase activity"
-    ]
+    "all": [],
+    "top_ten": []
   },
   "lpg0429": {
     "all": [
@@ -1526,20 +1439,14 @@
     "all": [
       "methyltransferase activity"
     ],
-    "top_ten": [
-      "methyltransferase activity"
-    ]
+    "top_ten": []
   },
   "lpg0436": {
-    "all": [
-      "zinc ion binding"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0437": {
-    "all": [
-      "proton-transporting ATP synthase activity, rotational mechanism"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0438": {
@@ -1547,20 +1454,11 @@
     "top_ten": []
   },
   "lpg0439": {
-    "all": [
-      "RNA polymerase II transcription factor activity, TBP-class protein binding, involved in preinitiation complex assembly",
-      "chromatin binding",
-      "metallopeptidase activity",
-      "sequence-specific DNA binding",
-      "transcription regulatory region DNA binding",
-      "zinc ion binding"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0440": {
-    "all": [
-      "hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0441": {
@@ -1604,9 +1502,7 @@
     "top_ten": []
   },
   "lpg0451": {
-    "all": [
-      "kinase activity"
-    ],
+    "all": [],
     "top_ten": []
   },
   "lpg0452": {
