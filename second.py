@@ -64,7 +64,6 @@ def infer_function(blast_results):
         # As funções que aparecem em pelo menos 50% dos resultados
         # são consideradas potenciais funções
         min = results_with_functions / 2
-        print(tag, results_with_functions, min)
 
         for function in leaderboard:
             if leaderboard[function] >= min:
