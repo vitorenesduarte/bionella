@@ -23,7 +23,7 @@ def add_info_to_blast_results(blast_results, uniprots):
             properties = [
                 "status",
                 "organism",
-                "sequence",
+                "translation",
                 "molecular_functions"
             ]
 
@@ -97,25 +97,25 @@ def main():
     #)
     #rw.write_json(blast_results, blast_results_json_path)
 
-    #blast_results = rw.read_json(blast_results_json_path)
+    blast_results = rw.read_json(blast_results_json_path)
 
-    #uniprot_ids = set()
-    #for tag in blast_results:
-    #    for result in blast_results[tag]:
-    #        uniprot_ids.add(result["uniprot_id"])
+    uniprot_ids = set()
+    for tag in blast_results:
+        for result in blast_results[tag]:
+            uniprot_ids.add(result["uniprot_id"])
 
-    #uniprot_ids = list(uniprot_ids)
+    uniprot_ids = list(uniprot_ids)
 
-    #uniprots = www.fetch_uniprots(uniprot_ids)
-    #rw.write_json(uniprots, uniprots_json_path)
+    uniprots = www.fetch_uniprots(uniprot_ids)
+    rw.write_json(uniprots, uniprots_json_path)
 
-    #uniprots = rw.read_json(uniprots_json_path)
+    uniprots = rw.read_json(uniprots_json_path)
 
-    #blast_results = add_info_to_blast_results(
-    #    blast_results,
-    #    uniprots
-    #)
-    #rw.write_json(blast_results, blast_results_json_path)
+    blast_results = add_info_to_blast_results(
+        blast_results,
+        uniprots
+    )
+    rw.write_json(blast_results, blast_results_json_path)
 
     blast_results = rw.read_json(blast_results_json_path)
     inferred = infer_function(blast_results)
