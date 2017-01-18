@@ -11776,7 +11776,7 @@ Para tal, usamos a função <code>Entrez.search</code>.</p>
 <span class="sd">    entre a posição start e end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;*@*.*&quot;</span>
+    <span class="n">Entrez</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;vitorenesduarte@gmail.com&quot;</span>
 
     <span class="n">handle</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="n">term</span><span class="o">=</span><span class="s2">&quot;NC_002942.5&quot;</span><span class="p">)</span>
     <span class="n">record</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
@@ -12152,7 +12152,7 @@ Esta função usa uma outra função de mapeamento presente no módulo <a href="
     <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span>
         <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;P_ENTREZGENEID&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
         <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span>
     <span class="p">}</span>
 
@@ -12167,9 +12167,6 @@ Esta função usa uma outra função de mapeamento presente no módulo <a href="
     <span class="c1"># ignorar a primeira linha</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">gene_id</span><span class="p">,</span> <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-
-        <span class="c1"># remover _LEGPH do fim do uniprot_id</span>
-        <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">uniprot_id</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
 
         <span class="n">result</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
 
