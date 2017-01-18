@@ -29,6 +29,9 @@ def add_info_to_dictionary(dictionary, uniprots):
     ]
 
     new_properties = [
+        "accessions",
+        "status",
+        "organism",
         "short_name",
         "product",
         "comment_functions",
