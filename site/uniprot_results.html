@@ -11757,7 +11757,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -11816,7 +11816,8 @@ div#notebook {
         <span class="s2">&quot;comment_functions&quot;</span><span class="p">,</span>
         <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
         <span class="s2">&quot;molecular_functions&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pdbs&quot;</span>
+        <span class="s2">&quot;pdbs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;modified_residues&quot;</span>
     <span class="p">]</span>
     
     <span class="n">columns_to_show</span> <span class="o">=</span> <span class="p">[</span>
@@ -11833,7 +11834,8 @@ div#notebook {
         <span class="s2">&quot;biological_processes&quot;</span><span class="p">,</span>
         <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
         <span class="s2">&quot;cofactors&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pdbs&quot;</span>
+        <span class="s2">&quot;pdbs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;modified_residues&quot;</span>
     <span class="p">]</span>
     
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">uniprots</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -11874,6 +11876,7 @@ div#notebook {
       <th>locations</th>
       <th>cofactors</th>
       <th>pdbs</th>
+      <th>modified_residues</th>
     </tr>
   </thead>
   <tbody>
@@ -11889,6 +11892,7 @@ div#notebook {
       <td>20453</td>
       <td><ul></ul></td>
       <td><ul><li>DNA binding</li><li>transcription factor activity, sequence-specific DNA binding</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -11910,6 +11914,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0234</th>
@@ -11921,6 +11926,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>1514</td>
       <td>171651</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -11944,6 +11950,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0236</th>
@@ -11955,6 +11962,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>659</td>
       <td>77097</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -11978,6 +11986,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0238</th>
@@ -11991,6 +12000,7 @@ div#notebook {
       <td>52945</td>
       <td><ul></ul></td>
       <td><ul><li>betaine-aldehyde dehydrogenase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12012,6 +12022,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0240</th>
@@ -12023,6 +12034,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>259</td>
       <td>29552</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12046,6 +12058,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0242</th>
@@ -12063,6 +12076,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0243</th>
@@ -12074,6 +12088,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>199</td>
       <td>21183</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12097,6 +12112,7 @@ div#notebook {
       <td><ul><li>cell</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0245</th>
@@ -12111,6 +12127,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>glutamate dehydrogenase (NAD+) activity</li></ul></td>
       <td><ul><li>glutamate catabolic process to 2-oxoglutarate</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12131,6 +12148,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0247</th>
@@ -12142,6 +12160,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>317</td>
       <td>36800</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12165,6 +12184,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0249</th>
@@ -12182,6 +12202,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0250</th>
@@ -12195,6 +12216,7 @@ div#notebook {
       <td>45988</td>
       <td><ul></ul></td>
       <td><ul><li>ATP binding</li><li>helicase activity</li><li>nucleic acid binding</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12216,6 +12238,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0252</th>
@@ -12231,6 +12254,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>integral component of membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -12250,6 +12274,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0254</th>
@@ -12261,6 +12286,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>189</td>
       <td>22043</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12284,6 +12310,7 @@ div#notebook {
       <td><ul><li>cell outer membrane</li><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0256</th>
@@ -12299,6 +12326,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>transport</li></ul></td>
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -12318,6 +12346,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0258</th>
@@ -12335,6 +12364,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0259</th>
@@ -12346,6 +12376,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>594</td>
       <td>65768</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12369,6 +12400,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0261</th>
@@ -12380,6 +12412,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>59</td>
       <td>7041</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12403,6 +12436,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0263</th>
@@ -12420,6 +12454,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0264</th>
@@ -12434,6 +12469,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>N-acetylmuramoyl-L-alanine amidase activity</li></ul></td>
       <td><ul><li>peptidoglycan catabolic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12454,6 +12490,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0266</th>
@@ -12465,6 +12502,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>144</td>
       <td>15661</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12488,6 +12526,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0268</th>
@@ -12499,6 +12538,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>198</td>
       <td>23148</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12522,6 +12562,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0270</th>
@@ -12536,6 +12577,7 @@ div#notebook {
       <td><ul><li>Catalyzes the synthesis of beta-nicotinate D-ribonucleotide from nicotinate and 5-phospho-D-ribose 1-phosphate at the expense of ATP.</li></ul></td>
       <td><ul><li>ligase activity</li><li>nicotinate phosphoribosyltransferase activity</li><li>nicotinate-nucleotide diphosphorylase (carboxylating) activity</li></ul></td>
       <td><ul><li>NAD biosynthetic process</li><li>nicotinate nucleotide salvage</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12556,6 +12598,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0272</th>
@@ -12569,6 +12612,7 @@ div#notebook {
       <td>14618</td>
       <td><ul></ul></td>
       <td><ul><li>transferase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12590,6 +12634,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0274</th>
@@ -12607,6 +12652,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0275</th>
@@ -12618,6 +12664,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>1116</td>
       <td>127191</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12641,6 +12688,7 @@ div#notebook {
       <td><ul><li>intracellular</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0277</th>
@@ -12658,6 +12706,7 @@ div#notebook {
       <td><ul><li>intracellular</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 87</li><li><strong>desc:</strong> 4-aspartylphosphate</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0278</th>
@@ -12675,6 +12724,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0279</th>
@@ -12686,6 +12736,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>388</td>
       <td>42424</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12709,6 +12760,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0281</th>
@@ -12726,6 +12778,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0282</th>
@@ -12737,6 +12790,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>258</td>
       <td>29389</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12760,6 +12814,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0284</th>
@@ -12771,6 +12826,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>374</td>
       <td>43392</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12794,6 +12850,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0286</th>
@@ -12807,6 +12864,7 @@ div#notebook {
       <td>31671</td>
       <td><ul></ul></td>
       <td><ul><li>oxidoreductase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12828,6 +12886,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 34</li><li><strong>desc:</strong> N6-(3,6-diaminohexanoyl)-5-hydroxylysine</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0288</th>
@@ -12845,6 +12904,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>pyridoxal 5'-phosphate</li></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 322</li><li><strong>desc:</strong> N6-(pyridoxal phosphate)lysine</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0289</th>
@@ -12862,6 +12922,7 @@ div#notebook {
       <td><ul><li>polyphosphate kinase complex</li></ul></td>
       <td><ul><li>Mg(2+)</li></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0290</th>
@@ -12876,6 +12937,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>lipid metabolic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12896,6 +12958,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0292</th>
@@ -12907,6 +12970,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>225</td>
       <td>26072</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12930,6 +12994,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0294</th>
@@ -12941,6 +13006,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>230</td>
       <td>25520</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12964,6 +13030,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0296</th>
@@ -12977,6 +13044,7 @@ div#notebook {
       <td>40823</td>
       <td><ul></ul></td>
       <td><ul><li>transferase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -12998,6 +13066,7 @@ div#notebook {
       <td><ul><li>cell outer membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0298</th>
@@ -13013,6 +13082,7 @@ div#notebook {
       <td><ul><li>peptide binding</li><li>peptidyl-prolyl cis-trans isomerase activity</li></ul></td>
       <td><ul><li>chaperone mediated protein folding requiring cofactor</li><li>Gram-negative-bacterium-type cell outer membrane assembly</li><li>maintenance of stationary phase</li><li>protein stabilization</li></ul></td>
       <td><ul><li>outer membrane-bounded periplasmic space</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13032,6 +13102,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul><li>Zn(2+)</li></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0300</th>
@@ -13049,6 +13120,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0301</th>
@@ -13060,6 +13132,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>181</td>
       <td>20683</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13083,6 +13156,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0306</th>
@@ -13094,6 +13168,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>113</td>
       <td>12320</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13117,6 +13192,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0314</th>
@@ -13132,6 +13208,7 @@ div#notebook {
       <td><ul><li>GTP binding</li><li>GTPase activity</li><li>translation elongation factor activity</li></ul></td>
       <td><ul></ul></td>
       <td><ul><li>cytoplasm</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13151,6 +13228,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li><li>intracellular</li><li>plasma membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0317</th>
@@ -13165,6 +13243,7 @@ div#notebook {
       <td><ul><li>Participates in transcription elongation, termination and antitermination.</li></ul></td>
       <td><ul></ul></td>
       <td><ul><li>DNA-templated transcription, elongation</li><li>DNA-templated transcription, termination</li><li>regulation of DNA-templated transcription, elongation</li><li>transcription antitermination</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13185,6 +13264,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0319</th>
@@ -13200,6 +13280,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li><li>tRNA binding</li></ul></td>
       <td><ul><li>regulation of translation</li><li>translation</li></ul></td>
       <td><ul><li>large ribosomal subunit</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13219,6 +13300,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0321</th>
@@ -13236,6 +13318,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0322</th>
@@ -13250,6 +13333,7 @@ div#notebook {
       <td><ul><li>DNA-dependent RNA polymerase catalyzes the transcription of DNA into RNA using the four ribonucleoside triphosphates as substrates.</li></ul></td>
       <td><ul><li>DNA binding</li><li>DNA-directed RNA polymerase activity</li><li>ribonucleoside binding</li></ul></td>
       <td><ul><li>transcription, DNA-templated</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13270,6 +13354,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0324</th>
@@ -13287,6 +13372,7 @@ div#notebook {
       <td><ul><li>small ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 89</li><li><strong>desc:</strong> 3-methylthioaspartic acid</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0325</th>
@@ -13302,6 +13388,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li><li>tRNA binding</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>small ribosomal subunit</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13321,6 +13408,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0327</th>
@@ -13336,6 +13424,7 @@ div#notebook {
       <td><ul><li>GTP binding</li><li>GTPase activity</li><li>translation elongation factor activity</li></ul></td>
       <td><ul></ul></td>
       <td><ul><li>cytoplasm</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13355,6 +13444,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0329</th>
@@ -13372,6 +13462,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 152</li><li><strong>desc:</strong> N5-methylglutamine</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0330</th>
@@ -13387,6 +13478,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13406,6 +13498,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0332</th>
@@ -13423,6 +13516,7 @@ div#notebook {
       <td><ul><li>large ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0333</th>
@@ -13434,6 +13528,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>100</td>
       <td>10747</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13457,6 +13552,7 @@ div#notebook {
       <td><ul><li>large ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0335</th>
@@ -13472,6 +13568,7 @@ div#notebook {
       <td><ul><li>mRNA binding</li><li>rRNA binding</li><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>small ribosomal subunit</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13491,6 +13588,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0337</th>
@@ -13506,6 +13604,7 @@ div#notebook {
       <td><ul><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13525,6 +13624,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0339</th>
@@ -13540,6 +13640,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>large ribosomal subunit</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13559,6 +13660,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0341</th>
@@ -13574,6 +13676,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li><li>tRNA binding</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13593,6 +13696,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul><li>Zn(2+)</li></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0343</th>
@@ -13608,6 +13712,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13627,6 +13732,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0345</th>
@@ -13642,6 +13748,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13661,6 +13768,7 @@ div#notebook {
       <td><ul><li>small ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0347</th>
@@ -13676,6 +13784,7 @@ div#notebook {
       <td><ul><li>structural constituent of ribosome</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>large ribosomal subunit</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13695,6 +13804,7 @@ div#notebook {
       <td><ul><li>large ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0349</th>
@@ -13710,6 +13820,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>intracellular protein transmembrane transport</li><li>protein targeting</li><li>protein transport by the Sec complex</li></ul></td>
       <td><ul><li>integral component of membrane</li><li>intracellular</li><li>plasma membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13729,6 +13840,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0351</th>
@@ -13744,6 +13856,7 @@ div#notebook {
       <td><ul><li>rRNA binding</li><li>structural constituent of ribosome</li><li>tRNA binding</li></ul></td>
       <td><ul><li>translation</li></ul></td>
       <td><ul><li>ribosome</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -13763,6 +13876,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0353</th>
@@ -13780,6 +13894,7 @@ div#notebook {
       <td><ul><li>small ribosomal subunit</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0354</th>
@@ -13794,6 +13909,7 @@ div#notebook {
       <td><ul><li>DNA-dependent RNA polymerase catalyzes the transcription of DNA into RNA using the four ribonucleoside triphosphates as substrates.</li></ul></td>
       <td><ul><li>DNA binding</li><li>DNA-directed RNA polymerase activity</li></ul></td>
       <td><ul><li>transcription, DNA-templated</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13814,6 +13930,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0356</th>
@@ -13828,6 +13945,7 @@ div#notebook {
       <td><ul><li>Plays an important role in DNA replication, recombination and repair. Binds to ssDNA and to an array of partner proteins to recruit them to their sites of action during DNA metabolism.</li></ul></td>
       <td><ul><li>single-stranded DNA binding</li></ul></td>
       <td><ul><li>DNA recombination</li><li>DNA repair</li><li>DNA replication</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13848,6 +13966,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0358</th>
@@ -13859,6 +13978,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>252</td>
       <td>26884</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13882,6 +14002,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>position:</strong> 39</li><li><strong>desc:</strong> O-(pantetheine 4'-phosphoryl)serine</li></ul></li></ul></td>
     </tr>
     <tr>
       <th>lpg0360</th>
@@ -13895,6 +14016,7 @@ div#notebook {
       <td>33781</td>
       <td><ul></ul></td>
       <td><ul><li>lyase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13916,6 +14038,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0362</th>
@@ -13930,6 +14053,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>3-oxoacyl-[acyl-carrier-protein] synthase activity</li></ul></td>
       <td><ul><li>metabolic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -13950,6 +14074,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0364</th>
@@ -13966,7 +14091,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 4Q63</li><li><strong>chains:</strong> A=1-101</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> A=1-101</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 4Q63</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0365</th>
@@ -13978,6 +14104,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>896</td>
       <td>103011</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14001,6 +14128,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0367</th>
@@ -14012,6 +14140,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>107</td>
       <td>12795</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14035,6 +14164,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0369</th>
@@ -14052,6 +14182,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0370</th>
@@ -14063,6 +14194,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>144</td>
       <td>16640</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14086,6 +14218,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0372</th>
@@ -14101,6 +14234,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>outer membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -14120,6 +14254,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0374</th>
@@ -14131,6 +14266,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>128</td>
       <td>14215</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14154,6 +14290,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0376</th>
@@ -14165,6 +14302,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>1429</td>
       <td>166340</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14188,6 +14326,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0378</th>
@@ -14202,6 +14341,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>glutamate-cysteine ligase activity</li></ul></td>
       <td><ul><li>cellular modified amino acid biosynthetic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14222,6 +14362,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0380</th>
@@ -14233,6 +14374,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>239</td>
       <td>27152</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14256,6 +14398,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0382</th>
@@ -14267,6 +14410,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>188</td>
       <td>20435</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14290,6 +14434,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0384</th>
@@ -14307,6 +14452,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li><li>excinuclease repair complex</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0385</th>
@@ -14318,6 +14464,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>193</td>
       <td>22094</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14341,6 +14488,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul><li>Zn(2+)</li></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0387</th>
@@ -14356,6 +14504,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>transport</li></ul></td>
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -14375,6 +14524,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0389</th>
@@ -14386,6 +14536,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>37</td>
       <td>4315</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14409,6 +14560,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0391</th>
@@ -14422,6 +14574,7 @@ div#notebook {
       <td>21050</td>
       <td><ul></ul></td>
       <td><ul><li>iron ion binding</li><li>L-ascorbic acid binding</li><li>oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14443,6 +14596,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0393</th>
@@ -14459,7 +14613,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 4R0G</li><li><strong>chains:</strong> A/B/C/D=1-287</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> A/B/C/D=1-287</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 4R0G</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0394</th>
@@ -14474,6 +14629,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>methylated-DNA-[protein]-cysteine S-methyltransferase activity</li></ul></td>
       <td><ul><li>DNA repair</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14494,6 +14650,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0396</th>
@@ -14509,6 +14666,7 @@ div#notebook {
       <td><ul><li>tRNA (guanine(37)-N(1))-methyltransferase activity</li></ul></td>
       <td><ul></ul></td>
       <td><ul><li>cytoplasm</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -14528,6 +14686,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0398</th>
@@ -14539,6 +14698,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>44</td>
       <td>4855</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14562,6 +14722,7 @@ div#notebook {
       <td><ul><li>ribosome</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0400</th>
@@ -14579,6 +14740,7 @@ div#notebook {
       <td><ul><li>signal recognition particle</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0401</th>
@@ -14590,6 +14752,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>224</td>
       <td>25657</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14613,6 +14776,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0403</th>
@@ -14628,6 +14792,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>integral component of membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -14647,6 +14812,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0405</th>
@@ -14658,6 +14824,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>196</td>
       <td>22515</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14680,7 +14847,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 5DIK</li><li><strong>chains:</strong> A/B/C=1-113</li><li><strong>method:</strong> X-ray</li></ul></li><li><ul style="list-style-type: square"><li><strong>id:</strong> 5DIP</li><li><strong>chains:</strong> A/B=1-113</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> A/B/C=1-113</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 5DIK</li></ul></li><li><ul style="list-style-type: square"><li><strong>chains:</strong> A/B=1-113</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 5DIP</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0407</th>
@@ -14692,6 +14860,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>147</td>
       <td>16350</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14715,6 +14884,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0409</th>
@@ -14732,6 +14902,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0410</th>
@@ -14743,6 +14914,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>181</td>
       <td>20533</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14766,6 +14938,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0412</th>
@@ -14781,6 +14954,7 @@ div#notebook {
       <td><ul><li>protoheme IX farnesyltransferase activity</li></ul></td>
       <td><ul><li>heme O biosynthetic process</li></ul></td>
       <td><ul><li>integral component of membrane</li><li>plasma membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -14800,6 +14974,7 @@ div#notebook {
       <td><ul><li>cell</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0414</th>
@@ -14817,6 +14992,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>Mg(2+)</li></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0415</th>
@@ -14830,6 +15006,7 @@ div#notebook {
       <td>8958</td>
       <td><ul></ul></td>
       <td><ul><li>DNA binding</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14851,6 +15028,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0417</th>
@@ -14865,6 +15043,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>6-phosphogluconolactonase activity</li></ul></td>
       <td><ul><li>carbohydrate metabolic process</li><li>pentose-phosphate shunt</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14885,6 +15064,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0419</th>
@@ -14902,6 +15082,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0420</th>
@@ -14916,6 +15097,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>lyase activity</li></ul></td>
       <td><ul><li>metabolic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14936,6 +15118,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0422</th>
@@ -14953,6 +15136,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0423</th>
@@ -14966,6 +15150,7 @@ div#notebook {
       <td>8743</td>
       <td><ul></ul></td>
       <td><ul><li>sequence-specific DNA binding</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -14987,6 +15172,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0425</th>
@@ -15002,6 +15188,7 @@ div#notebook {
       <td><ul><li>ferrochelatase activity</li><li>metal ion binding</li></ul></td>
       <td><ul><li>heme biosynthetic process</li></ul></td>
       <td><ul><li>cytoplasm</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -15021,6 +15208,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0427</th>
@@ -15038,6 +15226,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0428</th>
@@ -15049,6 +15238,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>142</td>
       <td>15594</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15072,6 +15262,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0430</th>
@@ -15087,6 +15278,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>integral component of membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -15106,6 +15298,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0432</th>
@@ -15123,6 +15316,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0433</th>
@@ -15134,6 +15328,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>126</td>
       <td>14578</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15157,6 +15352,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0435</th>
@@ -15170,6 +15366,7 @@ div#notebook {
       <td>23322</td>
       <td><ul></ul></td>
       <td><ul><li>methyltransferase activity</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15190,7 +15387,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 4ZHB</li><li><strong>chains:</strong> A=1-114</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> A=1-114</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 4ZHB</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0437</th>
@@ -15202,6 +15400,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>666</td>
       <td>75874</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15225,6 +15424,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0439</th>
@@ -15241,7 +15441,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 5L0L</li><li><strong>chains:</strong> A/B=94-308</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> A/B=94-308</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 5L0L</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0440</th>
@@ -15253,6 +15454,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>70</td>
       <td>7810</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15276,6 +15478,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0442</th>
@@ -15287,6 +15490,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>114</td>
       <td>12673</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15309,7 +15513,8 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
-      <td><ul><li><ul style="list-style-type: square"><li><strong>id:</strong> 3FXD</li><li><strong>chains:</strong> B/D=23-95</li><li><strong>method:</strong> X-ray</li></ul></li><li><ul style="list-style-type: square"><li><strong>id:</strong> 3FXE</li><li><strong>chains:</strong> B=23-95</li><li><strong>method:</strong> X-ray</li></ul></li><li><ul style="list-style-type: square"><li><strong>id:</strong> 4EYY</li><li><strong>chains:</strong> R=1-120</li><li><strong>method:</strong> X-ray</li></ul></li></ul></td>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>chains:</strong> B/D=23-95</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 3FXD</li></ul></li><li><ul style="list-style-type: square"><li><strong>chains:</strong> B=23-95</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 3FXE</li></ul></li><li><ul style="list-style-type: square"><li><strong>chains:</strong> R=1-120</li><li><strong>method:</strong> X-ray</li><li><strong>id:</strong> 4EYY</li></ul></li></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0444</th>
@@ -15321,6 +15526,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>199</td>
       <td>22409</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15344,6 +15550,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0446</th>
@@ -15361,6 +15568,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0447</th>
@@ -15372,6 +15580,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>189</td>
       <td>21071</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15395,6 +15604,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0449</th>
@@ -15412,6 +15622,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0450</th>
@@ -15423,6 +15634,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>361</td>
       <td>38926</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15446,6 +15658,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0452</th>
@@ -15461,6 +15674,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul><li>integral component of membrane</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
     </tr>
@@ -15480,6 +15694,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0454</th>
@@ -15497,6 +15712,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0455</th>
@@ -15508,6 +15724,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>214</td>
       <td>24424</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15531,6 +15748,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0457</th>
@@ -15548,6 +15766,7 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0458</th>
@@ -15559,6 +15778,7 @@ div#notebook {
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
       <td>973</td>
       <td>110807</td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15582,12 +15802,13 @@ div#notebook {
       <td><ul><li>integral component of membrane</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0460</th>
       <td>Q5ZYB2_LEGPH</td>
       <td>Bifunctional purine biosynthesis protein PurH</td>
-      <td>None</td>
+      <td>3.5.4.10</td>
       <td><ul><li>Q5ZYB2</li></ul></td>
       <td>unreviewed</td>
       <td>Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)</td>
@@ -15596,6 +15817,7 @@ div#notebook {
       <td><ul></ul></td>
       <td><ul><li>IMP cyclohydrolase activity</li><li>phosphoribosylaminoimidazolecarboxamide formyltransferase activity</li></ul></td>
       <td><ul><li>'de novo' IMP biosynthetic process</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
@@ -15616,6 +15838,7 @@ div#notebook {
       <td><ul><li>cytoplasm</li></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
+      <td><ul></ul></td>
     </tr>
     <tr>
       <th>lpg0462</th>
@@ -15629,6 +15852,7 @@ div#notebook {
       <td>49244</td>
       <td><ul></ul></td>
       <td><ul><li>ATP binding</li><li>biotin carboxylase activity</li><li>metal ion binding</li></ul></td>
+      <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>
       <td><ul></ul></td>

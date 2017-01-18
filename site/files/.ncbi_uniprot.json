@@ -18,6 +18,7 @@
     },
     "locations": [],
     "mass": 20453,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "transcription factor activity, sequence-specific DNA binding"
@@ -52,6 +53,7 @@
     },
     "locations": [],
     "mass": 58497,
+    "modified_residues": [],
     "molecular_functions": [
       "benzoylformate decarboxylase activity",
       "magnesium ion binding",
@@ -87,6 +89,7 @@
     },
     "locations": [],
     "mass": 171651,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -118,6 +121,7 @@
     },
     "locations": [],
     "mass": 19095,
+    "modified_residues": [],
     "molecular_functions": [
       "carbon-sulfur lyase activity"
     ],
@@ -149,6 +153,7 @@
     },
     "locations": [],
     "mass": 77097,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -180,6 +185,7 @@
     },
     "locations": [],
     "mass": 29403,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -211,6 +217,7 @@
     },
     "locations": [],
     "mass": 52945,
+    "modified_residues": [],
     "molecular_functions": [
       "betaine-aldehyde dehydrogenase activity"
     ],
@@ -246,6 +253,7 @@
     },
     "locations": [],
     "mass": 49049,
+    "modified_residues": [],
     "molecular_functions": [
       "4-aminobutyrate transaminase activity",
       "pyridoxal phosphate binding"
@@ -280,6 +288,7 @@
     },
     "locations": [],
     "mass": 29552,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -312,6 +321,7 @@
     },
     "locations": [],
     "mass": 33970,
+    "modified_residues": [],
     "molecular_functions": [
       "glutaminase activity"
     ],
@@ -345,6 +355,7 @@
     },
     "locations": [],
     "mass": 32454,
+    "modified_residues": [],
     "molecular_functions": [
       "NAD binding",
       "phosphoglycerate dehydrogenase activity"
@@ -377,6 +388,7 @@
     },
     "locations": [],
     "mass": 21183,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -411,6 +423,7 @@
       "cell"
     ],
     "mass": 50768,
+    "modified_residues": [],
     "molecular_functions": [
       "flavin adenine dinucleotide binding",
       "mercury (II) reductase activity"
@@ -445,6 +458,7 @@
     },
     "locations": [],
     "mass": 128304,
+    "modified_residues": [],
     "molecular_functions": [
       "glutamate dehydrogenase (NAD+) activity"
     ],
@@ -478,6 +492,7 @@
       "integral component of membrane"
     ],
     "mass": 28266,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -507,6 +522,7 @@
     },
     "locations": [],
     "mass": 36800,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -537,6 +553,7 @@
     },
     "locations": [],
     "mass": 13051,
+    "modified_residues": [],
     "molecular_functions": [
       "arsenate reductase (glutaredoxin) activity"
     ],
@@ -573,6 +590,7 @@
       "integral component of membrane"
     ],
     "mass": 45050,
+    "modified_residues": [],
     "molecular_functions": [
       "stearoyl-CoA 9-desaturase activity"
     ],
@@ -605,6 +623,7 @@
     },
     "locations": [],
     "mass": 45988,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "helicase activity",
@@ -639,6 +658,7 @@
     },
     "locations": [],
     "mass": 10481,
+    "modified_residues": [],
     "molecular_functions": [
       "nucleic acid binding",
       "nucleotide binding"
@@ -673,6 +693,7 @@
       "integral component of membrane"
     ],
     "mass": 25867,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -703,6 +724,7 @@
     },
     "locations": [],
     "mass": 24743,
+    "modified_residues": [],
     "molecular_functions": [
       "N-acetyltransferase activity"
     ],
@@ -734,6 +756,7 @@
     },
     "locations": [],
     "mass": 22043,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -767,6 +790,7 @@
       "integral component of membrane"
     ],
     "mass": 50351,
+    "modified_residues": [],
     "molecular_functions": [
       "lipid binding",
       "transporter activity"
@@ -804,6 +828,7 @@
       "plasma membrane"
     ],
     "mass": 40049,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -836,6 +861,7 @@
       "integral component of membrane"
     ],
     "mass": 37929,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -867,6 +893,7 @@
       "integral component of membrane"
     ],
     "mass": 70909,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -896,6 +923,7 @@
     },
     "locations": [],
     "mass": 65768,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -925,6 +953,7 @@
     },
     "locations": [],
     "mass": 14657,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -955,6 +984,7 @@
     },
     "locations": [],
     "mass": 7041,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -985,6 +1015,7 @@
     },
     "locations": [],
     "mass": 24258,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA-directed DNA polymerase activity"
     ],
@@ -1019,6 +1050,7 @@
       "integral component of membrane"
     ],
     "mass": 46700,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1050,6 +1082,7 @@
     },
     "locations": [],
     "mass": 26477,
+    "modified_residues": [],
     "molecular_functions": [
       "N-acetylmuramoyl-L-alanine amidase activity"
     ],
@@ -1084,6 +1117,7 @@
       "integral component of membrane"
     ],
     "mass": 58211,
+    "modified_residues": [],
     "molecular_functions": [
       "copper ion binding",
       "oxidoreductase activity"
@@ -1116,6 +1150,7 @@
     },
     "locations": [],
     "mass": 15661,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1150,6 +1185,7 @@
       "plasma membrane"
     ],
     "mass": 40740,
+    "modified_residues": [],
     "molecular_functions": [
       "metal ion transmembrane transporter activity"
     ],
@@ -1181,6 +1217,7 @@
     },
     "locations": [],
     "mass": 23148,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1210,6 +1247,7 @@
     },
     "locations": [],
     "mass": 57630,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1245,6 +1283,7 @@
     },
     "locations": [],
     "mass": 53720,
+    "modified_residues": [],
     "molecular_functions": [
       "ligase activity",
       "nicotinate phosphoribosyltransferase activity",
@@ -1283,6 +1322,7 @@
     },
     "locations": [],
     "mass": 23751,
+    "modified_residues": [],
     "molecular_functions": [
       "catalytic activity"
     ],
@@ -1315,6 +1355,7 @@
     },
     "locations": [],
     "mass": 14618,
+    "modified_residues": [],
     "molecular_functions": [
       "transferase activity"
     ],
@@ -1351,6 +1392,7 @@
       "integral component of membrane"
     ],
     "mass": 44935,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1383,6 +1425,7 @@
     },
     "locations": [],
     "mass": 32858,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "transcription factor activity, sequence-specific DNA binding"
@@ -1415,6 +1458,7 @@
     },
     "locations": [],
     "mass": 127191,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1449,6 +1493,7 @@
       "intracellular"
     ],
     "mass": 58533,
+    "modified_residues": [],
     "molecular_functions": [
       "guanyl-nucleotide exchange factor activity"
     ],
@@ -1485,6 +1530,12 @@
       "intracellular"
     ],
     "mass": 84492,
+    "modified_residues": [
+      {
+        "desc": "4-aspartylphosphate",
+        "position": "87"
+      }
+    ],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1516,6 +1567,7 @@
     },
     "locations": [],
     "mass": 53519,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "kinase activity"
@@ -1548,6 +1600,7 @@
     },
     "locations": [],
     "mass": 42424,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1580,6 +1633,7 @@
     },
     "locations": [],
     "mass": 33566,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "transcription factor activity, sequence-specific DNA binding"
@@ -1615,6 +1669,7 @@
       "integral component of membrane"
     ],
     "mass": 43021,
+    "modified_residues": [],
     "molecular_functions": [
       "amino acid transmembrane transporter activity"
     ],
@@ -1646,6 +1701,7 @@
     },
     "locations": [],
     "mass": 29389,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1682,6 +1738,7 @@
       "cytoplasm"
     ],
     "mass": 44456,
+    "modified_residues": [],
     "molecular_functions": [
       "formate dehydrogenase (NAD+) activity",
       "NAD binding",
@@ -1716,6 +1773,7 @@
     },
     "locations": [],
     "mass": 43392,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1745,6 +1803,7 @@
     },
     "locations": [],
     "mass": 25847,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1774,6 +1833,7 @@
     },
     "locations": [],
     "mass": 31671,
+    "modified_residues": [],
     "molecular_functions": [
       "oxidoreductase activity"
     ],
@@ -1811,6 +1871,12 @@
       "cytoplasm"
     ],
     "mass": 20887,
+    "modified_residues": [
+      {
+        "desc": "N6-(3,6-diaminohexanoyl)-5-hydroxylysine",
+        "position": "34"
+      }
+    ],
     "molecular_functions": [
       "translation elongation factor activity"
     ],
@@ -1846,6 +1912,12 @@
     },
     "locations": [],
     "mass": 36732,
+    "modified_residues": [
+      {
+        "desc": "N6-(pyridoxal phosphate)lysine",
+        "position": "322"
+      }
+    ],
     "molecular_functions": [
       "4 iron, 4 sulfur cluster binding",
       "catalytic activity",
@@ -1889,6 +1961,7 @@
       "polyphosphate kinase complex"
     ],
     "mass": 79781,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "metal ion binding",
@@ -1925,6 +1998,7 @@
     },
     "locations": [],
     "mass": 44567,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -1957,6 +2031,7 @@
       "integral component of membrane"
     ],
     "mass": 19339,
+    "modified_residues": [],
     "molecular_functions": [
       "chromate transmembrane transporter activity"
     ],
@@ -1988,6 +2063,7 @@
     },
     "locations": [],
     "mass": 26072,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2022,6 +2098,7 @@
       "integral component of membrane"
     ],
     "mass": 91150,
+    "modified_residues": [],
     "molecular_functions": [
       "acyl-CoA dehydrogenase activity",
       "flavin adenine dinucleotide binding"
@@ -2055,6 +2132,7 @@
     },
     "locations": [],
     "mass": 25520,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2087,6 +2165,7 @@
     },
     "locations": [],
     "mass": 24336,
+    "modified_residues": [],
     "molecular_functions": [
       "nucleotidyltransferase activity"
     ],
@@ -2118,6 +2197,7 @@
     },
     "locations": [],
     "mass": 40823,
+    "modified_residues": [],
     "molecular_functions": [
       "transferase activity"
     ],
@@ -2159,6 +2239,7 @@
       "cell outer membrane"
     ],
     "mass": 95958,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2199,6 +2280,7 @@
       "outer membrane-bounded periplasmic space"
     ],
     "mass": 48492,
+    "modified_residues": [],
     "molecular_functions": [
       "peptide binding",
       "peptidyl-prolyl cis-trans isomerase activity"
@@ -2242,6 +2324,7 @@
       "cytoplasm"
     ],
     "mass": 34709,
+    "modified_residues": [],
     "molecular_functions": [
       "4-hydroxythreonine-4-phosphate dehydrogenase activity",
       "cobalt ion binding",
@@ -2285,6 +2368,7 @@
     },
     "locations": [],
     "mass": 18240,
+    "modified_residues": [],
     "molecular_functions": [
       "dihydrofolate reductase activity",
       "NADP binding"
@@ -2317,6 +2401,7 @@
     },
     "locations": [],
     "mass": 20683,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2376,6 +2461,7 @@
     },
     "locations": [],
     "mass": 13147,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2405,6 +2491,7 @@
     },
     "locations": [],
     "mass": 12320,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2434,6 +2521,7 @@
     },
     "locations": [],
     "mass": 10362,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2520,6 +2608,7 @@
       "cytoplasm"
     ],
     "mass": 43179,
+    "modified_residues": [],
     "molecular_functions": [
       "GTP binding",
       "GTPase activity",
@@ -2577,6 +2666,7 @@
       "plasma membrane"
     ],
     "mass": 13900,
+    "modified_residues": [],
     "molecular_functions": [
       "P-P-bond-hydrolysis-driven protein transmembrane transporter activity"
     ],
@@ -2618,6 +2708,7 @@
     },
     "locations": [],
     "mass": 21151,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -2655,6 +2746,7 @@
       "ribosome"
     ],
     "mass": 15090,
+    "modified_residues": [],
     "molecular_functions": [
       "large ribosomal subunit rRNA binding",
       "structural constituent of ribosome"
@@ -2698,6 +2790,7 @@
       "large ribosomal subunit"
     ],
     "mass": 24512,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -2741,6 +2834,7 @@
       "ribosome"
     ],
     "mass": 19321,
+    "modified_residues": [],
     "molecular_functions": [
       "large ribosomal subunit rRNA binding",
       "structural constituent of ribosome"
@@ -2782,6 +2876,7 @@
       "ribosome"
     ],
     "mass": 12911,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -2820,6 +2915,7 @@
     },
     "locations": [],
     "mass": 152719,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "DNA-directed RNA polymerase activity",
@@ -2860,6 +2956,7 @@
     },
     "locations": [],
     "mass": 155654,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "DNA-directed RNA polymerase activity"
@@ -2902,6 +2999,12 @@
       "small ribosomal subunit"
     ],
     "mass": 14071,
+    "modified_residues": [
+      {
+        "desc": "3-methylthioaspartic acid",
+        "position": "89"
+      }
+    ],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -2944,6 +3047,7 @@
       "small ribosomal subunit"
     ],
     "mass": 19791,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -2984,6 +3088,7 @@
       "cytoplasm"
     ],
     "mass": 77026,
+    "modified_residues": [],
     "molecular_functions": [
       "GTP binding",
       "GTPase activity",
@@ -3025,6 +3130,7 @@
       "cytoplasm"
     ],
     "mass": 43179,
+    "modified_residues": [],
     "molecular_functions": [
       "GTP binding",
       "GTPase activity",
@@ -3068,6 +3174,7 @@
       "ribosome"
     ],
     "mass": 11938,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome",
       "tRNA binding"
@@ -3109,6 +3216,12 @@
       "ribosome"
     ],
     "mass": 22896,
+    "modified_residues": [
+      {
+        "desc": "N5-methylglutamine",
+        "position": "152"
+      }
+    ],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3151,6 +3264,7 @@
       "ribosome"
     ],
     "mass": 22836,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3192,6 +3306,7 @@
       "ribosome"
     ],
     "mass": 11259,
+    "modified_residues": [],
     "molecular_functions": [
       "nucleotide binding",
       "rRNA binding",
@@ -3234,6 +3349,7 @@
       "large ribosomal subunit"
     ],
     "mass": 30091,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -3268,6 +3384,7 @@
     },
     "locations": [],
     "mass": 10747,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -3306,6 +3423,7 @@
       "large ribosomal subunit"
     ],
     "mass": 12152,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3347,6 +3465,7 @@
       "small ribosomal subunit"
     ],
     "mass": 24117,
+    "modified_residues": [],
     "molecular_functions": [
       "mRNA binding",
       "rRNA binding",
@@ -3389,6 +3508,7 @@
       "ribosome"
     ],
     "mass": 15762,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -3429,6 +3549,7 @@
       "ribosome"
     ],
     "mass": 7373,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -3469,6 +3590,7 @@
       "ribosome"
     ],
     "mass": 9637,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3510,6 +3632,7 @@
       "large ribosomal subunit"
     ],
     "mass": 13388,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3552,6 +3675,7 @@
       "ribosome"
     ],
     "mass": 12054,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3593,6 +3717,7 @@
       "ribosome"
     ],
     "mass": 21312,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -3637,6 +3762,7 @@
       "ribosome"
     ],
     "mass": 11755,
+    "modified_residues": [],
     "molecular_functions": [
       "metal ion binding",
       "rRNA binding",
@@ -3679,6 +3805,7 @@
       "ribosome"
     ],
     "mass": 14681,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3720,6 +3847,7 @@
       "ribosome"
     ],
     "mass": 19432,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3761,6 +3889,7 @@
       "ribosome"
     ],
     "mass": 13007,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3803,6 +3932,7 @@
       "small ribosomal subunit"
     ],
     "mass": 17697,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3842,6 +3972,7 @@
       "large ribosomal subunit"
     ],
     "mass": 6567,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -3882,6 +4013,7 @@
       "large ribosomal subunit"
     ],
     "mass": 15344,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -3927,6 +4059,7 @@
       "plasma membrane"
     ],
     "mass": 48981,
+    "modified_residues": [],
     "molecular_functions": [],
     "note": "forms heterotrimeric complex in the membrane; in bacteria the complex consists of SecY which forms the channel pore and SecE and SecG; the SecG subunit is not essential; in bacteria translocation is driven via the SecA ATPase",
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
@@ -3963,6 +4096,7 @@
       "ribosome"
     ],
     "mass": 4310,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -4003,6 +4137,7 @@
       "ribosome"
     ],
     "mass": 13134,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome",
@@ -4045,6 +4180,7 @@
       "ribosome"
     ],
     "mass": 14366,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -4087,6 +4223,7 @@
       "small ribosomal subunit"
     ],
     "mass": 23261,
+    "modified_residues": [],
     "molecular_functions": [
       "rRNA binding",
       "structural constituent of ribosome"
@@ -4126,6 +4263,7 @@
     },
     "locations": [],
     "mass": 36761,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding",
       "DNA-directed RNA polymerase activity"
@@ -4165,6 +4303,7 @@
       "ribosome"
     ],
     "mass": 14450,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -4205,6 +4344,7 @@
     },
     "locations": [],
     "mass": 17975,
+    "modified_residues": [],
     "molecular_functions": [
       "single-stranded DNA binding"
     ],
@@ -4241,6 +4381,7 @@
       "integral component of membrane"
     ],
     "mass": 50345,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4270,6 +4411,7 @@
     },
     "locations": [],
     "mass": 26884,
+    "modified_residues": [],
     "molecular_functions": [],
     "note": "Catalyzes a key regulatory step in fatty acid biosynthesis",
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
@@ -4305,6 +4447,12 @@
       "cytoplasm"
     ],
     "mass": 15319,
+    "modified_residues": [
+      {
+        "desc": "O-(pantetheine 4'-phosphoryl)serine",
+        "position": "39"
+      }
+    ],
     "molecular_functions": [
       "ACP phosphopantetheine attachment site binding involved in fatty acid biosynthetic process"
     ],
@@ -4337,6 +4485,7 @@
     },
     "locations": [],
     "mass": 33781,
+    "modified_residues": [],
     "molecular_functions": [
       "lyase activity"
     ],
@@ -4374,6 +4523,7 @@
     },
     "locations": [],
     "mass": 45891,
+    "modified_residues": [],
     "molecular_functions": [
       "beta-ketoacyl-acyl-carrier-protein synthase II activity"
     ],
@@ -4409,6 +4559,7 @@
     },
     "locations": [],
     "mass": 46094,
+    "modified_residues": [],
     "molecular_functions": [
       "3-oxoacyl-[acyl-carrier-protein] synthase activity"
     ],
@@ -4444,6 +4595,7 @@
       "integral component of membrane"
     ],
     "mass": 32731,
+    "modified_residues": [],
     "molecular_functions": [
       "transferase activity, transferring acyl groups"
     ],
@@ -4475,6 +4627,7 @@
     },
     "locations": [],
     "mass": 11899,
+    "modified_residues": [],
     "molecular_functions": [
       "cyclic-di-GMP binding"
     ],
@@ -4512,6 +4665,7 @@
     },
     "locations": [],
     "mass": 103011,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4549,6 +4703,7 @@
       "cytoplasm"
     ],
     "mass": 29953,
+    "modified_residues": [],
     "molecular_functions": [
       "diaminopimelate epimerase activity"
     ],
@@ -4581,6 +4736,7 @@
     },
     "locations": [],
     "mass": 12795,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4612,6 +4768,7 @@
       "integral component of membrane"
     ],
     "mass": 3767,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4642,6 +4799,7 @@
     },
     "locations": [],
     "mass": 25331,
+    "modified_residues": [],
     "molecular_functions": [
       "hydrolase activity"
     ],
@@ -4674,6 +4832,7 @@
     },
     "locations": [],
     "mass": 16640,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4703,6 +4862,7 @@
     },
     "locations": [],
     "mass": 10425,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4735,6 +4895,7 @@
       "outer membrane"
     ],
     "mass": 13256,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4767,6 +4928,7 @@
       "integral component of membrane"
     ],
     "mass": 24171,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4796,6 +4958,7 @@
     },
     "locations": [],
     "mass": 14215,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4825,6 +4988,7 @@
     },
     "locations": [],
     "mass": 22645,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4855,6 +5019,7 @@
     },
     "locations": [],
     "mass": 166340,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -4886,6 +5051,7 @@
     },
     "locations": [],
     "mass": 28729,
+    "modified_residues": [],
     "molecular_functions": [
       "N-acetylmuramoyl-L-alanine amidase activity"
     ],
@@ -4919,6 +5085,7 @@
     },
     "locations": [],
     "mass": 47971,
+    "modified_residues": [],
     "molecular_functions": [
       "glutamate-cysteine ligase activity"
     ],
@@ -4951,6 +5118,7 @@
     },
     "locations": [],
     "mass": 55944,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "metal ion binding"
@@ -4983,6 +5151,7 @@
     },
     "locations": [],
     "mass": 27152,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5012,6 +5181,7 @@
     },
     "locations": [],
     "mass": 18119,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5043,6 +5213,7 @@
     },
     "locations": [],
     "mass": 20435,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5073,6 +5244,7 @@
     },
     "locations": [],
     "mass": 17813,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5112,6 +5284,7 @@
       "excinuclease repair complex"
     ],
     "mass": 105494,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "ATPase activity",
@@ -5148,6 +5321,7 @@
     },
     "locations": [],
     "mass": 22094,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5183,6 +5357,7 @@
       "integral component of membrane"
     ],
     "mass": 38870,
+    "modified_residues": [],
     "molecular_functions": [
       "metalloendopeptidase activity"
     ],
@@ -5221,6 +5396,7 @@
       "plasma membrane"
     ],
     "mass": 28800,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5251,6 +5427,7 @@
     },
     "locations": [],
     "mass": 34211,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "ATPase activity"
@@ -5283,6 +5460,7 @@
     },
     "locations": [],
     "mass": 4315,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5313,6 +5491,7 @@
     },
     "locations": [],
     "mass": 39622,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5343,6 +5522,7 @@
     },
     "locations": [],
     "mass": 21050,
+    "modified_residues": [],
     "molecular_functions": [
       "iron ion binding",
       "L-ascorbic acid binding",
@@ -5377,6 +5557,7 @@
     },
     "locations": [],
     "mass": 28030,
+    "modified_residues": [],
     "molecular_functions": [
       "metallopeptidase activity"
     ],
@@ -5408,6 +5589,7 @@
     },
     "locations": [],
     "mass": 33421,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5445,6 +5627,7 @@
     },
     "locations": [],
     "mass": 16673,
+    "modified_residues": [],
     "molecular_functions": [
       "methylated-DNA-[protein]-cysteine S-methyltransferase activity"
     ],
@@ -5484,6 +5667,7 @@
       "ribosome"
     ],
     "mass": 13668,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -5522,6 +5706,7 @@
       "cytoplasm"
     ],
     "mass": 28022,
+    "modified_residues": [],
     "molecular_functions": [
       "tRNA (guanine(37)-N(1))-methyltransferase activity"
     ],
@@ -5563,6 +5748,7 @@
       "ribosome"
     ],
     "mass": 19229,
+    "modified_residues": [],
     "molecular_functions": [
       "ribosome binding"
     ],
@@ -5594,6 +5780,7 @@
     },
     "locations": [],
     "mass": 4855,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5629,6 +5816,7 @@
       "ribosome"
     ],
     "mass": 9940,
+    "modified_residues": [],
     "molecular_functions": [
       "structural constituent of ribosome"
     ],
@@ -5669,6 +5857,7 @@
       "signal recognition particle"
     ],
     "mass": 50827,
+    "modified_residues": [],
     "molecular_functions": [
       "7S RNA binding",
       "GTP binding",
@@ -5702,6 +5891,7 @@
     },
     "locations": [],
     "mass": 25657,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5732,6 +5922,7 @@
     },
     "locations": [],
     "mass": 62129,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5764,6 +5955,7 @@
       "integral component of membrane"
     ],
     "mass": 58705,
+    "modified_residues": [],
     "molecular_functions": [],
     "note": "1700007B22 gene product",
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
@@ -5797,6 +5989,7 @@
       "integral component of membrane"
     ],
     "mass": 50463,
+    "modified_residues": [],
     "molecular_functions": [
       "amino acid transmembrane transporter activity"
     ],
@@ -5828,6 +6021,7 @@
     },
     "locations": [],
     "mass": 22515,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5859,6 +6053,7 @@
     },
     "locations": [],
     "mass": 12295,
+    "modified_residues": [],
     "molecular_functions": [
       "peroxidase activity",
       "peroxiredoxin activity"
@@ -5902,6 +6097,7 @@
     },
     "locations": [],
     "mass": 16350,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5935,6 +6131,7 @@
       "plasma membrane"
     ],
     "mass": 20485,
+    "modified_residues": [],
     "molecular_functions": [
       "protein disulfide oxidoreductase activity"
     ],
@@ -5970,6 +6167,7 @@
       "plasma membrane"
     ],
     "mass": 28490,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -5999,6 +6197,7 @@
     },
     "locations": [],
     "mass": 20533,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6033,6 +6232,7 @@
       "integral component of membrane"
     ],
     "mass": 37975,
+    "modified_residues": [],
     "molecular_functions": [
       "oxidoreductase activity, acting on the CH-CH group of donors"
     ],
@@ -6072,6 +6272,7 @@
       "plasma membrane"
     ],
     "mass": 33058,
+    "modified_residues": [],
     "molecular_functions": [
       "protoheme IX farnesyltransferase activity"
     ],
@@ -6108,6 +6309,7 @@
       "cell"
     ],
     "mass": 23788,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6143,6 +6345,7 @@
     },
     "locations": [],
     "mass": 32881,
+    "modified_residues": [],
     "molecular_functions": [
       "acid-amino acid ligase activity",
       "ATP binding",
@@ -6177,6 +6380,7 @@
     },
     "locations": [],
     "mass": 8958,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding"
     ],
@@ -6215,6 +6419,7 @@
     },
     "locations": [],
     "mass": 57296,
+    "modified_residues": [],
     "molecular_functions": [
       "glucose-6-phosphate dehydrogenase activity",
       "NADP binding"
@@ -6253,6 +6458,7 @@
     },
     "locations": [],
     "mass": 27311,
+    "modified_residues": [],
     "molecular_functions": [
       "6-phosphogluconolactonase activity"
     ],
@@ -6288,6 +6494,7 @@
     },
     "locations": [],
     "mass": 65268,
+    "modified_residues": [],
     "molecular_functions": [
       "phosphogluconate dehydratase activity"
     ],
@@ -6326,6 +6533,7 @@
       "cytoplasm"
     ],
     "mass": 36835,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "glucokinase activity"
@@ -6362,6 +6570,7 @@
     },
     "locations": [],
     "mass": 23389,
+    "modified_residues": [],
     "molecular_functions": [
       "lyase activity"
     ],
@@ -6397,6 +6606,7 @@
       "integral component of membrane"
     ],
     "mass": 51320,
+    "modified_residues": [],
     "molecular_functions": [
       "substrate-specific transmembrane transporter activity"
     ],
@@ -6432,6 +6642,7 @@
     },
     "locations": [],
     "mass": 51979,
+    "modified_residues": [],
     "molecular_functions": [
       "glucan 1,4-alpha-glucosidase activity"
     ],
@@ -6465,6 +6676,7 @@
     },
     "locations": [],
     "mass": 8743,
+    "modified_residues": [],
     "molecular_functions": [
       "sequence-specific DNA binding"
     ],
@@ -6498,6 +6710,7 @@
       "integral component of membrane"
     ],
     "mass": 20374,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6535,6 +6748,7 @@
       "cytoplasm"
     ],
     "mass": 37804,
+    "modified_residues": [],
     "molecular_functions": [
       "ferrochelatase activity",
       "metal ion binding"
@@ -6575,6 +6789,7 @@
       "cytoplasm"
     ],
     "mass": 8304,
+    "modified_residues": [],
     "molecular_functions": [
       "DNA binding"
     ],
@@ -6606,6 +6821,7 @@
     },
     "locations": [],
     "mass": 11690,
+    "modified_residues": [],
     "molecular_functions": [
       "hydrolase activity"
     ],
@@ -6637,6 +6853,7 @@
     },
     "locations": [],
     "mass": 15594,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6668,6 +6885,7 @@
     },
     "locations": [],
     "mass": 50872,
+    "modified_residues": [],
     "molecular_functions": [
       "transporter activity"
     ],
@@ -6702,6 +6920,7 @@
       "integral component of membrane"
     ],
     "mass": 40219,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6733,6 +6952,7 @@
       "integral component of membrane"
     ],
     "mass": 36750,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6764,6 +6984,7 @@
       "integral component of membrane"
     ],
     "mass": 35025,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6793,6 +7014,7 @@
     },
     "locations": [],
     "mass": 14578,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6822,6 +7044,7 @@
     },
     "locations": [],
     "mass": 21042,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6852,6 +7075,7 @@
     },
     "locations": [],
     "mass": 23322,
+    "modified_residues": [],
     "molecular_functions": [
       "methyltransferase activity"
     ],
@@ -6884,6 +7108,7 @@
     },
     "locations": [],
     "mass": 30652,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6919,6 +7144,7 @@
     },
     "locations": [],
     "mass": 75874,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6948,6 +7174,7 @@
     },
     "locations": [],
     "mass": 8620,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -6979,6 +7206,7 @@
       "integral component of membrane"
     ],
     "mass": 39482,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7014,6 +7242,7 @@
     },
     "locations": [],
     "mass": 7810,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7047,6 +7276,7 @@
       "integral component of membrane"
     ],
     "mass": 9921,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7078,6 +7308,7 @@
     },
     "locations": [],
     "mass": 12673,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7109,6 +7340,7 @@
     },
     "locations": [],
     "mass": 12947,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7156,6 +7388,7 @@
     },
     "locations": [],
     "mass": 22409,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7189,6 +7422,7 @@
       "integral component of membrane"
     ],
     "mass": 43814,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7222,6 +7456,7 @@
       "integral component of membrane"
     ],
     "mass": 87503,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7253,6 +7488,7 @@
     },
     "locations": [],
     "mass": 21071,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7286,6 +7522,7 @@
       "integral component of membrane"
     ],
     "mass": 10679,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7319,6 +7556,7 @@
       "integral component of membrane"
     ],
     "mass": 23125,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7350,6 +7588,7 @@
     },
     "locations": [],
     "mass": 38926,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7383,6 +7622,7 @@
       "integral component of membrane"
     ],
     "mass": 107807,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7416,6 +7656,7 @@
       "integral component of membrane"
     ],
     "mass": 29701,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7449,6 +7690,7 @@
       "integral component of membrane"
     ],
     "mass": 20276,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7482,6 +7724,7 @@
       "integral component of membrane"
     ],
     "mass": 9433,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7513,6 +7756,7 @@
     },
     "locations": [],
     "mass": 24424,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7544,6 +7788,7 @@
     },
     "locations": [],
     "mass": 112136,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7579,6 +7824,7 @@
       "integral component of membrane"
     ],
     "mass": 46069,
+    "modified_residues": [],
     "molecular_functions": [
       "transporter activity"
     ],
@@ -7612,6 +7858,7 @@
     },
     "locations": [],
     "mass": 110807,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7645,6 +7892,7 @@
       "integral component of membrane"
     ],
     "mass": 29688,
+    "modified_residues": [],
     "molecular_functions": [],
     "organism": "Legionella pneumophila subsp. pneumophila (strain Philadelphia 1 / ATCC 33152 / DSM 7513)",
     "pathologies": [],
@@ -7658,7 +7906,7 @@
     "uniprot_id": "Q5ZYB3"
   },
   "lpg0460": {
-    "EC_number": null,
+    "EC_number": "3.5.4.10",
     "accessions": [
       "Q5ZYB2"
     ],
@@ -7678,6 +7926,7 @@
     },
     "locations": [],
     "mass": 57947,
+    "modified_residues": [],
     "molecular_functions": [
       "IMP cyclohydrolase activity",
       "phosphoribosylaminoimidazolecarboxamide formyltransferase activity"
@@ -7717,6 +7966,7 @@
       "cytoplasm"
     ],
     "mass": 32117,
+    "modified_residues": [],
     "molecular_functions": [
       "protein methyltransferase activity"
     ],
@@ -7751,6 +8001,7 @@
     },
     "locations": [],
     "mass": 49244,
+    "modified_residues": [],
     "molecular_functions": [
       "ATP binding",
       "biotin carboxylase activity",
