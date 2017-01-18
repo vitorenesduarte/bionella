@@ -19,6 +19,14 @@ To generate the site:
 $ make site
 ```
 
+To run each of the steps __first__, __second__ and __third__:
+
+```bash
+$ make first
+$ make second
+$ make third
+```
+
 
 ### Build docker image
 ```bash
