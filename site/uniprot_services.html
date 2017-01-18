@@ -11807,7 +11807,8 @@ A UniProt oferece um serviço de mapeamento de identificadores entre diferentes 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Utilizamos ainda outro serviço de extração de informação em <em>batch</em>. Criámos uma função que dada uma lista de <strong>uniprot_id</strong> retorna um dicionário que mapeia estes id para um outro dicionário com a informação desejada.</p>
+<p><a name="fetch_uniprots"></a>
+Utilizamos ainda outro serviço de extração de informação em <em>batch</em>. Criámos uma função que dada uma lista de <strong>uniprot_id</strong> retorna um dicionário que mapeia estes id para um outro dicionário com a informação desejada.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_uniprots</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Faz download da informação presente no site uniprot</span>
