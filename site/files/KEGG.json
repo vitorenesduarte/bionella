@@ -1,7 +1,7 @@
 {
   "lpg0232": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "Fur family transcriptional regulator, zinc uptake regulator",
         "id": "K09823"
@@ -16,7 +16,7 @@
   },
   "lpg0233": {
     "EC_number": "[EC:4.1.1.7]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "benzoylformate decarboxylase",
         "id": "K01576"
@@ -35,7 +35,7 @@
   },
   "lpg0238": {
     "EC_number": "[EC:1.2.1.8]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "betaine-aldehyde dehydrogenase",
         "id": "K00130"
@@ -54,7 +54,7 @@
   },
   "lpg0239": {
     "EC_number": "[EC:2.6.1.19|2.6.1.22]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase",
         "id": "K07250"
@@ -93,7 +93,7 @@
   },
   "lpg0241": {
     "EC_number": "[EC:3.5.1.2]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glutaminase",
         "id": "K01425"
@@ -120,7 +120,7 @@
   },
   "lpg0242": {
     "EC_number": "[EC:1.1.1.95]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "D-3-phosphoglycerate dehydrogenase",
         "id": "K00058"
@@ -159,7 +159,7 @@
   },
   "lpg0245": {
     "EC_number": "[EC:1.4.1.2]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glutamate dehydrogenase",
         "id": "K15371"
@@ -186,7 +186,7 @@
   },
   "lpg0248": {
     "EC_number": " [EC:1.20.4.1]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "arsenate reductase",
         "id": "K00537"
@@ -196,7 +196,7 @@
   },
   "lpg0249": {
     "EC_number": "[EC:1.14.19.1]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "stearoyl-CoA desaturase (Delta-9 desaturase)",
         "id": "K00507"
@@ -215,7 +215,7 @@
   },
   "lpg0250": {
     "EC_number": "[EC:3.6.4.13]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ATP-dependent RNA helicase RhlE",
         "id": "K11927"
@@ -230,7 +230,7 @@
   },
   "lpg0252": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "uncharacterized protein",
         "id": "K09125"
@@ -240,7 +240,7 @@
   },
   "lpg0262": {
     "EC_number": " [EC:2.7.7.7]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "DNA polymerase bacteriophage-type",
         "id": "K02334"
@@ -250,7 +250,7 @@
   },
   "lpg0263": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "MFS transporter, UMF1 family",
         "id": "K06902"
@@ -260,7 +260,7 @@
   },
   "lpg0268": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "putative hydrolases of HD superfamily",
         "id": "K07023"
@@ -270,7 +270,7 @@
   },
   "lpg0269": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "uncharacterized protein",
         "id": "K06915"
@@ -280,7 +280,7 @@
   },
   "lpg0270": {
     "EC_number": "[EC:6.3.4.21]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "nicotinate phosphoribosyltransferase",
         "id": "K00763"
@@ -299,7 +299,7 @@
   },
   "lpg0271": {
     "EC_number": "[EC:3.5.1.19| 3.5.1.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "nicotinamidase/pyrazinamidase",
         "id": "K08281"
@@ -318,7 +318,7 @@
   },
   "lpg0275": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "effector protein SdbA",
         "id": "K15487"
@@ -333,7 +333,7 @@
   },
   "lpg0283": {
     "EC_number": "[EC:1.2.1.2]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "formate dehydrogenase",
         "id": "K00122"
@@ -364,7 +364,7 @@
   },
   "lpg0287": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "elongation factor P",
         "id": "K02356"
@@ -374,7 +374,7 @@
   },
   "lpg0288": {
     "EC_number": "[EC:5.4.3.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "L-lysine 2,3-aminomutase",
         "id": "K19810"
@@ -384,7 +384,7 @@
   },
   "lpg0289": {
     "EC_number": "[EC:2.7.4.1]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "polyphosphate kinase ",
         "id": "K00937"
@@ -403,7 +403,7 @@
   },
   "lpg0291": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "chromate transporter",
         "id": "K07240"
@@ -413,7 +413,7 @@
   },
   "lpg0295": {
     "EC_number": "[EC:2.7.7.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "MurNAc alpha-1-phosphate uridylyltransferase ",
         "id": "K00992"
@@ -432,7 +432,7 @@
   },
   "lpg0296": {
     "EC_number": "[EC:2.7.1.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "anomeric MurNAc/GlcNAc kinase ",
         "id": "K07102"
@@ -447,7 +447,7 @@
   },
   "lpg0297": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "LPS-assembly protein",
         "id": "K04744"
@@ -457,7 +457,7 @@
   },
   "lpg0298": {
     "EC_number": "[EC:5.2.1.8]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "peptidyl-prolyl cis-trans isomerase SurA",
         "id": "K03771"
@@ -467,7 +467,7 @@
   },
   "lpg0299": {
     "EC_number": "[EC:1.1.1.262]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "4-hydroxythreonine-4-phosphate dehydrogenase",
         "id": "K00097"
@@ -486,7 +486,7 @@
   },
   "lpg0300": {
     "EC_number": "[EC:1.5.1.3]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "dihydrofolate reductase ",
         "id": "K00287"
@@ -509,7 +509,7 @@
   },
   "lpg0302": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "16S ribosomal RNA",
         "id": "K01977"
@@ -524,7 +524,7 @@
   },
   "lpg0303": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Ala",
         "id": "K14218"
@@ -539,7 +539,7 @@
   },
   "lpg0304": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "23S ribosomal RNA",
         "id": "K01980"
@@ -554,7 +554,7 @@
   },
   "lpg0309": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "5S ribosomal RNA",
         "id": "K01985"
@@ -569,7 +569,7 @@
   },
   "lpg0310": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Thr",
         "id": "K14234"
@@ -584,7 +584,7 @@
   },
   "lpg0311": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Tyr",
         "id": "K14236"
@@ -599,7 +599,7 @@
   },
   "lpg0312": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Gly",
         "id": "K14225"
@@ -614,7 +614,7 @@
   },
   "lpg0313": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Thr",
         "id": "K14234"
@@ -629,7 +629,7 @@
   },
   "lpg0314": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "elongation factor Tu",
         "id": "K02358"
@@ -639,7 +639,7 @@
   },
   "lpg0315": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA Trp",
         "id": "K14235"
@@ -654,7 +654,7 @@
   },
   "lpg0316": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "preprotein translocase subunit SecE",
         "id": "K03073"
@@ -677,7 +677,7 @@
   },
   "lpg0317": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "transcriptional antiterminator NusG",
         "id": "K02601"
@@ -687,7 +687,7 @@
   },
   "lpg0318": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L11",
         "id": "K02867"
@@ -702,7 +702,7 @@
   },
   "lpg0319": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L1",
         "id": "K02863"
@@ -717,7 +717,7 @@
   },
   "lpg0320": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L10",
         "id": "K02864"
@@ -732,7 +732,7 @@
   },
   "lpg0321": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L7/L12",
         "id": "K02935"
@@ -747,7 +747,7 @@
   },
   "lpg0322": {
     "EC_number": "[EC:2.7.7.6]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "DNA-directed RNA polymerase subunit beta",
         "id": "K03043"
@@ -774,7 +774,7 @@
   },
   "lpg0323": {
     "EC_number": "[EC:2.7.7.6]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "DNA-directed RNA polymerase subunit beta",
         "id": "K03046"
@@ -801,7 +801,7 @@
   },
   "lpg0324": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S12",
         "id": "K02950"
@@ -816,7 +816,7 @@
   },
   "lpg0325": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S7",
         "id": "K02992"
@@ -831,7 +831,7 @@
   },
   "lpg0326": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "elongation factor G",
         "id": "K02355"
@@ -841,7 +841,7 @@
   },
   "lpg0327": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "elongation factor Tu",
         "id": "K02358"
@@ -851,7 +851,7 @@
   },
   "lpg0328": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S10",
         "id": "K02946"
@@ -866,7 +866,7 @@
   },
   "lpg0329": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L3",
         "id": "K02906"
@@ -881,7 +881,7 @@
   },
   "lpg0330": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L4",
         "id": "K02926"
@@ -896,7 +896,7 @@
   },
   "lpg0331": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L23",
         "id": "K02892"
@@ -911,7 +911,7 @@
   },
   "lpg0332": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L2",
         "id": "K02886"
@@ -926,7 +926,7 @@
   },
   "lpg0334": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L22",
         "id": "K02890"
@@ -941,7 +941,7 @@
   },
   "lpg0335": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S3",
         "id": "K02982"
@@ -956,7 +956,7 @@
   },
   "lpg0336": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L16",
         "id": "K02878"
@@ -971,7 +971,7 @@
   },
   "lpg0337": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L29",
         "id": "K02904"
@@ -986,7 +986,7 @@
   },
   "lpg0338": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S17",
         "id": "K02961"
@@ -1001,7 +1001,7 @@
   },
   "lpg0339": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L14",
         "id": "K02874"
@@ -1016,7 +1016,7 @@
   },
   "lpg0340": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L24",
         "id": "K02895"
@@ -1031,7 +1031,7 @@
   },
   "lpg0341": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L5",
         "id": "K02931"
@@ -1046,7 +1046,7 @@
   },
   "lpg0342": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S14",
         "id": "K02954"
@@ -1061,7 +1061,7 @@
   },
   "lpg0343": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S8",
         "id": "K02994"
@@ -1076,7 +1076,7 @@
   },
   "lpg0344": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L6",
         "id": "K02933"
@@ -1091,7 +1091,7 @@
   },
   "lpg0345": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L18",
         "id": "K02881"
@@ -1106,7 +1106,7 @@
   },
   "lpg0346": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S5",
         "id": "K02988"
@@ -1121,7 +1121,7 @@
   },
   "lpg0347": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L30",
         "id": "K02907"
@@ -1136,7 +1136,7 @@
   },
   "lpg0348": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L15",
         "id": "K02876"
@@ -1151,7 +1151,7 @@
   },
   "lpg0349": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "preprotein translocase subunit SecY",
         "id": "K03076"
@@ -1174,7 +1174,7 @@
   },
   "lpg0350": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L36 ",
         "id": "K02919    "
@@ -1189,7 +1189,7 @@
   },
   "lpg0351": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S13 ",
         "id": "K02952 "
@@ -1204,7 +1204,7 @@
   },
   "lpg0352": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S11",
         "id": "K02948"
@@ -1219,7 +1219,7 @@
   },
   "lpg0353": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": " small subunit ribosomal proteinS4",
         "id": "K02986"
@@ -1234,7 +1234,7 @@
   },
   "lpg0354": {
     "EC_number": "[EC:2.7.7.6]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "DNA-directed RNA polymerase subunit alpha",
         "id": "K03040"
@@ -1261,7 +1261,7 @@
   },
   "lpg0355": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "large subunit ribosomal protein L17",
         "id": "K02879"
@@ -1276,7 +1276,7 @@
   },
   "lpg0356": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "single-strand DNA-binding protein",
         "id": "K03111"
@@ -1299,12 +1299,12 @@
   },
   "lpg0360": {
     "EC_number": "4.2.1.-",
-    "Kegg": [],
+    "Orthology": [],
     "Pathways": []
   },
   "lpg0361": {
     "EC_number": "[EC:2.3.1.41]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "3-oxoacyl-[acyl-carrier-protein] synthase",
         "id": "K00647"
@@ -1331,7 +1331,7 @@
   },
   "lpg0362": {
     "EC_number": "[EC:2.3.1.41]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "3-oxoacyl-[acyl-carrier-protein] synthase",
         "id": "K00647"
@@ -1358,7 +1358,7 @@
   },
   "lpg0363": {
     "EC_number": "[EC:2.3.1.241]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "Kdo2-lipid IVA lauroyltransferase",
         "id": "K02517"
@@ -1377,7 +1377,7 @@
   },
   "lpg0366": {
     "EC_number": "[EC:5.1.1.7]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "diaminopimelate epimerase",
         "id": "K01778"
@@ -1412,7 +1412,7 @@
   },
   "lpg0369": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "phospholipase/carboxylesterase",
         "id": "K06999"
@@ -1422,7 +1422,7 @@
   },
   "lpg0371": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "uncharacterized protein",
         "id": "K09801"
@@ -1432,7 +1432,7 @@
   },
   "lpg0382": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "hyperosmotically inducible periplasmic protein",
         "id": "K04065"
@@ -1442,7 +1442,7 @@
   },
   "lpg0384": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "excinuclease ABC subunit A",
         "id": "K03701"
@@ -1457,7 +1457,7 @@
   },
   "lpg0385": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "LemA protein",
         "id": "K03744"
@@ -1467,7 +1467,7 @@
   },
   "lpg0386": {
     "EC_number": "[EC:3.4.24.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "heat shock protein HtpX",
         "id": "K03799"
@@ -1477,7 +1477,7 @@
   },
   "lpg0387": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ABC-2 type transport system permease protein",
         "id": "K01992"
@@ -1492,7 +1492,7 @@
   },
   "lpg0388": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ABC-2 type transport system ATP-binding protein",
         "id": "K01990"
@@ -1507,7 +1507,7 @@
   },
   "lpg0390": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "VPS inhibitor protein A",
         "id": "K15476"
@@ -1522,7 +1522,7 @@
   },
   "lpg0391": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "SM-20-related protein",
         "id": "K07394"
@@ -1532,7 +1532,7 @@
   },
   "lpg0392": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "uncharacterized protein",
         "id": "K07043"
@@ -1542,7 +1542,7 @@
   },
   "lpg0394": {
     "EC_number": "[EC:2.1.1.63]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "methylated-DNA-[protein]-cysteine S-methyltransferase",
         "id": "K00567"
@@ -1552,7 +1552,7 @@
   },
   "lpg0395": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "\"large subunit ribosomal protein L19\"",
         "id": "K02884"
@@ -1567,7 +1567,7 @@
   },
   "lpg0396": {
     "EC_number": "[EC:2.1.1.228]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "tRNA (guanine37-N1)-methyltransferase",
         "id": "K00554"
@@ -1577,7 +1577,7 @@
   },
   "lpg0397": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "16S rRNA processing protein RimM",
         "id": "K02860"
@@ -1587,12 +1587,12 @@
   },
   "lpg0398": {
     "EC_number": "",
-    "Kegg": [],
+    "Orthology": [],
     "Pathways": []
   },
   "lpg0399": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "small subunit ribosomal protein S16",
         "id": "K02959"
@@ -1607,7 +1607,7 @@
   },
   "lpg0400": {
     "EC_number": "[EC:3.6.5.4]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "signal recognition particle subunit SRP54",
         "id": "K03106"
@@ -1630,7 +1630,7 @@
   },
   "lpg0404": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glutamate:GABA antiporte",
         "id": "K20265"
@@ -1645,7 +1645,7 @@
   },
   "lpg0409": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "surfeit locus 1 family protein",
         "id": "K14998"
@@ -1655,7 +1655,7 @@
   },
   "lpg0411": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "cytochrome c oxidase assembly protein subunit 15",
         "id": "K02259"
@@ -1686,7 +1686,7 @@
   },
   "lpg0412": {
     "EC_number": "[EC:2.5.1.-] ",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "protoheme IX farnesyltransferase",
         "id": "K02301"
@@ -1713,7 +1713,7 @@
   },
   "lpg0413": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "protein SCO1/2",
         "id": "K07152"
@@ -1723,7 +1723,7 @@
   },
   "lpg0414": {
     "EC_number": "[EC:6.3.2.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ribosomal protein S6--L-glutamate ligase",
         "id": "K05844"
@@ -1733,7 +1733,7 @@
   },
   "lpg0416": {
     "EC_number": "[EC:1.1.1.49 | 1.1.1.363]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glucose-6-phosphate 1-dehydrogenase",
         "id": "K00036"
@@ -1772,7 +1772,7 @@
   },
   "lpg0417": {
     "EC_number": "[EC:3.1.1.31]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "6-phosphogluconolactonase",
         "id": "K01057"
@@ -1807,7 +1807,7 @@
   },
   "lpg0418": {
     "EC_number": "[EC:4.2.1.12]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "phosphogluconate dehydratase",
         "id": "K01690"
@@ -1834,7 +1834,7 @@
   },
   "lpg0419": {
     "EC_number": "[EC:2.7.1.2]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glucokinase",
         "id": "K00845"
@@ -1885,7 +1885,7 @@
   },
   "lpg0420": {
     "EC_number": "[EC:4.1.2.14 | 4.1.3.42]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "2-dehydro-3-deoxyphosphogluconate aldolase / (4S)-4-hydroxy-2-oxoglutarate aldolase",
         "id": "K01625"
@@ -1916,7 +1916,7 @@
   },
   "lpg0422": {
     "EC_number": "[EC:3.2.1.3]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "glucoamylase",
         "id": "K01178"
@@ -1935,7 +1935,7 @@
   },
   "lpg0423": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "putative transcriptional regulator",
         "id": "K07727"
@@ -1945,7 +1945,7 @@
   },
   "lpg0425": {
     "EC_number": "[EC:4.99.1.1]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ferrochelatase",
         "id": "K01772"
@@ -1968,7 +1968,7 @@
   },
   "lpg0426": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "cold shock protein (beta-ribbon, CspA family) ",
         "id": "K03704"
@@ -1978,7 +1978,7 @@
   },
   "lpg0441": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmT",
         "id": "K12222"
@@ -1988,7 +1988,7 @@
   },
   "lpg0442": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmS",
         "id": "K12221"
@@ -1998,7 +1998,7 @@
   },
   "lpg0443": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmR",
         "id": "K12220"
@@ -2008,7 +2008,7 @@
   },
   "lpg0444": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmQ",
         "id": "K12219"
@@ -2018,7 +2018,7 @@
   },
   "lpg0445": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmP",
         "id": "K12218"
@@ -2028,7 +2028,7 @@
   },
   "lpg0446": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmO",
         "id": "K12217"
@@ -2038,7 +2038,7 @@
   },
   "lpg0447": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmN",
         "id": "K12216"
@@ -2048,7 +2048,7 @@
   },
   "lpg0448": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmM",
         "id": "K12215"
@@ -2058,7 +2058,7 @@
   },
   "lpg0449": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmL",
         "id": "K12214"
@@ -2068,7 +2068,7 @@
   },
   "lpg0450": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmK",
         "id": "K12213"
@@ -2078,7 +2078,7 @@
   },
   "lpg0451": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmE",
         "id": "K12209"
@@ -2088,7 +2088,7 @@
   },
   "lpg0452": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmG",
         "id": "K12211"
@@ -2098,7 +2098,7 @@
   },
   "lpg0453": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmC",
         "id": "K12207"
@@ -2108,7 +2108,7 @@
   },
   "lpg0454": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmD",
         "id": "K12208"
@@ -2118,7 +2118,7 @@
   },
   "lpg0455": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmJ",
         "id": "K12212"
@@ -2128,7 +2128,7 @@
   },
   "lpg0456": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmB",
         "id": "K12206"
@@ -2138,7 +2138,7 @@
   },
   "lpg0457": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "proline/betaine transport protein TphA",
         "id": "K12226"
@@ -2148,7 +2148,7 @@
   },
   "lpg0458": {
     "EC_number": "",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "intracellular multiplication protein IcmF",
         "id": "K12210"
@@ -2158,7 +2158,7 @@
   },
   "lpg0460": {
     "EC_number": "[EC:2.1.2.3 |  3.5.4.10]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase",
         "id": "K00602"
@@ -2189,7 +2189,7 @@
   },
   "lpg0461": {
     "EC_number": "[EC:2.1.1.-]",
-    "Kegg": [
+    "Orthology": [
       {
         "desc": "ribosomal protein L11 methyltransferase",
         "id": "K02687"
