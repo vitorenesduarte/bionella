@@ -1,24 +1,26 @@
 import util.www as www
 import util.rw as rw
-import util.blast as blast
 
 def add_info_to_dictionary(dictionary, uniprots):
     """
     Esta função adiciona ao dicionário com informação do NCBI
     a informação retirada do site da uniprot.
-      - short_name
-      - product
-      - EC_number
-      - comment_functions
-      - cofactors
-      - pathologies
-      - pdbs
-      - molecular_functions
-      - biological_processes
-      - locations
-      - translation
-      - length
-      - mass
+        - EC_number
+        - translation
+        - length
+        - accessions
+        - status
+        - organism
+        - short_name
+        - product
+        - comment_functions
+        - cofactors
+        - pdbs
+        - pathologies
+        - molecular_functions
+        - biological_processes
+        - locations
+        - mass
     """
 
     # propriedades que já tinhamos:
@@ -87,7 +89,6 @@ def tag_as_key(dictionary, uniprots):
 
 def main():
     ncbi_json_path = ".ncbi.json"
-    uniprots_json_path = ".uniprots.json"
     ncbi_uniprot_json_path = ".ncbi_uniprot.json"
     ncbi_uniprot_diff_json_path = ".ncbi_uniprot_diff.json"
 

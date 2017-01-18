@@ -11751,8 +11751,181 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Ferramentas-de-an&#225;lise-das-propriedades-da-prote&#237;na">Ferramentas de an&#225;lise das propriedades da prote&#237;na<a class="anchor-link" href="#Ferramentas-de-an&#225;lise-das-propriedades-da-prote&#237;na">&#182;</a></h2><p>Os resultados desta fase podem ser encontrados <a href="uniprot_results.html">aqui</a>.</p>
+<h2 id="Ferramentas-de-an&#225;lise-das-propriedades-da-prote&#237;na">Ferramentas de an&#225;lise das propriedades da prote&#237;na<a class="anchor-link" href="#Ferramentas-de-an&#225;lise-das-propriedades-da-prote&#237;na">&#182;</a></h2><ol>
+<li><a href="#main">main()</a></li>
+<li><a href="#tag_as_key">tag_as_key(dictionary, uniprots)</a></li>
+<li><a href="#add_info_to_dictionary">add_info_to_dictionary(dictionary, uniprots)</a></li>
+</ol>
+<p>Os resultados desta fase podem ser encontrados <a href="uniprot_results.html">aqui</a>.</p>
 <p>No final de extrair esta informação, atualizámos a informação retirada do NCBI. A tabela que esta informação conjunta está <a href="ncbi_uniprot_results.html">aqui</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="main"></a>
+A resolução desta fase encontra-se no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/third.py">third.py</a>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+<span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
+
+<span class="n">ncbi_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.json&quot;</span>
+<span class="n">ncbi_uniprot_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi_uniprot.json&quot;</span>
+<span class="n">ncbi_uniprot_diff_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi_uniprot_diff.json&quot;</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">ncbi_json_path</span><span class="p">)</span>
+
+<span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;uniprot_id&quot;</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+        <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span>
+        <span class="n">uniprot_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">uniprot_id</span><span class="p">)</span>
+
+<span class="n">uniprot_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
+
+<span class="n">uniprots</span> <span class="o">=</span> <span class="n">www</span><span class="o">.</span><span class="n">fetch_uniprots</span><span class="p">(</span><span class="n">uniprot_ids</span><span class="p">)</span>
+<span class="n">uniprots</span> <span class="o">=</span> <span class="n">tag_as_key</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">)</span> <span class="o">=</span> <span class="n">add_info_to_dictionary</span><span class="p">(</span>
+    <span class="n">dictionary</span><span class="p">,</span>
+    <span class="n">uniprots</span>
+<span class="p">)</span>
+<span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">ncbi_uniprot_diff_json_path</span><span class="p">)</span>
+<span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">ncbi_uniprot_json_path</span><span class="p">)</span>
+</pre></div>
+<p>Todas as funções desta fase já foram utilizadas nas fases anteriores com excepção de:</p>
+<ul>
+<li><code>tag_as_key</code>: altera as chaves do dicionário <code>uniprots</code> de <strong>uniprot_id</strong> para <strong>locus_tag</strong></li>
+<li><code>add_info_to_dictionary</code>: adiciona ao dicionário com informação do NCBI, a informação que retirámos da UniProt:<ul>
+<li><strong>EC_number</strong></li>
+<li><strong>translation</strong></li>
+<li><strong>length</strong></li>
+<li><strong>accessions</strong></li>
+<li><strong>status</strong></li>
+<li><strong>organism</strong></li>
+<li><strong>short_name</strong></li>
+<li><strong>product</strong></li>
+<li><strong>comment_functions</strong></li>
+<li><strong>cofactors</strong></li>
+<li><strong>pdbs</strong></li>
+<li><strong>pathologies</strong></li>
+<li><strong>molecular_functions</strong></li>
+<li><strong>biological_processes</strong></li>
+<li><strong>locations</strong></li>
+<li><strong>mass</strong></li>
+</ul>
+</li>
+</ul>
+<p>Como as três primeiras propriedades (<strong>EC_number</strong>, <strong>translation</strong> e <strong>length</strong>) já se encontravam nesse dicionário, verificamos se os seus valores eram o mesmo: se encontrássemos um valor diferente, atualizávamos o dicionário, mas guardávamos essa informação em <code>diff</code> para uma posterior visualização na <a href="ncbi_uniprot_results.html">tabela</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="tag_as_key"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tag_as_key</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna um dicionário com os resultados da uniprot,</span>
+<span class="sd">    em que as chaves são locus tag em vez de uniprot_id.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;uniprot_id&quot;</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+            <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span>
+
+            <span class="n">info</span> <span class="o">=</span> <span class="n">uniprots</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">]</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+
+    <span class="k">return</span> <span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="add_info_to_dictionary"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_info_to_dictionary</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">uniprots</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta função adiciona ao dicionário com informação do NCBI</span>
+<span class="sd">    a informação retirada do site da uniprot.</span>
+<span class="sd">        - EC_number</span>
+<span class="sd">        - translation</span>
+<span class="sd">        - length</span>
+<span class="sd">        - accessions</span>
+<span class="sd">        - status</span>
+<span class="sd">        - organism</span>
+<span class="sd">        - short_name</span>
+<span class="sd">        - product</span>
+<span class="sd">        - comment_functions</span>
+<span class="sd">        - cofactors</span>
+<span class="sd">        - pdbs</span>
+<span class="sd">        - pathologies</span>
+<span class="sd">        - molecular_functions</span>
+<span class="sd">        - biological_processes</span>
+<span class="sd">        - locations</span>
+<span class="sd">        - mass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># propriedades que já tinhamos:</span>
+    <span class="n">old_properties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;EC_number&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;translation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;length&quot;</span>
+    <span class="p">]</span>
+
+    <span class="n">new_properties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;accessions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;organism&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;short_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;product&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;comment_functions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cofactors&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pdbs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pathologies&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;molecular_functions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;biological_processes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mass&quot;</span>
+    <span class="p">]</span>
+
+    <span class="n">diff</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">uniprots</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">old_properties</span><span class="p">:</span>
+                <span class="n">new</span> <span class="o">=</span> <span class="n">uniprots</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+                    <span class="c1"># se já existe, verifica que é o mesmo</span>
+                    <span class="n">current</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">new</span> <span class="o">==</span> <span class="n">current</span><span class="p">:</span>
+                        <span class="c1"># guarda informação sobre o que diferiu</span>
+
+                        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">diff</span><span class="p">:</span>
+                            <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">diff</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">]</span>
+
+                <span class="c1"># substitui sempre pelo valor da uniprot</span>
+                <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">new_properties</span><span class="p">:</span>
+                <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprots</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">p</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
