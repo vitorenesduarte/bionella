@@ -11754,11 +11754,15 @@ div#notebook {
 <h2 id="Servi&#231;os-UniProt">Servi&#231;os UniProt<a class="anchor-link" href="#Servi&#231;os-UniProt">&#182;</a></h2><p>Neste trabalho utilizamos dois serviços disponibilizados pelo site UniProt:</p>
 <ul>
 <li>serviço de mapeamento de identificadores</li>
-<li><p>serviço de download de informação em <em>batch</em></p>
-</li>
-<li><p><a href="#gene_ids_to_uniprot_ids">util.www.gene_ids_to_uniprot_ids(gene_ids)</a></p>
-</li>
+<li>serviço de download de informação em <em>batch</em></li>
 </ul>
+<p>A lista dos serviços disponibilizados pelo site pode ser encontrado <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>.</p>
+<p>As funções apresentadas aqui podem ser encontradas no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a>.</p>
+<ol>
+<li><a href="#gene_ids_to_uniprot_ids">www.gene_ids_to_uniprot_ids(gene_ids)</a></li>
+<li><a href="#fetch_uniprots">www.fetch_uniprots(ids)</a></li>
+<li><a href="#extract_uniprot_info">www.extract_uniprot_info(entry)</a></li>
+</ol>
 <p><a name="gene_ids_to_uniprot_ids"></a>
 A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso, mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gene_ids_to_uniprot_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
@@ -11803,6 +11807,69 @@ A UniProt oferece um serviço de mapeamento de identificadores entre diferentes 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Utilizamos ainda outro serviço de extração de informação em <em>batch</em>. Criámos uma função que dada uma lista de <strong>uniprot_id</strong> retorna um dicionário que mapeia estes id para um outro dicionário com a informação desejada.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_uniprots</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Faz download da informação presente no site uniprot</span>
+<span class="sd">    em formato xml dada uma lista de ids uniprot.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.uniprot.org/uploadlists/&quot;</span>
+    <span class="n">max_retries</span> <span class="o">=</span> <span class="mi">100</span>
+
+    <span class="c1"># Cada pedido à uniprot vai no máximo com 1000 ids.</span>
+    <span class="n">queries</span>  <span class="o">=</span> <span class="p">[</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1000</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)]</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
+        <span class="n">query_all</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">md5</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">query_all</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;xml&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;uploadQuery&quot;</span><span class="p">:</span> <span class="n">query_all</span><span class="p">,</span>
+            <span class="s2">&quot;jobId&quot;</span><span class="p">:</span> <span class="n">md5</span>
+        <span class="p">}</span>
+
+        <span class="n">done</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># enquanto não acabar ou não esgotar as tentativas todas</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+
+            <span class="c1"># HTTP POST</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="n">url</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="c1"># Gravar o xml</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/&quot;</span> <span class="o">+</span> <span class="n">md5</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span>
+                <span class="n">rw</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+                <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="n">done</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Não consegui fazer download de &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">query</span><span class="p">))</span>
+
+    <span class="n">uniprots</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">parse_xml</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">add_root</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//entry&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">uniprot_id</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span> <span class="o">=</span> <span class="n">extract_uniprot_info</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="n">uniprots</span><span class="p">[</span><span class="n">uniprot_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+
+    <span class="k">return</span> <span class="n">uniprots</span>
+</pre></div>
 
 </div>
 </div>
@@ -11812,33 +11879,125 @@ A UniProt oferece um serviço de mapeamento de identificadores entre diferentes 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="extract_uniprot_info"></a>
+Podemos ver que esta função utiliza duas outras funções:</p>
+<ul>
+<li><code>md5</code> definida no <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/util.py"><code>util.util</code></a>. A descrição deste módulo pode ser encontrada <a href="util.html">aqui</a>.</li>
+<li><code>extract_uniprot_info</code> definida no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_uniprot_info</span><span class="p">(</span><span class="n">entry</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extrai a informação que necessitamos da uniprot.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># dataset</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="k">if</span> <span class="n">ds</span> <span class="o">==</span> <span class="s2">&quot;Swiss-Prot&quot;</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;reviewed&quot;</span>
+    <span class="k">elif</span> <span class="n">ds</span> <span class="o">==</span> <span class="s2">&quot;TrEMBL&quot;</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;unreviewed&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Não conheço o dataset &quot;</span> <span class="o">+</span> <span class="n">ds</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="c1"># accessions</span>
+    <span class="n">accessions</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//accession&quot;</span><span class="p">)]</span>
+    <span class="n">accession</span> <span class="o">=</span> <span class="n">accessions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="c1"># short name</span>
+    <span class="n">short_name</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="c1"># full name</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//fullName&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="c1"># ec number</span>
+    <span class="n">ec_number</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.//ecNumber&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ec_number</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">ec_number</span> <span class="o">=</span> <span class="n">ec_number</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="c1"># organism</span>
+    <span class="n">organisms</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//name[@type=&#39;scientific&#39;]&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">organisms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">organism</span> <span class="o">=</span> <span class="n">organisms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Encontrei um número de organismos diferente de 1: &quot;</span><span class="p">,</span> <span class="n">accession</span><span class="p">)</span>
+        <span class="n">organism</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c1"># encontrar o texto função que costuma estar no início da</span>
+    <span class="c1"># página da uniprot</span>
+    <span class="n">comment_functions</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//comment[@type=&#39;function&#39;]&quot;</span><span class="p">)]</span>
+
+    <span class="c1"># cofator</span>
+    <span class="n">cofactors</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cofactor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//comment[@type=&#39;cofactor&#39;]&quot;</span><span class="p">)]</span>
+
+    <span class="c1"># patologias</span>
+    <span class="n">pathologies</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;disease&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//comment[@type=&#39;disease&#39;]&quot;</span><span class="p">)]</span>
+
+    <span class="c1"># PDB</span>
+    <span class="n">pdbs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">PDB</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//dbReference[@type=&#39;PDB&#39;]&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pdb</span> <span class="ow">in</span> <span class="n">PDB</span><span class="p">:</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">pdb</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="n">pdb</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;property[@type=&#39;method&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">chains</span> <span class="o">=</span> <span class="n">pdb</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;property[@type=&#39;chains&#39;]&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">method</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">chains</span> <span class="o">==</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+            <span class="n">chains</span> <span class="o">=</span> <span class="n">chains</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+            <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;chains&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chains</span>
+            <span class="n">pdbs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+    <span class="c1"># encontrar GO - Molecular Function</span>
+    <span class="c1"># e GO - Biological process</span>
+    <span class="n">molecular_functions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">biological_processes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">GO</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//dbReference[@type=&#39;GO&#39;]&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">go</span> <span class="ow">in</span> <span class="n">GO</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;property[@type=&#39;term&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+        <span class="n">is_molecular_function</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;F:&quot;</span><span class="p">)</span>
+        <span class="n">is_biological_process</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;P:&quot;</span><span class="p">)</span>
+        <span class="n">is_location</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;C:&quot;</span><span class="p">)</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="n">is_molecular_function</span><span class="p">:</span>
+            <span class="n">molecular_functions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">is_biological_process</span><span class="p">:</span>
+            <span class="n">biological_processes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">is_location</span><span class="p">:</span>
+            <span class="n">locations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># sequência</span>
+    <span class="n">sequences</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//sequence[@length]&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequences</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">))</span>
+    <span class="n">mass</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mass&quot;</span><span class="p">))</span>
+
+    <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;accessions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accessions</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;short_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">short_name</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">full_name</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;EC_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ec_number</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;organism&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">organism</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;comment_functions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comment_functions</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;cofactors&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cofactors</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;pathologies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pathologies</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;pdbs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdbs</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;molecular_functions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">molecular_functions</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;biological_processes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">biological_processes</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;locations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locations</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">length</span>
+    <span class="n">dictionary</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mass</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">accession</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>

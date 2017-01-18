@@ -11755,6 +11755,11 @@ div#notebook {
 <li><a href="#md5">md5(string)</a></li>
 <li><a href="#get_tags_and_proteins">get_tags_and_proteins(dictionary)</a></li>
 </ol>
+<p>Este módulo tem duas funções:</p>
+<ul>
+<li><code>md5</code>: retorna uma hash da string passada como argumento</li>
+<li><code>get_tags_and_proteins</code>: dado um dicionário com <strong>locus_tag</strong> como chaves e dicionários como valores (em que uma das chaves desses dicionários é <strong>translation</strong>), retorna uma lista de pares (<strong>locus_tag</strong>, <strong>translation</strong>)</li>
+</ul>
 
 </div>
 </div>
@@ -11764,6 +11769,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="md5"></a></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="k">def</span> <span class="nf">md5</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retorna a hash da string passada como argumento.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
@@ -11773,33 +11787,25 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="get_tags_and_proteins"></a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_tags_and_proteins</span><span class="p">(</span><span class="n">dictionary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta função retorna uma lista de pares</span>
+<span class="sd">    em que a primeira componente é a tag</span>
+<span class="sd">    e a segunda a sequência de aminoácidos.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="n">tags_and_proteins</span> <span class="o">=</span> <span class="p">[]</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mRNA&quot;</span><span class="p">:</span>
+            <span class="c1"># se for do tipo &quot;mRNA&quot; estamos na presença de uma proteína</span>
+            <span class="n">protein</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;translation&quot;</span><span class="p">]</span>
+            <span class="n">both</span> <span class="o">=</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">protein</span><span class="p">)</span>
+            <span class="n">tags_and_proteins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">both</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tags_and_proteins</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tp</span> <span class="p">:</span> <span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
