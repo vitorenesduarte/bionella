@@ -151,7 +151,7 @@ def retrieve_uniprot_ids(dictionary):
         uniprot_id = gene_id_to_uniprot_id[gene_id]
         tag = gene_id_to_tag[gene_id]
 
-        # adicionary uma nova propriedade ao dicionário: "uniprot_id"
+        # adicionar uma nova propriedade ao dicionário: "uniprot_id"
         dictionary[tag]["uniprot_id"] = uniprot_id
 
     return dictionary

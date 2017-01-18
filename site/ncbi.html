@@ -11759,7 +11759,6 @@ div#notebook {
 <li><a href="#parse_xml">util.www.parse_xml(file_path, add_root, start, end)</a></li>
 <li><a href="#verify">verify(dictionary, table)</a></li>
 <li><a href="#retrieve_uniprot_ids">retrieve_uniprot_ids(dictionary)</a></li>
-<li><a href="#gene_ids_to_uniprot_ids">util.www.gene_ids_to_uniprot_ids(gene_ids)</a></li>
 <li><a href="#main">main()</a></li>
 </ol>
 <p>Os resultados desta fase podem ser encontrados <a href="ncbi_results.html">aqui</a></p>
@@ -12122,7 +12121,7 @@ Por fim, para sabermos mais sobre a nossa zona do genoma, mapeamos os <strong>ge
         <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">gene_id_to_uniprot_id</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span>
         <span class="n">tag</span> <span class="o">=</span> <span class="n">gene_id_to_tag</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span>
 
-        <span class="c1"># adicionary uma nova propriedade ao dicionário: &quot;uniprot_id&quot;</span>
+        <span class="c1"># adicionar uma nova propriedade ao dicionário: &quot;uniprot_id&quot;</span>
         <span class="n">dictionary</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
 
     <span class="k">return</span> <span class="n">dictionary</span>
@@ -12136,42 +12135,7 @@ Por fim, para sabermos mais sobre a nossa zona do genoma, mapeamos os <strong>ge
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="gene_ids_to_uniprot_ids"></a>
-Esta função usa uma outra função de mapeamento presente no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> chamada <code>gene_ids_to_uniprot_ids</code>.</p>
-<p>A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso, mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gene_ids_to_uniprot_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Mapeia a lista de gene ids passada como argumento para uniprot ids.</span>
-<span class="sd">    Retorna um dictionário em que as chaves são gene_id e os valores</span>
-<span class="sd">    são uniprot_id.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.uniprot.org/mapping/&quot;</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
-
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;P_ENTREZGENEID&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span>
-    <span class="p">}</span>
-
-    <span class="c1"># HTTP POST</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-        <span class="n">url</span><span class="p">,</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">data</span>
-    <span class="p">)</span>
-
-    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="c1"># ignorar a primeira linha</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
-        <span class="n">gene_id</span><span class="p">,</span> <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-
-        <span class="n">result</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
-
-    <span class="k">return</span> <span class="n">result</span>
-</pre></div>
+<p>Esta função usa uma outra função de mapeamento presente no módulo <a href="https://github.com/vitorenesduarte/bionella/blob/master/util/www.py"><code>util.www</code></a> chamada <code>gene_ids_to_uniprot_ids</code>. Mais informação sobre esta função pode ser encontrada <a href="uniprot_services.html">aqui</a>.</p>
 
 </div>
 </div>

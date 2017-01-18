@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
+<title>uniprot_services</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,31 +11751,94 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#205;ndice">&#205;ndice<a class="anchor-link" href="#&#205;ndice">&#182;</a></h1><ol>
-<li><a href="legionella.html">Introdução</a></li>
-<li><a href="ncbi.html">Análise da sequência e das features presentes no NCBI</a><ol>
-<li><a href="ncbi_results.html">Resultados do NCBI</a></li>
-</ol>
+<h2 id="Servi&#231;os-UniProt">Servi&#231;os UniProt<a class="anchor-link" href="#Servi&#231;os-UniProt">&#182;</a></h2><p>Neste trabalho utilizamos dois serviços disponibilizados pelo site UniProt:</p>
+<ul>
+<li>serviço de mapeamento de identificadores</li>
+<li><p>serviço de download de informação em <em>batch</em></p>
 </li>
-<li><a href="blast.html">Análise de homologias por BLAST</a><ol>
-<li><a href="blast_results.html">Resultados do BLAST</a></li>
-</ol>
+<li><p><a href="#gene_ids_to_uniprot_ids">util.www.gene_ids_to_uniprot_ids(gene_ids)</a></p>
 </li>
-<li><a href="uniprot.html">Ferramentas de análise das propriedades da proteína</a><ol>
-<li><a href="uniprot_results.html">Resultados da UniProt</a></li>
-<li><a href="ncbi_uniprot_results.html">Resultados NCBI + UniProt</a></li>
-</ol>
-</li>
-<li><a href="vias.html">Vias Metabólicas e de Infeção</a></li>
-<li><a href="transporters.html">Transportadores e Fatores de Transcrição</a></li>
-<li><a href="conclusion.html">Conclusão</a></li>
-</ol>
-<h4 id="Outros">Outros<a class="anchor-link" href="#Outros">&#182;</a></h4><ul>
-<li><a href="rw.html">Módulo <code>util.rw</code></a></li>
-<li><a href="util.html">Módulo <code>util.util</code></a></li>
-<li><a href="uniprot_services.html">Serviços UniProt</a></li>
-<li><a href="docker.html">Docker</a></li>
 </ul>
+<p><a name="gene_ids_to_uniprot_ids"></a>
+A UniProt oferece um serviço de mapeamento de identificadores entre diferentes bases de dados (mais informação <a href="http://www.uniprot.org/help/programmatic_access">aqui</a>). Neste caso, mapeamos de <em>Entrez Gene (GeneID)</em> (<strong>P_ENTREZGENEID</strong>) para <em>UniProtKB ID</em> (<strong>ID</strong>).</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gene_ids_to_uniprot_ids</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mapeia a lista de gene ids passada como argumento para uniprot ids.</span>
+<span class="sd">    Retorna um dictionário em que as chaves são gene_id e os valores</span>
+<span class="sd">    são uniprot_id.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.uniprot.org/mapping/&quot;</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;P_ENTREZGENEID&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;ACC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span>
+    <span class="p">}</span>
+
+    <span class="c1"># HTTP POST</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="n">url</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+    <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># ignorar a primeira linha</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">gene_id</span><span class="p">,</span> <span class="n">uniprot_id</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span><span class="p">[</span><span class="n">gene_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">uniprot_id</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
