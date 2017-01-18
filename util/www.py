@@ -128,7 +128,7 @@ def gene_ids_to_uniprot_ids(ids):
     data = {
         "format": "tab",
         "from": "P_ENTREZGENEID",
-        "to": "ID",
+        "to": "ACC",
         "query": query
     }
 
@@ -235,12 +235,6 @@ def fetch_uniprots(ids):
 def extract_uniprot_info(entry):
     """
     Extrai a informação que necessitamos da uniprot.
-      - status (reviewed, unreviewed)
-      - accessions
-      - organismo
-      - comentários sobre a função
-      - GO - Molecular Function
-      - sequência
     """
     # dataset
     ds = entry.get("dataset")
@@ -256,6 +250,17 @@ def extract_uniprot_info(entry):
     accessions = [a.text for a in entry.findall(".//accession")]
     accession = accessions[0]
 
+    # short name
+    short_name = entry.find("name").text
+
+    # full name
+    full_name = entry.find(".//fullName").text
+
+    # ec number
+    ec_number = entry.find(".//ecNumber")
+    if ec_number != None:
+        ec_number = ec_number.text
+
     # organism
     organisms = entry.findall(".//name[@type='scientific']")
     if len(organisms) == 1:
@@ -268,27 +273,74 @@ def extract_uniprot_info(entry):
     # página da uniprot
     comment_functions = [c.find("text").text for c in entry.findall(".//comment[@type='function']")]
 
+    # cofator
+    cofactors = [c.find("cofactor").find("name").text for c in entry.findall(".//comment[@type='cofactor']")]
+
+    # patologias
+    pathologies = [c.find("disease").find("name").text for c in entry.findall(".//comment[@type='disease']")]
+
+    # PDB
+    pdbs = []
+    PDB = entry.findall(".//dbReference[@type='PDB']")
+    for pdb in PDB:
+        id = pdb.get("id")
+        method = pdb.find("property[@type='method']")
+        chains = pdb.find("property[@type='chains']")
+
+        if (not method == None) and (not chains == None):
+            method = method.get("value")
+            chains = chains.get("value")
+
+            d = {}
+            d["id"] = id
+            d["method"] = method
+            d["chains"] = chains
+            pdbs.append(d)
+
     # encontrar GO - Molecular Function
+    # e GO - Biological process
     molecular_functions = []
+    biological_processes = []
+    locations = []
     GO = entry.findall(".//dbReference[@type='GO']")
     for go in GO:
-        function = go.find("property[@type='term']").get("value")
-        is_molecular_function = function.startswith("F:")
+        value = go.find("property[@type='term']").get("value")
+        is_molecular_function = value.startswith("F:")
+        is_biological_process = value.startswith("P:")
+        is_location = value.startswith("C:")
+
+        value = value[2:]
 
         if is_molecular_function:
-            molecular_functions.append(function[2:])
+            molecular_functions.append(value)
+        elif is_biological_process:
+            biological_processes.append(value)
+        elif is_location:
+            locations.append(value)
 
     # sequência
     sequences = entry.findall(".//sequence[@length]")
     assert len(sequences) == 1
     sequence = sequences[0].text.replace("\n", "")
+    length = int(sequences[0].get("length"))
+    mass = int(sequences[0].get("mass"))
 
     dictionary = {}
     dictionary["status"] = status
     dictionary["accessions"] = accessions
+    dictionary["short_name"] = short_name
+    dictionary["product"] = full_name
+    dictionary["EC_number"] = ec_number
     dictionary["organism"] = organism
     dictionary["comment_functions"] = comment_functions
+    dictionary["cofactors"] = cofactors
+    dictionary["pathologies"] = pathologies
+    dictionary["pdbs"] = pdbs
     dictionary["molecular_functions"] = molecular_functions
-    dictionary["sequence"] = sequence
+    dictionary["biological_processes"] = biological_processes
+    dictionary["locations"] = locations
+    dictionary["translation"] = sequence
+    dictionary["length"] = length
+    dictionary["mass"] = mass
 
     return (accession, dictionary)
