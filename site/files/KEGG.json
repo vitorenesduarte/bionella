@@ -1,19 +1,4 @@
 {
-  "lpg0232": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "Fur family transcriptional regulator, zinc uptake regulator",
-        "id": "K09823"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Quorum sensing",
-        "id": "lpn02024"
-      }
-    ]
-  },
   "lpg0233": {
     "EC_number": "[EC:4.1.1.7]",
     "Orthology": [
@@ -30,6 +15,12 @@
       {
         "desc": "Microbial metabolism in diverse environments",
         "id": "lpn01120"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "phenylglyoxylate = benzaldehyde + CO2",
+        "id": "R01764"
       }
     ]
   },
@@ -49,6 +40,12 @@
       {
         "desc": "Metabolic pathways",
         "id": "lpn01100"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "betaine aldehyde + NAD+ + H2O = betaine + NADH + 2 H+",
+        "id": "R02565"
       }
     ]
   },
@@ -89,6 +86,12 @@
         "desc": "Microbial metabolism in diverse environments",
         "id": "lpn01120"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "4-aminobutanoate + 2-oxoglutarate = succinate semialdehyde + L-glutamate",
+        "id": "R01648"
+      }
     ]
   },
   "lpg0241": {
@@ -115,6 +118,12 @@
       {
         "desc": "Metabolic pathways",
         "id": "lpn01100"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "L-glutamine + H2O = L-glutamate + NH3",
+        "id": "R00256"
       }
     ]
   },
@@ -155,32 +164,27 @@
         "desc": "Biosynthesis of amino acids",
         "id": "lpn01230"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "3-phospho-D-glycerate + NAD+ = 3-phosphonooxypyruvate + NADH + H+",
+        "id": "R01513"
+      }
     ]
   },
-  "lpg0245": {
-    "EC_number": "[EC:1.4.1.2]",
+  "lpg0244": {
+    "EC_number": "[EC:1.16.1.1]",
     "Orthology": [
       {
-        "desc": "glutamate dehydrogenase",
-        "id": "K15371"
+        "desc": "mercuric reductase",
+        "id": "K00520"
       }
     ],
-    "Pathways": [
+    "Pathways": [],
+    "Reactions": [
       {
-        "desc": "Arginine biosynthesis",
-        "id": "lpn00220"
-      },
-      {
-        "desc": "Alanine, aspartate and glutamate metabolism",
-        "id": "lpn00250"
-      },
-      {
-        "desc": "Taurine and hypotaurine metabolism",
-        "id": "lpn00430"
-      },
-      {
-        "desc": "Nitrogen metabolism",
-        "id": "lpn00910"
+        "desc": " Hg + NADP+ + H+ = Hg2+ + NADPH",
+        "id": "R02807"
       }
     ]
   },
@@ -192,7 +196,13 @@
         "id": "K00537"
       }
     ],
-    "Pathways": []
+    "Pathways": [],
+    "Reactions": [
+      {
+        "desc": "arsenate + glutaredoxin = arsenite + glutaredoxin disulfide + H2O",
+        "id": "R05747"
+      }
+    ]
   },
   "lpg0249": {
     "EC_number": "[EC:1.14.19.1]",
@@ -211,72 +221,13 @@
         "desc": "Fatty acid metabolism",
         "id": "lpn01212"
       }
-    ]
-  },
-  "lpg0250": {
-    "EC_number": "[EC:3.6.4.13]",
-    "Orthology": [
-      {
-        "desc": "ATP-dependent RNA helicase RhlE",
-        "id": "K11927"
-      }
     ],
-    "Pathways": [
+    "Reactions": [
       {
-        "desc": "RNA degradation",
-        "id": "lpn03018"
+        "desc": "stearoyl-CoA + 2 ferrocytochrome b5 + O2 + 2 H+ = oleoyl-CoA + 2 ferricytochrome b5 + 2 H2O",
+        "id": "R02222"
       }
     ]
-  },
-  "lpg0252": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "uncharacterized protein",
-        "id": "K09125"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0262": {
-    "EC_number": " [EC:2.7.7.7]",
-    "Orthology": [
-      {
-        "desc": "DNA polymerase bacteriophage-type",
-        "id": "K02334"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0263": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "MFS transporter, UMF1 family",
-        "id": "K06902"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0268": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "putative hydrolases of HD superfamily",
-        "id": "K07023"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0269": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "uncharacterized protein",
-        "id": "K06915"
-      }
-    ],
-    "Pathways": []
   },
   "lpg0270": {
     "EC_number": "[EC:6.3.4.21]",
@@ -294,6 +245,12 @@
       {
         "desc": "Metabolic pathways",
         "id": "lpn01100"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "nicotinate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O = beta-nicotinate D-ribonucleotide + diphosphate + ADP + phosphate",
+        "id": "R01724"
       }
     ]
   },
@@ -314,20 +271,11 @@
         "desc": "Metabolic pathways",
         "id": "lpn01100"
       }
-    ]
-  },
-  "lpg0275": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "effector protein SdbA",
-        "id": "K15487"
-      }
     ],
-    "Pathways": [
+    "Reactions": [
       {
-        "desc": "Legionellosis",
-        "id": "lpn05134"
+        "desc": "nicotinamide + H2O = nicotinate + NH3",
+        "id": "R01268"
       }
     ]
   },
@@ -360,17 +308,13 @@
         "desc": "Carbon metabolism",
         "id": "lpn01200"
       }
-    ]
-  },
-  "lpg0287": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "elongation factor P",
-        "id": "K02356"
-      }
     ],
-    "Pathways": []
+    "Reactions": [
+      {
+        "desc": "formate + NAD+ = CO2 + NADH",
+        "id": "R00519"
+      }
+    ]
   },
   "lpg0288": {
     "EC_number": "[EC:5.4.3.-]",
@@ -399,17 +343,13 @@
         "desc": "RNA degradation",
         "id": "lpn03018"
       }
-    ]
-  },
-  "lpg0291": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "chromate transporter",
-        "id": "K07240"
-      }
     ],
-    "Pathways": []
+    "Reactions": [
+      {
+        "desc": "ATP + (phosphate)n = ADP + (phosphate)n+1",
+        "id": "R02184"
+      }
+    ]
   },
   "lpg0295": {
     "EC_number": "[EC:2.7.7.-]",
@@ -445,26 +385,6 @@
       }
     ]
   },
-  "lpg0297": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "LPS-assembly protein",
-        "id": "K04744"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0298": {
-    "EC_number": "[EC:5.2.1.8]",
-    "Orthology": [
-      {
-        "desc": "peptidyl-prolyl cis-trans isomerase SurA",
-        "id": "K03771"
-      }
-    ],
-    "Pathways": []
-  },
   "lpg0299": {
     "EC_number": "[EC:1.1.1.262]",
     "Orthology": [
@@ -481,6 +401,12 @@
       {
         "desc": "Metabolic pathways",
         "id": "lpn01100"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "4-phosphonooxy-L-threonine + NAD+ = 3-amino-2-oxopropyl phosphate + CO2 + NADH + H+",
+        "id": "R05837"
       }
     ]
   },
@@ -505,802 +431,13 @@
         "desc": "Metabolic pathways",
         "id": "lpn01100"
       }
-    ]
-  },
-  "lpg0302": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "16S ribosomal RNA",
-        "id": "K01977"
-      }
     ],
-    "Pathways": [
+    "Reactions": [
       {
-        "desc": "Ribosome",
-        "id": "lpn03010"
+        "desc": "5,6,7,8-tetrahydrofolate + NADP+ = 7,8-dihydrofolate + NADPH + H+",
+        "id": "R00939"
       }
     ]
-  },
-  "lpg0303": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Ala",
-        "id": "K14218"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0304": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "23S ribosomal RNA",
-        "id": "K01980"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0309": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "5S ribosomal RNA",
-        "id": "K01985"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0310": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Thr",
-        "id": "K14234"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0311": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Tyr",
-        "id": "K14236"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0312": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Gly",
-        "id": "K14225"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0313": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Thr",
-        "id": "K14234"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0314": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "elongation factor Tu",
-        "id": "K02358"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0315": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "tRNA Trp",
-        "id": "K14235"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Aminoacyl-tRNA biosynthesis",
-        "id": "lpn00970"
-      }
-    ]
-  },
-  "lpg0316": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "preprotein translocase subunit SecE",
-        "id": "K03073"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Quorum sensing",
-        "id": "lpn02024"
-      },
-      {
-        "desc": "Protein export",
-        "id": "lpn03060"
-      },
-      {
-        "desc": "Bacterial secretion system",
-        "id": "lpn03070"
-      }
-    ]
-  },
-  "lpg0317": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "transcriptional antiterminator NusG",
-        "id": "K02601"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0318": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L11",
-        "id": "K02867"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0319": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L1",
-        "id": "K02863"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0320": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L10",
-        "id": "K02864"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0321": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L7/L12",
-        "id": "K02935"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0322": {
-    "EC_number": "[EC:2.7.7.6]",
-    "Orthology": [
-      {
-        "desc": "DNA-directed RNA polymerase subunit beta",
-        "id": "K03043"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Purine metabolism",
-        "id": "lpn00230"
-      },
-      {
-        "desc": "Pyrimidine metabolism",
-        "id": "lpn00240"
-      },
-      {
-        "desc": "Metabolic pathways",
-        "id": "lpn01100"
-      },
-      {
-        "desc": "RNA polymerase",
-        "id": "lpn03020"
-      }
-    ]
-  },
-  "lpg0323": {
-    "EC_number": "[EC:2.7.7.6]",
-    "Orthology": [
-      {
-        "desc": "DNA-directed RNA polymerase subunit beta",
-        "id": "K03046"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Purine metabolism",
-        "id": "lpn00230"
-      },
-      {
-        "desc": "Pyrimidine metabolism",
-        "id": "lpn00240"
-      },
-      {
-        "desc": "Metabolic pathways",
-        "id": "lpn01100"
-      },
-      {
-        "desc": "RNA polymerase",
-        "id": "lpn03020"
-      }
-    ]
-  },
-  "lpg0324": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S12",
-        "id": "K02950"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0325": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S7",
-        "id": "K02992"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0326": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "elongation factor G",
-        "id": "K02355"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0327": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "elongation factor Tu",
-        "id": "K02358"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0328": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S10",
-        "id": "K02946"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0329": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L3",
-        "id": "K02906"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0330": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L4",
-        "id": "K02926"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0331": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L23",
-        "id": "K02892"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0332": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L2",
-        "id": "K02886"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0334": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L22",
-        "id": "K02890"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0335": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S3",
-        "id": "K02982"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0336": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L16",
-        "id": "K02878"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0337": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L29",
-        "id": "K02904"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0338": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S17",
-        "id": "K02961"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0339": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L14",
-        "id": "K02874"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0340": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L24",
-        "id": "K02895"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0341": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L5",
-        "id": "K02931"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0342": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S14",
-        "id": "K02954"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0343": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S8",
-        "id": "K02994"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0344": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L6",
-        "id": "K02933"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0345": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L18",
-        "id": "K02881"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0346": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S5",
-        "id": "K02988"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0347": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L30",
-        "id": "K02907"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0348": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L15",
-        "id": "K02876"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0349": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "preprotein translocase subunit SecY",
-        "id": "K03076"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Quorum sensing",
-        "id": "lpn02024"
-      },
-      {
-        "desc": "Protein export",
-        "id": "lpn03060"
-      },
-      {
-        "desc": "Bacterial secretion system",
-        "id": "lpn03070"
-      }
-    ]
-  },
-  "lpg0350": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L36 ",
-        "id": "K02919    "
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0351": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S13 ",
-        "id": "K02952 "
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0352": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S11",
-        "id": "K02948"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0353": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": " small subunit ribosomal proteinS4",
-        "id": "K02986"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0354": {
-    "EC_number": "[EC:2.7.7.6]",
-    "Orthology": [
-      {
-        "desc": "DNA-directed RNA polymerase subunit alpha",
-        "id": "K03040"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Purine metabolism",
-        "id": "lpn00230"
-      },
-      {
-        "desc": "Pyrimidine metabolism",
-        "id": "lpn00240"
-      },
-      {
-        "desc": "Metabolic pathways",
-        "id": "lpn01100"
-      },
-      {
-        "desc": "RNA polymerase",
-        "id": "lpn03020"
-      }
-    ]
-  },
-  "lpg0355": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "large subunit ribosomal protein L17",
-        "id": "K02879"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0356": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "single-strand DNA-binding protein",
-        "id": "K03111"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "DNA replication",
-        "id": "lpn03030"
-      },
-      {
-        "desc": "Mismatch repair",
-        "id": "lpn03430"
-      },
-      {
-        "desc": "Homologous recombination",
-        "id": "lpn03440"
-      }
-    ]
-  },
-  "lpg0360": {
-    "EC_number": "4.2.1.-",
-    "Orthology": [],
-    "Pathways": []
   },
   "lpg0361": {
     "EC_number": "[EC:2.3.1.41]",
@@ -1326,6 +463,12 @@
       {
         "desc": "Fatty acid metabolism",
         "id": "lpn01212"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "an acyl-[acyl-carrier protein] + a malonyl-[acyl-carrier protein] = a 3-oxoacyl-[acyl-carrier protein] + CO2 + an [acyl-carrier protein]",
+        "id": "R02768"
       }
     ]
   },
@@ -1354,6 +497,12 @@
         "desc": "Fatty acid metabolism",
         "id": "lpn01212"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "an acyl-[acyl-carrier protein] + a malonyl-[acyl-carrier protein] = a 3-oxoacyl-[acyl-carrier protein] + CO2 + an [acyl-carrier protein]",
+        "id": "R02768"
+      }
     ]
   },
   "lpg0363": {
@@ -1372,6 +521,12 @@
       {
         "desc": "Metabolic pathways",
         "id": "lpn01100"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "a dodecanoyl-[acyl-carrier protein] + Kdo2-lipid IVA = dodecanoyl-Kdo2-lipid IVA + an [acyl-carrier protein]",
+        "id": "R05146"
       }
     ]
   },
@@ -1408,6 +563,12 @@
         "desc": "Biosynthesis of amino acids",
         "id": "lpn01230"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "LL-2,6-diaminoheptanedioate = meso-diaminoheptanedioate",
+        "id": "R02735"
+      }
     ]
   },
   "lpg0369": {
@@ -1419,229 +580,6 @@
       }
     ],
     "Pathways": []
-  },
-  "lpg0371": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "uncharacterized protein",
-        "id": "K09801"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0382": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "hyperosmotically inducible periplasmic protein",
-        "id": "K04065"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0384": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "excinuclease ABC subunit A",
-        "id": "K03701"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Nucleotide excision repair",
-        "id": "lpn03420"
-      }
-    ]
-  },
-  "lpg0385": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "LemA protein",
-        "id": "K03744"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0386": {
-    "EC_number": "[EC:3.4.24.-]",
-    "Orthology": [
-      {
-        "desc": "heat shock protein HtpX",
-        "id": "K03799"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0387": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "ABC-2 type transport system permease protein",
-        "id": "K01992"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "ABC-2 type transport system",
-        "id": "lpn_M00254"
-      }
-    ]
-  },
-  "lpg0388": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "ABC-2 type transport system ATP-binding protein",
-        "id": "K01990"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "ABC-2 type transport system",
-        "id": "lpn_M00254"
-      }
-    ]
-  },
-  "lpg0390": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "VPS inhibitor protein A",
-        "id": "K15476"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Legionellosis",
-        "id": "lpn05134"
-      }
-    ]
-  },
-  "lpg0391": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "SM-20-related protein",
-        "id": "K07394"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0392": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "uncharacterized protein",
-        "id": "K07043"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0394": {
-    "EC_number": "[EC:2.1.1.63]",
-    "Orthology": [
-      {
-        "desc": "methylated-DNA-[protein]-cysteine S-methyltransferase",
-        "id": "K00567"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0395": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "\"large subunit ribosomal protein L19\"",
-        "id": "K02884"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0396": {
-    "EC_number": "[EC:2.1.1.228]",
-    "Orthology": [
-      {
-        "desc": "tRNA (guanine37-N1)-methyltransferase",
-        "id": "K00554"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0397": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "16S rRNA processing protein RimM",
-        "id": "K02860"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0398": {
-    "EC_number": "",
-    "Orthology": [],
-    "Pathways": []
-  },
-  "lpg0399": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "small subunit ribosomal protein S16",
-        "id": "K02959"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Ribosome",
-        "id": "lpn03010"
-      }
-    ]
-  },
-  "lpg0400": {
-    "EC_number": "[EC:3.6.5.4]",
-    "Orthology": [
-      {
-        "desc": "signal recognition particle subunit SRP54",
-        "id": "K03106"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Quorum sensing",
-        "id": "lpn02024"
-      },
-      {
-        "desc": "Protein export",
-        "id": "lpn03060"
-      },
-      {
-        "desc": "Bacterial secretion system",
-        "id": "lpn03070"
-      }
-    ]
-  },
-  "lpg0404": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "glutamate:GABA antiporte",
-        "id": "K20265"
-      }
-    ],
-    "Pathways": [
-      {
-        "desc": "Quorum sensing",
-        "id": "lpn02024"
-      }
-    ]
   },
   "lpg0409": {
     "EC_number": "",
@@ -1711,26 +649,6 @@
       }
     ]
   },
-  "lpg0413": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "protein SCO1/2",
-        "id": "K07152"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0414": {
-    "EC_number": "[EC:6.3.2.-]",
-    "Orthology": [
-      {
-        "desc": "ribosomal protein S6--L-glutamate ligase",
-        "id": "K05844"
-      }
-    ],
-    "Pathways": []
-  },
   "lpg0416": {
     "EC_number": "[EC:1.1.1.49 | 1.1.1.363]",
     "Orthology": [
@@ -1768,6 +686,12 @@
         "desc": "Carbon metabolism",
         "id": "lpn01200"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "D-glucose 6-phosphate + NADP+ = 6-phospho-D-glucono-1,5-lactone + NADPH + H+",
+        "id": "R00835"
+      }
     ]
   },
   "lpg0417": {
@@ -1803,6 +727,12 @@
         "desc": "Carbon metabolism",
         "id": "lpn01200"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "6-phospho-D-glucono-1,5-lactone + H2O = 6-phospho-D-gluconate",
+        "id": "R02035"
+      }
     ]
   },
   "lpg0418": {
@@ -1829,6 +759,12 @@
       {
         "desc": "Carbon metabolism",
         "id": "lpn01200"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "6-phospho-D-gluconate = 2-dehydro-3-deoxy-6-phospho-D-gluconate + H2O",
+        "id": "R02036"
       }
     ]
   },
@@ -1881,6 +817,12 @@
         "desc": "Carbon metabolism",
         "id": "lpn01200"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "ATP + D-glucose = ADP + D-glucose 6-phosphate",
+        "id": "R00299"
+      }
     ]
   },
   "lpg0420": {
@@ -1912,6 +854,12 @@
         "desc": "Carbon metabolism",
         "id": "lpn01200"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "2-dehydro-3-deoxy-6-phospho-D-gluconate = pyruvate + D-glyceraldehyde 3-phosphate",
+        "id": "R05605"
+      }
     ]
   },
   "lpg0422": {
@@ -1931,17 +879,13 @@
         "desc": "Metabolic pathways",
         "id": "lpn01100"
       }
-    ]
-  },
-  "lpg0423": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "putative transcriptional regulator",
-        "id": "K07727"
-      }
     ],
-    "Pathways": []
+    "Reactions": [
+      {
+        "desc": "Hydrolysis of terminal (1->4)-linked alpha-D-glucose residues successively from non-reducing ends of the chains with release of beta-D-glucose",
+        "id": "-"
+      }
+    ]
   },
   "lpg0425": {
     "EC_number": "[EC:4.99.1.1]",
@@ -1964,197 +908,13 @@
         "desc": "Biosynthesis of secondary metabolites",
         "id": "lpn01110"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "protoheme + 2 H+ = protoporphyrin + Fe2+",
+        "id": "R00310"
+      }
     ]
-  },
-  "lpg0426": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "cold shock protein (beta-ribbon, CspA family) ",
-        "id": "K03704"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0441": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmT",
-        "id": "K12222"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0442": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmS",
-        "id": "K12221"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0443": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmR",
-        "id": "K12220"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0444": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmQ",
-        "id": "K12219"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0445": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmP",
-        "id": "K12218"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0446": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmO",
-        "id": "K12217"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0447": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmN",
-        "id": "K12216"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0448": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmM",
-        "id": "K12215"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0449": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmL",
-        "id": "K12214"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0450": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmK",
-        "id": "K12213"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0451": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmE",
-        "id": "K12209"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0452": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmG",
-        "id": "K12211"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0453": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmC",
-        "id": "K12207"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0454": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmD",
-        "id": "K12208"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0455": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmJ",
-        "id": "K12212"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0456": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmB",
-        "id": "K12206"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0457": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "proline/betaine transport protein TphA",
-        "id": "K12226"
-      }
-    ],
-    "Pathways": []
-  },
-  "lpg0458": {
-    "EC_number": "",
-    "Orthology": [
-      {
-        "desc": "intracellular multiplication protein IcmF",
-        "id": "K12210"
-      }
-    ],
-    "Pathways": []
   },
   "lpg0460": {
     "EC_number": "[EC:2.1.2.3 |  3.5.4.10]",
@@ -2185,16 +945,65 @@
         "desc": "Biosynthesis of antibiotics",
         "id": "lpn01130"
       }
+    ],
+    "Reactions": [
+      {
+        "desc": "10-formyltetrahydrofolate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide = tetrahydrofolate + 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide",
+        "id": "R04560"
+      }
     ]
   },
-  "lpg0461": {
-    "EC_number": "[EC:2.1.1.-]",
+  "lpg0462": {
+    "EC_number": "[EC:6.4.1.2 | 6.3.4.14]",
     "Orthology": [
       {
-        "desc": "ribosomal protein L11 methyltransferase",
-        "id": "K02687"
+        "desc": "acetyl-CoA carboxylase, biotin carboxylase subunit",
+        "id": "K01961"
       }
     ],
-    "Pathways": []
+    "Pathways": [
+      {
+        "desc": "Fatty acid biosynthesis",
+        "id": "lpn00061"
+      },
+      {
+        "desc": "Metabolic pathways",
+        "id": "lpn01100"
+      },
+      {
+        "desc": "Pyruvate metabolism",
+        "id": "lpn00620"
+      },
+      {
+        "desc": "Propanoate metabolism",
+        "id": "lpn00640"
+      },
+      {
+        "desc": "Biosynthesis of secondary metabolites",
+        "id": "lpn01110"
+      },
+      {
+        "desc": "Microbial metabolism in diverse environments",
+        "id": "lpn01120"
+      },
+      {
+        "desc": "Biosynthesis of antibiotics",
+        "id": "lpn01130"
+      },
+      {
+        "desc": "Carbon metabolism",
+        "id": "lpn01200"
+      },
+      {
+        "desc": "Fatty acid metabolism",
+        "id": "lpn01212"
+      }
+    ],
+    "Reactions": [
+      {
+        "desc": "ATP + acetyl-CoA + HCO3- = ADP + phosphate + malonyl-CoA",
+        "id": "R00742"
+      }
+    ]
   }
 }
