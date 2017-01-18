@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
+<title>cdd_results</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,40 +11751,920 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#205;ndice">&#205;ndice<a class="anchor-link" href="#&#205;ndice">&#182;</a></h1><ol>
-<li><a href="legionella.html">Introdução</a></li>
-<li><a href="ncbi.html">Análise da sequência e das features presentes no NCBI</a><ol>
-<li><a href="ncbi_results.html">Resultados do NCBI</a></li>
-</ol>
-</li>
-<li><a href="blast.html">Análise de homologias por BLAST</a><ol>
-<li><a href="blast_results.html">Resultados do BLAST</a></li>
-</ol>
-</li>
-<li><a href="uniprot.html">Ferramentas de análise das propriedades da proteína</a><ol>
-<li><a href="uniprot_results.html">Resultados da UniProt</a></li>
-<li><a href="cdd_results.html">Resultados do CDD</a></li>
-<li><a href="ncbi_uniprot_results.html">Resultados NCBI + UniProt</a></li>
-</ol>
-</li>
-<li><a href="alignments.html">Alinhamentos Múltiplos e Árvores Filogenéticas</a></li>
-<li><a href="vias.html">Vias Metabólicas e de Infeção</a></li>
-<li><a href="transporters.html">Transportadores e Fatores de Transcrição</a></li>
-<li><a href="conclusion.html">Conclusão</a></li>
-</ol>
-<h4 id="Outros">Outros<a class="anchor-link" href="#Outros">&#182;</a></h4><ul>
-<li><a href="rw.html">Módulo <code>util.rw</code></a></li>
-<li><a href="util.html">Módulo <code>util.util</code></a></li>
-<li><a href="uniprot_services.html">Serviços UniProt</a></li>
-<li><a href="docker.html">Docker</a></li>
-</ul>
-<center>
-<a target="_blank" href="https://github.com/vitorenesduarte/bionella">
-<img src="img/git.svg" alt="Repositório GitHub" height="30" width="30">
-</a>
-</center>
+<h2 id="Resultados-do-CDD">Resultados do CDD<a class="anchor-link" href="#Resultados-do-CDD">&#182;</a></h2>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="k">def</span> <span class="nf">import_modules</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Importar os módulos que desenvolvemos neste trabalho.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">())))</span>
+    <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">current_dir</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">parent_dir</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">itemize</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Criar uma lista HTML dada uma lista.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;ul&gt;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">+=</span> <span class="s2">&quot;&lt;li&gt;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">html</span> <span class="o">+=</span> <span class="n">itemize_dict</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">html</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="n">html</span> <span class="o">+=</span><span class="s2">&quot;&lt;/li&gt;&quot;</span>
+    <span class="n">html</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/ul&gt;&quot;</span>
+    <span class="k">return</span> <span class="n">html</span>
+
+<span class="k">def</span> <span class="nf">itemize_dict</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Criar uma lista HTML dado um dicionário.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;ul style=</span><span class="se">\&quot;</span><span class="s2">list-style-type: square</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">+=</span> <span class="s2">&quot;&lt;li&gt;&lt;strong&gt;&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;:&lt;/strong&gt; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&lt;/li&gt;&quot;</span>  
+    <span class="n">html</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/ul&gt;&quot;</span>
+    <span class="k">return</span> <span class="n">html</span>
+    
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">import_modules</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">util.rw</span> <span class="k">as</span> <span class="nn">rw</span>
+    
+    <span class="c1"># mostra todas as linhas</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">250</span>
+    
+    <span class="c1"># não truncar informação</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">domains</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;files/domains.json&quot;</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">domains</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">itemize</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+
+    
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domains</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lpg0232</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0735</li><li><strong>name:</strong> Fur</li><li><strong>desc:</strong> Fe2+ or Zn2+ uptake regulation protein [Inorganic ion transport and metabolism] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0233</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd02002</li><li><strong>name:</strong> TPP_BFDC</li><li><strong>desc:</strong> Thiamine pyrophosphate (TPP) family, BFDC subfamily, TPP-binding module  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02776</li><li><strong>name:</strong> TPP_enzyme_N</li><li><strong>desc:</strong> Thiamine pyrophosphate enzyme, N-terminal TPP binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00205</li><li><strong>name:</strong> TPP_enzyme_M</li><li><strong>desc:</strong> Thiamine pyrophosphate enzyme, central domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0028</li><li><strong>name:</strong> IlvB</li><li><strong>desc:</strong> Acetolactate synthase large subunit or other thiamine pyrophosphate-requiring enzyme </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0234</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12252</li><li><strong>name:</strong> SidE</li><li><strong>desc:</strong> Dot/Icm substrate protein  This family of proteins is found in bacteria</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0235</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl01553</li><li><strong>name:</strong> GFA super family</li><li><strong>desc:</strong> Glutathione-dependent formaldehyde-activating enzyme </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0237</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12695</li><li><strong>name:</strong> Abhydrolase_5</li><li><strong>desc:</strong> Alpha/beta hydrolase family  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21494</li><li><strong>name:</strong> Abhydrolase super family</li><li><strong>desc:</strong> alpha/beta hydrolases  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0238</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd07119</li><li><strong>name:</strong> ALDH_BADH-GbsA</li><li><strong>desc:</strong> Bacillus subtilis NAD+-dependent betaine aldehyde dehydrogenase-like  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0239</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl18945</li><li><strong>name:</strong> AAT_I super family</li><li><strong>desc:</strong> Aspartate aminotransferase (AAT) superfamily (fold type I) of pyridoxal phosphate (PLP)-dependent enzymes</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0160</li><li><strong>name:</strong> GabT</li><li><strong>desc:</strong> 4-aminobutyrate aminotransferase or related aminotransferase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0241</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> TIGR03814</li><li><strong>name:</strong> Gln_ase</li><li><strong>desc:</strong> glutaminase A  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0242</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21454</li><li><strong>name:</strong> NADB_Rossmann super family</li><li><strong>desc:</strong> Rossmann-fold NAD(P)(+)-binding proteins </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0111</li><li><strong>name:</strong> SerA</li><li><strong>desc:</strong> Phosphoglycerate dehydrogenase or related dehydrogenase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0243</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK07578</li><li><strong>name:</strong> PRK07578</li><li><strong>desc:</strong> short chain dehydrogenase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0244</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02852</li><li><strong>name:</strong> Pyr_redox_dim</li><li><strong>desc:</strong> Pyridine nucleotide-disulphide oxidoreductase, dimerization domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00070</li><li><strong>name:</strong> Pyr_redox</li><li><strong>desc:</strong> Pyridine nucleotide-disulphide oxidoreductase  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK06370</li><li><strong>name:</strong> PRK06370</li><li><strong>desc:</strong> mercuric reductase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0245</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam05088</li><li><strong>name:</strong> Bac_GDH</li><li><strong>desc:</strong> Bacterial NAD-glutamate dehydrogenase  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG2902</li><li><strong>name:</strong> Gdh2</li><li><strong>desc:</strong> NAD-specific glutamate dehydrogenase [Amino acid transport and metabolism] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0248</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03034</li><li><strong>name:</strong> ArsC_ArsC</li><li><strong>desc:</strong> Arsenate Reductase (ArsC) family, ArsC subfamily  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0249</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00615</li><li><strong>name:</strong> Membrane-FADS-like super family</li><li><strong>desc:</strong> The membrane fatty acid desaturase (Membrane_FADS)-like CD includes membrane FADSs, alkane ...</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl24015</li><li><strong>name:</strong> MULE super family</li><li><strong>desc:</strong> MULE transposase domain  This domain was identified by Babu and colleagues.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00487</li><li><strong>name:</strong> FA_desaturase</li><li><strong>desc:</strong> Fatty acid desaturase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0250</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00268</li><li><strong>name:</strong> DEADc</li><li><strong>desc:</strong> DEAD-box helicases.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00079</li><li><strong>name:</strong> HELICc</li><li><strong>desc:</strong> Helicase superfamily c-terminal domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0251</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl17169</li><li><strong>name:</strong> RRM_SF super family</li><li><strong>desc:</strong> RNA recognition motif (RRM) superfamily  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0724</li><li><strong>name:</strong> RRM</li><li><strong>desc:</strong> RNA recognition motif (RRM) domain [Translation, ribosomal structure and biogenesis] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0252</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK11212</li><li><strong>name:</strong> PRK11212</li><li><strong>desc:</strong> hypothetical protein  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0253</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00583</li><li><strong>name:</strong> Acetyltransf_1</li><li><strong>desc:</strong> Acetyltransferase (GNAT) family </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1670</li><li><strong>name:</strong> RimL</li><li><strong>desc:</strong> Protein N-acetyltransferase, RimJ/RimL family </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0255</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02321</li><li><strong>name:</strong> OEP</li><li><strong>desc:</strong> Outer membrane efflux protein  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02321</li><li><strong>name:</strong> OEP</li><li><strong>desc:</strong> Outer membrane efflux protein  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0256</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13515</li><li><strong>name:</strong> FUSC_2</li><li><strong>desc:</strong> Fusaric acid resistance protein-like </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0257</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13533</li><li><strong>name:</strong> Biotin_lipoyl_2</li><li><strong>desc:</strong> Biotin-lipoyl like </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13437</li><li><strong>name:</strong> HlyD_3</li><li><strong>desc:</strong> HlyD family secretion protein  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1566</li><li><strong>name:</strong> EmrA</li><li><strong>desc:</strong> Multidrug resistance efflux pump [Defense mechanisms] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0261</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21562</li><li><strong>name:</strong> DDE_Tnp_4 super family</li><li><strong>desc:</strong> DDE superfamily endonuclease </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG3293</li><li><strong>name:</strong> COG3293</li><li><strong>desc:</strong> Transposase [Mobilome: prophages, transposons] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0262</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd10030</li><li><strong>name:</strong> UDG_F4_TTUDGA_like</li><li><strong>desc:</strong> Family 4 Uracil-DNA glycosylase (UDG), found exclusively in thermophilic organisms  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0263</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06174</li><li><strong>name:</strong> MFS</li><li><strong>desc:</strong> Major Facilitator Superfamily (MFS) </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG2270</li><li><strong>name:</strong> BtlA</li><li><strong>desc:</strong> MFS-type transporter involved in bile tolerance, Atg22 family </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0264</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06583</li><li><strong>name:</strong> PGRP</li><li><strong>desc:</strong> Peptidoglycan recognition proteins (PGRPs) are pattern recognition receptors</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0265</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd13887</li><li><strong>name:</strong> CuRO_2_MCO_like_2</li><li><strong>desc:</strong> The second cupredoxin domain of uncharacterized multicopper oxidase  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd13896</li><li><strong>name:</strong> CuRO_3_CopA</li><li><strong>desc:</strong> The third cupredoxin domain of CopA copper resistance protein family  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd13865</li><li><strong>name:</strong> CuRO_1_LCC_like_3</li><li><strong>desc:</strong> The second cupredoxin domain of uncharacterized multicopper oxidase  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG2132</li><li><strong>name:</strong> SufI</li><li><strong>desc:</strong> Multicopper oxidase with three cupredoxin domains </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0267</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00459</li><li><strong>name:</strong> MIT_CorA-like super family</li><li><strong>desc:</strong> metal ion transporter CorA-like divalent cation transporter superfamily </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0268</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13023</li><li><strong>name:</strong> HD_3</li><li><strong>desc:</strong> HD domain  HD domains are metal dependent phosphohydrolases.</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0269</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21455</li><li><strong>name:</strong> P-loop_NTPase super family</li><li><strong>desc:</strong> P-loop containing Nucleoside Triphosphate Hydrolases  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl14615</li><li><strong>name:</strong> PI-PLCc_GDPD_SF super family</li><li><strong>desc:</strong> Catalytic domain of phosphoinositide-specific phospholipase C-like phosphodiesterases</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0270</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01570</li><li><strong>name:</strong> NAPRTase_A</li><li><strong>desc:</strong> Nicotinate phosphoribosyltransferase (NAPRTase), subgroup A. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK09243</li><li><strong>name:</strong> PRK09243</li><li><strong>desc:</strong> nicotinate phosphoribosyltransferase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0271</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01011</li><li><strong>name:</strong> nicotinamidase</li><li><strong>desc:</strong> Nicotinamidase/pyrazinamidase (PZase). </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0272</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd08351</li><li><strong>name:</strong> ChaP_like</li><li><strong>desc:</strong> ChaP, an enzyme involved in the biosynthesis of the antitumor agent chartreusin (cha)  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0273</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06174</li><li><strong>name:</strong> MFS</li><li><strong>desc:</strong> Major Facilitator Superfamily (MFS)</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0274</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd08422</li><li><strong>name:</strong> PBP2_CrgA_like</li><li><strong>desc:</strong> The C-terminal substrate binding domain of LysR-type transcriptional regulator CrgA</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00126</li><li><strong>name:</strong> HTH_1</li><li><strong>desc:</strong> Bacterial regulatory helix-turn-helix protein, lysR family </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0583</li><li><strong>name:</strong> LysR</li><li><strong>desc:</strong> DNA-binding transcriptional regulator, LysR family [Transcription] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0275</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00561</li><li><strong>name:</strong> Abhydrolase_1</li><li><strong>desc:</strong> alpha/beta hydrolase fold  This catalytic domain is found in a very wide range of enzymes.</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0276</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00617</li><li><strong>name:</strong> RasGEF</li><li><strong>desc:</strong> RasGEF domain  Guanine nucleotide exchange factor for Ras-like small GTPases.</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0277</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01948</li><li><strong>name:</strong> EAL</li><li><strong>desc:</strong> EAL domain. This domain is found in diverse bacterial signaling proteins.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01949</li><li><strong>name:</strong> GGDEF</li><li><strong>desc:</strong> Diguanylate-cyclase (DGC) or GGDEF domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0784</li><li><strong>name:</strong> CheY</li><li><strong>desc:</strong> CheY chemotaxis protein or a CheY-like REC (receiver) domain [Signal transduction mechanisms] </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00091</li><li><strong>name:</strong> PAS</li><li><strong>desc:</strong> PAS domain  PAS motifs appear in archaea, eubacteria and eukarya. </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0278</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02518</li><li><strong>name:</strong> HATPase_c</li><li><strong>desc:</strong> Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00130</li><li><strong>name:</strong> PAS</li><li><strong>desc:</strong> PAS domain  PAS motifs appear in archaea, eubacteria and eukarya.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam08447</li><li><strong>name:</strong> PAS_3</li><li><strong>desc:</strong> PAS fold  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0279</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00897</li><li><strong>name:</strong> FIST</li><li><strong>desc:</strong> FIST N domain  The FIST N domain is a novel sensory domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam10442</li><li><strong>name:</strong> FIST_C</li><li><strong>desc:</strong> FIST C domain  The FIST C domain is a novel sensory domain</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0280</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd05466</li><li><strong>name:</strong> PBP2_LTTR_substrate</li><li><strong>desc:</strong> The substrate binding domain of LysR-type transcriptional regulators (LTTRs)</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00126</li><li><strong>name:</strong> HTH_1</li><li><strong>desc:</strong> Bacterial regulatory helix-turn-helix protein, lysR family </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0583</li><li><strong>name:</strong> LysR</li><li><strong>desc:</strong> DNA-binding transcriptional regulator, LysR family [Transcription] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0281</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00456</li><li><strong>name:</strong> SLC5-6-like_sbd super family</li><li><strong>desc:</strong> Solute carrier families 5 and 6-like  solute binding domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0282</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13847</li><li><strong>name:</strong> Methyltransf_31</li><li><strong>desc:</strong> Methyltransferase domain  This family appears to be have methyltransferase activity.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> TIGR02072</li><li><strong>name:</strong> BioC</li><li><strong>desc:</strong> malonyl-acyl carrier protein O-methyltransferase BioC  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0283</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd05302</li><li><strong>name:</strong> FDH</li><li><strong>desc:</strong> NAD-dependent Formate Dehydrogenase (FDH)  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK07574</li><li><strong>name:</strong> PRK07574</li><li><strong>desc:</strong> formate dehydrogenase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0286</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21454</li><li><strong>name:</strong> NADB_Rossmann super family</li><li><strong>desc:</strong> Rossmann-fold NAD(P)(+)-binding proteins  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG4221</li><li><strong>name:</strong> YdfG</li><li><strong>desc:</strong> NADP-dependent 3-hydroxy acid dehydrogenase YdfG [Energy production and conversion] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0287</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam09285</li><li><strong>name:</strong> Elong-fact-P_C</li><li><strong>desc:</strong> Elongation factor P, C-terminal  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd04470</li><li><strong>name:</strong> S1_EF-P_repeat_1</li><li><strong>desc:</strong> S1_EF-P_repeat_1: Translation elongation factor P (EF-P), S1-like RNA-binding domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam08207</li><li><strong>name:</strong> EFP_N</li><li><strong>desc:</strong> Elongation factor P (EF-P) KOW-like domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00529</li><li><strong>name:</strong> PRK00529</li><li><strong>desc:</strong> elongation factor P   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0288</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl23776</li><li><strong>name:</strong> EFP_modif_epmB super family</li><li><strong>desc:</strong> EF-P beta-lysylation protein EpmB  Members of this radical SAM protein subfamily</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0289</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd09168</li><li><strong>name:</strong> PLDc_PaPPK1_C2_like</li><li><strong>desc:</strong> Catalytic C-terminal domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl15239</li><li><strong>name:</strong> PLDc_SF super family</li><li><strong>desc:</strong> Catalytic domain of phospholipase D superfamily proteins </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02503</li><li><strong>name:</strong> PP_kinase</li><li><strong>desc:</strong> Polyphosphate kinase middle domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13089</li><li><strong>name:</strong> PP_kinase_N</li><li><strong>desc:</strong> Polyphosphate kinase N-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05443</li><li><strong>name:</strong> PRK05443</li><li><strong>desc:</strong> polyphosphate kinase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0290</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl11396</li><li><strong>name:</strong> Patatin_and_cPLA2 super family</li><li><strong>desc:</strong> Patatins and Phospholipases  Patatin-like phospholipase.</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0291</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02417</li><li><strong>name:</strong> Chromate_transp</li><li><strong>desc:</strong> Chromate transporter  Members of this family probably act as chromate transporters</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0293</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam09317</li><li><strong>name:</strong> DUF1974</li><li><strong>desc:</strong> Domain of unknown function (DUF1974)  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00567</li><li><strong>name:</strong> ACAD</li><li><strong>desc:</strong> Acyl-CoA dehydrogenase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02771</li><li><strong>name:</strong> Acyl-CoA_dh_N</li><li><strong>desc:</strong> Acyl-CoA dehydrogenase, N-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK13026</li><li><strong>name:</strong> PRK13026</li><li><strong>desc:</strong> acyl-CoA dehydrogenase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0295</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06422</li><li><strong>name:</strong> NTP_transferase_like_1</li><li><strong>desc:</strong> NTP_transferase_like_1 is a member of the nucleotidyl transferase family  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1208</li><li><strong>name:</strong> GCD1</li><li><strong>desc:</strong> NDP-sugar pyrophosphorylase, includes eIF-2Bgamma, eIF-2Bepsilon, and LPS biosynthesis </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0296</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21453</li><li><strong>name:</strong> PKc_like super family</li><li><strong>desc:</strong> Protein Kinases, catalytic domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01636</li><li><strong>name:</strong> APH</li><li><strong>desc:</strong> Phosphotransferase enzyme family  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0297</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam04453</li><li><strong>name:</strong> OstA_C</li><li><strong>desc:</strong> Organic solvent tolerance protein  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21541</li><li><strong>name:</strong> OstA super family</li><li><strong>desc:</strong> OstA-like protein  This family of proteins are mostly uncharacterized.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1452</li><li><strong>name:</strong> LptD</li><li><strong>desc:</strong> LPS assembly outer membrane protein LptD (organic solvent tolerance protein OstA) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0298</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21568</li><li><strong>name:</strong> SurA_N_3 super family</li><li><strong>desc:</strong> SurA N-terminal domain  This domain is found at the N-terminus of the chaperone SurA. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13616</li><li><strong>name:</strong> Rotamase_3</li><li><strong>desc:</strong> PPIC-type PPIASE domain  Rotamases increase the rate of protein folding </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00639</li><li><strong>name:</strong> Rotamase</li><li><strong>desc:</strong> PPIC-type PPIASE domain  Rotamases increase the rate of protein folding </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0299</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> TIGR00557</li><li><strong>name:</strong> pdxA</li><li><strong>desc:</strong> 4-hydroxythreonine-4-phosphate dehydrogenase  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0300</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00186</li><li><strong>name:</strong> DHFR_1</li><li><strong>desc:</strong> Dihydrofolate reductase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0301</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl02743</li><li><strong>name:</strong> DM9 super family</li><li><strong>desc:</strong> Repeats found in Drosophila proteins </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl02743</li><li><strong>name:</strong> DM9 super family</li><li><strong>desc:</strong> Repeats found in Drosophila proteins </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam11901</li><li><strong>name:</strong> DUF3421</li><li><strong>desc:</strong> Protein of unknown function (DUF3421)  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0314</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01884</li><li><strong>name:</strong> EF_Tu</li><li><strong>desc:</strong> Elongation Factor Tu (EF-Tu) GTP-binding proteins  EF-Tu subfamily. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03707</li><li><strong>name:</strong> EFTU_III</li><li><strong>desc:</strong> Domain III of Elongation Factor (EF) Tu  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03697</li><li><strong>name:</strong> EFTU_II</li><li><strong>desc:</strong> Domain II of elongation factor Tu  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00049</li><li><strong>name:</strong> PRK00049</li><li><strong>desc:</strong> elongation factor Tu   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0316</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05740</li><li><strong>name:</strong> secE</li><li><strong>desc:</strong> preprotein translocase subunit SecE   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0317</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd09891</li><li><strong>name:</strong> NGN_Bact_1</li><li><strong>desc:</strong> Bacterial N-Utilization Substance G (NusG) N-terminal (NGN) domain, subgroup 1  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06091</li><li><strong>name:</strong> KOW_NusG</li><li><strong>desc:</strong> NusG contains an NGN domain at its N-terminus and KOW motif at its C-terminus </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05609</li><li><strong>name:</strong> nusG</li><li><strong>desc:</strong> transcription antitermination protein NusG   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0318</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00349</li><li><strong>name:</strong> Ribosomal_L11</li><li><strong>desc:</strong> Ribosomal protein L11. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00140</li><li><strong>name:</strong> rplK</li><li><strong>desc:</strong> 50S ribosomal protein L11   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0319</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05424</li><li><strong>name:</strong> rplA</li><li><strong>desc:</strong> 50S ribosomal protein L1   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0320</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00099</li><li><strong>name:</strong> rplJ</li><li><strong>desc:</strong> 50S ribosomal protein L10   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0321</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00387</li><li><strong>name:</strong> Ribosomal_L7_L12</li><li><strong>desc:</strong> Ribosomal protein L7/L12. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00157</li><li><strong>name:</strong> rplL</li><li><strong>desc:</strong> 50S ribosomal protein L7/L12   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0322</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00653</li><li><strong>name:</strong> RNA_pol_B_RPB2</li><li><strong>desc:</strong> RNA polymerase beta subunit. RNA polymerases catalyse the DNA dependent polymerization of RNA. ...</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam10385</li><li><strong>name:</strong> RNA_pol_Rpb2_45</li><li><strong>desc:</strong> RNA polymerase beta subunit external 1 domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl24026</li><li><strong>name:</strong> RNA_pol_Rpb2_2 super family</li><li><strong>desc:</strong> RNA polymerase Rpb2, domain 2  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00405</li><li><strong>name:</strong> rpoB</li><li><strong>desc:</strong> DNA-directed RNA polymerase subunit beta   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0323</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01609</li><li><strong>name:</strong> RNAP_beta'_N</li><li><strong>desc:</strong> Largest subunit (beta') of bacterial DNA-dependent RNA polymerase (RNAP), N-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd02655</li><li><strong>name:</strong> RNAP_beta'_C</li><li><strong>desc:</strong> Largest subunit (beta') of Bacterial DNA-dependent RNA polymerase (RNAP), C-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl11429</li><li><strong>name:</strong> RNAP_largest_subunit_C super family</li><li><strong>desc:</strong> Largest subunit of RNA polymerase (RNAP), C-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00566</li><li><strong>name:</strong> PRK00566</li><li><strong>desc:</strong> DNA-directed RNA polymerase subunit beta'  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0324</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05163</li><li><strong>name:</strong> rpsL</li><li><strong>desc:</strong> 30S ribosomal protein S12   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0325</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05302</li><li><strong>name:</strong> PRK05302</li><li><strong>desc:</strong> 30S ribosomal protein S7   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0326</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01886</li><li><strong>name:</strong> EF-G</li><li><strong>desc:</strong> Elongation factor G (EF-G) family involved in both the elongation and ribosome recycling </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01434</li><li><strong>name:</strong> EFG_mtEFG1_IV</li><li><strong>desc:</strong> EFG_mtEFG1_IV: domains similar to domain IV of the bacterial translational elongation factor </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00838</li><li><strong>name:</strong> EFG_C</li><li><strong>desc:</strong> Elongation factor G C-terminus </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd04088</li><li><strong>name:</strong> EFG_mtEFG_II</li><li><strong>desc:</strong> Domain II of bacterial elongation factor G and C-terminal domain of mitochondrial Elongation factors G1 (mtEFG1) and G2 (mtEFG2)</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd16262</li><li><strong>name:</strong> EFG_III</li><li><strong>desc:</strong> Domain III of Elongation Factor G (EFG)  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00007</li><li><strong>name:</strong> PRK00007</li><li><strong>desc:</strong> elongation factor G   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0327</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01884</li><li><strong>name:</strong> EF_Tu</li><li><strong>desc:</strong> Elongation Factor Tu (EF-Tu) GTP-binding proteins  EF-Tu subfamily. </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03707</li><li><strong>name:</strong> EFTU_III</li><li><strong>desc:</strong> Domain III of Elongation Factor (EF) Tu  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03697</li><li><strong>name:</strong> EFTU_II</li><li><strong>desc:</strong> Domain II of elongation factor Tu  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00049</li><li><strong>name:</strong> PRK00049</li><li><strong>desc:</strong> elongation factor Tu   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0328</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00596</li><li><strong>name:</strong> rpsJ</li><li><strong>desc:</strong> 30S ribosomal protein S10   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0329</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00001</li><li><strong>name:</strong> rplC</li><li><strong>desc:</strong> 50S ribosomal protein L3   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0330</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05319</li><li><strong>name:</strong> rplD</li><li><strong>desc:</strong> 50S ribosomal protein L4  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0331</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05738</li><li><strong>name:</strong> rplW</li><li><strong>desc:</strong> 50S ribosomal protein L23   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0332</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam03947</li><li><strong>name:</strong> Ribosomal_L2_C</li><li><strong>desc:</strong> Ribosomal Proteins L2, C-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00181</li><li><strong>name:</strong> Ribosomal_L2</li><li><strong>desc:</strong> Ribosomal Proteins L2, RNA binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK09374</li><li><strong>name:</strong> rplB</li><li><strong>desc:</strong> 50S ribosomal protein L2   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0334</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00565</li><li><strong>name:</strong> rplV</li><li><strong>desc:</strong> 50S ribosomal protein L22   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0335</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00189</li><li><strong>name:</strong> Ribosomal_S3_C</li><li><strong>desc:</strong> Ribosomal protein S3, C-terminal domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd02412</li><li><strong>name:</strong> 30S_S3_KH</li><li><strong>desc:</strong> K homology RNA-binding (KH) domain of the prokaryotic 30S small ribosomal subunit protein S3.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00310</li><li><strong>name:</strong> rpsC</li><li><strong>desc:</strong> 30S ribosomal protein S3   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0336</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK09203</li><li><strong>name:</strong> rplP</li><li><strong>desc:</strong> 50S ribosomal protein L16   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0337</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00306</li><li><strong>name:</strong> PRK00306</li><li><strong>desc:</strong> 50S ribosomal protein L29   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0338</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05610</li><li><strong>name:</strong> rpsQ</li><li><strong>desc:</strong> 30S ribosomal protein S17   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0339</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05483</li><li><strong>name:</strong> rplN</li><li><strong>desc:</strong> 50S ribosomal protein L14   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0340</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00004</li><li><strong>name:</strong> rplX</li><li><strong>desc:</strong> 50S ribosomal protein L24   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0341</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00673</li><li><strong>name:</strong> Ribosomal_L5_C</li><li><strong>desc:</strong> ribosomal L5P family C-terminus  This region is found associated with pfam00281.</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00281</li><li><strong>name:</strong> Ribosomal_L5</li><li><strong>desc:</strong> Ribosomal protein L5 </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00010</li><li><strong>name:</strong> rplE</li><li><strong>desc:</strong> 50S ribosomal protein L5   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0342</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00355</li><li><strong>name:</strong> Ribosomal_S14 super family</li><li><strong>desc:</strong> Ribosomal protein S14p/S29e  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0343</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00136</li><li><strong>name:</strong> rpsH</li><li><strong>desc:</strong> 30S ribosomal protein S8   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0344</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00347</li><li><strong>name:</strong> Ribosomal_L6</li><li><strong>desc:</strong> Ribosomal protein L6 </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00347</li><li><strong>name:</strong> Ribosomal_L6</li><li><strong>desc:</strong> Ribosomal protein L6 </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05498</li><li><strong>name:</strong> rplF</li><li><strong>desc:</strong> 50S ribosomal protein L6   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0345</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05593</li><li><strong>name:</strong> rplR</li><li><strong>desc:</strong> 50S ribosomal protein L18   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0346</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00333</li><li><strong>name:</strong> Ribosomal_S5</li><li><strong>desc:</strong> Ribosomal protein S5, N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam03719</li><li><strong>name:</strong> Ribosomal_S5_C</li><li><strong>desc:</strong> Ribosomal protein S5, C-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00550</li><li><strong>name:</strong> rpsE</li><li><strong>desc:</strong> 30S ribosomal protein S5   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0347</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05611</li><li><strong>name:</strong> rpmD</li><li><strong>desc:</strong> 50S ribosomal protein L30   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0348</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05592</li><li><strong>name:</strong> rplO</li><li><strong>desc:</strong> 50S ribosomal protein L15   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0349</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00344</li><li><strong>name:</strong> ecY</li><li><strong>desc:</strong> SecY translocase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK09204</li><li><strong>name:</strong> secY</li><li><strong>desc:</strong> preprotein translocase subunit SecY   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0350</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00465</li><li><strong>name:</strong> rpmJ</li><li><strong>desc:</strong> 50S ribosomal protein L36   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0351</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05179</li><li><strong>name:</strong> rpsM</li><li><strong>desc:</strong> 30S ribosomal protein S13   </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0099</li><li><strong>name:</strong> RpsM</li><li><strong>desc:</strong> Ribosomal protein S13 [Translation, ribosomal structure and biogenesis] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0352</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05309</li><li><strong>name:</strong> </li><li><strong>desc:</strong> 30S ribosomal protein S11   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0353</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00163</li><li><strong>name:</strong> Ribosomal_S4</li><li><strong>desc:</strong> Ribosomal protein S4/S9 N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00165</li><li><strong>name:</strong> S4</li><li><strong>desc:</strong> S4/Hsp/ tRNA synthetase RNA-binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05327</li><li><strong>name:</strong> rpsD</li><li><strong>desc:</strong> 30S ribosomal protein S4   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0354</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06928</li><li><strong>name:</strong> RNAP_alpha_NTD</li><li><strong>desc:</strong> N-terminal domain of the Alpha subunit of Bacterial RNA polymerase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam03118</li><li><strong>name:</strong> RNA_pol_A_CTD</li><li><strong>desc:</strong> Bacterial RNA polymerase, alpha chain C terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05182</li><li><strong>name:</strong> PRK05182</li><li><strong>desc:</strong> DNA-directed RNA polymerase subunit alpha  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0355</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05591</li><li><strong>name:</strong> rplQ</li><li><strong>desc:</strong> 50S ribosomal protein L17   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0356</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl09930</li><li><strong>name:</strong> RPA_2b-aaRSs_OBF_like super family</li><li><strong>desc:</strong> Replication protein A, class 2b aminoacyl-tRNA synthetases</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0629</li><li><strong>name:</strong> Ssb</li><li><strong>desc:</strong> Single-stranded DNA-binding protein [Replication, recombination and repair] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0357</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06174</li><li><strong>name:</strong> MFS</li><li><strong>desc:</strong> The Major Facilitator Superfamily (MFS)</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam07690</li><li><strong>name:</strong> MFS_1</li><li><strong>desc:</strong> Major Facilitator Superfamily </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0358</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd05359</li><li><strong>name:</strong> ChcA_like_SDR_c</li><li><strong>desc:</strong> 1-cyclohexenylcarbonyl_coenzyme A_reductase (ChcA)_like, classical (c) SDRs </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK08063</li><li><strong>name:</strong> PRK08063</li><li><strong>desc:</strong> enoyl-(acyl carrier protein) reductase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0359</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00982</li><li><strong>name:</strong> acpP</li><li><strong>desc:</strong> acyl carrier protein  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0360</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00509</li><li><strong>name:</strong> hot_dog super family</li><li><strong>desc:</strong> The hotdog fold was initially identified in the E. coli FabA</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00509</li><li><strong>name:</strong> hot_dog super family</li><li><strong>desc:</strong> The hotdog fold was initially identified in the E. coli FabA</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0361</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00834</li><li><strong>name:</strong> KAS_I_II</li><li><strong>desc:</strong> Beta-ketoacyl-acyl carrier protein (ACP) synthase (KAS)</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0362</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl09938</li><li><strong>name:</strong> cond_enzymes super family</li><li><strong>desc:</strong> Condensing enzymes </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0304</li><li><strong>name:</strong> FabB</li><li><strong>desc:</strong> 3-oxoacyl-(acyl-carrier-protein) synthase</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0363</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd07984</li><li><strong>name:</strong> LPLAT_LABLAT-like</li><li><strong>desc:</strong> Lysophospholipid Acyltransferases (LPLATs) of Glycerophospholipid Biosynthesis: LABLAT-like </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0364</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam07238</li><li><strong>name:</strong> PilZ</li><li><strong>desc:</strong> PilZ domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0365</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0366</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01678</li><li><strong>name:</strong> DAP_epimerase</li><li><strong>desc:</strong> Diaminopimelate epimerase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01678</li><li><strong>name:</strong> DAP_epimerase</li><li><strong>desc:</strong> Diaminopimelate epimerase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00450</li><li><strong>name:</strong> dapF</li><li><strong>desc:</strong> diaminopimelate epimerase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0367</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0368</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0369</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21494</li><li><strong>name:</strong> Abhydrolase super family</li><li><strong>desc:</strong> alpha/beta hydrolase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0370</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd07813</li><li><strong>name:</strong> COQ10p_like</li><li><strong>desc:</strong> Coenzyme Q-binding protein COQ10p and similar proteins </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0371</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam03658</li><li><strong>name:</strong> Ub-RnfH</li><li><strong>desc:</strong> RnfH family Ubiquitin  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0372</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam04355</li><li><strong>name:</strong> SmpA_OmlA</li><li><strong>desc:</strong> SmpA / OmlA family </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0373</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01949</li><li><strong>name:</strong> GGDEF</li><li><strong>desc:</strong> Diguanylate-cyclase (DGC) or GGDEF domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0374</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0375</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0376</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0377</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl01522</li><li><strong>name:</strong> FGase super family</li><li><strong>desc:</strong> N-formylglutamate amidohydrolase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0378</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00954</li><li><strong>name:</strong> GCS2 super family</li><li><strong>desc:</strong> Glutamate-cysteine ligase family 2(GCS2) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0379</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam14401</li><li><strong>name:</strong> RLAN</li><li><strong>desc:</strong> RimK-like ATPgrasp N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl17255</li><li><strong>name:</strong> ATP-grasp_4 super family</li><li><strong>desc:</strong> ATP-grasp domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0189</li><li><strong>name:</strong> RimK</li><li><strong>desc:</strong> Glutathione synthase/RimK-type ligase</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0380</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00296</li><li><strong>name:</strong> Peptidase_C39_like super family</li><li><strong>desc:</strong> Peptidase family C39 </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0381</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00509</li><li><strong>name:</strong> hot_dog super family</li><li><strong>desc:</strong> The hotdog fold was initially identified in the E. coli FabA</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0382</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam04972</li><li><strong>name:</strong> BON</li><li><strong>desc:</strong> BON domain  This domain is found in a family of osmotic shock protection proteins</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam04972</li><li><strong>name:</strong> BON</li><li><strong>desc:</strong> BON domain  This domain is found in a family of osmotic shock protection proteins</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0383</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl12928</li><li><strong>name:</strong> IcmL super family</li><li><strong>desc:</strong> Macrophage killing protein with similarity to conjugation protein </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0384</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03271</li><li><strong>name:</strong> ABC_UvrA_II</li><li><strong>desc:</strong> ATP-binding cassette domain II of the excision repair protein UvrA </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03270</li><li><strong>name:</strong> ABC_UvrA_I</li><li><strong>desc:</strong> ATP-binding cassette domain I of the excision repair protein UvrA </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03270</li><li><strong>name:</strong> ABC_UvrA_I</li><li><strong>desc:</strong> ATP-binding cassette domain I of the excision repair protein UvrA </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00349</li><li><strong>name:</strong> uvrA</li><li><strong>desc:</strong> excinuclease ABC subunit A   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0385</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam04011</li><li><strong>name:</strong> LemA</li><li><strong>desc:</strong> LemA family  The members of this family are related to the LemA protein</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0386</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl12018</li><li><strong>name:</strong> Peptidase_M48 super family</li><li><strong>desc:</strong> Peptidase family M48 </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK02870</li><li><strong>name:</strong> PRK02870</li><li><strong>desc:</strong> heat shock protein HtpX  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0387</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK15066</li><li><strong>name:</strong> PRK15066</li><li><strong>desc:</strong> inner membrane transport permease  Provisional</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0842</li><li><strong>name:</strong> YadH</li><li><strong>desc:</strong> ABC-type multidrug transport system, permease component [Defense mechanisms] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0388</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21455</li><li><strong>name:</strong> P-loop_NTPase super family</li><li><strong>desc:</strong> P-loop containing Nucleoside Triphosphate Hydrolases </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1131</li><li><strong>name:</strong> CcmA</li><li><strong>desc:</strong> ABC-type multidrug transport system, ATPase component [Defense mechanisms] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0389</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0390</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam11932</li><li><strong>name:</strong> DUF3450</li><li><strong>desc:</strong> Protein of unknown function (DUF3450) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0391</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21496</li><li><strong>name:</strong> 2OG-FeII_Oxy super family</li><li><strong>desc:</strong> 2OG-Fe(II) oxygenase superfamily </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0392</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01863</li><li><strong>name:</strong> DUF45</li><li><strong>desc:</strong> Protein of unknown function DUF45 </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0393</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0394</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01035</li><li><strong>name:</strong> DNA_binding_1</li><li><strong>desc:</strong> 6-O-methylguanine DNA methyltransferase, DNA binding domain  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0350</li><li><strong>name:</strong> AdaB</li><li><strong>desc:</strong> O6-methylguanine-DNA--protein-cysteine methyltransferase</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0395</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05338</li><li><strong>name:</strong> rplS</li><li><strong>desc:</strong> 50S ribosomal protein L19  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0396</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00026</li><li><strong>name:</strong> trmD</li><li><strong>desc:</strong> tRNA (guanine-N(1)-)-methyltransferase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0397</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam01782</li><li><strong>name:</strong> RimM</li><li><strong>desc:</strong> RimM N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam05239</li><li><strong>name:</strong> PRC</li><li><strong>desc:</strong> PRC-barrel domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00122</li><li><strong>name:</strong> rimM</li><li><strong>desc:</strong> 16S rRNA-processing protein RimM  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0398</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0399</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00040</li><li><strong>name:</strong> rpsP</li><li><strong>desc:</strong> 30S ribosomal protein S16   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0400</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00962</li><li><strong>name:</strong> SRP54</li><li><strong>desc:</strong> SRP54-type protein, GTPase domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02978</li><li><strong>name:</strong> SRP_SPB</li><li><strong>desc:</strong> Signal peptide binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02881</li><li><strong>name:</strong> SRP54_N</li><li><strong>desc:</strong> SRP54-type protein, helical bundle domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK10867</li><li><strong>name:</strong> PRK10867</li><li><strong>desc:</strong> signal recognition particle protein  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0401</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0402</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00204</li><li><strong>name:</strong> ANK</li><li><strong>desc:</strong> ankyrin repeats </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12796</li><li><strong>name:</strong> Ank_2</li><li><strong>desc:</strong> Ankyrin repeats (3 copies) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0403</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00204</li><li><strong>name:</strong> ANK</li><li><strong>desc:</strong> ankyrin repeats </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12796</li><li><strong>name:</strong> Ank_2</li><li><strong>desc:</strong> Ankyrin repeats (3 copies) </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12796</li><li><strong>name:</strong> Ank_2</li><li><strong>desc:</strong> Ankyrin repeats (3 copies) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0404</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> TIGR03813</li><li><strong>name:</strong> put_Glu_GABA_T</li><li><strong>desc:</strong> putative glutamate/gamma-aminobutyrate antiporter </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0405</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0406</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0599</li><li><strong>name:</strong> YurZ</li><li><strong>desc:</strong> Uncharacterized conserved protein YurZ</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0407</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0408</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00649</li><li><strong>name:</strong> DsbB super family</li><li><strong>desc:</strong> Disulfide bond formation protein DsbB </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0409</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06662</li><li><strong>name:</strong> SURF1</li><li><strong>desc:</strong> SURF1 superfamily.</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0410</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0411</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02628</li><li><strong>name:</strong> COX15-CtaA</li><li><strong>desc:</strong> Cytochrome oxidase assembly protein </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0412</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK04375</li><li><strong>name:</strong> PRK04375</li><li><strong>desc:</strong> protoheme IX farnesyltransferase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0413</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd02968</li><li><strong>name:</strong> SCO</li><li><strong>desc:</strong> SCO (an acronym for Synthesis of Cytochrome c Oxidase) family </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0414</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl17255</li><li><strong>name:</strong> ATP-grasp_4 super family</li><li><strong>desc:</strong> ATP-grasp domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0415</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK13355</li><li><strong>name:</strong> PRK13355</li><li><strong>desc:</strong> bifunctional HTH-domain containing protein/aminotransferase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0416</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02781</li><li><strong>name:</strong> G6PD_C</li><li><strong>desc:</strong> Glucose-6-phosphate dehydrogenase, C-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00479</li><li><strong>name:</strong> G6PD_N</li><li><strong>desc:</strong> Glucose-6-phosphate dehydrogenase, NAD binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05722</li><li><strong>name:</strong> PRK05722</li><li><strong>desc:</strong> glucose-6-phosphate 1-dehydrogenase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0417</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01400</li><li><strong>name:</strong> 6PGL</li><li><strong>desc:</strong> 6PGL: 6-Phosphogluconolactonase (6PGL) subfamily </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0418</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK09054</li><li><strong>name:</strong> PRK09054</li><li><strong>desc:</strong> phosphogluconate dehydratase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0419</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02685</li><li><strong>name:</strong> Glucokinase</li><li><strong>desc:</strong> Glucokinase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0420</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK05718</li><li><strong>name:</strong> PRK05718</li><li><strong>desc:</strong> keto-hydroxyglutarate-aldolase/keto-deoxy-phosphogluconate aldolase  Provisional</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0421</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06174</li><li><strong>name:</strong> MFS</li><li><strong>desc:</strong> The Major Facilitator Superfamily (MFS) is a large and diverse group of secondary transporters ...</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00083</li><li><strong>name:</strong> Sugar_tr</li><li><strong>desc:</strong> Sugar (and other) transporter </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0422</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl08284</li><li><strong>name:</strong> Glyco_hydro_15 super family</li><li><strong>desc:</strong> Glycosyl hydrolases family 15 </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0423</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG3655</li><li><strong>name:</strong> YozG</li><li><strong>desc:</strong> DNA-binding transcriptional regulator, XRE family [Transcription] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0424</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam11188</li><li><strong>name:</strong> DUF2975</li><li><strong>desc:</strong> Protein of unknown function (DUF2975) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0425</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00419</li><li><strong>name:</strong> Ferrochelatase_C</li><li><strong>desc:</strong> Ferrochelatase, C-terminal domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd03411</li><li><strong>name:</strong> Ferrochelatase_N</li><li><strong>desc:</strong> Ferrochelatase, N-terminal domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00035</li><li><strong>name:</strong> hemH</li><li><strong>desc:</strong> ferrochelatase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0426</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1278</li><li><strong>name:</strong> CspC</li><li><strong>desc:</strong> Cold shock protein, CspA family [Transcription] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0427</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00228</li><li><strong>name:</strong> HIT_like super family</li><li><strong>desc:</strong> HIT family: HIT (Histidine triad) proteins</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0428</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06587</li><li><strong>name:</strong> Glo_EDI_BRP_like</li><li><strong>desc:</strong> This domain superfamily is found in a variety of structurally related metalloproteins</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0429</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02321</li><li><strong>name:</strong> OEP</li><li><strong>desc:</strong> Outer membrane efflux protein </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02321</li><li><strong>name:</strong> OEP</li><li><strong>desc:</strong> Outer membrane efflux protein </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0430</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13533</li><li><strong>name:</strong> Biotin_lipoyl_2</li><li><strong>desc:</strong> Biotin-lipoyl like </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13437</li><li><strong>name:</strong> HlyD_3</li><li><strong>desc:</strong> HlyD family secretion protein </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl24690</li><li><strong>name:</strong> PMT_4TMC super family</li><li><strong>desc:</strong> C-terminal four TMM region of protein-O-mannosyltransferase </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1566</li><li><strong>name:</strong> EmrA</li><li><strong>desc:</strong> Multidrug resistance efflux pump [Defense mechanisms] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0431</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl00857</li><li><strong>name:</strong> DUF63 super family</li><li><strong>desc:</strong> Membrane protein of unknown function DUF63 </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl07347</li><li><strong>name:</strong> GET2 super family</li><li><strong>desc:</strong> GET complex subunit GET2 </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0432</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13515</li><li><strong>name:</strong> FUSC_2</li><li><strong>desc:</strong> Fusaric acid resistance protein-like </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0433</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG1733</li><li><strong>name:</strong> HxlR</li><li><strong>desc:</strong> DNA-binding transcriptional regulator, HxlR family [Transcription] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0434</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl18775</li><li><strong>name:</strong> COG4278 super family</li><li><strong>desc:</strong> Uncharacterized protein [Function unknown] </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0435</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12847</li><li><strong>name:</strong> Methyltransf_18</li><li><strong>desc:</strong> Methyltransferase domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> COG0500</li><li><strong>name:</strong> SmtA</li><li><strong>desc:</strong> SAM-dependent methyltransferase</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0436</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd00204</li><li><strong>name:</strong> ANK</li><li><strong>desc:</strong> ankyrin repeats </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12796</li><li><strong>name:</strong> Ank_2</li><li><strong>desc:</strong> Ankyrin repeats (3 copies) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0437</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0438</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0439</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0440</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0441</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0442</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12608</li><li><strong>name:</strong> T4bSS_IcmS</li><li><strong>desc:</strong> Type IVb secretion, IcmS, effector-recruitment </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0443</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0444</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam09475</li><li><strong>name:</strong> Dot_icm_IcmQ</li><li><strong>desc:</strong> Dot/Icm secretion system protein (dot_icm_IcmQ) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0445</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0446</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl21455</li><li><strong>name:</strong> P-loop_NTPase super family</li><li><strong>desc:</strong> P-loop containing Nucleoside Triphosphate Hydrolases  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0447</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd07185</li><li><strong>name:</strong> OmpA_C-like</li><li><strong>desc:</strong> Peptidoglycan binding domains similar to the C-terminal domain of outer-membrane protein OmpA </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0448</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0449</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam11393</li><li><strong>name:</strong> IcmL</li><li><strong>desc:</strong> Macrophage killing protein with similarity to conjugation protein  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0450</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12293</li><li><strong>name:</strong> T4BSS_DotH_IcmK</li><li><strong>desc:</strong> Putative outer membrane core complex of type IVb secretion  </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0451</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam03743</li><li><strong>name:</strong> TrbI</li><li><strong>desc:</strong> Bacterial conjugation TrbI-like protein </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam13599</li><li><strong>name:</strong> Pentapeptide_4</li><li><strong>desc:</strong> Pentapeptide repeats (9 copies) </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0452</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl24006</li><li><strong>name:</strong> YidC_periplas super family</li><li><strong>desc:</strong> YidC periplasmic domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0453</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0454</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> </li><li><strong>name:</strong> </li><li><strong>desc:</strong> </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0455</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00507</li><li><strong>name:</strong> HNHc</li><li><strong>desc:</strong> HNH nucleases </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0456</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam12846</li><li><strong>name:</strong> AAA_10</li><li><strong>desc:</strong> AAA-like domain </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0457</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd06174</li><li><strong>name:</strong> MFS</li><li><strong>desc:</strong> Major Facilitator Superfamily (MFS)</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0458</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam06744</li><li><strong>name:</strong> IcmF_C</li><li><strong>desc:</strong> Type VI secretion protein IcmF C-terminal </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam14331</li><li><strong>name:</strong> ImcF-related_N</li><li><strong>desc:</strong> ImcF-related N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl06018</li><li><strong>name:</strong> IcmF-related super family</li><li><strong>desc:</strong> Intracellular multiplication and human macrophage-killing </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0459</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> TIGR03349</li><li><strong>name:</strong> IV_VI_DotU</li><li><strong>desc:</strong> type IV / VI secretion system protein, DotU family </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0460</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00798</li><li><strong>name:</strong> AICARFT_IMPCHas</li><li><strong>desc:</strong> AICARFT/IMPCHase bienzyme </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> cd01421</li><li><strong>name:</strong> IMPCH</li><li><strong>desc:</strong> Inosine monophosphate cyclohydrolase domain</li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00881</li><li><strong>name:</strong> purH</li><li><strong>desc:</strong> bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/IMP cyclohydrolase </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0461</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> cl17173</li><li><strong>name:</strong> AdoMet_MTases super family</li><li><strong>desc:</strong> S-adenosylmethionine-dependent methyltransferases (SAM or AdoMet-MTase), class I  </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00517</li><li><strong>name:</strong> prmA</li><li><strong>desc:</strong> ribosomal protein L11 methyltransferase   </li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg0462</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam02786</li><li><strong>name:</strong> CPSase_L_D2</li><li><strong>desc:</strong> Carbamoyl-phosphate synthase L chain, ATP binding domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> pfam00289</li><li><strong>name:</strong> CPSase_L_chain</li><li><strong>desc:</strong> Carbamoyl-phosphate synthase L chain, N-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> smart00878</li><li><strong>name:</strong> Biotin_carb_C</li><li><strong>desc:</strong> Biotin carboxylase C-terminal domain </li></ul></li><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK08591</li><li><strong>name:</strong> PRK08591</li><li><strong>desc:</strong> acetyl-CoA carboxylase biotin carboxylase subunit</li></ul></li></ul></td>
+    </tr>
+    <tr>
+      <th>lpg_3050</th>
+      <td><ul><li><ul style="list-style-type: square"><li><strong>accession:</strong> PRK00357</li><li><strong>name:</strong> rpsS</li><li><strong>desc:</strong> 30S ribosomal protein S19 </li></ul></li></ul></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>

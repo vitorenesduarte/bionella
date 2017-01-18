@@ -1,0 +1,2537 @@
+{
+  "lpg0232": {
+    "domains": [
+      {
+        "accession": "COG0735",
+        "desc": "Fe2+ or Zn2+ uptake regulation protein [Inorganic ion transport and metabolism] ",
+        "name": "Fur"
+      }
+    ]
+  },
+  "lpg0233": {
+    "domains": [
+      {
+        "accession": "cd02002",
+        "desc": "Thiamine pyrophosphate (TPP) family, BFDC subfamily, TPP-binding module  ",
+        "name": "TPP_BFDC"
+      },
+      {
+        "accession": "pfam02776",
+        "desc": "Thiamine pyrophosphate enzyme, N-terminal TPP binding domain ",
+        "name": "TPP_enzyme_N"
+      },
+      {
+        "accession": "pfam00205",
+        "desc": "Thiamine pyrophosphate enzyme, central domain  ",
+        "name": "TPP_enzyme_M"
+      },
+      {
+        "accession": "COG0028",
+        "desc": "Acetolactate synthase large subunit or other thiamine pyrophosphate-requiring enzyme ",
+        "name": "IlvB"
+      }
+    ]
+  },
+  "lpg0234": {
+    "domains": [
+      {
+        "accession": "pfam12252",
+        "desc": "Dot/Icm substrate protein  This family of proteins is found in bacteria",
+        "name": "SidE"
+      }
+    ]
+  },
+  "lpg0235": {
+    "domains": [
+      {
+        "accession": "cl01553",
+        "desc": "Glutathione-dependent formaldehyde-activating enzyme ",
+        "name": "GFA super family"
+      }
+    ]
+  },
+  "lpg0237": {
+    "domains": [
+      {
+        "accession": "pfam12695",
+        "desc": "Alpha/beta hydrolase family  ",
+        "name": "Abhydrolase_5"
+      },
+      {
+        "accession": "cl21494",
+        "desc": "alpha/beta hydrolases  ",
+        "name": "Abhydrolase super family"
+      }
+    ]
+  },
+  "lpg0238": {
+    "domains": [
+      {
+        "accession": "cd07119",
+        "desc": "Bacillus subtilis NAD+-dependent betaine aldehyde dehydrogenase-like  ",
+        "name": "ALDH_BADH-GbsA"
+      }
+    ]
+  },
+  "lpg0239": {
+    "domains": [
+      {
+        "accession": "cl18945",
+        "desc": "Aspartate aminotransferase (AAT) superfamily (fold type I) of pyridoxal phosphate (PLP)-dependent enzymes",
+        "name": "AAT_I super family"
+      },
+      {
+        "accession": "COG0160",
+        "desc": "4-aminobutyrate aminotransferase or related aminotransferase ",
+        "name": "GabT"
+      }
+    ]
+  },
+  "lpg0241": {
+    "domains": [
+      {
+        "accession": "TIGR03814",
+        "desc": "glutaminase A  ",
+        "name": "Gln_ase"
+      }
+    ]
+  },
+  "lpg0242": {
+    "domains": [
+      {
+        "accession": "cl21454",
+        "desc": "Rossmann-fold NAD(P)(+)-binding proteins ",
+        "name": "NADB_Rossmann super family"
+      },
+      {
+        "accession": "COG0111",
+        "desc": "Phosphoglycerate dehydrogenase or related dehydrogenase ",
+        "name": "SerA"
+      }
+    ]
+  },
+  "lpg0243": {
+    "domains": [
+      {
+        "accession": "PRK07578",
+        "desc": "short chain dehydrogenase  Provisional",
+        "name": "PRK07578"
+      }
+    ]
+  },
+  "lpg0244": {
+    "domains": [
+      {
+        "accession": "pfam02852",
+        "desc": "Pyridine nucleotide-disulphide oxidoreductase, dimerization domain ",
+        "name": "Pyr_redox_dim"
+      },
+      {
+        "accession": "pfam00070",
+        "desc": "Pyridine nucleotide-disulphide oxidoreductase  ",
+        "name": "Pyr_redox"
+      },
+      {
+        "accession": "PRK06370",
+        "desc": "mercuric reductase   ",
+        "name": "PRK06370"
+      }
+    ]
+  },
+  "lpg0245": {
+    "domains": [
+      {
+        "accession": "pfam05088",
+        "desc": "Bacterial NAD-glutamate dehydrogenase  ",
+        "name": "Bac_GDH"
+      },
+      {
+        "accession": "COG2902",
+        "desc": "NAD-specific glutamate dehydrogenase [Amino acid transport and metabolism] ",
+        "name": "Gdh2"
+      }
+    ]
+  },
+  "lpg0248": {
+    "domains": [
+      {
+        "accession": "cd03034",
+        "desc": "Arsenate Reductase (ArsC) family, ArsC subfamily  ",
+        "name": "ArsC_ArsC"
+      }
+    ]
+  },
+  "lpg0249": {
+    "domains": [
+      {
+        "accession": "cl00615",
+        "desc": "The membrane fatty acid desaturase (Membrane_FADS)-like CD includes membrane FADSs, alkane ...",
+        "name": "Membrane-FADS-like super family"
+      },
+      {
+        "accession": "cl24015",
+        "desc": "MULE transposase domain  This domain was identified by Babu and colleagues.",
+        "name": "MULE super family"
+      },
+      {
+        "accession": "pfam00487",
+        "desc": "Fatty acid desaturase ",
+        "name": "FA_desaturase"
+      }
+    ]
+  },
+  "lpg0250": {
+    "domains": [
+      {
+        "accession": "cd00268",
+        "desc": "DEAD-box helicases.",
+        "name": "DEADc"
+      },
+      {
+        "accession": "cd00079",
+        "desc": "Helicase superfamily c-terminal domain ",
+        "name": "HELICc"
+      }
+    ]
+  },
+  "lpg0251": {
+    "domains": [
+      {
+        "accession": "cl17169",
+        "desc": "RNA recognition motif (RRM) superfamily  ",
+        "name": "RRM_SF super family"
+      },
+      {
+        "accession": "COG0724",
+        "desc": "RNA recognition motif (RRM) domain [Translation, ribosomal structure and biogenesis] ",
+        "name": "RRM"
+      }
+    ]
+  },
+  "lpg0252": {
+    "domains": [
+      {
+        "accession": "PRK11212",
+        "desc": "hypothetical protein  Provisional",
+        "name": "PRK11212"
+      }
+    ]
+  },
+  "lpg0253": {
+    "domains": [
+      {
+        "accession": "pfam00583",
+        "desc": "Acetyltransferase (GNAT) family ",
+        "name": "Acetyltransf_1"
+      },
+      {
+        "accession": "COG1670",
+        "desc": "Protein N-acetyltransferase, RimJ/RimL family ",
+        "name": "RimL"
+      }
+    ]
+  },
+  "lpg0255": {
+    "domains": [
+      {
+        "accession": "pfam02321",
+        "desc": "Outer membrane efflux protein  ",
+        "name": "OEP"
+      },
+      {
+        "accession": "pfam02321",
+        "desc": "Outer membrane efflux protein  ",
+        "name": "OEP"
+      }
+    ]
+  },
+  "lpg0256": {
+    "domains": [
+      {
+        "accession": "pfam13515",
+        "desc": "Fusaric acid resistance protein-like ",
+        "name": "FUSC_2"
+      }
+    ]
+  },
+  "lpg0257": {
+    "domains": [
+      {
+        "accession": "pfam13533",
+        "desc": "Biotin-lipoyl like ",
+        "name": "Biotin_lipoyl_2"
+      },
+      {
+        "accession": "pfam13437",
+        "desc": "HlyD family secretion protein  ",
+        "name": "HlyD_3"
+      },
+      {
+        "accession": "COG1566",
+        "desc": "Multidrug resistance efflux pump [Defense mechanisms] ",
+        "name": "EmrA"
+      }
+    ]
+  },
+  "lpg0261": {
+    "domains": [
+      {
+        "accession": "cl21562",
+        "desc": "DDE superfamily endonuclease ",
+        "name": "DDE_Tnp_4 super family"
+      },
+      {
+        "accession": "COG3293",
+        "desc": "Transposase [Mobilome: prophages, transposons] ",
+        "name": "COG3293"
+      }
+    ]
+  },
+  "lpg0262": {
+    "domains": [
+      {
+        "accession": "cd10030",
+        "desc": "Family 4 Uracil-DNA glycosylase (UDG), found exclusively in thermophilic organisms  ",
+        "name": "UDG_F4_TTUDGA_like"
+      }
+    ]
+  },
+  "lpg0263": {
+    "domains": [
+      {
+        "accession": "cd06174",
+        "desc": "Major Facilitator Superfamily (MFS) ",
+        "name": "MFS"
+      },
+      {
+        "accession": "COG2270",
+        "desc": "MFS-type transporter involved in bile tolerance, Atg22 family ",
+        "name": "BtlA"
+      }
+    ]
+  },
+  "lpg0264": {
+    "domains": [
+      {
+        "accession": "cd06583",
+        "desc": "Peptidoglycan recognition proteins (PGRPs) are pattern recognition receptors",
+        "name": "PGRP"
+      }
+    ]
+  },
+  "lpg0265": {
+    "domains": [
+      {
+        "accession": "cd13887",
+        "desc": "The second cupredoxin domain of uncharacterized multicopper oxidase  ",
+        "name": "CuRO_2_MCO_like_2"
+      },
+      {
+        "accession": "cd13896",
+        "desc": "The third cupredoxin domain of CopA copper resistance protein family  ",
+        "name": "CuRO_3_CopA"
+      },
+      {
+        "accession": "cd13865",
+        "desc": "The second cupredoxin domain of uncharacterized multicopper oxidase  ",
+        "name": "CuRO_1_LCC_like_3"
+      },
+      {
+        "accession": "COG2132",
+        "desc": "Multicopper oxidase with three cupredoxin domains ",
+        "name": "SufI"
+      }
+    ]
+  },
+  "lpg0267": {
+    "domains": [
+      {
+        "accession": "cl00459",
+        "desc": "metal ion transporter CorA-like divalent cation transporter superfamily ",
+        "name": "MIT_CorA-like super family"
+      }
+    ]
+  },
+  "lpg0268": {
+    "domains": [
+      {
+        "accession": "pfam13023",
+        "desc": "HD domain  HD domains are metal dependent phosphohydrolases.",
+        "name": "HD_3"
+      }
+    ]
+  },
+  "lpg0269": {
+    "domains": [
+      {
+        "accession": "cl21455",
+        "desc": "P-loop containing Nucleoside Triphosphate Hydrolases  ",
+        "name": "P-loop_NTPase super family"
+      },
+      {
+        "accession": "cl14615",
+        "desc": "Catalytic domain of phosphoinositide-specific phospholipase C-like phosphodiesterases",
+        "name": "PI-PLCc_GDPD_SF super family"
+      }
+    ]
+  },
+  "lpg0270": {
+    "domains": [
+      {
+        "accession": "cd01570",
+        "desc": "Nicotinate phosphoribosyltransferase (NAPRTase), subgroup A. ",
+        "name": "NAPRTase_A"
+      },
+      {
+        "accession": "PRK09243",
+        "desc": "nicotinate phosphoribosyltransferase   ",
+        "name": "PRK09243"
+      }
+    ]
+  },
+  "lpg0271": {
+    "domains": [
+      {
+        "accession": "cd01011",
+        "desc": "Nicotinamidase/pyrazinamidase (PZase). ",
+        "name": "nicotinamidase"
+      }
+    ]
+  },
+  "lpg0272": {
+    "domains": [
+      {
+        "accession": "cd08351",
+        "desc": "ChaP, an enzyme involved in the biosynthesis of the antitumor agent chartreusin (cha)  ",
+        "name": "ChaP_like"
+      }
+    ]
+  },
+  "lpg0273": {
+    "domains": [
+      {
+        "accession": "cd06174",
+        "desc": "Major Facilitator Superfamily (MFS)",
+        "name": "MFS"
+      }
+    ]
+  },
+  "lpg0274": {
+    "domains": [
+      {
+        "accession": "cd08422",
+        "desc": "The C-terminal substrate binding domain of LysR-type transcriptional regulator CrgA",
+        "name": "PBP2_CrgA_like"
+      },
+      {
+        "accession": "pfam00126",
+        "desc": "Bacterial regulatory helix-turn-helix protein, lysR family ",
+        "name": "HTH_1"
+      },
+      {
+        "accession": "COG0583",
+        "desc": "DNA-binding transcriptional regulator, LysR family [Transcription] ",
+        "name": "LysR"
+      }
+    ]
+  },
+  "lpg0275": {
+    "domains": [
+      {
+        "accession": "pfam00561",
+        "desc": "alpha/beta hydrolase fold  This catalytic domain is found in a very wide range of enzymes.",
+        "name": "Abhydrolase_1"
+      }
+    ]
+  },
+  "lpg0276": {
+    "domains": [
+      {
+        "accession": "pfam00617",
+        "desc": "RasGEF domain  Guanine nucleotide exchange factor for Ras-like small GTPases.",
+        "name": "RasGEF"
+      }
+    ]
+  },
+  "lpg0277": {
+    "domains": [
+      {
+        "accession": "cd01948",
+        "desc": "EAL domain. This domain is found in diverse bacterial signaling proteins.",
+        "name": "EAL"
+      },
+      {
+        "accession": "cd01949",
+        "desc": "Diguanylate-cyclase (DGC) or GGDEF domain  ",
+        "name": "GGDEF"
+      },
+      {
+        "accession": "COG0784",
+        "desc": "CheY chemotaxis protein or a CheY-like REC (receiver) domain [Signal transduction mechanisms] ",
+        "name": "CheY"
+      },
+      {
+        "accession": "smart00091",
+        "desc": "PAS domain  PAS motifs appear in archaea, eubacteria and eukarya. ",
+        "name": "PAS"
+      }
+    ]
+  },
+  "lpg0278": {
+    "domains": [
+      {
+        "accession": "pfam02518",
+        "desc": "Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase  ",
+        "name": "HATPase_c"
+      },
+      {
+        "accession": "cd00130",
+        "desc": "PAS domain  PAS motifs appear in archaea, eubacteria and eukarya.",
+        "name": "PAS"
+      },
+      {
+        "accession": "pfam08447",
+        "desc": "PAS fold  ",
+        "name": "PAS_3"
+      }
+    ]
+  },
+  "lpg0279": {
+    "domains": [
+      {
+        "accession": "smart00897",
+        "desc": "FIST N domain  The FIST N domain is a novel sensory domain",
+        "name": "FIST"
+      },
+      {
+        "accession": "pfam10442",
+        "desc": "FIST C domain  The FIST C domain is a novel sensory domain",
+        "name": "FIST_C"
+      }
+    ]
+  },
+  "lpg0280": {
+    "domains": [
+      {
+        "accession": "cd05466",
+        "desc": "The substrate binding domain of LysR-type transcriptional regulators (LTTRs)",
+        "name": "PBP2_LTTR_substrate"
+      },
+      {
+        "accession": "pfam00126",
+        "desc": "Bacterial regulatory helix-turn-helix protein, lysR family ",
+        "name": "HTH_1"
+      },
+      {
+        "accession": "COG0583",
+        "desc": "DNA-binding transcriptional regulator, LysR family [Transcription] ",
+        "name": "LysR"
+      }
+    ]
+  },
+  "lpg0281": {
+    "domains": [
+      {
+        "accession": "cl00456",
+        "desc": "Solute carrier families 5 and 6-like  solute binding domain ",
+        "name": "SLC5-6-like_sbd super family"
+      }
+    ]
+  },
+  "lpg0282": {
+    "domains": [
+      {
+        "accession": "pfam13847",
+        "desc": "Methyltransferase domain  This family appears to be have methyltransferase activity.",
+        "name": "Methyltransf_31"
+      },
+      {
+        "accession": "TIGR02072",
+        "desc": "malonyl-acyl carrier protein O-methyltransferase BioC  ",
+        "name": "BioC"
+      }
+    ]
+  },
+  "lpg0283": {
+    "domains": [
+      {
+        "accession": "cd05302",
+        "desc": "NAD-dependent Formate Dehydrogenase (FDH)  ",
+        "name": "FDH"
+      },
+      {
+        "accession": "PRK07574",
+        "desc": "formate dehydrogenase  Provisional",
+        "name": "PRK07574"
+      }
+    ]
+  },
+  "lpg0286": {
+    "domains": [
+      {
+        "accession": "cl21454",
+        "desc": "Rossmann-fold NAD(P)(+)-binding proteins  ",
+        "name": "NADB_Rossmann super family"
+      },
+      {
+        "accession": "COG4221",
+        "desc": "NADP-dependent 3-hydroxy acid dehydrogenase YdfG [Energy production and conversion] ",
+        "name": "YdfG"
+      }
+    ]
+  },
+  "lpg0287": {
+    "domains": [
+      {
+        "accession": "pfam09285",
+        "desc": "Elongation factor P, C-terminal  ",
+        "name": "Elong-fact-P_C"
+      },
+      {
+        "accession": "cd04470",
+        "desc": "S1_EF-P_repeat_1: Translation elongation factor P (EF-P), S1-like RNA-binding domain",
+        "name": "S1_EF-P_repeat_1"
+      },
+      {
+        "accession": "pfam08207",
+        "desc": "Elongation factor P (EF-P) KOW-like domain ",
+        "name": "EFP_N"
+      },
+      {
+        "accession": "PRK00529",
+        "desc": "elongation factor P   ",
+        "name": "PRK00529"
+      }
+    ]
+  },
+  "lpg0288": {
+    "domains": [
+      {
+        "accession": "cl23776",
+        "desc": "EF-P beta-lysylation protein EpmB  Members of this radical SAM protein subfamily",
+        "name": "EFP_modif_epmB super family"
+      }
+    ]
+  },
+  "lpg0289": {
+    "domains": [
+      {
+        "accession": "cd09168",
+        "desc": "Catalytic C-terminal domain",
+        "name": "PLDc_PaPPK1_C2_like"
+      },
+      {
+        "accession": "cl15239",
+        "desc": "Catalytic domain of phospholipase D superfamily proteins ",
+        "name": "PLDc_SF super family"
+      },
+      {
+        "accession": "pfam02503",
+        "desc": "Polyphosphate kinase middle domain  ",
+        "name": "PP_kinase"
+      },
+      {
+        "accession": "pfam13089",
+        "desc": "Polyphosphate kinase N-terminal domain  ",
+        "name": "PP_kinase_N"
+      },
+      {
+        "accession": "PRK05443",
+        "desc": "polyphosphate kinase  Provisional",
+        "name": "PRK05443"
+      }
+    ]
+  },
+  "lpg0290": {
+    "domains": [
+      {
+        "accession": "cl11396",
+        "desc": "Patatins and Phospholipases  Patatin-like phospholipase.",
+        "name": "Patatin_and_cPLA2 super family"
+      }
+    ]
+  },
+  "lpg0291": {
+    "domains": [
+      {
+        "accession": "pfam02417",
+        "desc": "Chromate transporter  Members of this family probably act as chromate transporters",
+        "name": "Chromate_transp"
+      }
+    ]
+  },
+  "lpg0293": {
+    "domains": [
+      {
+        "accession": "pfam09317",
+        "desc": "Domain of unknown function (DUF1974)  ",
+        "name": "DUF1974"
+      },
+      {
+        "accession": "cd00567",
+        "desc": "Acyl-CoA dehydrogenase ",
+        "name": "ACAD"
+      },
+      {
+        "accession": "pfam02771",
+        "desc": "Acyl-CoA dehydrogenase, N-terminal domain  ",
+        "name": "Acyl-CoA_dh_N"
+      },
+      {
+        "accession": "PRK13026",
+        "desc": "acyl-CoA dehydrogenase   ",
+        "name": "PRK13026"
+      }
+    ]
+  },
+  "lpg0295": {
+    "domains": [
+      {
+        "accession": "cd06422",
+        "desc": "NTP_transferase_like_1 is a member of the nucleotidyl transferase family  ",
+        "name": "NTP_transferase_like_1"
+      },
+      {
+        "accession": "COG1208",
+        "desc": "NDP-sugar pyrophosphorylase, includes eIF-2Bgamma, eIF-2Bepsilon, and LPS biosynthesis ",
+        "name": "GCD1"
+      }
+    ]
+  },
+  "lpg0296": {
+    "domains": [
+      {
+        "accession": "cl21453",
+        "desc": "Protein Kinases, catalytic domain ",
+        "name": "PKc_like super family"
+      },
+      {
+        "accession": "pfam01636",
+        "desc": "Phosphotransferase enzyme family  ",
+        "name": "APH"
+      }
+    ]
+  },
+  "lpg0297": {
+    "domains": [
+      {
+        "accession": "pfam04453",
+        "desc": "Organic solvent tolerance protein  ",
+        "name": "OstA_C"
+      },
+      {
+        "accession": "cl21541",
+        "desc": "OstA-like protein  This family of proteins are mostly uncharacterized.",
+        "name": "OstA super family"
+      },
+      {
+        "accession": "COG1452",
+        "desc": "LPS assembly outer membrane protein LptD (organic solvent tolerance protein OstA) ",
+        "name": "LptD"
+      }
+    ]
+  },
+  "lpg0298": {
+    "domains": [
+      {
+        "accession": "cl21568",
+        "desc": "SurA N-terminal domain  This domain is found at the N-terminus of the chaperone SurA. ",
+        "name": "SurA_N_3 super family"
+      },
+      {
+        "accession": "pfam13616",
+        "desc": "PPIC-type PPIASE domain  Rotamases increase the rate of protein folding ",
+        "name": "Rotamase_3"
+      },
+      {
+        "accession": "pfam00639",
+        "desc": "PPIC-type PPIASE domain  Rotamases increase the rate of protein folding ",
+        "name": "Rotamase"
+      }
+    ]
+  },
+  "lpg0299": {
+    "domains": [
+      {
+        "accession": "TIGR00557",
+        "desc": "4-hydroxythreonine-4-phosphate dehydrogenase  ",
+        "name": "pdxA"
+      }
+    ]
+  },
+  "lpg0300": {
+    "domains": [
+      {
+        "accession": "pfam00186",
+        "desc": "Dihydrofolate reductase ",
+        "name": "DHFR_1"
+      }
+    ]
+  },
+  "lpg0301": {
+    "domains": [
+      {
+        "accession": "cl02743",
+        "desc": "Repeats found in Drosophila proteins ",
+        "name": "DM9 super family"
+      },
+      {
+        "accession": "cl02743",
+        "desc": "Repeats found in Drosophila proteins ",
+        "name": "DM9 super family"
+      },
+      {
+        "accession": "pfam11901",
+        "desc": "Protein of unknown function (DUF3421)  ",
+        "name": "DUF3421"
+      }
+    ]
+  },
+  "lpg0314": {
+    "domains": [
+      {
+        "accession": "cd01884",
+        "desc": "Elongation Factor Tu (EF-Tu) GTP-binding proteins  EF-Tu subfamily. ",
+        "name": "EF_Tu"
+      },
+      {
+        "accession": "cd03707",
+        "desc": "Domain III of Elongation Factor (EF) Tu  ",
+        "name": "EFTU_III"
+      },
+      {
+        "accession": "cd03697",
+        "desc": "Domain II of elongation factor Tu  ",
+        "name": "EFTU_II"
+      },
+      {
+        "accession": "PRK00049",
+        "desc": "elongation factor Tu   ",
+        "name": "PRK00049"
+      }
+    ]
+  },
+  "lpg0316": {
+    "domains": [
+      {
+        "accession": "PRK05740",
+        "desc": "preprotein translocase subunit SecE   ",
+        "name": "secE"
+      }
+    ]
+  },
+  "lpg0317": {
+    "domains": [
+      {
+        "accession": "cd09891",
+        "desc": "Bacterial N-Utilization Substance G (NusG) N-terminal (NGN) domain, subgroup 1  ",
+        "name": "NGN_Bact_1"
+      },
+      {
+        "accession": "cd06091",
+        "desc": "NusG contains an NGN domain at its N-terminus and KOW motif at its C-terminus ",
+        "name": "KOW_NusG"
+      },
+      {
+        "accession": "PRK05609",
+        "desc": "transcription antitermination protein NusG   ",
+        "name": "nusG"
+      }
+    ]
+  },
+  "lpg0318": {
+    "domains": [
+      {
+        "accession": "cd00349",
+        "desc": "Ribosomal protein L11. ",
+        "name": "Ribosomal_L11"
+      },
+      {
+        "accession": "PRK00140",
+        "desc": "50S ribosomal protein L11   ",
+        "name": "rplK"
+      }
+    ]
+  },
+  "lpg0319": {
+    "domains": [
+      {
+        "accession": "PRK05424",
+        "desc": "50S ribosomal protein L1   ",
+        "name": "rplA"
+      }
+    ]
+  },
+  "lpg0320": {
+    "domains": [
+      {
+        "accession": "PRK00099",
+        "desc": "50S ribosomal protein L10   ",
+        "name": "rplJ"
+      }
+    ]
+  },
+  "lpg0321": {
+    "domains": [
+      {
+        "accession": "cd00387",
+        "desc": "Ribosomal protein L7/L12. ",
+        "name": "Ribosomal_L7_L12"
+      },
+      {
+        "accession": "PRK00157",
+        "desc": "50S ribosomal protein L7/L12   ",
+        "name": "rplL"
+      }
+    ]
+  },
+  "lpg0322": {
+    "domains": [
+      {
+        "accession": "cd00653",
+        "desc": "RNA polymerase beta subunit. RNA polymerases catalyse the DNA dependent polymerization of RNA. ...",
+        "name": "RNA_pol_B_RPB2"
+      },
+      {
+        "accession": "pfam10385",
+        "desc": "RNA polymerase beta subunit external 1 domain  ",
+        "name": "RNA_pol_Rpb2_45"
+      },
+      {
+        "accession": "cl24026",
+        "desc": "RNA polymerase Rpb2, domain 2  ",
+        "name": "RNA_pol_Rpb2_2 super family"
+      },
+      {
+        "accession": "PRK00405",
+        "desc": "DNA-directed RNA polymerase subunit beta   ",
+        "name": "rpoB"
+      }
+    ]
+  },
+  "lpg0323": {
+    "domains": [
+      {
+        "accession": "cd01609",
+        "desc": "Largest subunit (beta') of bacterial DNA-dependent RNA polymerase (RNAP), N-terminal domain  ",
+        "name": "RNAP_beta'_N"
+      },
+      {
+        "accession": "cd02655",
+        "desc": "Largest subunit (beta') of Bacterial DNA-dependent RNA polymerase (RNAP), C-terminal domain  ",
+        "name": "RNAP_beta'_C"
+      },
+      {
+        "accession": "cl11429",
+        "desc": "Largest subunit of RNA polymerase (RNAP), C-terminal domain  ",
+        "name": "RNAP_largest_subunit_C super family"
+      },
+      {
+        "accession": "PRK00566",
+        "desc": "DNA-directed RNA polymerase subunit beta'  Provisional",
+        "name": "PRK00566"
+      }
+    ]
+  },
+  "lpg0324": {
+    "domains": [
+      {
+        "accession": "PRK05163",
+        "desc": "30S ribosomal protein S12   ",
+        "name": "rpsL"
+      }
+    ]
+  },
+  "lpg0325": {
+    "domains": [
+      {
+        "accession": "PRK05302",
+        "desc": "30S ribosomal protein S7   ",
+        "name": "PRK05302"
+      }
+    ]
+  },
+  "lpg0326": {
+    "domains": [
+      {
+        "accession": "cd01886",
+        "desc": "Elongation factor G (EF-G) family involved in both the elongation and ribosome recycling ",
+        "name": "EF-G"
+      },
+      {
+        "accession": "cd01434",
+        "desc": "EFG_mtEFG1_IV: domains similar to domain IV of the bacterial translational elongation factor ",
+        "name": "EFG_mtEFG1_IV"
+      },
+      {
+        "accession": "smart00838",
+        "desc": "Elongation factor G C-terminus ",
+        "name": "EFG_C"
+      },
+      {
+        "accession": "cd04088",
+        "desc": "Domain II of bacterial elongation factor G and C-terminal domain of mitochondrial Elongation factors G1 (mtEFG1) and G2 (mtEFG2)",
+        "name": "EFG_mtEFG_II"
+      },
+      {
+        "accession": "cd16262",
+        "desc": "Domain III of Elongation Factor G (EFG)  ",
+        "name": "EFG_III"
+      },
+      {
+        "accession": "PRK00007",
+        "desc": "elongation factor G   ",
+        "name": "PRK00007"
+      }
+    ]
+  },
+  "lpg0327": {
+    "domains": [
+      {
+        "accession": "cd01884",
+        "desc": "Elongation Factor Tu (EF-Tu) GTP-binding proteins  EF-Tu subfamily. ",
+        "name": "EF_Tu"
+      },
+      {
+        "accession": "cd03707",
+        "desc": "Domain III of Elongation Factor (EF) Tu  ",
+        "name": "EFTU_III"
+      },
+      {
+        "accession": "cd03697",
+        "desc": "Domain II of elongation factor Tu  ",
+        "name": "EFTU_II"
+      },
+      {
+        "accession": "PRK00049",
+        "desc": "elongation factor Tu   ",
+        "name": "PRK00049"
+      }
+    ]
+  },
+  "lpg0328": {
+    "domains": [
+      {
+        "accession": "PRK00596",
+        "desc": "30S ribosomal protein S10   ",
+        "name": "rpsJ"
+      }
+    ]
+  },
+  "lpg0329": {
+    "domains": [
+      {
+        "accession": "PRK00001",
+        "desc": "50S ribosomal protein L3   ",
+        "name": "rplC"
+      }
+    ]
+  },
+  "lpg0330": {
+    "domains": [
+      {
+        "accession": "PRK05319",
+        "desc": "50S ribosomal protein L4  Provisional",
+        "name": "rplD"
+      }
+    ]
+  },
+  "lpg0331": {
+    "domains": [
+      {
+        "accession": "PRK05738",
+        "desc": "50S ribosomal protein L23   ",
+        "name": "rplW"
+      }
+    ]
+  },
+  "lpg0332": {
+    "domains": [
+      {
+        "accession": "pfam03947",
+        "desc": "Ribosomal Proteins L2, C-terminal domain ",
+        "name": "Ribosomal_L2_C"
+      },
+      {
+        "accession": "pfam00181",
+        "desc": "Ribosomal Proteins L2, RNA binding domain ",
+        "name": "Ribosomal_L2"
+      },
+      {
+        "accession": "PRK09374",
+        "desc": "50S ribosomal protein L2   ",
+        "name": "rplB"
+      }
+    ]
+  },
+  "lpg0334": {
+    "domains": [
+      {
+        "accession": "PRK00565",
+        "desc": "50S ribosomal protein L22   ",
+        "name": "rplV"
+      }
+    ]
+  },
+  "lpg0335": {
+    "domains": [
+      {
+        "accession": "pfam00189",
+        "desc": "Ribosomal protein S3, C-terminal domain  ",
+        "name": "Ribosomal_S3_C"
+      },
+      {
+        "accession": "cd02412",
+        "desc": "K homology RNA-binding (KH) domain of the prokaryotic 30S small ribosomal subunit protein S3.",
+        "name": "30S_S3_KH"
+      },
+      {
+        "accession": "PRK00310",
+        "desc": "30S ribosomal protein S3   ",
+        "name": "rpsC"
+      }
+    ]
+  },
+  "lpg0336": {
+    "domains": [
+      {
+        "accession": "PRK09203",
+        "desc": "50S ribosomal protein L16   ",
+        "name": "rplP"
+      }
+    ]
+  },
+  "lpg0337": {
+    "domains": [
+      {
+        "accession": "PRK00306",
+        "desc": "50S ribosomal protein L29   ",
+        "name": "PRK00306"
+      }
+    ]
+  },
+  "lpg0338": {
+    "domains": [
+      {
+        "accession": "PRK05610",
+        "desc": "30S ribosomal protein S17   ",
+        "name": "rpsQ"
+      }
+    ]
+  },
+  "lpg0339": {
+    "domains": [
+      {
+        "accession": "PRK05483",
+        "desc": "50S ribosomal protein L14   ",
+        "name": "rplN"
+      }
+    ]
+  },
+  "lpg0340": {
+    "domains": [
+      {
+        "accession": "PRK00004",
+        "desc": "50S ribosomal protein L24   ",
+        "name": "rplX"
+      }
+    ]
+  },
+  "lpg0341": {
+    "domains": [
+      {
+        "accession": "pfam00673",
+        "desc": "ribosomal L5P family C-terminus  This region is found associated with pfam00281.",
+        "name": "Ribosomal_L5_C"
+      },
+      {
+        "accession": "pfam00281",
+        "desc": "Ribosomal protein L5 ",
+        "name": "Ribosomal_L5"
+      },
+      {
+        "accession": "PRK00010",
+        "desc": "50S ribosomal protein L5   ",
+        "name": "rplE"
+      }
+    ]
+  },
+  "lpg0342": {
+    "domains": [
+      {
+        "accession": "cl00355",
+        "desc": "Ribosomal protein S14p/S29e  ",
+        "name": "Ribosomal_S14 super family"
+      }
+    ]
+  },
+  "lpg0343": {
+    "domains": [
+      {
+        "accession": "PRK00136",
+        "desc": "30S ribosomal protein S8   ",
+        "name": "rpsH"
+      }
+    ]
+  },
+  "lpg0344": {
+    "domains": [
+      {
+        "accession": "pfam00347",
+        "desc": "Ribosomal protein L6 ",
+        "name": "Ribosomal_L6"
+      },
+      {
+        "accession": "pfam00347",
+        "desc": "Ribosomal protein L6 ",
+        "name": "Ribosomal_L6"
+      },
+      {
+        "accession": "PRK05498",
+        "desc": "50S ribosomal protein L6   ",
+        "name": "rplF"
+      }
+    ]
+  },
+  "lpg0345": {
+    "domains": [
+      {
+        "accession": "PRK05593",
+        "desc": "50S ribosomal protein L18   ",
+        "name": "rplR"
+      }
+    ]
+  },
+  "lpg0346": {
+    "domains": [
+      {
+        "accession": "pfam00333",
+        "desc": "Ribosomal protein S5, N-terminal domain ",
+        "name": "Ribosomal_S5"
+      },
+      {
+        "accession": "pfam03719",
+        "desc": "Ribosomal protein S5, C-terminal domain ",
+        "name": "Ribosomal_S5_C"
+      },
+      {
+        "accession": "PRK00550",
+        "desc": "30S ribosomal protein S5   ",
+        "name": "rpsE"
+      }
+    ]
+  },
+  "lpg0347": {
+    "domains": [
+      {
+        "accession": "PRK05611",
+        "desc": "50S ribosomal protein L30   ",
+        "name": "rpmD"
+      }
+    ]
+  },
+  "lpg0348": {
+    "domains": [
+      {
+        "accession": "PRK05592",
+        "desc": "50S ribosomal protein L15   ",
+        "name": "rplO"
+      }
+    ]
+  },
+  "lpg0349": {
+    "domains": [
+      {
+        "accession": "pfam00344",
+        "desc": "SecY translocase ",
+        "name": "ecY"
+      },
+      {
+        "accession": "PRK09204",
+        "desc": "preprotein translocase subunit SecY   ",
+        "name": "secY"
+      }
+    ]
+  },
+  "lpg0350": {
+    "domains": [
+      {
+        "accession": "PRK00465",
+        "desc": "50S ribosomal protein L36   ",
+        "name": "rpmJ"
+      }
+    ]
+  },
+  "lpg0351": {
+    "domains": [
+      {
+        "accession": "PRK05179",
+        "desc": "30S ribosomal protein S13   ",
+        "name": "rpsM"
+      },
+      {
+        "accession": "COG0099",
+        "desc": "Ribosomal protein S13 [Translation, ribosomal structure and biogenesis] ",
+        "name": "RpsM"
+      }
+    ]
+  },
+  "lpg0352": {
+    "domains": [
+      {
+        "accession": "PRK05309",
+        "desc": "30S ribosomal protein S11   ",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0353": {
+    "domains": [
+      {
+        "accession": "pfam00163",
+        "desc": "Ribosomal protein S4/S9 N-terminal domain ",
+        "name": "Ribosomal_S4"
+      },
+      {
+        "accession": "cd00165",
+        "desc": "S4/Hsp/ tRNA synthetase RNA-binding domain ",
+        "name": "S4"
+      },
+      {
+        "accession": "PRK05327",
+        "desc": "30S ribosomal protein S4   ",
+        "name": "rpsD"
+      }
+    ]
+  },
+  "lpg0354": {
+    "domains": [
+      {
+        "accession": "cd06928",
+        "desc": "N-terminal domain of the Alpha subunit of Bacterial RNA polymerase ",
+        "name": "RNAP_alpha_NTD"
+      },
+      {
+        "accession": "pfam03118",
+        "desc": "Bacterial RNA polymerase, alpha chain C terminal domain ",
+        "name": "RNA_pol_A_CTD"
+      },
+      {
+        "accession": "PRK05182",
+        "desc": "DNA-directed RNA polymerase subunit alpha  Provisional",
+        "name": "PRK05182"
+      }
+    ]
+  },
+  "lpg0355": {
+    "domains": [
+      {
+        "accession": "PRK05591",
+        "desc": "50S ribosomal protein L17   ",
+        "name": "rplQ"
+      }
+    ]
+  },
+  "lpg0356": {
+    "domains": [
+      {
+        "accession": "cl09930",
+        "desc": "Replication protein A, class 2b aminoacyl-tRNA synthetases",
+        "name": "RPA_2b-aaRSs_OBF_like super family"
+      },
+      {
+        "accession": "COG0629",
+        "desc": "Single-stranded DNA-binding protein [Replication, recombination and repair] ",
+        "name": "Ssb"
+      }
+    ]
+  },
+  "lpg0357": {
+    "domains": [
+      {
+        "accession": "cd06174",
+        "desc": "The Major Facilitator Superfamily (MFS)",
+        "name": "MFS"
+      },
+      {
+        "accession": "pfam07690",
+        "desc": "Major Facilitator Superfamily ",
+        "name": "MFS_1"
+      }
+    ]
+  },
+  "lpg0358": {
+    "domains": [
+      {
+        "accession": "cd05359",
+        "desc": "1-cyclohexenylcarbonyl_coenzyme A_reductase (ChcA)_like, classical (c) SDRs ",
+        "name": "ChcA_like_SDR_c"
+      },
+      {
+        "accession": "PRK08063",
+        "desc": "enoyl-(acyl carrier protein) reductase  Provisional",
+        "name": "PRK08063"
+      }
+    ]
+  },
+  "lpg0359": {
+    "domains": [
+      {
+        "accession": "PRK00982",
+        "desc": "acyl carrier protein  Provisional",
+        "name": "acpP"
+      }
+    ]
+  },
+  "lpg0360": {
+    "domains": [
+      {
+        "accession": "cl00509",
+        "desc": "The hotdog fold was initially identified in the E. coli FabA",
+        "name": "hot_dog super family"
+      },
+      {
+        "accession": "cl00509",
+        "desc": "The hotdog fold was initially identified in the E. coli FabA",
+        "name": "hot_dog super family"
+      }
+    ]
+  },
+  "lpg0361": {
+    "domains": [
+      {
+        "accession": "cd00834",
+        "desc": "Beta-ketoacyl-acyl carrier protein (ACP) synthase (KAS)",
+        "name": "KAS_I_II"
+      }
+    ]
+  },
+  "lpg0362": {
+    "domains": [
+      {
+        "accession": "cl09938",
+        "desc": "Condensing enzymes ",
+        "name": "cond_enzymes super family"
+      },
+      {
+        "accession": "COG0304",
+        "desc": "3-oxoacyl-(acyl-carrier-protein) synthase",
+        "name": "FabB"
+      }
+    ]
+  },
+  "lpg0363": {
+    "domains": [
+      {
+        "accession": "cd07984",
+        "desc": "Lysophospholipid Acyltransferases (LPLATs) of Glycerophospholipid Biosynthesis: LABLAT-like ",
+        "name": "LPLAT_LABLAT-like"
+      }
+    ]
+  },
+  "lpg0364": {
+    "domains": [
+      {
+        "accession": "pfam07238",
+        "desc": "PilZ domain ",
+        "name": "PilZ"
+      }
+    ]
+  },
+  "lpg0365": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0366": {
+    "domains": [
+      {
+        "accession": "pfam01678",
+        "desc": "Diaminopimelate epimerase ",
+        "name": "DAP_epimerase"
+      },
+      {
+        "accession": "pfam01678",
+        "desc": "Diaminopimelate epimerase ",
+        "name": "DAP_epimerase"
+      },
+      {
+        "accession": "PRK00450",
+        "desc": "diaminopimelate epimerase ",
+        "name": "dapF"
+      }
+    ]
+  },
+  "lpg0367": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0368": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0369": {
+    "domains": [
+      {
+        "accession": "cl21494",
+        "desc": "alpha/beta hydrolase ",
+        "name": "Abhydrolase super family"
+      }
+    ]
+  },
+  "lpg0370": {
+    "domains": [
+      {
+        "accession": "cd07813",
+        "desc": "Coenzyme Q-binding protein COQ10p and similar proteins ",
+        "name": "COQ10p_like"
+      }
+    ]
+  },
+  "lpg0371": {
+    "domains": [
+      {
+        "accession": "pfam03658",
+        "desc": "RnfH family Ubiquitin  ",
+        "name": "Ub-RnfH"
+      }
+    ]
+  },
+  "lpg0372": {
+    "domains": [
+      {
+        "accession": "pfam04355",
+        "desc": "SmpA / OmlA family ",
+        "name": "SmpA_OmlA"
+      }
+    ]
+  },
+  "lpg0373": {
+    "domains": [
+      {
+        "accession": "cd01949",
+        "desc": "Diguanylate-cyclase (DGC) or GGDEF domain ",
+        "name": "GGDEF"
+      }
+    ]
+  },
+  "lpg0374": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0375": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0376": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0377": {
+    "domains": [
+      {
+        "accession": "cl01522",
+        "desc": "N-formylglutamate amidohydrolase ",
+        "name": "FGase super family"
+      }
+    ]
+  },
+  "lpg0378": {
+    "domains": [
+      {
+        "accession": "cl00954",
+        "desc": "Glutamate-cysteine ligase family 2(GCS2) ",
+        "name": "GCS2 super family"
+      }
+    ]
+  },
+  "lpg0379": {
+    "domains": [
+      {
+        "accession": "pfam14401",
+        "desc": "RimK-like ATPgrasp N-terminal domain ",
+        "name": "RLAN"
+      },
+      {
+        "accession": "cl17255",
+        "desc": "ATP-grasp domain ",
+        "name": "ATP-grasp_4 super family"
+      },
+      {
+        "accession": "COG0189",
+        "desc": "Glutathione synthase/RimK-type ligase",
+        "name": "RimK"
+      }
+    ]
+  },
+  "lpg0380": {
+    "domains": [
+      {
+        "accession": "cl00296",
+        "desc": "Peptidase family C39 ",
+        "name": "Peptidase_C39_like super family"
+      }
+    ]
+  },
+  "lpg0381": {
+    "domains": [
+      {
+        "accession": "cl00509",
+        "desc": "The hotdog fold was initially identified in the E. coli FabA",
+        "name": "hot_dog super family"
+      }
+    ]
+  },
+  "lpg0382": {
+    "domains": [
+      {
+        "accession": "pfam04972",
+        "desc": "BON domain  This domain is found in a family of osmotic shock protection proteins",
+        "name": "BON"
+      },
+      {
+        "accession": "pfam04972",
+        "desc": "BON domain  This domain is found in a family of osmotic shock protection proteins",
+        "name": "BON"
+      }
+    ]
+  },
+  "lpg0383": {
+    "domains": [
+      {
+        "accession": "cl12928",
+        "desc": "Macrophage killing protein with similarity to conjugation protein ",
+        "name": "IcmL super family"
+      }
+    ]
+  },
+  "lpg0384": {
+    "domains": [
+      {
+        "accession": "cd03271",
+        "desc": "ATP-binding cassette domain II of the excision repair protein UvrA ",
+        "name": "ABC_UvrA_II"
+      },
+      {
+        "accession": "cd03270",
+        "desc": "ATP-binding cassette domain I of the excision repair protein UvrA ",
+        "name": "ABC_UvrA_I"
+      },
+      {
+        "accession": "cd03270",
+        "desc": "ATP-binding cassette domain I of the excision repair protein UvrA ",
+        "name": "ABC_UvrA_I"
+      },
+      {
+        "accession": "PRK00349",
+        "desc": "excinuclease ABC subunit A   ",
+        "name": "uvrA"
+      }
+    ]
+  },
+  "lpg0385": {
+    "domains": [
+      {
+        "accession": "pfam04011",
+        "desc": "LemA family  The members of this family are related to the LemA protein",
+        "name": "LemA"
+      }
+    ]
+  },
+  "lpg0386": {
+    "domains": [
+      {
+        "accession": "cl12018",
+        "desc": "Peptidase family M48 ",
+        "name": "Peptidase_M48 super family"
+      },
+      {
+        "accession": "PRK02870",
+        "desc": "heat shock protein HtpX  Provisional",
+        "name": "PRK02870"
+      }
+    ]
+  },
+  "lpg0387": {
+    "domains": [
+      {
+        "accession": "PRK15066",
+        "desc": "inner membrane transport permease  Provisional",
+        "name": "PRK15066"
+      },
+      {
+        "accession": "COG0842",
+        "desc": "ABC-type multidrug transport system, permease component [Defense mechanisms] ",
+        "name": "YadH"
+      }
+    ]
+  },
+  "lpg0388": {
+    "domains": [
+      {
+        "accession": "cl21455",
+        "desc": "P-loop containing Nucleoside Triphosphate Hydrolases ",
+        "name": "P-loop_NTPase super family"
+      },
+      {
+        "accession": "COG1131",
+        "desc": "ABC-type multidrug transport system, ATPase component [Defense mechanisms] ",
+        "name": "CcmA"
+      }
+    ]
+  },
+  "lpg0389": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0390": {
+    "domains": [
+      {
+        "accession": "pfam11932",
+        "desc": "Protein of unknown function (DUF3450) ",
+        "name": "DUF3450"
+      }
+    ]
+  },
+  "lpg0391": {
+    "domains": [
+      {
+        "accession": "cl21496",
+        "desc": "2OG-Fe(II) oxygenase superfamily ",
+        "name": "2OG-FeII_Oxy super family"
+      }
+    ]
+  },
+  "lpg0392": {
+    "domains": [
+      {
+        "accession": "pfam01863",
+        "desc": "Protein of unknown function DUF45 ",
+        "name": "DUF45"
+      }
+    ]
+  },
+  "lpg0393": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0394": {
+    "domains": [
+      {
+        "accession": "pfam01035",
+        "desc": "6-O-methylguanine DNA methyltransferase, DNA binding domain  ",
+        "name": "DNA_binding_1"
+      },
+      {
+        "accession": "COG0350",
+        "desc": "O6-methylguanine-DNA--protein-cysteine methyltransferase",
+        "name": "AdaB"
+      }
+    ]
+  },
+  "lpg0395": {
+    "domains": [
+      {
+        "accession": "PRK05338",
+        "desc": "50S ribosomal protein L19  Provisional",
+        "name": "rplS"
+      }
+    ]
+  },
+  "lpg0396": {
+    "domains": [
+      {
+        "accession": "PRK00026",
+        "desc": "tRNA (guanine-N(1)-)-methyltransferase   ",
+        "name": "trmD"
+      }
+    ]
+  },
+  "lpg0397": {
+    "domains": [
+      {
+        "accession": "pfam01782",
+        "desc": "RimM N-terminal domain ",
+        "name": "RimM"
+      },
+      {
+        "accession": "pfam05239",
+        "desc": "PRC-barrel domain ",
+        "name": "PRC"
+      },
+      {
+        "accession": "PRK00122",
+        "desc": "16S rRNA-processing protein RimM  Provisional",
+        "name": "rimM"
+      }
+    ]
+  },
+  "lpg0398": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0399": {
+    "domains": [
+      {
+        "accession": "PRK00040",
+        "desc": "30S ribosomal protein S16   ",
+        "name": "rpsP"
+      }
+    ]
+  },
+  "lpg0400": {
+    "domains": [
+      {
+        "accession": "smart00962",
+        "desc": "SRP54-type protein, GTPase domain ",
+        "name": "SRP54"
+      },
+      {
+        "accession": "pfam02978",
+        "desc": "Signal peptide binding domain ",
+        "name": "SRP_SPB"
+      },
+      {
+        "accession": "pfam02881",
+        "desc": "SRP54-type protein, helical bundle domain ",
+        "name": "SRP54_N"
+      },
+      {
+        "accession": "PRK10867",
+        "desc": "signal recognition particle protein  Provisional",
+        "name": "PRK10867"
+      }
+    ]
+  },
+  "lpg0401": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0402": {
+    "domains": [
+      {
+        "accession": "cd00204",
+        "desc": "ankyrin repeats ",
+        "name": "ANK"
+      },
+      {
+        "accession": "pfam12796",
+        "desc": "Ankyrin repeats (3 copies) ",
+        "name": "Ank_2"
+      }
+    ]
+  },
+  "lpg0403": {
+    "domains": [
+      {
+        "accession": "cd00204",
+        "desc": "ankyrin repeats ",
+        "name": "ANK"
+      },
+      {
+        "accession": "pfam12796",
+        "desc": "Ankyrin repeats (3 copies) ",
+        "name": "Ank_2"
+      },
+      {
+        "accession": "pfam12796",
+        "desc": "Ankyrin repeats (3 copies) ",
+        "name": "Ank_2"
+      }
+    ]
+  },
+  "lpg0404": {
+    "domains": [
+      {
+        "accession": "TIGR03813",
+        "desc": "putative glutamate/gamma-aminobutyrate antiporter ",
+        "name": "put_Glu_GABA_T"
+      }
+    ]
+  },
+  "lpg0405": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0406": {
+    "domains": [
+      {
+        "accession": "COG0599",
+        "desc": "Uncharacterized conserved protein YurZ",
+        "name": "YurZ"
+      }
+    ]
+  },
+  "lpg0407": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0408": {
+    "domains": [
+      {
+        "accession": "cl00649",
+        "desc": "Disulfide bond formation protein DsbB ",
+        "name": "DsbB super family"
+      }
+    ]
+  },
+  "lpg0409": {
+    "domains": [
+      {
+        "accession": "cd06662",
+        "desc": "SURF1 superfamily.",
+        "name": "SURF1"
+      }
+    ]
+  },
+  "lpg0410": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0411": {
+    "domains": [
+      {
+        "accession": "pfam02628",
+        "desc": "Cytochrome oxidase assembly protein ",
+        "name": "COX15-CtaA"
+      }
+    ]
+  },
+  "lpg0412": {
+    "domains": [
+      {
+        "accession": "PRK04375",
+        "desc": "protoheme IX farnesyltransferase  Provisional",
+        "name": "PRK04375"
+      }
+    ]
+  },
+  "lpg0413": {
+    "domains": [
+      {
+        "accession": "cd02968",
+        "desc": "SCO (an acronym for Synthesis of Cytochrome c Oxidase) family ",
+        "name": "SCO"
+      }
+    ]
+  },
+  "lpg0414": {
+    "domains": [
+      {
+        "accession": "cl17255",
+        "desc": "ATP-grasp domain ",
+        "name": "ATP-grasp_4 super family"
+      }
+    ]
+  },
+  "lpg0415": {
+    "domains": [
+      {
+        "accession": "PRK13355",
+        "desc": "bifunctional HTH-domain containing protein/aminotransferase  Provisional",
+        "name": "PRK13355"
+      }
+    ]
+  },
+  "lpg0416": {
+    "domains": [
+      {
+        "accession": "pfam02781",
+        "desc": "Glucose-6-phosphate dehydrogenase, C-terminal domain ",
+        "name": "G6PD_C"
+      },
+      {
+        "accession": "pfam00479",
+        "desc": "Glucose-6-phosphate dehydrogenase, NAD binding domain ",
+        "name": "G6PD_N"
+      },
+      {
+        "accession": "PRK05722",
+        "desc": "glucose-6-phosphate 1-dehydrogenase   ",
+        "name": "PRK05722"
+      }
+    ]
+  },
+  "lpg0417": {
+    "domains": [
+      {
+        "accession": "cd01400",
+        "desc": "6PGL: 6-Phosphogluconolactonase (6PGL) subfamily ",
+        "name": "6PGL"
+      }
+    ]
+  },
+  "lpg0418": {
+    "domains": [
+      {
+        "accession": "PRK09054",
+        "desc": "phosphogluconate dehydratase   ",
+        "name": "PRK09054"
+      }
+    ]
+  },
+  "lpg0419": {
+    "domains": [
+      {
+        "accession": "pfam02685",
+        "desc": "Glucokinase ",
+        "name": "Glucokinase"
+      }
+    ]
+  },
+  "lpg0420": {
+    "domains": [
+      {
+        "accession": "PRK05718",
+        "desc": "keto-hydroxyglutarate-aldolase/keto-deoxy-phosphogluconate aldolase  Provisional",
+        "name": "PRK05718"
+      }
+    ]
+  },
+  "lpg0421": {
+    "domains": [
+      {
+        "accession": "cd06174",
+        "desc": "The Major Facilitator Superfamily (MFS) is a large and diverse group of secondary transporters ...",
+        "name": "MFS"
+      },
+      {
+        "accession": "pfam00083",
+        "desc": "Sugar (and other) transporter ",
+        "name": "Sugar_tr"
+      }
+    ]
+  },
+  "lpg0422": {
+    "domains": [
+      {
+        "accession": "cl08284",
+        "desc": "Glycosyl hydrolases family 15 ",
+        "name": "Glyco_hydro_15 super family"
+      }
+    ]
+  },
+  "lpg0423": {
+    "domains": [
+      {
+        "accession": "COG3655",
+        "desc": "DNA-binding transcriptional regulator, XRE family [Transcription] ",
+        "name": "YozG"
+      }
+    ]
+  },
+  "lpg0424": {
+    "domains": [
+      {
+        "accession": "pfam11188",
+        "desc": "Protein of unknown function (DUF2975) ",
+        "name": "DUF2975"
+      }
+    ]
+  },
+  "lpg0425": {
+    "domains": [
+      {
+        "accession": "cd00419",
+        "desc": "Ferrochelatase, C-terminal domain",
+        "name": "Ferrochelatase_C"
+      },
+      {
+        "accession": "cd03411",
+        "desc": "Ferrochelatase, N-terminal domain",
+        "name": "Ferrochelatase_N"
+      },
+      {
+        "accession": "PRK00035",
+        "desc": "ferrochelatase   ",
+        "name": "hemH"
+      }
+    ]
+  },
+  "lpg0426": {
+    "domains": [
+      {
+        "accession": "COG1278",
+        "desc": "Cold shock protein, CspA family [Transcription] ",
+        "name": "CspC"
+      }
+    ]
+  },
+  "lpg0427": {
+    "domains": [
+      {
+        "accession": "cl00228",
+        "desc": "HIT family: HIT (Histidine triad) proteins",
+        "name": "HIT_like super family"
+      }
+    ]
+  },
+  "lpg0428": {
+    "domains": [
+      {
+        "accession": "cd06587",
+        "desc": "This domain superfamily is found in a variety of structurally related metalloproteins",
+        "name": "Glo_EDI_BRP_like"
+      }
+    ]
+  },
+  "lpg0429": {
+    "domains": [
+      {
+        "accession": "pfam02321",
+        "desc": "Outer membrane efflux protein ",
+        "name": "OEP"
+      },
+      {
+        "accession": "pfam02321",
+        "desc": "Outer membrane efflux protein ",
+        "name": "OEP"
+      }
+    ]
+  },
+  "lpg0430": {
+    "domains": [
+      {
+        "accession": "pfam13533",
+        "desc": "Biotin-lipoyl like ",
+        "name": "Biotin_lipoyl_2"
+      },
+      {
+        "accession": "pfam13437",
+        "desc": "HlyD family secretion protein ",
+        "name": "HlyD_3"
+      },
+      {
+        "accession": "cl24690",
+        "desc": "C-terminal four TMM region of protein-O-mannosyltransferase ",
+        "name": "PMT_4TMC super family"
+      },
+      {
+        "accession": "COG1566",
+        "desc": "Multidrug resistance efflux pump [Defense mechanisms] ",
+        "name": "EmrA"
+      }
+    ]
+  },
+  "lpg0431": {
+    "domains": [
+      {
+        "accession": "cl00857",
+        "desc": "Membrane protein of unknown function DUF63 ",
+        "name": "DUF63 super family"
+      },
+      {
+        "accession": "cl07347",
+        "desc": "GET complex subunit GET2 ",
+        "name": "GET2 super family"
+      }
+    ]
+  },
+  "lpg0432": {
+    "domains": [
+      {
+        "accession": "pfam13515",
+        "desc": "Fusaric acid resistance protein-like ",
+        "name": "FUSC_2"
+      }
+    ]
+  },
+  "lpg0433": {
+    "domains": [
+      {
+        "accession": "COG1733",
+        "desc": "DNA-binding transcriptional regulator, HxlR family [Transcription] ",
+        "name": "HxlR"
+      }
+    ]
+  },
+  "lpg0434": {
+    "domains": [
+      {
+        "accession": "cl18775",
+        "desc": "Uncharacterized protein [Function unknown] ",
+        "name": "COG4278 super family"
+      }
+    ]
+  },
+  "lpg0435": {
+    "domains": [
+      {
+        "accession": "pfam12847",
+        "desc": "Methyltransferase domain ",
+        "name": "Methyltransf_18"
+      },
+      {
+        "accession": "COG0500",
+        "desc": "SAM-dependent methyltransferase",
+        "name": "SmtA"
+      }
+    ]
+  },
+  "lpg0436": {
+    "domains": [
+      {
+        "accession": "cd00204",
+        "desc": "ankyrin repeats ",
+        "name": "ANK"
+      },
+      {
+        "accession": "pfam12796",
+        "desc": "Ankyrin repeats (3 copies) ",
+        "name": "Ank_2"
+      }
+    ]
+  },
+  "lpg0437": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0438": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0439": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0440": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0441": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0442": {
+    "domains": [
+      {
+        "accession": "pfam12608",
+        "desc": "Type IVb secretion, IcmS, effector-recruitment ",
+        "name": "T4bSS_IcmS"
+      }
+    ]
+  },
+  "lpg0443": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0444": {
+    "domains": [
+      {
+        "accession": "pfam09475",
+        "desc": "Dot/Icm secretion system protein (dot_icm_IcmQ) ",
+        "name": "Dot_icm_IcmQ"
+      }
+    ]
+  },
+  "lpg0445": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0446": {
+    "domains": [
+      {
+        "accession": "cl21455",
+        "desc": "P-loop containing Nucleoside Triphosphate Hydrolases  ",
+        "name": "P-loop_NTPase super family"
+      }
+    ]
+  },
+  "lpg0447": {
+    "domains": [
+      {
+        "accession": "cd07185",
+        "desc": "Peptidoglycan binding domains similar to the C-terminal domain of outer-membrane protein OmpA ",
+        "name": "OmpA_C-like"
+      }
+    ]
+  },
+  "lpg0448": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0449": {
+    "domains": [
+      {
+        "accession": "pfam11393",
+        "desc": "Macrophage killing protein with similarity to conjugation protein  ",
+        "name": "IcmL"
+      }
+    ]
+  },
+  "lpg0450": {
+    "domains": [
+      {
+        "accession": "pfam12293",
+        "desc": "Putative outer membrane core complex of type IVb secretion  ",
+        "name": "T4BSS_DotH_IcmK"
+      }
+    ]
+  },
+  "lpg0451": {
+    "domains": [
+      {
+        "accession": "pfam03743",
+        "desc": "Bacterial conjugation TrbI-like protein ",
+        "name": "TrbI"
+      },
+      {
+        "accession": "pfam13599",
+        "desc": "Pentapeptide repeats (9 copies) ",
+        "name": "Pentapeptide_4"
+      }
+    ]
+  },
+  "lpg0452": {
+    "domains": [
+      {
+        "accession": "cl24006",
+        "desc": "YidC periplasmic domain ",
+        "name": "YidC_periplas super family"
+      }
+    ]
+  },
+  "lpg0453": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0454": {
+    "domains": [
+      {
+        "accession": "",
+        "desc": "",
+        "name": ""
+      }
+    ]
+  },
+  "lpg0455": {
+    "domains": [
+      {
+        "accession": "smart00507",
+        "desc": "HNH nucleases ",
+        "name": "HNHc"
+      }
+    ]
+  },
+  "lpg0456": {
+    "domains": [
+      {
+        "accession": "pfam12846",
+        "desc": "AAA-like domain ",
+        "name": "AAA_10"
+      }
+    ]
+  },
+  "lpg0457": {
+    "domains": [
+      {
+        "accession": "cd06174",
+        "desc": "Major Facilitator Superfamily (MFS)",
+        "name": "MFS"
+      }
+    ]
+  },
+  "lpg0458": {
+    "domains": [
+      {
+        "accession": "pfam06744",
+        "desc": "Type VI secretion protein IcmF C-terminal ",
+        "name": "IcmF_C"
+      },
+      {
+        "accession": "pfam14331",
+        "desc": "ImcF-related N-terminal domain ",
+        "name": "ImcF-related_N"
+      },
+      {
+        "accession": "cl06018",
+        "desc": "Intracellular multiplication and human macrophage-killing ",
+        "name": "IcmF-related super family"
+      }
+    ]
+  },
+  "lpg0459": {
+    "domains": [
+      {
+        "accession": "TIGR03349",
+        "desc": "type IV / VI secretion system protein, DotU family ",
+        "name": "IV_VI_DotU"
+      }
+    ]
+  },
+  "lpg0460": {
+    "domains": [
+      {
+        "accession": "smart00798",
+        "desc": "AICARFT/IMPCHase bienzyme ",
+        "name": "AICARFT_IMPCHas"
+      },
+      {
+        "accession": "cd01421",
+        "desc": "Inosine monophosphate cyclohydrolase domain",
+        "name": "IMPCH"
+      },
+      {
+        "accession": "PRK00881",
+        "desc": "bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/IMP cyclohydrolase ",
+        "name": "purH"
+      }
+    ]
+  },
+  "lpg0461": {
+    "domains": [
+      {
+        "accession": "cl17173",
+        "desc": "S-adenosylmethionine-dependent methyltransferases (SAM or AdoMet-MTase), class I  ",
+        "name": "AdoMet_MTases super family"
+      },
+      {
+        "accession": "PRK00517",
+        "desc": "ribosomal protein L11 methyltransferase   ",
+        "name": "prmA"
+      }
+    ]
+  },
+  "lpg0462": {
+    "domains": [
+      {
+        "accession": "pfam02786",
+        "desc": "Carbamoyl-phosphate synthase L chain, ATP binding domain ",
+        "name": "CPSase_L_D2"
+      },
+      {
+        "accession": "pfam00289",
+        "desc": "Carbamoyl-phosphate synthase L chain, N-terminal domain ",
+        "name": "CPSase_L_chain"
+      },
+      {
+        "accession": "smart00878",
+        "desc": "Biotin carboxylase C-terminal domain ",
+        "name": "Biotin_carb_C"
+      },
+      {
+        "accession": "PRK08591",
+        "desc": "acetyl-CoA carboxylase biotin carboxylase subunit",
+        "name": "PRK08591"
+      }
+    ]
+  },
+  "lpg_3050": {
+    "domains": [
+      {
+        "accession": "PRK00357",
+        "desc": "30S ribosomal protein S19 ",
+        "name": "rpsS"
+      }
+    ]
+  }
+}
