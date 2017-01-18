@@ -325,6 +325,14 @@ def extract_uniprot_info(entry):
     length = int(sequences[0].get("length"))
     mass = int(sequences[0].get("mass"))
 
+    # modified residue
+    mrs = []
+    res = entry.findall(".//feature[@type='modified residue']")
+    for r in res:
+        desc = r.get("description")
+        position = r.find("location").find("position").get("position")
+        mrs.append({"desc": desc, "position": position})
+
     dictionary = {}
     dictionary["status"] = status
     dictionary["accessions"] = accessions
@@ -342,5 +350,6 @@ def extract_uniprot_info(entry):
     dictionary["translation"] = sequence
     dictionary["length"] = length
     dictionary["mass"] = mass
+    dictionary["modified_residues"] = mrs
 
     return (accession, dictionary)

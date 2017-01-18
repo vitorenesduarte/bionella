@@ -21,6 +21,7 @@ def add_info_to_dictionary(dictionary, uniprots):
         - biological_processes
         - locations
         - mass
+        - modified_residues
     """
 
     # propriedades que já tinhamos:
@@ -43,7 +44,8 @@ def add_info_to_dictionary(dictionary, uniprots):
         "molecular_functions",
         "biological_processes",
         "locations",
-        "mass"
+        "mass",
+        "modified_residues"
     ]
 
     diff = {}
@@ -89,6 +91,7 @@ def tag_as_key(dictionary, uniprots):
 
 def main():
     ncbi_json_path = ".ncbi.json"
+    uniprots_json_path = ".uniprots.json"
     ncbi_uniprot_json_path = ".ncbi_uniprot.json"
     ncbi_uniprot_diff_json_path = ".ncbi_uniprot_diff.json"
 
