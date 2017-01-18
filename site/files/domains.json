@@ -1438,15 +1438,6 @@
       }
     ]
   },
-  "lpg0365": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0366": {
     "domains": [
       {
@@ -1463,24 +1454,6 @@
         "accession": "PRK00450",
         "desc": "diaminopimelate epimerase ",
         "name": "dapF"
-      }
-    ]
-  },
-  "lpg0367": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0368": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -1526,33 +1499,6 @@
         "accession": "cd01949",
         "desc": "Diguanylate-cyclase (DGC) or GGDEF domain ",
         "name": "GGDEF"
-      }
-    ]
-  },
-  "lpg0374": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0375": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0376": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -1709,15 +1655,6 @@
       }
     ]
   },
-  "lpg0389": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0390": {
     "domains": [
       {
@@ -1742,15 +1679,6 @@
         "accession": "pfam01863",
         "desc": "Protein of unknown function DUF45 ",
         "name": "DUF45"
-      }
-    ]
-  },
-  "lpg0393": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -1805,15 +1733,6 @@
       }
     ]
   },
-  "lpg0398": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0399": {
     "domains": [
       {
@@ -1844,15 +1763,6 @@
         "accession": "PRK10867",
         "desc": "signal recognition particle protein  Provisional",
         "name": "PRK10867"
-      }
-    ]
-  },
-  "lpg0401": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -1898,30 +1808,12 @@
       }
     ]
   },
-  "lpg0405": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0406": {
     "domains": [
       {
         "accession": "COG0599",
         "desc": "Uncharacterized conserved protein YurZ",
         "name": "YurZ"
-      }
-    ]
-  },
-  "lpg0407": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -1940,15 +1832,6 @@
         "accession": "cd06662",
         "desc": "SURF1 superfamily.",
         "name": "SURF1"
-      }
-    ]
-  },
-  "lpg0410": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -2246,51 +2129,6 @@
       }
     ]
   },
-  "lpg0437": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0438": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0439": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0440": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0441": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0442": {
     "domains": [
       {
@@ -2300,30 +2138,12 @@
       }
     ]
   },
-  "lpg0443": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
   "lpg0444": {
     "domains": [
       {
         "accession": "pfam09475",
         "desc": "Dot/Icm secretion system protein (dot_icm_IcmQ) ",
         "name": "Dot_icm_IcmQ"
-      }
-    ]
-  },
-  "lpg0445": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -2342,15 +2162,6 @@
         "accession": "cd07185",
         "desc": "Peptidoglycan binding domains similar to the C-terminal domain of outer-membrane protein OmpA ",
         "name": "OmpA_C-like"
-      }
-    ]
-  },
-  "lpg0448": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
@@ -2392,24 +2203,6 @@
         "accession": "cl24006",
         "desc": "YidC periplasmic domain ",
         "name": "YidC_periplas super family"
-      }
-    ]
-  },
-  "lpg0453": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
-      }
-    ]
-  },
-  "lpg0454": {
-    "domains": [
-      {
-        "accession": "",
-        "desc": "",
-        "name": ""
       }
     ]
   },
