@@ -11761,15 +11761,16 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>O alinhamento múltiplo consiste no alinhamento de 3 ou mais sequências de DNA, RNA ou proteínas. Por norma, as sequências relacionam-se evolutivamente, partilhando uma linhagem e um ancestral comum. A partir do alinhamento torna-se possível inferir a homlogia entre as várias sequências e proceder com uma análise filogenética, por forma a identificar situações de evolução distintas ou semelhantes entre genes.</p>
-<p>Neste trabalho, escolhemos 4 proteínas hipotéticas, que fazem parte da zona do genoma em estudo, para analisar por alinhamento múltiplo e árvores filogenéticas. Estas proteínas foram escolhidas tendo em conta os seguintes critérios:</p>
+<p>Neste trabalho, escolhemos 4 proteínas hipotéticas, que fazem parte da zona do genoma em estudo, para analisar por alinhamento múltiplo e árvores filogenéticas na ferramenta Clustal Omega (<a href="http://www.ebi.ac.uk/Tools/msa/clustalo/">http://www.ebi.ac.uk/Tools/msa/clustalo/</a>). O alinhamento foi feito apenas com o top 10 dos resultados do blast, que correspondem às proteínas com maior homologia relativamente à proteína em estudo. Estas proteínas foram escolhidas tendo em conta os seguintes critérios:</p>
 <ul>
 <li><p><strong>Não possuem função conhecida</strong>;</p>
 </li>
 <li><p><strong>Os resultados do blast consistem em algumas proteinas com função conhecida e outras não</strong>;</p>
 </li>
-<li><p>__Identificamos (apenas para três das selecionadas) o nome, accession number e descricao dos domínios que possuem.</p>
+<li><p><strong>Identificamos (apenas para 3 das 4 selecionadas) o nome, accession number e descricao dos domínios que possuem</strong>.</p>
 </li>
 </ul>
+<p>O segundo critério foi considerado, uma vez que se a nossa proteína tiver um ancestral comum com aquelas que possuem função, é possível que também a desempenhe e a inclusão daquelas que não têm função associada permite perceber a relação evolutiva entre as diversas proteínas.</p>
 
 </div>
 </div>
@@ -11779,6 +11780,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="lpg0268">lpg0268<a class="anchor-link" href="#lpg0268">&#182;</a></h2><p>Para esta proteína, apenas 3 proteínas que fazem parte dos resultados do blast (top 10) possuem função identificada (<strong>A0A140J104</strong>, <strong>A0A129N4B5</strong>, <strong>A0A128KV86</strong>), nomeadamente atividade hidrolítica, e pertencem a susbspécies ou estirpes diferentes da <em>Legionella</em>. A proteína lpg0268 possui o domínio HD_3, por norma associado à função de fosfohidrolase metalo-dependente.</p>
+<p>Analisando os resultados do alinhamento múltiplo podemos ver, como de esperar pelos resultados do blast, que as sequências são bastante semelhantes entre si. A proteína em estudo não apresenta uma relação direta na árvore filogenética com nenhuma das três proteínas que apresentam função conhecida. Contudo, a proteína A0A140J104 pode ser considerada o ancestral comum da nossa proteína e das  proteínas A0A129N4B5 e A0A128KV86. Aquela com função mais próxima à proteína em estudo na árvore filogenética é a A0A129N4B5. Tendo em conta a existência de um ancestral comum, o fato de as proteínas pertencerem a diferentes susbpécies ou estirpes do mesmo organismo (o que indica que a relação é mais próxima, bem como as funções desempenhadas) e a existência de um domínio na nossa proteína associado a atividades <em>hydrolase-like</em>, concluímos que é provável que a proteína lpg0268 desempenhe uma atividade de hidrolase.</p>
 
 </div>
 </div>
@@ -11788,6 +11791,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/lpg0268_1.png" alt="lpg0268">
+<strong>Figura 1 - </strong> Resultados do alinhamento múltiplo para a proteína lpg0268.</p>
+<p><img src="img/lpg0268_tree.png" alt="lpg0268_tree">
+<strong>Figura 2 - </strong> Árvore filogenética para a proteína lpg0268.</p>
 
 </div>
 </div>
@@ -11797,8 +11804,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/ViaMetabolica.png" alt="Metabolismo">
-<strong>Figura1 - </strong> Rede Metabólica da <em>Legionella Pneumophila susbp. pneumophila str. Philadelphia 1</em>.</p>
+<h2 id="lpg0269">lpg0269<a class="anchor-link" href="#lpg0269">&#182;</a></h2><p>Para esta proteína, apenas 4 proteínas que fazem parte dos resultados do blast (top 10) possuem função identificada (<strong>A0A128J1H8</strong>, <strong>A0A182DM20</strong>, <strong>A0A129FHQ9</strong>, <strong>A0A128TDJ0</strong>), nomeadamente atividade de transaminase, e pertencem a susbspécies ou estirpes diferentes da <em>Legionella</em>. A proteína lpg0269 possui o domínio P-loop_NTPase super family,    por norma associado à função de hidrolase contendo um <em>P-loop</em> nucleosídeo trifosfato, e o domínio PI-PLCc_GDPD_SF super family, associado à função de phosphodiesterases (um tipo de hidrolase) PI-PLC-like.</p>
+<p>Analisando os resultados do alinhamento múltiplo podemos ver, como de esperar pelos resultados do blast, que as sequências são bastante semelhantes entre si. A proteína em estudo não apresenta, no entanto, uma relação direta na árvore filogenética com nenhuma das quatro proteínas que apresentam função conhecida. De fato, as quatro proteínas encontram-se relativamente distantes da proteína em estudo. As transaminases e as hidrolases, apesar de serem ambas enzimas, desempenham funções diferentes, pertecendo a classes diferentes. Visto que as sequências são homólogas, contudo, podemos supor que as hidrolases e as transaminases diferem apenas nalguns aminoácidos na sua sequência proteica. A presença do domínio já referido na nossa proteína faz com que seja mais provável ela possuir atividade de hidrolase do que de transaminase.</p>
 
 </div>
 </div>
@@ -11808,6 +11815,61 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/lpg0269_1.png" alt="lpg0269_1">
+<img src="img/lpg0269_2.png" alt="lpg0269_2">
+<img src="img/lpg0269_3.png" alt="lpg0269_3">
+<strong>Figura 3 - </strong> Resultados do alinhamento múltiplo para a proteína lpg0269.</p>
+<p><img src="img/lpg0269_tree.png" alt="lpg0269_tree">
+<strong>Figura 4 - </strong> Árvore filogenética para a proteína lpg0269.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="lpg0282">lpg0282<a class="anchor-link" href="#lpg0282">&#182;</a></h2><p>Para esta proteína, apenas 7 proteínas que fazem parte dos resultados do blast (top 10) possuem função identificada (<strong>A0A182DPP8</strong>, <strong>A0A128Q2L5</strong>, <strong>A0A140J121</strong>, <strong>A0A129FJH3</strong>, <strong>A0A129F5V7</strong>, <strong>A0A193HAT7</strong>,<strong>A0A131NME4</strong>), nomeadamente atividade de metiltransferase, e pertencem a susbspécies ou estirpes diferentes da <em>Legionella</em>. A proteína lpg0282 possui o domínio Methyltransf_31,    por norma associado à função de metiltransferase.</p>
+<p>Analisando os resultados do alinhamento múltiplo podemos ver, como de esperar pelos resultados do blast, que as sequências são bastante semelhantes entre si. A proteína em estudo não apresenta, no entanto, uma relação direta na árvore filogenética com nenhuma das quatro proteínas que apresentam função conhecida. De fato, as proteínas encontram-se relativamente distantes da proteína em estudo. Por análise da árvore é possível observar que a nossa proteína se encontra mais próximo do topo do que as sete proteínascom função, sendo, portanto, o ancestral comum de todas essas. Assim, tendo em conta este fato e também a presença do motivo referido na proteína lpg0282, concluímos que é muito provável que a proteína seja uma metiltransferase.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/lpg0282_1.png" alt="lpg0282_1">
+<img src="img/lpg0282_2.png" alt="lpg0282_2">
+<strong>Figura 5 - </strong> Resultados do alinhamento múltiplo para a proteína lpg0282.</p>
+<p><img src="img/lpg0282_tree.png" alt="lpg0282_tree">
+<strong>Figura 6 - </strong> Árvore filogenética para a proteína lpg0282.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="lpg0428">lpg0428<a class="anchor-link" href="#lpg0428">&#182;</a></h2><p>Para esta proteína, apenas 4 proteínas que fazem parte dos resultados do blast (top 10) possuem função identificada (<strong>A0A129B501</strong>, <strong>A0A130Q1T4</strong>, <strong>A0A129IE10</strong>, <strong>A0A128SMY7</strong>), nomeadamente atividade de liase, e pertencem a susbspécies ou estirpes diferentes da <em>Legionella</em>. A proteína lpg0428 não possui domínios identificados, por isso, tentamos inferir a sua função apenas por análise do alinhamento múltiplo e da árvore filogenética obtida.</p>
+<p>Analisando os resultados do alinhamento múltiplo podemos ver, como de esperar pelos resultados do blast, que as sequências são bastante semelhantes entre si, exceto numa porção de aminoácidos existente na proteína em estudo e em duas outras proteínas. Nestas três, essa porção inicial de aminoácidos é igual, contudo, não existe nas restantes. A proteína em estudo não apresenta, no entanto, uma relação direta na árvore filogenética com nenhuma das sete proteínas que apresentam função conhecida. De facto, as proteínas encontram-se distantes da proteína em estudo e não é possível identificar um ancestral comum. Desta forma, não podemos inferir que a lpg0428 possui atividade de liase.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/lpg0428.png" alt="lpg0428">
+<strong>Figura 7 - </strong> Resultados do alinhamento múltiplo para a proteína lpg0428.</p>
+<p><img src="img/lpg0428_tree.png" alt="lpg0428_tree">
+<strong>Figura 8 - </strong> Árvore filogenética para a proteína lpg0428.</p>
 
 </div>
 </div>
