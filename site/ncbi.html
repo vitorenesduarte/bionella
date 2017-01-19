@@ -12180,17 +12180,26 @@ Todos estes passos podem ser encontrados no ficheiro <a href="https://github.com
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Na verdade, o que podemos encontrar no ficheiro <a href="https://github.com/vitorenesduarte/bionella/tree/master/first.py">first.py</a> é:</p>
-<p>```python
-import util.www as www
-import util.rw as rw</p>
-<p>start = 270001
-end = 505535</p>
-<p>ncbi_gb_path = ".ncbi.gb"
-ncbi_json_path = ".ncbi.json"</p>
-<h1 id="record-=-www.fetch_genbank(start,-end)">record = www.fetch_genbank(start, end)<a class="anchor-link" href="#record-=-www.fetch_genbank(start,-end)">&#182;</a></h1><h1 id="rw.write_genbank(record,-ncbi_gb_path)">rw.write_genbank(record, ncbi_gb_path)<a class="anchor-link" href="#rw.write_genbank(record,-ncbi_gb_path)">&#182;</a></h1><p>record = rw.read_genbank(ncbi_gb_path)
-features = extract_features(record)</p>
-<p>dictionary = features_to_dictionary(start, features)
-rw.write_json(dictionary, ncbi_json_path)</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">util.www</span> <span class="kn">as</span> <span class="nn">www</span>
+<span class="kn">import</span> <span class="nn">util.rw</span> <span class="kn">as</span> <span class="nn">rw</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">270001</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">505535</span>
+
+<span class="n">ncbi_gb_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.gb&quot;</span>
+<span class="n">ncbi_json_path</span> <span class="o">=</span> <span class="s2">&quot;.ncbi.json&quot;</span>
+
+<span class="c1">#record = www.fetch_genbank(start, end)</span>
+<span class="c1">#rw.write_genbank(record, ncbi_gb_path)</span>
+
+<span class="n">record</span> <span class="o">=</span> <span class="n">rw</span><span class="o">.</span><span class="n">read_genbank</span><span class="p">(</span><span class="n">ncbi_gb_path</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">features_to_dictionary</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="n">rw</span><span class="o">.</span><span class="n">write_json</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">ncbi_json_path</span><span class="p">)</span>
+
+<span class="c1">#...</span>
+</pre></div>
 
 </div>
 </div>
