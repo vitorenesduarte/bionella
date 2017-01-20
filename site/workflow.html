@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
+<title>util</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,38 +11751,77 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#205;ndice">&#205;ndice<a class="anchor-link" href="#&#205;ndice">&#182;</a></h1><ol>
-<li><a href="legionella.html">Introdução</a></li>
-<li><a href="ncbi.html">Análise da sequência e das features presentes no NCBI</a><ol>
-<li><a href="ncbi_results.html">Resultados do NCBI</a></li>
-</ol>
-</li>
-<li><a href="blast.html">Análise de homologias por BLAST</a><ol>
-<li><a href="blast_results.html">Resultados do BLAST</a></li>
-</ol>
-</li>
-<li><a href="uniprot.html">Ferramentas de análise das propriedades da proteína</a><ol>
-<li><a href="uniprot_results.html">Resultados da UniProt</a></li>
-<li><a href="cdd_results.html">Resultados do CDD</a></li>
-<li><a href="ncbi_uniprot_results.html">Resultados NCBI + UniProt</a></li>
-</ol>
-</li>
-<li><a href="alignments.html">Alinhamentos Múltiplos e Árvores Filogenéticas</a></li>
-<li><a href="vias.html">Vias Metabólicas e de Infeção</a></li>
-<li><a href="transporters.html">Transportadores e Fatores de Transcrição</a></li>
-<li><a href="conclusion.html">Conclusão</a></li>
-</ol>
-<h4 id="Outros">Outros<a class="anchor-link" href="#Outros">&#182;</a></h4><ul>
-<li><a href="rw.html">Módulo <code>util.rw</code></a></li>
-<li><a href="util.html">Módulo <code>util.util</code></a></li>
-<li><a href="uniprot_services.html">Serviços UniProt</a></li>
-<li><a href="workflow.html">Workflow</a><!--- [Docker](docker.html)--></li>
-</ul>
-<center>
-<a target="_blank" href="https://github.com/vitorenesduarte/bionella">
-<img src="img/git.svg" alt="Repositório GitHub" height="30" width="30">
-</a>
-</center>
+
+
+
+
+<h2 id="Workflow">Worflow<a class="anchor-link" href="#Workflow">&#182;</a></h2><ol>
+
+<div class="w3-content w3-display-container">
+  <img class="mySlides" src="img/sl/11.png" style="width:700px">
+  <img class="mySlides" src="img/sl/10.png" style="width:700px">
+  <img class="mySlides" src="img/sl/9.png" style="width:700px">
+  <img class="mySlides" src="img/sl/8.png" style="width:700px">
+  <img class="mySlides" src="img/sl/7.png" style="width:700px">
+  <img class="mySlides" src="img/sl/6.png" style="width:700px">
+  <img class="mySlides" src="img/sl/5.png" style="width:700px">
+  <img class="mySlides" src="img/sl/4.png" style="width:700px">
+  <img class="mySlides" src="img/sl/3.png" style="width:700px">
+  <img class="mySlides" src="img/sl/2.png" style="width:700px">
+  <img class="mySlides" src="img/sl/1.png" style="width:700px">
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+document.onkeydown = function(e) {
+    e = e || window.event;
+    switch(e.which || e.keyCode) {
+        case 37: // left
+          plusDivs(-1);
+        break;
+
+        //case 38: // up
+        //break;
+
+        case 39: // right
+          plusDivs(1);
+        break;
+
+        //case 40: // down
+        //break;
+
+        default: return; // exit this handler for other keys
+    }
+    //e.preventDefault(); // prevent the default action (scroll / move caret)
+};
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+ 
+
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="index.html">Índice</a></p>
+
 </div>
 </div>
 </div>
