@@ -39,6 +39,11 @@ This docker image only has one database called __swissprot__.
 Check [here](http://www.uniprot.org/downloads) more details
 about UniProtKB Swiss-Prot.
 
+### Push the docker image
+```
+$ docker push vitorenesduarte/swissprot_blast
+```
+
 ### Run blast in docker
 
 Place in a folder, for example __.query_dir__, a set of
